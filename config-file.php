@@ -6,38 +6,7 @@ use Xajax\Xajax;
 use Xajax\Response\Response;
 use Xajax\Request\Factory as xr;
 
-$xajax = Xajax::getInstance();
-
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', 'Xajax');
-
-/*
- * Sets the following options on the Toastr library
- * - toastr.options.closeButton = true;
- * - toastr.options.closeMethod = 'fadeOut';
- * - toastr.options.closeDuration = 300;
- * - toastr.options.closeEasing = 'swing';
- */
-$xajax->setOptions(array(
-	'toastr.options.closeButton' => true,
-	'toastr.options.closeMethod' => 'fadeOut',
-	'toastr.options.closeDuration' => 300,
-	'toastr.options.closeEasing' => 'swing',
-	'toastr.options.positionClass' => 'toast-bottom-left',
-));
-
-/*
- * Sets the following options on the PgwModal
- * - closeOnEscape = true;
- * - closeOnBackgroundClick = true;
- * - maxWidth = 300;
-*/
-$xajax->setOptions(array(
-	'pgw.modal.options.closeOnEscape' => true,
-	'pgw.modal.options.closeOnBackgroundClick' => true,
-	'pgw.modal.options.maxWidth' => 600,
-));
-// $xajax->plugin('pgwModal')->setInclude(false);
+\Xajax\Config\Yaml::read(__DIR__ . '/config/config.yaml', 'xajax');
 
 class HelloWorld
 {
@@ -86,6 +55,7 @@ class HelloWorld
 }
 
 // Register object
+$xajax = Xajax::getInstance();
 $xajax->register(Xajax::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
@@ -151,12 +121,13 @@ $xajax->processRequest();
 				<div class="row">
 					<div class="col-sm-6 col-md-6 text">
 <p>
-This example shows the use of Xajax plugins, by adding javascript notifications and modal windows to the class.php example with the xajax-toastr, xajax-pgwjs and xajax-bootstrap packages.
+This example features the same code as the Plugins Usage example, excepted that the config is loaded from a config file in Yaml format.
 </p>
 <p>
-Using an Xajax plugin is very simple. After a plugin is installed with Composer, its automatically registers into the Xajax core library. It can then be accessed both in the Xajax main object, for configuration, and in the Xajax response object, to provide additional functionalities to the application.
+When loading settings from a file, a second parameter can be added to make the library load the options from a particular section of the file.
+In this case, the config options are under the "xajax" section of the file.
 </p>
-					</div>
+						</div>
 					<div class="col-sm-6 col-md-6 demo">
 						<div style="margin:10px;" id="div2">
 							&nbsp;
@@ -250,30 +221,41 @@ class HelloWorld
 
 <p>The PHP object registrations</p>
 <pre>
-$xajax = Xajax::getInstance();
-
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', 'Xajax');
-
-$xajax->setOptions(array(
-    'toastr.options.closeButton' => true,
-    'toastr.options.closeMethod' => 'fadeOut',
-    'toastr.options.closeDuration' => 300,
-    'toastr.options.closeEasing' => 'swing',
-    'toastr.options.positionClass' => 'toast-bottom-left',
-));
-
-$xajax->setOptions(array(
-    'pgw.modal.options.closeOnEscape' => true,
-    'pgw.modal.options.closeOnBackgroundClick' => true,
-    'pgw.modal.options.maxWidth' => 600,
-));
+\Xajax\Config\Yaml::read(__DIR__ . '/config/config.yaml', 'xajax');
 
 // Register object
+$xajax = Xajax::getInstance();
 $xajax->register(Xajax::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
 $xajax->processRequest();
+</pre>
+
+<p>The Yaml config file</p>
+<pre>
+xajax:
+  core:
+    debug:
+      on:                          true
+    prefix:
+      class:                       "Xajax"
+  
+  toastr:
+    options:
+      closeButton:                 true
+      closeMethod:                 "fadeOut"
+      closeDuration:               300
+      closeEasing:                 "swing"
+      positionClass:               "toast-bottom-left"
+  
+  pgw:
+    assets:
+      include:                     true
+    modal:
+      options:
+        closeOnEscape:             true,
+        closeOnBackgroundClick:    true,
+        maxWidth:                  600
 </pre>
 					</div>
 				</div>

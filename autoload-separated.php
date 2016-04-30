@@ -4,9 +4,8 @@ require (__DIR__ . '/includes/autoload-separated/xajax.php');
 
 use Xajax\Xajax;
 
-$xajax = Xajax::getInstance();
-
 // Register the Xajax objects
+$xajax = Xajax::getInstance();
 $xajax->registerClasses();
 
 ?>
@@ -235,16 +234,10 @@ require (__DIR__ . '/../../vendor/autoload.php');
 
 use Xajax\Xajax;
 
-$xajax = Xajax::getInstance();
-$xajax->configure('requestURI', 'includes/autoload-separated/server.php');
-
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', '');
-
-$xajax->setOption('toastr.options.closeButton', true);
-$xajax->setOption('toastr.options.positionClass', 'toast-bottom-left');
+\Xajax\Config\Json::read(__DIR__ . '/../../config/separated.json', '');
 
 // Use the Composer autoloader
+$xajax = Xajax::getInstance();
 $xajax->setAutoLoader($loader);
 
 // Add class dirs with namespaces
@@ -272,6 +265,29 @@ $xajax = require (__DIR__ . '/includes/autoload-separated/xajax.php');
 
 // Register the Xajax objects
 $xajax->registerClasses();
+</pre>
+
+<p>The Json config file</p>
+<pre>
+{
+	"core": {
+		"debug": {
+			"on": false
+		},
+		"request": {
+			"uri": "includes/autoload-separated/server.php"
+		},
+		"prefix": {
+			"class": ""
+		}
+	},
+	"toastr": {
+		"options": {
+			"closeButton": true,
+			"positionClass": "toast-bottom-right"
+		}
+	}
+}
 </pre>
 					</div>
 				</div>

@@ -1,0 +1,23 @@
+xajax:
+  core:
+    debug:
+      on:                          true
+    prefix:
+      class:                       "Xajax"
+  
+  toastr:
+    options:
+      closeButton:                 true
+      closeMethod:                 "fadeOut"
+      closeDuration:               300
+      closeEasing:                 "swing"
+      positionClass:               "toast-bottom-left"
+  
+  pgw:
+    assets:
+      include:                     true
+    modal:
+      options:
+        closeOnEscape:             true,
+        closeOnBackgroundClick:    true,
+        maxWidth:                  600

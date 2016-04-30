@@ -1,6 +1,6 @@
 <?php
 
-$xajax = require (__DIR__ . '/xajax.php');
+require (__DIR__ . '/xajax.php');
 
 // Check if there is a request.
 if($xajax->canProcessRequest())

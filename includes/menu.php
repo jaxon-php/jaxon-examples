@@ -6,6 +6,7 @@ $menuEntries = array(
 	'class.php' => 'Hello World Class',
 	'merge.php' => 'Merge Javascript',
 	'plugins.php' => 'Plugin Usage',
+	'config-file.php' => 'Config File',
 	'classdirs.php' => 'Register Directories',
 	'namespaces.php' => 'Register Namespaces',
 	'autoload-default.php' => 'Default Autoloader',

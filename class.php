@@ -6,10 +6,7 @@ use Xajax\Xajax;
 use Xajax\Response\Response;
 use Xajax\Request\Factory as xr;
 
-$xajax = Xajax::getInstance();
-
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', 'Xajax');
+\Xajax\Config\Php::read(__DIR__ . '/config/class.php', 'lib');
 
 class HelloWorld
 {
@@ -36,6 +33,7 @@ class HelloWorld
 }
 
 // Register object
+$xajax = Xajax::getInstance();
 $xajax->register(Xajax::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
@@ -168,16 +166,30 @@ class HelloWorld
 
 <p>The PHP object registrations</p>
 <pre>
-$xajax = Xajax::getInstance();
-
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', 'Xajax');
+\Xajax\Config\Php::read(__DIR__ . '/config/class.php', 'lib');
 
 // Register object
+$xajax = Xajax::getInstance();
 $xajax->register(Xajax::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
 $xajax->processRequest();
+</pre>
+
+<p>The PHP config file</p>
+return array(
+	'lib' => array(
+		'core' => array(
+			'debug' => array(
+				'on' => false,
+			),
+			'prefix' => array(
+				'class' => 'Xjx',
+			),
+		),
+	),
+);
+<pre>
 </pre>
 					</div>
 				</div>
