@@ -125,7 +125,7 @@ This example features the same code as the Plugins Usage example, excepted that 
 </p>
 <p>
 When loading settings from a file, a second parameter can be added to make the library load the options from a particular section of the file.
-In this case, the config options are under the "xajax" section of the file.
+In this example, the config options are under the "xajax" section of the file.
 </p>
 						</div>
 					<div class="col-sm-6 col-md-6 demo">

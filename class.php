@@ -177,6 +177,7 @@ $xajax->processRequest();
 </pre>
 
 <p>The PHP config file</p>
+<pre>
 return array(
 	'lib' => array(
 		'core' => array(
@@ -189,7 +190,6 @@ return array(
 		),
 	),
 );
-<pre>
 </pre>
 					</div>
 				</div>
