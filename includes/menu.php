@@ -3,6 +3,7 @@
 $menuEntries = array(
 	'index.php' => 'Home',
 	'hello.php' => 'Hello World Function',
+	'alias.php' => 'Hello World Alias',
 	'class.php' => 'Hello World Class',
 	'merge.php' => 'Merge Javascript',
 	'plugins.php' => 'Plugin Usage',

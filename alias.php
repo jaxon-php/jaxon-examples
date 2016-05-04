@@ -11,40 +11,34 @@ $xajax = Xajax::getInstance();
 $xajax->setOption('core.debug.on', false);
 $xajax->setOption('core.prefix.function', 'xajax_');
 
-/*
-	Function: helloWorld
-	
-	Modify the innerHTML of div1.
-*/
-function helloWorld($isCaps)
+class HelloWorld
 {
-	if ($isCaps)
-		$text = 'HELLO WORLD!';
-	else
-		$text = 'Hello World!';
-		
-	$xResponse = new Response();
-	$xResponse->assign('div1', 'innerHTML', $text);
-	
-	return $xResponse;
-}
+	public function sayHello($isCaps)
+	{
+		if ($isCaps)
+			$text = 'HELLO WORLD!';
+		else
+			$text = 'Hello World!';
 
-/*
-	Function: setColor
-	
-	Modify the style.color of div1
-*/
-function setColor($sColor)
-{
-	$xResponse = new Response();
-	$xResponse->assign('div1', 'style.color', $sColor);
-	
-	return $xResponse;
+		$xResponse = new Response();
+		$xResponse->assign('div2', 'innerHTML', $text);
+
+		return $xResponse;
+	}
+
+	public function setColor($sColor)
+	{
+		$xResponse = new Response();
+		$xResponse->assign('div2', 'style.color', $sColor);
+		
+		return $xResponse;
+	}
 }
 
 // Register functions
-$xajax->register(Xajax::USER_FUNCTION, 'helloWorld');
-$xajax->register(Xajax::USER_FUNCTION, 'setColor');
+$hello = new HelloWorld();
+$xajax->register(Xajax::USER_FUNCTION, array('helloWorld', $hello, 'sayHello'));
+$xajax->register(Xajax::USER_FUNCTION, array($hello, 'setColor'));
 
 // Process the request, if any.
 $xajax->processRequest();
@@ -75,9 +69,9 @@ $xajax->processRequest();
 <script type='text/javascript'>
 	/* <![CDATA[ */
 	window.onload = function() {
-		// call the helloWorld function to populate the div on load
+		// Call the HelloWorld class to populate the 2nd div
 		<?php echo xr::make('helloWorld', 0) ?>;
-		// call the setColor function on load
+		// call the HelloWorld->setColor() method on load
 		<?php echo xr::make('setColor', xr::select('colorselect')) ?>;
 	}
 	/* ]]> */
@@ -104,16 +98,16 @@ $xajax->processRequest();
 		<div class="row">
 <?php require(__DIR__ . '/includes/menu.php') ?>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h3 class="page-header">Hello World Function</h3>
+				<h3 class="page-header">Hello World Alias</h3>
 
 				<div class="row">
 					<div class="col-sm-6 col-md-6 text">
 <p>
-This example shows how to export a function with Xajax.
+This example shows how to export the methods of a class as functions with Xajax, using aliases.
 </p>
 					</div>
 					<div class="col-sm-6 col-md-6 demo">
-						<div style="margin:10px;" id="div1">
+						<div style="margin:10px;" id="div2">
 							&nbsp;
 						</div>
 						<div style="margin:10px;">
@@ -135,28 +129,31 @@ This example shows how to export a function with Xajax.
 				<h4 class="page-header">How it works</h4>
 
 				<div class="row">
-					<div class="col-sm-6 col-md-6 xajax">
-<p>The Xajax functions</p>
+					<div class="col-sm-6 col-md-6 xajax-export">
+<p>The Xajax class</p>
 <pre>
-function helloWorld($isCaps)
+class HelloWorld
 {
-    if ($isCaps)
-        $text = 'HELLO WORLD!';
-    else
-        $text = 'Hello World!';
+    public function sayHello($isCaps)
+    {
+        if ($isCaps)
+            $text = 'HELLO WORLD!';
+        else
+            $text = 'Hello World!';
 
-    $xResponse = new Response();
-    $xResponse->assign('div1', 'innerHTML', $text);
+        $xResponse = new Response();
+        $xResponse->assign('div2', 'innerHTML', $text);
 
-    return $xResponse;
-}
+        return $xResponse;
+    }
 
-function setColor($sColor)
-{
-    $xResponse = new Response();
-    $xResponse->assign('div1', 'style.color', $sColor);
+    public function setColor($sColor)
+    {
+        $xResponse = new Response();
+        $xResponse->assign('div2', 'style.color', $sColor);
 
-    return $xResponse;
+        return $xResponse;
+    }
 }
 </pre>
 					</div>
@@ -171,16 +168,17 @@ function setColor($sColor)
 &lt;button onclick="xajax_helloWorld(1); return false;"&gt;CLICK ME&lt;/button&gt;
 </pre>
 
-<p>The PHP function registrations</p>
+<p>The PHP object registrations</p>
 <pre>
 $xajax = Xajax::getInstance();
 
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', 'xajax_');
+$xajax->setOption('core.debug.on', false);
+$xajax->setOption('core.prefix.function', 'xajax_');
 
-// Register functions
-$xajax->register(Xajax::USER_FUNCTION, 'helloWorld');
-$xajax->register(Xajax::USER_FUNCTION, 'setColor');
+// Register class methods as Xajax functions
+$hello = new HelloWorld();
+$xajax->register(Xajax::USER_FUNCTION, array('helloWorld', $hello, 'sayHello'));
+$xajax->register(Xajax::USER_FUNCTION, array($hello, 'setColor'));
 
 // Process the request, if any.
 $xajax->processRequest();
