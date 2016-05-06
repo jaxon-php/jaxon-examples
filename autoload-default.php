@@ -97,7 +97,7 @@ This example shows how to optimize Xajax requests processing with autoloading.
 </p>
 <p>
 In this example, the Xajax classes are not registered when processing a request.
-However, the Xajax library is smart enough to detect that the required class is missing, and load only the necessary file.
+However, the Xajax library is smart enough to detect that the required class is missing, and to load only the necessary file.
 </p>
 					</div>
 					<div class="col-sm-6 col-md-6 demo">

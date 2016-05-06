@@ -251,7 +251,7 @@ class Test
 
 <p>The PHP object registrations</p>
 <pre>
-$loader = require (__DIR__ . '/vendor/autoload.php');
+require(__DIR__ . '/vendor/autoload.php');
 
 $xajax = Xajax::getInstance();
 
@@ -259,7 +259,7 @@ $xajax = Xajax::getInstance();
 $xajax->setOption('core.prefix.class', '');
 
 // Use the Composer autoloader
-$xajax->setAutoLoader($loader);
+$xajax->useComposerAutoLoader();
 
 // Add class dirs with namespaces
 $xajax->addClassDir(__DIR__ . '/classes/namespace/app', 'App');
