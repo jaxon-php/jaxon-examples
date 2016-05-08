@@ -116,6 +116,7 @@ However, the Xajax library is smart enough to detect that the required class is 
 						<div style="margin:10px;">
 							<button class="btn btn-primary" onclick='App.Test.Test.sayHello(0); return false;' >Click Me</button>
 							<button class="btn btn-primary" onclick='App.Test.Test.sayHello(1); return false;' >CLICK ME</button>
+							<button class="btn btn-primary" onclick="App.Test.Test.showDialog(); return false;" >Show PgwModal Dialog</button>
 						</div>
 
 						<div style="margin:10px;" id="div2">
@@ -133,10 +134,6 @@ However, the Xajax library is smart enough to detect that the required class is 
 						<div style="margin:10px;">
 							<button class="btn btn-primary" onclick="Ext.Test.Test.sayHello(0); return false;" >Click Me</button>
 							<button class="btn btn-primary" onclick="Ext.Test.Test.sayHello(1); return false;" >CLICK ME</button>
-						</div>
-
-						<div style="margin:10px;">
-							<button class="btn btn-primary" onclick="App.Test.Test.showDialog(); return false;" >Show PgwModal Dialog</button>
 							<button class="btn btn-primary" onclick="Ext.Test.Test.showDialog(); return false;" >Show Twitter Bootstrap Dialog</button>
 						</div>
 					</div>

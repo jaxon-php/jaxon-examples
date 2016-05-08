@@ -13,7 +13,7 @@ $xajax->setOption('core.prefix.class', 'Xajax');
 
 $xajaxAppDir = __DIR__ . '/js/deferred';
 $xajaxAppURI = 'js/deferred';
-$xajax->mergeJavascript($xajaxAppDir, $xajaxAppURI);
+$xajax->exportJavascript($xajaxAppDir, $xajaxAppURI);
 
 class HelloWorld
 {
@@ -34,7 +34,7 @@ class HelloWorld
 	{
 		$xResponse = new Response();
 		$xResponse->assign('div2', 'style.color', $sColor);
-		
+
 		return $xResponse;
 	}
 }

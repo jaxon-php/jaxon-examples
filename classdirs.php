@@ -109,6 +109,7 @@ The classes in this example are not namespaced, thus they all need to have diffe
 						<div style="margin:10px;">
 							<button class="btn btn-primary" onclick='Test.App.sayHello(0); return false;' >Click Me</button>
 							<button class="btn btn-primary" onclick='Test.App.sayHello(1); return false;' >CLICK ME</button>
+							<button class="btn btn-primary" onclick="Test.App.showDialog(); return false;" >Show PgwModal Dialog</button>
 						</div>
 
 						<div style="margin:10px;" id="div2">
@@ -126,10 +127,6 @@ The classes in this example are not namespaced, thus they all need to have diffe
 						<div style="margin:10px;">
 							<button class="btn btn-primary" onclick="Test.Ext.sayHello(0); return false;" >Click Me</button>
 							<button class="btn btn-primary" onclick="Test.Ext.sayHello(1); return false;" >CLICK ME</button>
-						</div>
-
-						<div style="margin:10px;">
-							<button class="btn btn-primary" onclick="Test.App.showDialog(); return false;" >Show PgwModal Dialog</button>
 							<button class="btn btn-primary" onclick="Test.Ext.showDialog(); return false;" >Show Twitter Bootstrap Dialog</button>
 						</div>
 					</div>
