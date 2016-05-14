@@ -4,6 +4,8 @@
         "lagdo/xajax-toastr": "dev-master",
         "lagdo/xajax-pgwjs": "dev-master",
         "lagdo/xajax-bootstrap": "dev-master",
+        "lagdo/xajax-codeigniter": "dev-master",
+        "lagdo/xajax-laravel": "dev-master",
         "keradus/psr4autoloader": "dev-master"
     },
     "minimum-stability": "dev"
