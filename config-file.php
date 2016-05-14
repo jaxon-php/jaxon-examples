@@ -38,7 +38,7 @@ class HelloWorld
 		$xResponse = new Response();
 		$buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
 		$options = array('maxWidth' => 400);
-		$xResponse->pgwModal->show("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+		$xResponse->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
 		
 		return $xResponse;
 	}
@@ -48,7 +48,7 @@ class HelloWorld
 		$xResponse = new Response();
 		$buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
 		$width = 300;
-		$xResponse->twbs->show("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
+		$xResponse->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
 		
 		return $xResponse;
 	}
@@ -189,7 +189,7 @@ class HelloWorld
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('maxWidth' => 400);
         // Call the PgwModal plugin
-        $xResponse->pgwModal->show("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+        $xResponse->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
         return $xResponse;
     }
 
@@ -199,7 +199,7 @@ class HelloWorld
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $width = 300;
         // Call the Twitter Bootstrap plugin
-        $xResponse->twbs->show("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
+        $xResponse->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
         return $xResponse;
     }
 }

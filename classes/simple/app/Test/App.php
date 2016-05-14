@@ -32,7 +32,7 @@ class App
 	{
 		$buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
 		$options = array('maxWidth' => 400);
-		$this->response->pgwModal->show("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+		$this->response->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
 	
 		return $this->response;
 	}
