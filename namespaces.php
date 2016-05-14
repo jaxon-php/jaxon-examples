@@ -44,7 +44,7 @@ $xajax->processRequest();
 	<link href="css/style.css" rel="stylesheet">
 
 <?php
-	echo $xajax->getCssInclude();
+	echo $xajax->getCss();
 ?>
 <script type='text/javascript'>
 	/* <![CDATA[ */
@@ -267,8 +267,8 @@ $xajax->processRequest();
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <?php
-	echo $xajax->getJsInclude();
-	echo $xajax->getJavascript();
+	echo $xajax->getJs();
+	echo $xajax->getScript();
 ?>
 </body>
 </html>

@@ -17,9 +17,9 @@ class Demo extends Xajax_Controller
 		// Print the page
 		$this->load->library('parser');
 		$this->parser->parse('index', array(
-			'XajaxCssInclude' => $this->xajax->css(),
-			'XajaxJsInclude' => $this->xajax->js(),
-			'XajaxJavascript' => $this->xajax->javascript()
+			'XajaxCss' => $this->xajax->css(),
+			'XajaxJs' => $this->xajax->js(),
+			'XajaxScript' => $this->xajax->script()
 		));
 	}
 }

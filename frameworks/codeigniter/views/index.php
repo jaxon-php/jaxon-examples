@@ -17,7 +17,7 @@
 	<!-- Custom styles for this template -->
 	<link href="css/style.css" rel="stylesheet">
 
-{XajaxCssInclude}
+{XajaxCss}
 
 <script type='text/javascript'>
 	/* <![CDATA[ */
@@ -287,9 +287,9 @@ $xajax->registerClasses();
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-{XajaxJsInclude}
+{XajaxJs}
 
-{XajaxJavascript}
+{XajaxScript}
 
 </body>
 </html>
