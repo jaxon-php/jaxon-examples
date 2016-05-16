@@ -60,13 +60,16 @@
 				<div class="row">
 					<div class="col-sm-6 col-md-6 text">
 <p>
-This example illustrates the implementation of various parts of the Xajax application in separated files.
+This example shows the usage of the Xajax plugin for the CodeIgniter framework.
 </p>
 <p>
-The creation and setup of the Xajax object is done in the includes/autoload-separated/xajax.php.
+The plugin implements all the setup of the Xajax library, and let the user focus on writing Xajax classes for his application.
 </p>
 <p>
-The Xajax request processing is done in the includes/autoload-separated/server.php.
+The behaviour of the Xajax library can be customized from a CodeIgniter-specific config file.
+</p>
+<p>
+By default, the Xajax plugin for CodeIgniter registers all classes in the application/xajax/ dir, with namespace \Xajax\App.
 </p>
 					</div>
 					<div class="col-sm-6 col-md-6 demo">
@@ -112,167 +115,214 @@ The Xajax request processing is done in the includes/autoload-separated/server.p
 
 				<div class="row">
 					<div class="col-sm-6 col-md-6 xajax-export">
-<p>The Xajax class in the file ./classes/namespace/app/Test/Test.php</p>
+<p>In this example we have two files Bts.php and Pgw.php in the app/Xajax/Controllers/Test/ directory.</p>
 <pre>
-namespace App\Test;
+namespace Xajax\App\Test;
 
-use Xajax\Response\Response;
+use Xajax\CodeIgniter\Controller as XajaxController;
 
-class Test
+class Bts extends XajaxController
 {
-    public function sayHello($isCaps)
-    {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-        $xResponse = new Response();
-        $xResponse->assign('div1', 'innerHTML', $text);
-        $xResponse->toastr->success("div1 text is now $text");
-        return $xResponse;
-    }
+	public function sayHello($isCaps)
+	{
+		if ($isCaps)
+			$text = 'HELLO WORLD!';
+		else
+			$text = 'Hello World!';
+	
+		$this->response->assign('div2', 'innerHTML', $text);
+		$this->response->toastr->success("div2 text is now $text, after calling " . $this->request('sayHello', $isCaps));
+	
+		return $this->response;
+	}
 
-    public function setColor($sColor)
-    {
-        $xResponse = new Response();
-        $xResponse->assign('div1', 'style.color', $sColor);
-        $xResponse->toastr->success("div1 color is now $sColor");
-        return $xResponse;
-    }
+	public function setColor($sColor)
+	{
+		$this->response->assign('div2', 'style.color', $sColor);
+		$this->response->toastr->success("div2 color is now $sColor");
+	
+		return $this->response;
+	}
 
-    public function showDialog()
-    {
-        $xResponse = new Response();
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array('maxWidth' => 400);
-        $xResponse->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
-        return $xResponse;
-    }
+	public function showDialog()
+	{
+		$buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
+		$width = 300;
+		$this->response->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
+	
+		return $this->response;
+	}
 }
 </pre>
 
-<p>The Xajax class in the file ./classes/namespace/ext/Test/Test.php</p>
 <pre>
-namespace Ext\Test;
+namespace Xajax\App\Test;
 
-use Xajax\Response\Response;
+use Xajax\CodeIgniter\Controller as XajaxController;
 
-class Test
+class Pgw extends XajaxController
 {
-    public function sayHello($isCaps)
-    {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-        $xResponse = new Response();
-        $xResponse->assign('div2', 'innerHTML', $text);
-        $xResponse->toastr->success("div2 text is now $text");
-        return $xResponse;
-    }
+	public function sayHello($isCaps)
+	{
+		if ($isCaps)
+			$text = 'HELLO WORLD!';
+		else
+			$text = 'Hello World!';
+	
+		$this->response->assign('div1', 'innerHTML', $text);
+		$this->response->toastr->success("div1 text is now $text, after calling " . $this->request('sayHello', $isCaps));
+	
+		return $this->response;
+	}
 
-    public function setColor($sColor)
-    {
-        $xResponse = new Response();
-        $xResponse->assign('div2', 'style.color', $sColor);
-        $xResponse->toastr->success("div2 color is now $sColor");
-        return $xResponse;
-    }
+	public function setColor($sColor)
+	{
+		$this->response->assign('div1', 'style.color', $sColor);
+		$this->response->toastr->success("div1 color is now $sColor");
+	
+		return $this->response;
+	}
 
-    public function showDialog()
-    {
-        $xResponse = new Response();
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $width = 300;
-        $xResponse->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
-        return $xResponse;
-    }
+	public function showDialog()
+	{
+		$buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
+		$options = array('maxWidth' => 400);
+		$this->response->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+	
+		return $this->response;
+	}
 }
 </pre>
 					</div>
 					<div class="col-sm-6 col-md-6 xajax-code">
-<p>The javascript event bindings</p>
+<h5><b>Installation</b></h5>
+<p>
+Install the CodeIgniter framework, version 3.0 or above.
+</p>
+<p>
+Add the xajax-core, xajax-laravel and any other plugin package in the composer.json file, and run composer update.
+</p>
+<p>
+Copy the content of the "app" dir in the xajax-laravel package in the "application" dir of the CodeIgniter install.<br/>
+This directory contains the Xajax library for CodeIgniter, the config file and a controller to process Xajax request.
+</p>
+<p>
+Make the application controller inherit from <em>Xajax_Controller</em>.<br/>
+Call <em>$this->xajax->register()</em> to register all the Xajax classes. Then, call <em>$this->xajax->css()</em>,
+<em>$this->xajax->js()</em> and <em>$this->xajax->script()</em> to get the code generated by Xajax.
+</p>
+
+<h5><b>The Xajax controllers</b></h5>
+<p>
+This is the main Xajax controller.
+</p>
 <pre>
-// Select
-&lt;select onchange="Xajax.App.Test.Pgw.setColor(xajax.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
-
-// Buttons
-&lt;button onclick="Xajax.App.Test.Pgw.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="Xajax.App.Test.Pgw.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-
-// Select
-&lt;select onchange="Xajax.App.Test.Bts.setColor(xajax.$('colorselect').value); return false;"&gt;
-&lt;/select&gt;
-
-// Buttons
-&lt;button onclick="Xajax.App.Test.Bts.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="Xajax.App.Test.Bts.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
-
-&lt;button onclick="Xajax.App.Test.Pgw.showDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
-&lt;button onclick="Xajax.App.Test.Bts.showDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
-</pre>
-
-<p>The creation and setup of the Xajax object</p>
-<pre>
-require (__DIR__ . '/../../vendor/autoload.php');
-
-use Xajax\Xajax;
-
-\Xajax\Config\Json::read(__DIR__ . '/../../config/separated.json', '');
-
-// Use the Composer autoloader
-$xajax = Xajax::getInstance();
-$xajax->setAutoLoader($loader);
-
-// Add class dirs with namespaces
-$xajax->addClassDir(__DIR__ . '/../../classes/namespace/app', 'App');
-$xajax->addClassDir(__DIR__ . '/../../classes/namespace/ext', 'Ext');
-
-return $xajax;
-</pre>
-
-<p>The Xajax request processing</p>
-<pre>
-$xajax = require (__DIR__ . '/xajax.php');
-
-// Check if there is a request.
-if($xajax->canProcessRequest())
+class Xajax_Controller extends CI_Controller
 {
-	// When processing a request, the required class will be autoloaded
-	$xajax->processRequest();
+	public $xajax = null;
+
+	public function __construct()
+	{
+		parent::__construct();
+		// Setup the Xajax library
+		$this->load->library('xajax');
+		$this->xajax->setup();
+	}
 }
 </pre>
-
-<p>The classes registration</p>
+<p>
+This controller is located in the <em>application/xajax</em> subdir, and processes Xajax requests.
+</p>
 <pre>
-$xajax = require (__DIR__ . '/includes/autoload-separated/xajax.php');
-
-// Register the Xajax objects
-$xajax->registerClasses();
-</pre>
-
-<p>The Json config file</p>
-<pre>
+class Process extends Xajax_Controller
 {
-	"core": {
-		"debug": {
-			"on": false
-		},
-		"request": {
-			"uri": "includes/autoload-separated/server.php"
-		},
-		"prefix": {
-			"class": ""
-		}
-	},
-	"toastr": {
-		"options": {
-			"closeButton": true,
-			"positionClass": "toast-bottom-right"
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
+	public function index()
+	{
+		// Process the Xajax request
+		if($this->xajax->canProcessRequest())
+		{
+			$this->xajax->processRequest();
 		}
 	}
 }
+</pre>
+
+<h5><b>The application controller</b></h5>
+<p>
+This controller prints the application page with Xajax code included.
+</p>
+<pre>
+class Demo extends Xajax_Controller
+{
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
+	public function index()
+	{
+		// Register the Xajax classes
+		$this->xajax->register();
+		// Print the page
+		$this->load->library('parser');
+		$this->parser->parse('index', array(
+			'XajaxCss' => $this->xajax->css(),
+			'XajaxJs' => $this->xajax->js(),
+			'XajaxScript' => $this->xajax->script()
+		));
+	}
+}
+</pre>
+
+<h5><b>Configuration</b></h5>
+<p>The config file is located at <em>application/config/xajax.php</em></p>
+<p>
+The config options are separated into two entries. The <em>lib</em> entry provides the options for
+the Xajax library, while the <em>app</em> entry provides the options for the CodeIgniter application.
+</p>
+<pre>
+$config['app'] = array(
+	// 'route' => '',
+	// 'dir' => '',
+	// 'namespace' => '',
+	// 'excluded' => array(),
+);
+$config['lib'] = array(
+	'core' => array(
+		'language' => 'en',
+		'encoding' => 'UTF-8',
+		'request' => array(
+			'uri' => 'xajax/process',
+		),
+		'prefix' => array(
+			'class' => '',
+		),
+		'debug' => array(
+			'on' => false,
+			'verbose' => false,
+		),
+		'error' => array(
+			'handle' => false,
+		),
+	),
+	'js' => array(
+		'lib' => array(
+			// 'uri' => '',
+		),
+		'app' => array(
+			// 'uri' => '',
+			// 'dir' => '',
+			'export' => false,
+			'minify' => false,
+			'options' => '',
+		),
+	),
+);
 </pre>
 					</div>
 				</div>
