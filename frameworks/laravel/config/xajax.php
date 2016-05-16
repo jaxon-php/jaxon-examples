@@ -3,8 +3,8 @@
 return array(
 	'app' => array(
 		// 'route' => 'xajax',
+		// 'dir' => '',
 		// 'namespace' => '',
-		// 'controllers' => '',
 		// 'excluded' => [],
 	),
 	'lib' => array(
