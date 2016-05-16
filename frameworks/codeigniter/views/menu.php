@@ -14,6 +14,7 @@ $menuEntries = array(
 	'autoload-composer.php' => 'Composer Autoloader',
 	'autoload-disabled.php' => 'Third Party Autoloader',
 	'autoload-separated.php' => 'Separated Files',
+	'laravel.php' => 'Laravel Framework',
 	'codeigniter.php' => 'CodeIgniter Framework',
 );
 

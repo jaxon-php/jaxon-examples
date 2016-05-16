@@ -2,6 +2,7 @@
 
 namespace Xajax\App\Test;
 
+use Xajax\Request\Factory as xr;
 use Xajax\Laravel\Controller as XajaxController;
 
 class Bts extends XajaxController
@@ -18,7 +19,7 @@ class Bts extends XajaxController
 	
 		return $this->response;
 	}
-	
+
 	public function setColor($sColor)
 	{
 		$this->response->assign('div2', 'style.color', $sColor);
@@ -26,7 +27,7 @@ class Bts extends XajaxController
 	
 		return $this->response;
 	}
-	
+
 	public function showDialog()
 	{
 		$buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));

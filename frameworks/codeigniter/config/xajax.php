@@ -44,4 +44,9 @@ $config['lib'] = array(
 			'positionClass' => 'toast-bottom-right'
 		),
 	),
+	'assets' => array(
+		'include' => array(
+			'all' => true,
+		),
+	),
 );
