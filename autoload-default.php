@@ -20,78 +20,78 @@ $xajax->addClassDir(__DIR__ . '/classes/namespace/ext', 'Ext');
 // Check if there is a request.
 if($xajax->canProcessRequest())
 {
-	// When processing a request, the required class will be autoloaded
-	$xajax->processRequest();
+    // When processing a request, the required class will be autoloaded
+    $xajax->processRequest();
 }
 else
 {
-	// The Xajax objects are registered only when the page is loaded
-	$xajax->registerClasses();
+    // The Xajax objects are registered only when the page is loaded
+    $xajax->registerClasses();
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="icon" href="/favicon.ico">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
 
-	<title>Xajax Examples</title>
+    <title>Xajax Examples</title>
 
-	<!-- Bootstrap core CSS -->
-	<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Custom styles for this template -->
-	<link href="css/style.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
 
 <?php
-	echo $xajax->getCss();
+    echo $xajax->getCss();
 ?>
 <script type='text/javascript'>
-	/* <![CDATA[ */
-	window.onload = function() {
-		// call the helloWorld function to populate the div on load
-		App.Test.Test.sayHello(0);
-		// call the setColor function on load
-		App.Test.Test.setColor(xajax.$('colorselect1').value);
-		// Call the HelloWorld class to populate the 2nd div
-		Ext.Test.Test.sayHello(0);
-		// call the HelloWorld->setColor() method on load
-		Ext.Test.Test.setColor(xajax.$('colorselect2').value);
-	}
-	/* ]]> */
+    /* <![CDATA[ */
+    window.onload = function() {
+        // call the helloWorld function to populate the div on load
+        App.Test.Test.sayHello(0);
+        // call the setColor function on load
+        App.Test.Test.setColor(xajax.$('colorselect1').value);
+        // Call the HelloWorld class to populate the 2nd div
+        Ext.Test.Test.sayHello(0);
+        // call the HelloWorld->setColor() method on load
+        Ext.Test.Test.setColor(xajax.$('colorselect2').value);
+    }
+    /* ]]> */
 </script>
 </head>
 
 <body>
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Xajax Examples</a>
-			</div>
-		</div>
-	</nav>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Xajax Examples</a>
+            </div>
+        </div>
+    </nav>
 
-	<div class="container-fluid">
-		<div class="row">
+    <div class="container-fluid">
+        <div class="row">
 <?php require(__DIR__ . '/includes/menu.php') ?>
-			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h3 class="page-header">Default Autoloader</h3>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h3 class="page-header">Default Autoloader</h3>
 
-				<div class="row">
-					<div class="col-sm-6 col-md-6 text">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 text">
 <p>
 This example shows how to optimize Xajax requests processing with autoloading.
 </p>
@@ -99,50 +99,50 @@ This example shows how to optimize Xajax requests processing with autoloading.
 In this example, the Xajax classes are not registered when processing a request.
 However, the Xajax library is smart enough to detect that the required class is missing, and to load only the necessary file.
 </p>
-					</div>
-					<div class="col-sm-6 col-md-6 demo">
-						<div style="margin:10px;" id="div1">
-							&nbsp;
-						</div>
-						<div style="margin:10px;">
-							<select class="form-control" id="colorselect1" name="colorselect1"
-									onchange="App.Test.Test.setColor(xajax.$('colorselect1').value); return false;">
-								<option value="black" selected="selected">Black</option>
-								<option value="red">Red</option>
-								<option value="green">Green</option>
-								<option value="blue">Blue</option>
-							</select>
-						</div>
-						<div style="margin:10px;">
-							<button class="btn btn-primary" onclick='App.Test.Test.sayHello(0); return false;' >Click Me</button>
-							<button class="btn btn-primary" onclick='App.Test.Test.sayHello(1); return false;' >CLICK ME</button>
-							<button class="btn btn-primary" onclick="App.Test.Test.showDialog(); return false;" >Show PgwModal Dialog</button>
-						</div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 demo">
+                        <div style="margin:10px;" id="div1">
+                            &nbsp;
+                        </div>
+                        <div style="margin:10px;">
+                            <select class="form-control" id="colorselect1" name="colorselect1"
+                                    onchange="App.Test.Test.setColor(xajax.$('colorselect1').value); return false;">
+                                <option value="black" selected="selected">Black</option>
+                                <option value="red">Red</option>
+                                <option value="green">Green</option>
+                                <option value="blue">Blue</option>
+                            </select>
+                        </div>
+                        <div style="margin:10px;">
+                            <button class="btn btn-primary" onclick='App.Test.Test.sayHello(0); return false;' >Click Me</button>
+                            <button class="btn btn-primary" onclick='App.Test.Test.sayHello(1); return false;' >CLICK ME</button>
+                            <button class="btn btn-primary" onclick="App.Test.Test.showDialog(); return false;" >Show PgwModal Dialog</button>
+                        </div>
 
-						<div style="margin:10px;" id="div2">
-							&nbsp;
-						</div>
-						<div style="margin:10px;">
-							<select class="form-control" id="colorselect2" name="colorselect2"
-									onchange="Ext.Test.Test.setColor(xajax.$('colorselect2').value); return false;">
-								<option value="black" selected="selected">Black</option>
-								<option value="red">Red</option>
-								<option value="green">Green</option>
-								<option value="blue">Blue</option>
-							</select>
-						</div>
-						<div style="margin:10px;">
-							<button class="btn btn-primary" onclick="Ext.Test.Test.sayHello(0); return false;" >Click Me</button>
-							<button class="btn btn-primary" onclick="Ext.Test.Test.sayHello(1); return false;" >CLICK ME</button>
-							<button class="btn btn-primary" onclick="Ext.Test.Test.showDialog(); return false;" >Show Twitter Bootstrap Dialog</button>
-						</div>
-					</div>
-				</div>
+                        <div style="margin:10px;" id="div2">
+                            &nbsp;
+                        </div>
+                        <div style="margin:10px;">
+                            <select class="form-control" id="colorselect2" name="colorselect2"
+                                    onchange="Ext.Test.Test.setColor(xajax.$('colorselect2').value); return false;">
+                                <option value="black" selected="selected">Black</option>
+                                <option value="red">Red</option>
+                                <option value="green">Green</option>
+                                <option value="blue">Blue</option>
+                            </select>
+                        </div>
+                        <div style="margin:10px;">
+                            <button class="btn btn-primary" onclick="Ext.Test.Test.sayHello(0); return false;" >Click Me</button>
+                            <button class="btn btn-primary" onclick="Ext.Test.Test.sayHello(1); return false;" >CLICK ME</button>
+                            <button class="btn btn-primary" onclick="Ext.Test.Test.showDialog(); return false;" >Show Twitter Bootstrap Dialog</button>
+                        </div>
+                    </div>
+                </div>
 
-				<h4 class="page-header">How it works</h4>
+                <h4 class="page-header">How it works</h4>
 
-				<div class="row">
-					<div class="col-sm-6 col-md-6 xajax-export">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 xajax-export">
 <p>The Xajax class in the file ./classes/namespace/app/Test/Test.php</p>
 <pre>
 namespace App\Test;
@@ -220,8 +220,8 @@ class Test
     }
 }
 </pre>
-					</div>
-					<div class="col-sm-6 col-md-6 xajax-code">
+                    </div>
+                    <div class="col-sm-6 col-md-6 xajax-code">
 <p>The javascript event bindings</p>
 <pre>
 // Select
@@ -267,21 +267,21 @@ else
     $xajax->registerClasses();
 }
 </pre>
-					</div>
-				</div>
+                    </div>
+                </div>
 
-			</div>
-		</div>
-	</div>
+            </div>
+        </div>
+    </div>
 
-	<!-- Bootstrap core JavaScript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <?php
-	echo $xajax->getJs();
-	echo $xajax->getScript();
+    echo $xajax->getJs();
+    echo $xajax->getScript();
 ?>
 </body>
 </html>

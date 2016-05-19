@@ -37,7 +37,7 @@ $app = require_once __DIR__ . '/laravel/bootstrap/app.php';
 
 // Set the public path to this directory
 $app->bind('path.public', function() {
-	return __DIR__;
+    return __DIR__;
 });
 
 /*

@@ -106,6 +106,6 @@ body {
 
 /* Fix PgwModal title */
 div.pm-container div.pm-body div.pm-title {
-	min-height: 30px;
-	font-size: 14px;
+    min-height: 30px;
+    font-size: 14px;
 }
