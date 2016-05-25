@@ -18,7 +18,7 @@ class Test
             $text = 'Hello World!';
     
         $this->response->assign('div1', 'innerHTML', $text);
-        $this->response->toastr->success("div1 text is now $text, after calling " . $this->request('sayHello', $isCaps));
+        $this->response->toastr->success("div1 text is now $text, after calling " . $this->call('sayHello', $isCaps));
     
         return $this->response;
     }

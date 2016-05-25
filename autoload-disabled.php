@@ -14,7 +14,7 @@ $xajax->setOption('toastr.options.closeButton', true);
 $xajax->setOption('toastr.options.positionClass', 'toast-bottom-left');
 
 // Disable autoload
-$xajax->disableAutoLoad();
+$xajax->disableAutoload();
 
 // Register the namespaces with a third-party autoloader
 $loader = new Keradus\Psr4Autoloader;
@@ -260,7 +260,7 @@ $xajax = Xajax::getInstance();
 $xajax->setOption('core.prefix.class', '');
 
 // Disable autoload
-$xajax->disableAutoLoad();
+$xajax->disableAutoload();
 
 // Register the namespaces with a third-party autoloader
 $loader = new Keradus\Psr4Autoloader;

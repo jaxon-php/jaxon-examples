@@ -9,7 +9,7 @@ use Xajax\Response\Response;
 
 // Use the Composer autoloader
 $xajax = Xajax::getInstance();
-$xajax->useComposerAutoLoader();
+$xajax->useComposerAutoloader();
 
 // Add class dirs with namespaces
 $xajax->addClassDir(__DIR__ . '/../../classes/namespace/app', 'App');

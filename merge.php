@@ -72,9 +72,9 @@ $xajax->processRequest();
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo xr::make('HelloWorld.sayHello', 0) ?>;
+        <?php echo xr::call('HelloWorld.sayHello', 0) ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo xr::make('HelloWorld.setColor', xr::select('colorselect')) ?>;
+        <?php echo xr::call('HelloWorld.setColor', xr::select('colorselect')) ?>;
     }
     /* ]]> */
 </script>
@@ -110,9 +110,6 @@ This example shows how to export the generated javascript code in an external fi
 <p>
 You'll need to make sure the target directory exists and adapt the parameters of the call mergeJavascript() function to your webserver configuration for this example to work.
 </p>
-<p>
-The compression of the generated javascript code is not yet implemented.
-</p>
                     </div>
                     <div class="col-sm-6 col-md-6 demo">
                         <div style="margin:10px;" id="div2">
@@ -120,7 +117,7 @@ The compression of the generated javascript code is not yet implemented.
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                onchange="<?php echo xr::make('HelloWorld.setColor', xr::select('colorselect')) ?>; return false;">
+                                onchange="<?php echo xr::call('HelloWorld.setColor', xr::select('colorselect')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -128,8 +125,8 @@ The compression of the generated javascript code is not yet implemented.
                             </select>
                         </div>
                         <div style="margin:10px;">
-                            <button class="btn btn-primary" onclick="<?php echo xr::make('HelloWorld.sayHello', 0) ?>; return false;" >Click Me</button>
-                            <button class="btn btn-primary" onclick="<?php echo xr::make('HelloWorld.sayHello', 1) ?>; return false;" >CLICK ME</button>
+                            <button class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 0) ?>; return false;" >Click Me</button>
+                            <button class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 1) ?>; return false;" >CLICK ME</button>
                         </div>
                     </div>
                 </div>

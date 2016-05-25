@@ -235,7 +235,7 @@ use Xajax\Xajax;
 
 // Use the Composer autoloader
 $xajax = Xajax::getInstance();
-$xajax->setAutoLoader($loader);
+$xajax->setAutoloader($loader);
 
 // Add class dirs with namespaces
 $xajax->addClassDir(__DIR__ . '/../../classes/namespace/app', 'App');

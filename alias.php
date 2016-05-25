@@ -70,9 +70,9 @@ $xajax->processRequest();
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo xr::make('helloWorld', 0) ?>;
+        <?php echo xr::call('helloWorld', 0) ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo xr::make('setColor', xr::select('colorselect')) ?>;
+        <?php echo xr::call('setColor', xr::select('colorselect')) ?>;
     }
     /* ]]> */
 </script>
@@ -112,7 +112,7 @@ This example shows how to export the methods of a class as functions with Xajax,
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                    onchange="<?php echo xr::make('setColor', xr::select('colorselect')) ?>; return false;">
+                                    onchange="<?php echo xr::call('setColor', xr::select('colorselect')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -120,8 +120,8 @@ This example shows how to export the methods of a class as functions with Xajax,
                             </select>
                         </div>
                         <div style="margin:10px;">
-                            <button class="btn btn-primary" onclick="<?php echo xr::make('helloWorld', 0) ?>; return false;" >Click Me</button>
-                            <button class="btn btn-primary" onclick="<?php echo xr::make('helloWorld', 1) ?>; return false;" >CLICK ME</button>
+                            <button class="btn btn-primary" onclick="<?php echo xr::call('helloWorld', 0) ?>; return false;" >Click Me</button>
+                            <button class="btn btn-primary" onclick="<?php echo xr::call('helloWorld', 1) ?>; return false;" >CLICK ME</button>
                         </div>
                     </div>
                 </div>

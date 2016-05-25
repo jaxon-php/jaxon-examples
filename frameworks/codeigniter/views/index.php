@@ -131,7 +131,7 @@ class Bts extends XajaxController
             $text = 'Hello World!';
     
         $this->response->assign('div2', 'innerHTML', $text);
-        $this->response->toastr->success("div2 text is now $text, after calling " . $this->request('sayHello', $isCaps));
+        $this->response->toastr->success("div2 text is now $text, after calling " . $this->call('sayHello', $isCaps));
     
         return $this->response;
     }
@@ -170,7 +170,7 @@ class Pgw extends XajaxController
             $text = 'Hello World!';
     
         $this->response->assign('div1', 'innerHTML', $text);
-        $this->response->toastr->success("div1 text is now $text, after calling " . $this->request('sayHello', $isCaps));
+        $this->response->toastr->success("div1 text is now $text, after calling " . $this->call('sayHello', $isCaps));
     
         return $this->response;
     }
@@ -287,7 +287,6 @@ the Xajax library, while the <em>app</em> entry provides the options for the Cod
 </p>
 <pre>
 $config['app'] = array(
-    // 'route' => '',
     // 'dir' => '',
     // 'namespace' => '',
     // 'excluded' => array(),

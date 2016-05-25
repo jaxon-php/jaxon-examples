@@ -14,7 +14,7 @@ $xajax->setOption('toastr.options.closeButton', true);
 $xajax->setOption('toastr.options.positionClass', 'toast-bottom-left');
 
 // Use the Composer autoloader
-$xajax->useComposerAutoLoader();
+$xajax->useComposerAutoloader();
 
 // Add class dirs with namespaces
 $xajax->addClassDir(__DIR__ . '/classes/namespace/app', 'App');
@@ -256,7 +256,7 @@ $xajax = Xajax::getInstance();
 $xajax->setOption('core.prefix.class', '');
 
 // Use the Composer autoloader
-$xajax->useComposerAutoLoader();
+$xajax->useComposerAutoloader();
 
 // Add class dirs with namespaces
 $xajax->addClassDir(__DIR__ . '/classes/namespace/app', 'App');
