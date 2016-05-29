@@ -199,5 +199,7 @@ $xajax->processRequest();
     echo $xajax->getJs();
     echo $xajax->getScript();
 ?>
+
+<?php require(__DIR__ . '/includes/footer.php') ?>
 </body>
 </html>

@@ -330,5 +330,6 @@ return array(
 
 {!! $XajaxScript !!}
 
+@include('footer')
 </body>
 </html>
