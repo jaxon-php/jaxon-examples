@@ -3,7 +3,7 @@
 namespace Xajax\App\Test;
 
 use Xajax\Request\Factory as xr;
-use Xajax\Laravel\Controller as XajaxController;
+use Xajax\CI\Controller as XajaxController;
 
 class Bts extends XajaxController
 {
