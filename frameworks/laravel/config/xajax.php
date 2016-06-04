@@ -2,7 +2,7 @@
 
 return array(
     'app' => array(
-        // 'route' => 'xajax',
+        // 'route' => 'jaxon',
         // 'dir' => '',
         // 'namespace' => '',
         // 'excluded' => [],
@@ -12,7 +12,7 @@ return array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-                'uri' => 'laravel/xajax',
+                'uri' => 'laravel/jaxon',
             ),
             'prefix' => array(
                 'class' => '',

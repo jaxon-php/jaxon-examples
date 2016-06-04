@@ -1,11 +1,11 @@
 <?php
 
-namespace Xajax\App\Test;
+namespace Jaxon\App\Test;
 
-use Xajax\Request\Factory as xr;
-use Xajax\Laravel\Controller as XajaxController;
+use Jaxon\Request\Factory as xr;
+use Jaxon\Laravel\Controller as JaxonController;
 
-class Bts extends XajaxController
+class Bts extends JaxonController
 {
     public function sayHello($isCaps)
     {

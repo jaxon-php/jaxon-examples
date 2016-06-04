@@ -2,18 +2,18 @@
 
 require (__DIR__ . '/vendor/autoload.php');
 
-use Xajax\Xajax;
-use Xajax\Response\Response;
-use Xajax\Request\Factory as xr;
+use Jaxon\Jaxon;
+use Jaxon\Response\Response;
+use Jaxon\Request\Factory as xr;
 
-$xajax = Xajax::getInstance();
+$jaxon = Jaxon::getInstance();
 
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', 'Xajax');
+// $jaxon->setOption('core.debug.on', true);
+$jaxon->setOption('core.prefix.class', 'Jaxon');
 
-$xajaxAppDir = __DIR__ . '/js/deferred';
-$xajaxAppURI = 'js/deferred';
-$xajax->exportJavascript($xajaxAppDir, $xajaxAppURI);
+$jaxonAppDir = __DIR__ . '/js/deferred';
+$jaxonAppURI = 'js/deferred';
+$jaxon->exportJavascript($jaxonAppDir, $jaxonAppURI);
 
 class HelloWorld
 {
@@ -40,10 +40,10 @@ class HelloWorld
 }
 
 // Register object
-$xajax->register(Xajax::CALLABLE_OBJECT, new HelloWorld());
+$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
-$xajax->processRequest();
+$jaxon->processRequest();
 
 ?>
 <!DOCTYPE html>
@@ -57,7 +57,7 @@ $xajax->processRequest();
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>Xajax Examples</title>
+    <title>Jaxon Examples</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +66,7 @@ $xajax->processRequest();
     <link href="css/style.css" rel="stylesheet">
 
 <?php
-    echo $xajax->getCss();
+    echo $jaxon->getCss();
 ?>
 <script type='text/javascript'>
     /* <![CDATA[ */
@@ -91,7 +91,7 @@ $xajax->processRequest();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Xajax Examples</a>
+                <a class="navbar-brand" href="#">Jaxon Examples</a>
             </div>
         </div>
     </nav>
@@ -134,8 +134,8 @@ You'll need to make sure the target directory exists and adapt the parameters of
                 <h4 class="page-header">How it works</h4>
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 xajax-export">
-<p>The Xajax class</p>
+                    <div class="col-sm-6 col-md-6 jaxon-export">
+<p>The Jaxon class</p>
 <pre>
 class HelloWorld
 {
@@ -162,33 +162,33 @@ class HelloWorld
 }
 </pre>
                     </div>
-                    <div class="col-sm-6 col-md-6 xajax-code">
+                    <div class="col-sm-6 col-md-6 jaxon-code">
 <p>The javascript event bindings</p>
 <pre>
 // Select
-&lt;select onchange="XajaxHelloWorld.setColor(xajax.$('colorselect').value); return false;"&gt;
+&lt;select onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 // Buttons
-&lt;button onclick="XajaxHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="XajaxHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
+&lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
 </pre>
 
 <p>The PHP object registrations</p>
 <pre>
-$xajax = Xajax::getInstance();
+$jaxon = Jaxon::getInstance();
 
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', 'Xajax');
+// $jaxon->setOption('core.debug.on', true);
+$jaxon->setOption('core.prefix.class', 'Jaxon');
 
-$xajaxAppURI = 'js/deferred';
-$xajaxAppDir = __DIR__ . '/js/deferred';
-$xajax->mergeJavascript($xajaxAppURI, $xajaxAppDir);
+$jaxonAppURI = 'js/deferred';
+$jaxonAppDir = __DIR__ . '/js/deferred';
+$jaxon->mergeJavascript($jaxonAppURI, $jaxonAppDir);
 
 // Register object
-$xajax->register(Xajax::CALLABLE_OBJECT, new HelloWorld());
+$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
-$xajax->processRequest();
+$jaxon->processRequest();
 </pre>
                     </div>
                 </div>
@@ -203,8 +203,8 @@ $xajax->processRequest();
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <?php
-    echo $xajax->getJs();
-    echo $xajax->getScript();
+    echo $jaxon->getJs();
+    echo $jaxon->getScript();
 ?>
 
 <?php require(__DIR__ . '/includes/footer.php') ?>

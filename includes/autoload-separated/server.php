@@ -1,10 +1,10 @@
 <?php
 
-require (__DIR__ . '/xajax.php');
+require (__DIR__ . '/jaxon.php');
 
 // Check if there is a request.
-if($xajax->canProcessRequest())
+if($jaxon->canProcessRequest())
 {
     // When processing a request, the required class will be autoloaded
-    $xajax->processRequest();
+    $jaxon->processRequest();
 }

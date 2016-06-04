@@ -13,7 +13,7 @@ $config['lib'] = array(
         'language' => 'en',
         'encoding' => 'UTF-8',
         'request' => array(
-            'uri' => 'codeigniter/xajax/process',
+            'uri' => 'codeigniter/jaxon/process',
         ),
         'prefix' => array(
             'class' => '',

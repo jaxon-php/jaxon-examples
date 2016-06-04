@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>Xajax Examples</title>
+    <title>Jaxon Examples</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
@@ -17,19 +17,19 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
-{XajaxCss}
+{JaxonCss}
 
 <script type='text/javascript'>
     /* <![CDATA[ */
     window.onload = function() {
         // call the helloWorld function to populate the div on load
-        Xajax.App.Test.Pgw.sayHello(0);
+        Jaxon.App.Test.Pgw.sayHello(0);
         // call the setColor function on load
-        Xajax.App.Test.Pgw.setColor(xajax.$('colorselect1').value);
+        Jaxon.App.Test.Pgw.setColor(jaxon.$('colorselect1').value);
         // Call the HelloWorld class to populate the 2nd div
-        Xajax.App.Test.Bts.sayHello(0);
+        Jaxon.App.Test.Bts.sayHello(0);
         // call the HelloWorld->setColor() method on load
-        Xajax.App.Test.Bts.setColor(xajax.$('colorselect2').value);
+        Jaxon.App.Test.Bts.setColor(jaxon.$('colorselect2').value);
     }
     /* ]]> */
 </script>
@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Xajax Examples</a>
+                <a class="navbar-brand" href="#">Jaxon Examples</a>
             </div>
         </div>
     </nav>
@@ -55,21 +55,21 @@
         <div class="row">
 <?php require(__DIR__ . '/menu.php') ?>
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <h3 class="page-header">Xajax CodeIgniter Plugin</h3>
+                <h3 class="page-header">Jaxon CodeIgniter Plugin</h3>
 
                 <div class="row">
                     <div class="col-sm-6 col-md-6 text">
 <p>
-This example shows the usage of the Xajax plugin for the CodeIgniter framework.
+This example shows the usage of the Jaxon plugin for the CodeIgniter framework.
 </p>
 <p>
-The plugin implements all the setup of the Xajax library, and let the user focus on writing Xajax classes for his application.
+The plugin implements all the setup of the Jaxon library, and let the user focus on writing Jaxon classes for his application.
 </p>
 <p>
-The behaviour of the Xajax library can be customized from a CodeIgniter-specific config file.
+The behaviour of the Jaxon library can be customized from a CodeIgniter-specific config file.
 </p>
 <p>
-By default, the Xajax plugin for CodeIgniter registers all classes in the application/xajax/ dir, with namespace \Xajax\App.
+By default, the Jaxon plugin for CodeIgniter registers all classes in the application/jaxon/ dir, with namespace \Jaxon\App.
 </p>
                     </div>
                     <div class="col-sm-6 col-md-6 demo">
@@ -78,7 +78,7 @@ By default, the Xajax plugin for CodeIgniter registers all classes in the applic
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="Xajax.App.Test.Pgw.setColor(xajax.$('colorselect1').value); return false;">
+                                    onchange="Jaxon.App.Test.Pgw.setColor(jaxon.$('colorselect1').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -86,9 +86,9 @@ By default, the Xajax plugin for CodeIgniter registers all classes in the applic
                             </select>
                         </div>
                         <div style="margin:10px;">
-                            <button class="btn btn-primary" onclick='Xajax.App.Test.Pgw.sayHello(0); return false;' >Click Me</button>
-                            <button class="btn btn-primary" onclick='Xajax.App.Test.Pgw.sayHello(1); return false;' >CLICK ME</button>
-                            <button class="btn btn-primary" onclick="Xajax.App.Test.Pgw.showDialog(); return false;" >Show PgwModal Dialog</button>
+                            <button class="btn btn-primary" onclick='Jaxon.App.Test.Pgw.sayHello(0); return false;' >Click Me</button>
+                            <button class="btn btn-primary" onclick='Jaxon.App.Test.Pgw.sayHello(1); return false;' >CLICK ME</button>
+                            <button class="btn btn-primary" onclick="Jaxon.App.Test.Pgw.showDialog(); return false;" >Show PgwModal Dialog</button>
                         </div>
 
                         <div style="margin:10px;" id="div2">
@@ -96,7 +96,7 @@ By default, the Xajax plugin for CodeIgniter registers all classes in the applic
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="Xajax.App.Test.Bts.setColor(xajax.$('colorselect2').value); return false;">
+                                    onchange="Jaxon.App.Test.Bts.setColor(jaxon.$('colorselect2').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -104,9 +104,9 @@ By default, the Xajax plugin for CodeIgniter registers all classes in the applic
                             </select>
                         </div>
                         <div style="margin:10px;">
-                            <button class="btn btn-primary" onclick="Xajax.App.Test.Bts.sayHello(0); return false;" >Click Me</button>
-                            <button class="btn btn-primary" onclick="Xajax.App.Test.Bts.sayHello(1); return false;" >CLICK ME</button>
-                            <button class="btn btn-primary" onclick="Xajax.App.Test.Bts.showDialog(); return false;" >Show Twitter Bootstrap Dialog</button>
+                            <button class="btn btn-primary" onclick="Jaxon.App.Test.Bts.sayHello(0); return false;" >Click Me</button>
+                            <button class="btn btn-primary" onclick="Jaxon.App.Test.Bts.sayHello(1); return false;" >CLICK ME</button>
+                            <button class="btn btn-primary" onclick="Jaxon.App.Test.Bts.showDialog(); return false;" >Show Twitter Bootstrap Dialog</button>
                         </div>
                     </div>
                 </div>
@@ -114,14 +114,14 @@ By default, the Xajax plugin for CodeIgniter registers all classes in the applic
                 <h4 class="page-header">How it works</h4>
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 xajax-export">
-<p>In this example we have two files Bts.php and Pgw.php in the app/Xajax/Controllers/Test/ directory.</p>
+                    <div class="col-sm-6 col-md-6 jaxon-export">
+<p>In this example we have two files Bts.php and Pgw.php in the app/Jaxon/Controllers/Test/ directory.</p>
 <pre>
-namespace Xajax\App\Test;
+namespace Jaxon\App\Test;
 
-use Xajax\CodeIgniter\Controller as XajaxController;
+use Jaxon\CodeIgniter\Controller as JaxonController;
 
-class Bts extends XajaxController
+class Bts extends JaxonController
 {
     public function sayHello($isCaps)
     {
@@ -156,11 +156,11 @@ class Bts extends XajaxController
 </pre>
 
 <pre>
-namespace Xajax\App\Test;
+namespace Jaxon\App\Test;
 
-use Xajax\CodeIgniter\Controller as XajaxController;
+use Jaxon\CodeIgniter\Controller as JaxonController;
 
-class Pgw extends XajaxController
+class Pgw extends JaxonController
 {
     public function sayHello($isCaps)
     {
@@ -194,47 +194,47 @@ class Pgw extends XajaxController
 }
 </pre>
                     </div>
-                    <div class="col-sm-6 col-md-6 xajax-code">
+                    <div class="col-sm-6 col-md-6 jaxon-code">
 <h5><b>Installation</b></h5>
 <p>
 Install the CodeIgniter framework, version 3.0 or above.
 </p>
 <p>
-Add the xajax-core, xajax-laravel and any other plugin package in the composer.json file, and run composer update.
+Add the jaxon-core, jaxon-laravel and any other plugin package in the composer.json file, and run composer update.
 </p>
 <p>
-Copy the content of the "app" dir in the xajax-laravel package in the "application" dir of the CodeIgniter install.<br/>
-This directory contains the Xajax library for CodeIgniter, the config file and a controller to process Xajax request.
+Copy the content of the "app" dir in the jaxon-laravel package in the "application" dir of the CodeIgniter install.<br/>
+This directory contains the Jaxon library for CodeIgniter, the config file and a controller to process Jaxon request.
 </p>
 <p>
-Make the application controller inherit from <em>Xajax_Controller</em>.<br/>
-Call <em>$this->xajax->register()</em> to register all the Xajax classes. Then, call <em>$this->xajax->css()</em>,
-<em>$this->xajax->js()</em> and <em>$this->xajax->script()</em> to get the code generated by Xajax.
+Make the application controller inherit from <em>Jaxon_Controller</em>.<br/>
+Call <em>$this->jaxon->register()</em> to register all the Jaxon classes. Then, call <em>$this->jaxon->css()</em>,
+<em>$this->jaxon->js()</em> and <em>$this->jaxon->script()</em> to get the code generated by Jaxon.
 </p>
 
-<h5><b>The Xajax controllers</b></h5>
+<h5><b>The Jaxon controllers</b></h5>
 <p>
-This is the main Xajax controller.
+This is the main Jaxon controller.
 </p>
 <pre>
-class Xajax_Controller extends CI_Controller
+class Jaxon_Controller extends CI_Controller
 {
-    public $xajax = null;
+    public $jaxon = null;
 
     public function __construct()
     {
         parent::__construct();
-        // Setup the Xajax library
-        $this->load->library('xajax');
-        $this->xajax->setup();
+        // Setup the Jaxon library
+        $this->load->library('jaxon');
+        $this->jaxon->setup();
     }
 }
 </pre>
 <p>
-This controller is located in the <em>application/xajax</em> subdir, and processes Xajax requests.
+This controller is located in the <em>application/jaxon</em> subdir, and processes Jaxon requests.
 </p>
 <pre>
-class Process extends Xajax_Controller
+class Process extends Jaxon_Controller
 {
     public function __construct()
     {
@@ -243,10 +243,10 @@ class Process extends Xajax_Controller
 
     public function index()
     {
-        // Process the Xajax request
-        if($this->xajax->canProcessRequest())
+        // Process the Jaxon request
+        if($this->jaxon->canProcessRequest())
         {
-            $this->xajax->processRequest();
+            $this->jaxon->processRequest();
         }
     }
 }
@@ -254,10 +254,10 @@ class Process extends Xajax_Controller
 
 <h5><b>The application controller</b></h5>
 <p>
-This controller prints the application page with Xajax code included.
+This controller prints the application page with Jaxon code included.
 </p>
 <pre>
-class Demo extends Xajax_Controller
+class Demo extends Jaxon_Controller
 {
     public function __construct()
     {
@@ -266,24 +266,24 @@ class Demo extends Xajax_Controller
 
     public function index()
     {
-        // Register the Xajax classes
-        $this->xajax->register();
+        // Register the Jaxon classes
+        $this->jaxon->register();
         // Print the page
         $this->load->library('parser');
         $this->parser->parse('index', array(
-            'XajaxCss' => $this->xajax->css(),
-            'XajaxJs' => $this->xajax->js(),
-            'XajaxScript' => $this->xajax->script()
+            'JaxonCss' => $this->jaxon->css(),
+            'JaxonJs' => $this->jaxon->js(),
+            'JaxonScript' => $this->jaxon->script()
         ));
     }
 }
 </pre>
 
 <h5><b>Configuration</b></h5>
-<p>The config file is located at <em>application/config/xajax.php</em></p>
+<p>The config file is located at <em>application/config/jaxon.php</em></p>
 <p>
 The config options are separated into two entries. The <em>lib</em> entry provides the options for
-the Xajax library, while the <em>app</em> entry provides the options for the CodeIgniter application.
+the Jaxon library, while the <em>app</em> entry provides the options for the CodeIgniter application.
 </p>
 <pre>
 $config['app'] = array(
@@ -296,7 +296,7 @@ $config['lib'] = array(
         'language' => 'en',
         'encoding' => 'UTF-8',
         'request' => array(
-            'uri' => 'xajax/process',
+            'uri' => 'jaxon/process',
         ),
         'prefix' => array(
             'class' => '',
@@ -336,9 +336,9 @@ $config['lib'] = array(
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-{XajaxJs}
+{JaxonJs}
 
-{XajaxScript}
+{JaxonScript}
 
 <?php require(__DIR__ . '/footer.php') ?>
 </body>

@@ -2,13 +2,13 @@
 
 namespace App\Test;
 
-use Xajax\Response\Response;
-use Xajax\Request\Factory as xr;
+use Jaxon\Response\Response;
+use Jaxon\Request\Factory as xr;
 
 class Test
 {
-    use \Xajax\Request\FactoryTrait;
-    use \Xajax\Response\FactoryTrait;
+    use \Jaxon\Request\FactoryTrait;
+    use \Jaxon\Response\FactoryTrait;
 
     public function sayHello($isCaps)
     {

@@ -14,5 +14,5 @@
 // Route to demo page
 Route::get('/', array('as' => 'demo', 'uses' => 'DemoController@index'));
 
-// Route to Xajax request processor
-Route::post('/laravel/xajax', array('as' => 'xajax', 'uses' => 'XajaxController@process'));
+// Route to Jaxon request processor
+Route::post('/laravel/jaxon', array('as' => 'jaxon', 'uses' => 'JaxonController@process'));

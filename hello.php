@@ -2,14 +2,14 @@
 
 require (__DIR__ . '/vendor/autoload.php');
 
-use Xajax\Xajax;
-use Xajax\Response\Response;
-use Xajax\Request\Factory as xr;
+use Jaxon\Jaxon;
+use Jaxon\Response\Response;
+use Jaxon\Request\Factory as xr;
 
-$xajax = Xajax::getInstance();
+$jaxon = Jaxon::getInstance();
 
-$xajax->setOption('core.debug.on', false);
-$xajax->setOption('core.prefix.function', 'xajax_');
+$jaxon->setOption('core.debug.on', false);
+$jaxon->setOption('core.prefix.function', 'jaxon_');
 
 /*
     Function: helloWorld
@@ -43,11 +43,11 @@ function setColor($sColor)
 }
 
 // Register functions
-$xajax->register(Xajax::USER_FUNCTION, 'helloWorld');
-$xajax->register(Xajax::USER_FUNCTION, 'setColor');
+$jaxon->register(Jaxon::USER_FUNCTION, 'helloWorld');
+$jaxon->register(Jaxon::USER_FUNCTION, 'setColor');
 
 // Process the request, if any.
-$xajax->processRequest();
+$jaxon->processRequest();
 
 ?>
 <!DOCTYPE html>
@@ -61,7 +61,7 @@ $xajax->processRequest();
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>Xajax Examples</title>
+    <title>Jaxon Examples</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
@@ -70,7 +70,7 @@ $xajax->processRequest();
     <link href="css/style.css" rel="stylesheet">
 
 <?php
-    echo $xajax->getCss();
+    echo $jaxon->getCss();
 ?>
 <script type='text/javascript'>
     /* <![CDATA[ */
@@ -95,7 +95,7 @@ $xajax->processRequest();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Xajax Examples</a>
+                <a class="navbar-brand" href="#">Jaxon Examples</a>
             </div>
         </div>
     </nav>
@@ -109,7 +109,7 @@ $xajax->processRequest();
                 <div class="row">
                     <div class="col-sm-6 col-md-6 text">
 <p>
-This example shows how to export a function with Xajax.
+This example shows how to export a function with Jaxon.
 </p>
                     </div>
                     <div class="col-sm-6 col-md-6 demo">
@@ -135,8 +135,8 @@ This example shows how to export a function with Xajax.
                 <h4 class="page-header">How it works</h4>
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 xajax">
-<p>The Xajax functions</p>
+                    <div class="col-sm-6 col-md-6 jaxon">
+<p>The Jaxon functions</p>
 <pre>
 function helloWorld($isCaps)
 {
@@ -160,30 +160,30 @@ function setColor($sColor)
 }
 </pre>
                     </div>
-                    <div class="col-sm-6 col-md-6 xajax-code">
+                    <div class="col-sm-6 col-md-6 jaxon-code">
 <p>The javascript event bindings</p>
 <pre>
 // Select
-&lt;select onchange="xajax_setColor(xajax.$('colorselect').value); return false;"&gt;
+&lt;select onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 // Buttons
-&lt;button onclick="xajax_helloWorld(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="xajax_helloWorld(1); return false;"&gt;CLICK ME&lt;/button&gt;
+&lt;button onclick="jaxon_helloWorld(0); return false;"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="jaxon_helloWorld(1); return false;"&gt;CLICK ME&lt;/button&gt;
 </pre>
 
 <p>The PHP function registrations</p>
 <pre>
-$xajax = Xajax::getInstance();
+$jaxon = Jaxon::getInstance();
 
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', 'xajax_');
+// $jaxon->setOption('core.debug.on', true);
+$jaxon->setOption('core.prefix.class', 'jaxon_');
 
 // Register functions
-$xajax->register(Xajax::USER_FUNCTION, 'helloWorld');
-$xajax->register(Xajax::USER_FUNCTION, 'setColor');
+$jaxon->register(Jaxon::USER_FUNCTION, 'helloWorld');
+$jaxon->register(Jaxon::USER_FUNCTION, 'setColor');
 
 // Process the request, if any.
-$xajax->processRequest();
+$jaxon->processRequest();
 </pre>
                     </div>
                 </div>
@@ -198,8 +198,8 @@ $xajax->processRequest();
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <?php
-    echo $xajax->getJs();
-    echo $xajax->getScript();
+    echo $jaxon->getJs();
+    echo $jaxon->getScript();
 ?>
 
 <?php require(__DIR__ . '/includes/footer.php') ?>

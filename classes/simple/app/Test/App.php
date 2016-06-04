@@ -1,11 +1,11 @@
 <?php
 
-use Xajax\Response\Response;
+use Jaxon\Response\Response;
 
 class App
 {
-    use \Xajax\Request\FactoryTrait;
-    use \Xajax\Response\FactoryTrait;
+    use \Jaxon\Request\FactoryTrait;
+    use \Jaxon\Response\FactoryTrait;
 
     public function sayHello($isCaps)
     {

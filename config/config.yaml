@@ -1,9 +1,9 @@
-xajax:
+jaxon:
   core:
     debug:
       on:                          true
     prefix:
-      class:                       "Xajax"
+      class:                       "Jaxon"
   
   toastr:
     options:

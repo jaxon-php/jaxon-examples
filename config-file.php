@@ -2,11 +2,11 @@
 
 require (__DIR__ . '/vendor/autoload.php');
 
-use Xajax\Xajax;
-use Xajax\Response\Response;
-use Xajax\Request\Factory as xr;
+use Jaxon\Jaxon;
+use Jaxon\Response\Response;
+use Jaxon\Request\Factory as xr;
 
-\Xajax\Config\Yaml::read(__DIR__ . '/config/config.yaml', 'xajax');
+\Jaxon\Config\Yaml::read(__DIR__ . '/config/config.yaml', 'jaxon');
 
 class HelloWorld
 {
@@ -55,11 +55,11 @@ class HelloWorld
 }
 
 // Register object
-$xajax = Xajax::getInstance();
-$xajax->register(Xajax::CALLABLE_OBJECT, new HelloWorld());
+$jaxon = Jaxon::getInstance();
+$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
-$xajax->processRequest();
+$jaxon->processRequest();
 
 ?>
 <!DOCTYPE html>
@@ -73,7 +73,7 @@ $xajax->processRequest();
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>Xajax Examples</title>
+    <title>Jaxon Examples</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
@@ -82,7 +82,7 @@ $xajax->processRequest();
     <link href="css/style.css" rel="stylesheet">
 
 <?php
-    echo $xajax->getCss();
+    echo $jaxon->getCss();
 ?>
 <script type='text/javascript'>
     /* <![CDATA[ */
@@ -107,7 +107,7 @@ $xajax->processRequest();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Xajax Examples</a>
+                <a class="navbar-brand" href="#">Jaxon Examples</a>
             </div>
         </div>
     </nav>
@@ -125,7 +125,7 @@ This example features the same code as the Plugins Usage example, excepted that 
 </p>
 <p>
 When loading settings from a file, a second parameter can be added to make the library load the options from a particular section of the file.
-In this example, the config options are under the "xajax" section of the file.
+In this example, the config options are under the "jaxon" section of the file.
 </p>
                         </div>
                     <div class="col-sm-6 col-md-6 demo">
@@ -156,8 +156,8 @@ In this example, the config options are under the "xajax" section of the file.
                 <h4 class="page-header">How it works</h4>
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 xajax-export">
-<p>The Xajax class</p>
+                    <div class="col-sm-6 col-md-6 jaxon-export">
+<p>The Jaxon class</p>
 <pre>
 class HelloWorld
 {
@@ -205,40 +205,40 @@ class HelloWorld
 }
 </pre>
                     </div>
-                    <div class="col-sm-6 col-md-6 xajax-code">
+                    <div class="col-sm-6 col-md-6 jaxon-code">
 <p>The javascript event bindings</p>
 <pre>
 // Select
-&lt;select onchange="XajaxHelloWorld.setColor(xajax.$('colorselect').value); return false;"&gt;
+&lt;select onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 // Buttons
-&lt;button onclick="XajaxHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
-&lt;button onclick="XajaxHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
+&lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
+&lt;button onclick="JaxonHelloWorld.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
 
-&lt;button onclick="XajaxHelloWorld.showPgwDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
-&lt;button onclick="XajaxHelloWorld.showTbDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
+&lt;button onclick="JaxonHelloWorld.showPgwDialog(); return false;"&gt;Show PgwModal Dialog&lt;/button&gt;
+&lt;button onclick="JaxonHelloWorld.showTbDialog(); return false;"&gt;Show Twitter Bootstrap Dialog&lt;/button&gt;
 </pre>
 
 <p>The PHP object registrations</p>
 <pre>
-\Xajax\Config\Yaml::read(__DIR__ . '/config/config.yaml', 'xajax');
+\Jaxon\Config\Yaml::read(__DIR__ . '/config/config.yaml', 'jaxon');
 
 // Register object
-$xajax = Xajax::getInstance();
-$xajax->register(Xajax::CALLABLE_OBJECT, new HelloWorld());
+$jaxon = Jaxon::getInstance();
+$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
-$xajax->processRequest();
+$jaxon->processRequest();
 </pre>
 
 <p>The Yaml config file</p>
 <pre>
-xajax:
+jaxon:
   core:
     debug:
       on:                          true
     prefix:
-      class:                       "Xajax"
+      class:                       "Jaxon"
   
   toastr:
     options:
@@ -270,8 +270,8 @@ xajax:
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <?php
-    echo $xajax->getJs();
-    echo $xajax->getScript();
+    echo $jaxon->getJs();
+    echo $jaxon->getScript();
 ?>
 
 <?php require(__DIR__ . '/includes/footer.php') ?>

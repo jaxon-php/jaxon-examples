@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>Xajax Examples</title>
+    <title>Jaxon Examples</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
@@ -17,19 +17,19 @@
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
 
-{!! $XajaxCss !!}
+{!! $JaxonCss !!}
 
 <script type='text/javascript'>
     /* <![CDATA[ */
     window.onload = function() {
         // call the helloWorld function to populate the div on load
-        Xajax.App.Test.Pgw.sayHello(0);
+        Jaxon.App.Test.Pgw.sayHello(0);
         // call the setColor function on load
-        Xajax.App.Test.Pgw.setColor(xajax.$('colorselect1').value);
+        Jaxon.App.Test.Pgw.setColor(jaxon.$('colorselect1').value);
         // Call the HelloWorld class to populate the 2nd div
-        Xajax.App.Test.Bts.sayHello(0);
+        Jaxon.App.Test.Bts.sayHello(0);
         // call the HelloWorld->setColor() method on load
-        Xajax.App.Test.Bts.setColor(xajax.$('colorselect2').value);
+        Jaxon.App.Test.Bts.setColor(jaxon.$('colorselect2').value);
     }
     /* ]]> */
 </script>
@@ -46,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Xajax Examples</a>
+                <a class="navbar-brand" href="#">Jaxon Examples</a>
             </div>
         </div>
     </nav>
@@ -55,21 +55,21 @@
         <div class="row">
 @include('menu')
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                <h3 class="page-header">Xajax Laravel Plugin</h3>
+                <h3 class="page-header">Jaxon Laravel Plugin</h3>
 
                 <div class="row">
                     <div class="col-sm-6 col-md-6 text">
 <p>
-This example shows the usage of the Xajax plugin for the Laravel framework.
+This example shows the usage of the Jaxon plugin for the Laravel framework.
 </p>
 <p>
-The plugin implements all the setup of the Xajax library, and let the user focus on writing Xajax classes for his application.
+The plugin implements all the setup of the Jaxon library, and let the user focus on writing Jaxon classes for his application.
 </p>
 <p>
-The behaviour of the Xajax library can be customized from a Laravel-specific config file.
+The behaviour of the Jaxon library can be customized from a Laravel-specific config file.
 </p>
 <p>
-By default, the Xajax plugin for Laravel registers all classes in the app/Xajax/Controllers/ dir, with namespace \Xajax\App.
+By default, the Jaxon plugin for Laravel registers all classes in the app/Jaxon/Controllers/ dir, with namespace \Jaxon\App.
 </p>
 
                     </div>
@@ -79,7 +79,7 @@ By default, the Xajax plugin for Laravel registers all classes in the app/Xajax/
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="Xajax.App.Test.Pgw.setColor(xajax.$('colorselect1').value); return false;">
+                                    onchange="Jaxon.App.Test.Pgw.setColor(jaxon.$('colorselect1').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -87,9 +87,9 @@ By default, the Xajax plugin for Laravel registers all classes in the app/Xajax/
                             </select>
                         </div>
                         <div style="margin:10px;">
-                            <button class="btn btn-primary" onclick='Xajax.App.Test.Pgw.sayHello(0); return false;' >Click Me</button>
-                            <button class="btn btn-primary" onclick='Xajax.App.Test.Pgw.sayHello(1); return false;' >CLICK ME</button>
-                            <button class="btn btn-primary" onclick="Xajax.App.Test.Pgw.showDialog(); return false;" >Show PgwModal Dialog</button>
+                            <button class="btn btn-primary" onclick='Jaxon.App.Test.Pgw.sayHello(0); return false;' >Click Me</button>
+                            <button class="btn btn-primary" onclick='Jaxon.App.Test.Pgw.sayHello(1); return false;' >CLICK ME</button>
+                            <button class="btn btn-primary" onclick="Jaxon.App.Test.Pgw.showDialog(); return false;" >Show PgwModal Dialog</button>
                         </div>
 
                         <div style="margin:10px;" id="div2">
@@ -97,7 +97,7 @@ By default, the Xajax plugin for Laravel registers all classes in the app/Xajax/
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="Xajax.App.Test.Bts.setColor(xajax.$('colorselect2').value); return false;">
+                                    onchange="Jaxon.App.Test.Bts.setColor(jaxon.$('colorselect2').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -105,9 +105,9 @@ By default, the Xajax plugin for Laravel registers all classes in the app/Xajax/
                             </select>
                         </div>
                         <div style="margin:10px;">
-                            <button class="btn btn-primary" onclick="Xajax.App.Test.Bts.sayHello(0); return false;" >Click Me</button>
-                            <button class="btn btn-primary" onclick="Xajax.App.Test.Bts.sayHello(1); return false;" >CLICK ME</button>
-                            <button class="btn btn-primary" onclick="Xajax.App.Test.Bts.showDialog(); return false;" >Show Twitter Bootstrap Dialog</button>
+                            <button class="btn btn-primary" onclick="Jaxon.App.Test.Bts.sayHello(0); return false;" >Click Me</button>
+                            <button class="btn btn-primary" onclick="Jaxon.App.Test.Bts.sayHello(1); return false;" >CLICK ME</button>
+                            <button class="btn btn-primary" onclick="Jaxon.App.Test.Bts.showDialog(); return false;" >Show Twitter Bootstrap Dialog</button>
                         </div>
                     </div>
                 </div>
@@ -115,15 +115,15 @@ By default, the Xajax plugin for Laravel registers all classes in the app/Xajax/
                 <h4 class="page-header">How it works</h4>
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 xajax-export">
+                    <div class="col-sm-6 col-md-6 jaxon-export">
 
-<p>In this example we have two files Bts.php and Pgw.php in the app/Xajax/Controllers/Test/ directory.</p>
+<p>In this example we have two files Bts.php and Pgw.php in the app/Jaxon/Controllers/Test/ directory.</p>
 <pre>
-namespace Xajax\App\Test;
+namespace Jaxon\App\Test;
 
-use Xajax\Laravel\Controller as XajaxController;
+use Jaxon\Laravel\Controller as JaxonController;
 
-class Bts extends XajaxController
+class Bts extends JaxonController
 {
     public function sayHello($isCaps)
     {
@@ -158,11 +158,11 @@ class Bts extends XajaxController
 </pre>
 
 <pre>
-namespace Xajax\App\Test;
+namespace Jaxon\App\Test;
 
-use Xajax\Laravel\Controller as XajaxController;
+use Jaxon\Laravel\Controller as JaxonController;
 
-class Pgw extends XajaxController
+class Pgw extends JaxonController
 {
     public function sayHello($isCaps)
     {
@@ -196,34 +196,34 @@ class Pgw extends XajaxController
 }
 </pre>
                     </div>
-                    <div class="col-sm-6 col-md-6 xajax-code">
+                    <div class="col-sm-6 col-md-6 jaxon-code">
 <h5><b>Installation</b></h5>
 <p>
 Install the Laravel framework, version 5.1 or above.
 </p>
 <p>
-Add the xajax-core, xajax-laravel and any other plugin package in the composer.json file, and run composer update.
+Add the jaxon-core, jaxon-laravel and any other plugin package in the composer.json file, and run composer update.
 </p>
 <p>
-Copy the content of the "app" dir in the xajax-laravel package in the "app" dir of the Laravel install.<br/>
-This directory contains a controller to process Xajax request, and a route to send Xajax requests to this controller.
+Copy the content of the "app" dir in the jaxon-laravel package in the "app" dir of the Laravel install.<br/>
+This directory contains a controller to process Jaxon request, and a route to send Jaxon requests to this controller.
 </p>
 <p>
-Add <em>Xajax\Laravel\XajaxServiceProvider::class</em> in the <em>providers</em> entry in the config/app.php file.<br/>
-Add <em>'LaravelXajax' => Xajax\Laravel\Facades\Xajax::class</em> in the <em>aliases</em> entry in the config/app.php file.
+Add <em>Jaxon\Laravel\JaxonServiceProvider::class</em> in the <em>providers</em> entry in the config/app.php file.<br/>
+Add <em>'LaravelJaxon' => Jaxon\Laravel\Facades\Jaxon::class</em> in the <em>aliases</em> entry in the config/app.php file.
 </p>
 <p>
-Make the application controller inherit from <em>XajaxController</em>.<br/>
-Call <em>LaravelXajax::register()</em> to register all the Xajax classes. Then, call <em>LaravelXajax::css()</em>,
-<em>LaravelXajax::js()</em> and <em>LaravelXajax::script()</em> to get the code generated by Xajax.
+Make the application controller inherit from <em>JaxonController</em>.<br/>
+Call <em>LaravelJaxon::register()</em> to register all the Jaxon classes. Then, call <em>LaravelJaxon::css()</em>,
+<em>LaravelJaxon::js()</em> and <em>LaravelJaxon::script()</em> to get the code generated by Jaxon.
 </p>
 
-<h5><b>The Xajax controller</b></h5>
+<h5><b>The Jaxon controller</b></h5>
 <p>
-This controller processes Xajax requests.
+This controller processes Jaxon requests.
 </p>
 <pre>
-class XajaxController extends Controller
+class JaxonController extends Controller
 {
     public function __construct()
     {
@@ -232,10 +232,10 @@ class XajaxController extends Controller
 
     public function process()
     {
-        // Process Xajax request
-        if(\LaravelXajax::canProcessRequest())
+        // Process Jaxon request
+        if(\LaravelJaxon::canProcessRequest())
         {
-            \LaravelXajax::processRequest();
+            \LaravelJaxon::processRequest();
         }
     }
 }
@@ -243,7 +243,7 @@ class XajaxController extends Controller
 
 <h5><b>The application controller</b></h5>
 <p>
-This controller prints the application page with Xajax code included.
+This controller prints the application page with Jaxon code included.
 </p>
 <pre>
 class DemoController extends Controller
@@ -255,28 +255,28 @@ class DemoController extends Controller
 
     public function index()
     {
-        // Register the Xajax classes
-        \LaravelXajax::register();
+        // Register the Jaxon classes
+        \LaravelJaxon::register();
         // Print the page
         return view('index', array(
-            'XajaxCss' => \LaravelXajax::css(),
-            'XajaxJs' => \LaravelXajax::js(),
-            'XajaxScript' => \LaravelXajax::script()
+            'JaxonCss' => \LaravelJaxon::css(),
+            'JaxonJs' => \LaravelJaxon::js(),
+            'JaxonScript' => \LaravelJaxon::script()
         ));
     }
 }
 </pre>
 
 <h5><b>Configuration</b></h5>
-<p>The config file is located at <em>config/xajax.php</em></p>
+<p>The config file is located at <em>config/jaxon.php</em></p>
 <p>
 The config options are separated into two entries. The <em>lib</em> entry provides the options for
-the Xajax library, while the <em>app</em> entry provides the options for the Laravel application.
+the Jaxon library, while the <em>app</em> entry provides the options for the Laravel application.
 </p>
 <pre>
 return array(
     'app' => array(
-        // 'route' => 'xajax',
+        // 'route' => 'jaxon',
         // 'namespace' => '',
         // 'controllers' => '',
         // 'excluded' => [],
@@ -286,7 +286,7 @@ return array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-                'uri' => '/xajax',
+                'uri' => '/jaxon',
             ),
             'prefix' => array(
                 'class' => '',
@@ -326,9 +326,9 @@ return array(
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
-{!! $XajaxJs !!}
+{!! $JaxonJs !!}
 
-{!! $XajaxScript !!}
+{!! $JaxonScript !!}
 
 @include('footer')
 </body>

@@ -13,13 +13,13 @@ class DemoController extends Controller
 
     public function index()
     {
-        // Register the Xajax classes
-        \LaravelXajax::register();
+        // Register the Jaxon classes
+        \LaravelJaxon::register();
         // Print the page
         return view('index', array(
-            'XajaxCss' => \LaravelXajax::css(),
-            'XajaxJs' => \LaravelXajax::js(),
-            'XajaxScript' => \LaravelXajax::script()
+            'JaxonCss' => \LaravelJaxon::css(),
+            'JaxonJs' => \LaravelJaxon::js(),
+            'JaxonScript' => \LaravelJaxon::script()
         ));
     }
 }

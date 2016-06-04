@@ -2,26 +2,26 @@
 
 require (__DIR__ . '/vendor/autoload.php');
 
-use Xajax\Xajax;
-use Xajax\Response\Response;
+use Jaxon\Jaxon;
+use Jaxon\Response\Response;
 
-$xajax = Xajax::getInstance();
+$jaxon = Jaxon::getInstance();
 
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', '');
+// $jaxon->setOption('core.debug.on', true);
+$jaxon->setOption('core.prefix.class', '');
 
-$xajax->setOption('toastr.options.closeButton', true);
-$xajax->setOption('toastr.options.positionClass', 'toast-bottom-left');
+$jaxon->setOption('toastr.options.closeButton', true);
+$jaxon->setOption('toastr.options.positionClass', 'toast-bottom-left');
 
 // Add class dirs
-$xajax->addClassDir(__DIR__ . '/classes/simple/app');
-$xajax->addClassDir(__DIR__ . '/classes/simple/ext');
+$jaxon->addClassDir(__DIR__ . '/classes/simple/app');
+$jaxon->addClassDir(__DIR__ . '/classes/simple/ext');
 
 // Register objects
-$xajax->registerClasses();
+$jaxon->registerClasses();
 
 // Process the request, if any.
-$xajax->processRequest();
+$jaxon->processRequest();
 
 ?>
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ $xajax->processRequest();
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>Xajax Examples</title>
+    <title>Jaxon Examples</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@ $xajax->processRequest();
     <link href="css/style.css" rel="stylesheet">
 
 <?php
-    echo $xajax->getCss();
+    echo $jaxon->getCss();
 ?>
 <script type='text/javascript'>
     /* <![CDATA[ */
@@ -52,11 +52,11 @@ $xajax->processRequest();
         // call the helloWorld function to populate the div on load
         Test.App.sayHello(0);
         // call the setColor function on load
-        Test.App.setColor(xajax.$('colorselect1').value);
+        Test.App.setColor(jaxon.$('colorselect1').value);
         // Call the HelloWorld class to populate the 2nd div
         Test.Ext.sayHello(0);
         // call the HelloWorld->setColor() method on load
-        Test.Ext.setColor(xajax.$('colorselect2').value);
+        Test.Ext.setColor(jaxon.$('colorselect2').value);
     }
     /* ]]> */
 </script>
@@ -73,7 +73,7 @@ $xajax->processRequest();
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Xajax Examples</a>
+                <a class="navbar-brand" href="#">Jaxon Examples</a>
             </div>
         </div>
     </nav>
@@ -99,7 +99,7 @@ The classes in this example are not namespaced, thus they all need to have diffe
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                onchange="Test.App.setColor(xajax.$('colorselect1').value); return false;">
+                                onchange="Test.App.setColor(jaxon.$('colorselect1').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -117,7 +117,7 @@ The classes in this example are not namespaced, thus they all need to have diffe
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                onchange="Test.Ext.setColor(xajax.$('colorselect2').value); return false;">
+                                onchange="Test.Ext.setColor(jaxon.$('colorselect2').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -135,10 +135,10 @@ The classes in this example are not namespaced, thus they all need to have diffe
                 <h4 class="page-header">How it works</h4>
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 xajax-export">
-<p>The Xajax class in the file ./classes/simple/app/Test/App.php</p>
+                    <div class="col-sm-6 col-md-6 jaxon-export">
+<p>The Jaxon class in the file ./classes/simple/app/Test/App.php</p>
 <pre>
-use Xajax\Response\Response;
+use Jaxon\Response\Response;
 
 class App
 {
@@ -173,9 +173,9 @@ class App
 }
 </pre>
 
-<p>The Xajax class in the file ./classes/simple/ext/Test/Ext.php</p>
+<p>The Jaxon class in the file ./classes/simple/ext/Test/Ext.php</p>
 <pre>
-use Xajax\Response\Response;
+use Jaxon\Response\Response;
 
 class Ext
 {
@@ -210,11 +210,11 @@ class Ext
 }
 </pre>
                     </div>
-                    <div class="col-sm-6 col-md-6 xajax-code">
+                    <div class="col-sm-6 col-md-6 jaxon-code">
 <p>The javascript event bindings</p>
 <pre>
 // Select
-&lt;select onchange="Test.App.setColor(xajax.$('colorselect').value); return false;"&gt;
+&lt;select onchange="Test.App.setColor(jaxon.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 
 // Buttons
@@ -222,7 +222,7 @@ class Ext
 &lt;button onclick="Test.App.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
 
 // Select
-&lt;select onchange="Test.Ext.setColor(xajax.$('colorselect').value); return false;"&gt;
+&lt;select onchange="Test.Ext.setColor(jaxon.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 
 // Buttons
@@ -235,20 +235,20 @@ class Ext
 
 <p>The PHP object registrations</p>
 <pre>
-$xajax = Xajax::getInstance();
+$jaxon = Jaxon::getInstance();
 
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', '');
+// $jaxon->setOption('core.debug.on', true);
+$jaxon->setOption('core.prefix.class', '');
 
 // Add class dirs
-$xajax->addClassDir(__DIR__ . '/classes/simple/app');
-$xajax->addClassDir(__DIR__ . '/classes/simple/ext');
+$jaxon->addClassDir(__DIR__ . '/classes/simple/app');
+$jaxon->addClassDir(__DIR__ . '/classes/simple/ext');
 
 // Register objects
-$xajax->registerClasses();
+$jaxon->registerClasses();
 
 // Process the request, if any.
-$xajax->processRequest();
+$jaxon->processRequest();
 </pre>
                     </div>
                 </div>
@@ -263,8 +263,8 @@ $xajax->processRequest();
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <?php
-    echo $xajax->getJs();
-    echo $xajax->getScript();
+    echo $jaxon->getJs();
+    echo $jaxon->getScript();
 ?>
 
 <?php require(__DIR__ . '/includes/footer.php') ?>

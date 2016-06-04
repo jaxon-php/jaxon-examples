@@ -2,19 +2,19 @@
 
 require (__DIR__ . '/vendor/autoload.php');
 
-use Xajax\Xajax;
-use Xajax\Response\Response;
+use Jaxon\Jaxon;
+use Jaxon\Response\Response;
 
-$xajax = Xajax::getInstance();
+$jaxon = Jaxon::getInstance();
 
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', '');
+// $jaxon->setOption('core.debug.on', true);
+$jaxon->setOption('core.prefix.class', '');
 
-$xajax->setOption('toastr.options.closeButton', true);
-$xajax->setOption('toastr.options.positionClass', 'toast-bottom-left');
+$jaxon->setOption('toastr.options.closeButton', true);
+$jaxon->setOption('toastr.options.positionClass', 'toast-bottom-left');
 
 // Disable autoload
-$xajax->disableAutoload();
+$jaxon->disableAutoload();
 
 // Register the namespaces with a third-party autoloader
 $loader = new Keradus\Psr4Autoloader;
@@ -23,19 +23,19 @@ $loader->addNamespace('App', __DIR__ . '/classes/namespace/app');
 $loader->addNamespace('Ext', __DIR__ . '/classes/namespace/ext');
 
 // Add class dirs with namespaces
-$xajax->addClassDir(__DIR__ . '/classes/namespace/app', 'App');
-$xajax->addClassDir(__DIR__ . '/classes/namespace/ext', 'Ext');
+$jaxon->addClassDir(__DIR__ . '/classes/namespace/app', 'App');
+$jaxon->addClassDir(__DIR__ . '/classes/namespace/ext', 'Ext');
 
 // Check if there is a request.
-if($xajax->canProcessRequest())
+if($jaxon->canProcessRequest())
 {
     // When processing a request, the required class will be autoloaded
-    $xajax->processRequest();
+    $jaxon->processRequest();
 }
 else
 {
-    // The Xajax objects are registered only when the page is loaded
-    $xajax->registerClasses();
+    // The Jaxon objects are registered only when the page is loaded
+    $jaxon->registerClasses();
 }
 
 ?>
@@ -50,7 +50,7 @@ else
     <meta name="author" content="">
     <link rel="icon" href="/favicon.ico">
 
-    <title>Xajax Examples</title>
+    <title>Jaxon Examples</title>
 
     <!-- Bootstrap core CSS -->
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +59,7 @@ else
     <link href="css/style.css" rel="stylesheet">
 
 <?php
-    echo $xajax->getCss();
+    echo $jaxon->getCss();
 ?>
 <script type='text/javascript'>
     /* <![CDATA[ */
@@ -67,11 +67,11 @@ else
         // call the helloWorld function to populate the div on load
         App.Test.Test.sayHello(0);
         // call the setColor function on load
-        App.Test.Test.setColor(xajax.$('colorselect1').value);
+        App.Test.Test.setColor(jaxon.$('colorselect1').value);
         // Call the HelloWorld class to populate the 2nd div
         Ext.Test.Test.sayHello(0);
         // call the HelloWorld->setColor() method on load
-        Ext.Test.Test.setColor(xajax.$('colorselect2').value);
+        Ext.Test.Test.setColor(jaxon.$('colorselect2').value);
     }
     /* ]]> */
 </script>
@@ -88,7 +88,7 @@ else
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Xajax Examples</a>
+                <a class="navbar-brand" href="#">Jaxon Examples</a>
             </div>
         </div>
     </nav>
@@ -102,10 +102,10 @@ else
                 <div class="row">
                     <div class="col-sm-6 col-md-6 text">
 <p>
-In this example the autoloading is disabled in the Xajax library.
+In this example the autoloading is disabled in the Jaxon library.
 </p>
 <p>
-A third-party autoloader is used to load the Xajax classes.
+A third-party autoloader is used to load the Jaxon classes.
 </p>
                     </div>
                     <div class="col-sm-6 col-md-6 demo">
@@ -114,7 +114,7 @@ A third-party autoloader is used to load the Xajax classes.
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="App.Test.Test.setColor(xajax.$('colorselect1').value); return false;">
+                                    onchange="App.Test.Test.setColor(jaxon.$('colorselect1').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -132,7 +132,7 @@ A third-party autoloader is used to load the Xajax classes.
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="Ext.Test.Test.setColor(xajax.$('colorselect2').value); return false;">
+                                    onchange="Ext.Test.Test.setColor(jaxon.$('colorselect2').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -150,12 +150,12 @@ A third-party autoloader is used to load the Xajax classes.
                 <h4 class="page-header">How it works</h4>
 
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 xajax-export">
-<p>The Xajax class in the file ./classes/namespace/app/Test/Test.php</p>
+                    <div class="col-sm-6 col-md-6 jaxon-export">
+<p>The Jaxon class in the file ./classes/namespace/app/Test/Test.php</p>
 <pre>
 namespace App\Test;
 
-use Xajax\Response\Response;
+use Jaxon\Response\Response;
 
 class Test
 {
@@ -190,11 +190,11 @@ class Test
 }
 </pre>
 
-<p>The Xajax class in the file ./classes/namespace/ext/Test/Test.php</p>
+<p>The Jaxon class in the file ./classes/namespace/ext/Test/Test.php</p>
 <pre>
 namespace Ext\Test;
 
-use Xajax\Response\Response;
+use Jaxon\Response\Response;
 
 class Test
 {
@@ -229,11 +229,11 @@ class Test
 }
 </pre>
                     </div>
-                    <div class="col-sm-6 col-md-6 xajax-code">
+                    <div class="col-sm-6 col-md-6 jaxon-code">
 <p>The javascript event bindings</p>
 <pre>
 // Select
-&lt;select onchange="App.Test.Test.setColor(xajax.$('colorselect').value); return false;"&gt;
+&lt;select onchange="App.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 
 // Buttons
@@ -241,7 +241,7 @@ class Test
 &lt;button onclick="App.Test.Test.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
 
 // Select
-&lt;select onchange="Ext.Test.Test.setColor(xajax.$('colorselect').value); return false;"&gt;
+&lt;select onchange="Ext.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 
 // Buttons
@@ -254,13 +254,13 @@ class Test
 
 <p>The PHP object registrations</p>
 <pre>
-$xajax = Xajax::getInstance();
+$jaxon = Jaxon::getInstance();
 
-// $xajax->setOption('core.debug.on', true);
-$xajax->setOption('core.prefix.class', '');
+// $jaxon->setOption('core.debug.on', true);
+$jaxon->setOption('core.prefix.class', '');
 
 // Disable autoload
-$xajax->disableAutoload();
+$jaxon->disableAutoload();
 
 // Register the namespaces with a third-party autoloader
 $loader = new Keradus\Psr4Autoloader;
@@ -269,19 +269,19 @@ $loader->addNamespace('App', __DIR__ . '/classes/namespace/app');
 $loader->addNamespace('Ext', __DIR__ . '/classes/namespace/ext');
 
 // Add class dirs with namespaces
-$xajax->addClassDir(__DIR__ . '/classes/namespace/app', 'App');
-$xajax->addClassDir(__DIR__ . '/classes/namespace/ext', 'Ext');
+$jaxon->addClassDir(__DIR__ . '/classes/namespace/app', 'App');
+$jaxon->addClassDir(__DIR__ . '/classes/namespace/ext', 'Ext');
 
 // Check if there is a request.
-if($xajax->canProcessRequest())
+if($jaxon->canProcessRequest())
 {
     // When processing a request, the required class will be autoloaded
-    $xajax->processRequest();
+    $jaxon->processRequest();
 }
 else
 {
-    // The Xajax objects are registered only when the page is loaded
-    $xajax->registerClasses();
+    // The Jaxon objects are registered only when the page is loaded
+    $jaxon->registerClasses();
 }
 </pre>
                     </div>
@@ -297,8 +297,8 @@ else
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <?php
-    echo $xajax->getJs();
-    echo $xajax->getScript();
+    echo $jaxon->getJs();
+    echo $jaxon->getScript();
 ?>
 
 <?php require(__DIR__ . '/includes/footer.php') ?>
