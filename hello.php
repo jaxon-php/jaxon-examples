@@ -164,7 +164,7 @@ function setColor($sColor)
 <p>The javascript event bindings</p>
 <pre>
 // Select
-&lt;select onchange="jaxon_setColor(jaxon.$('colorselect').value); return false;"&gt;
+&lt;select onchange="jaxon_setColor(xajax.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 // Buttons
 &lt;button onclick="jaxon_helloWorld(0); return false;"&gt;Click Me&lt;/button&gt;

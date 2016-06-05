@@ -157,7 +157,7 @@ class HelloWorld
 <p>The javascript event bindings</p>
 <pre>
 // Select
-&lt;select onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;
+&lt;select onchange="JaxonHelloWorld.setColor(xajax.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 // Buttons
 &lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
