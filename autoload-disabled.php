@@ -9,6 +9,7 @@ $jaxon = Jaxon::getInstance();
 
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', '');
+$jaxon->setOption('js.lib.uri', '/jaxon/lib');
 
 $jaxon->setOption('toastr.options.closeButton', true);
 $jaxon->setOption('toastr.options.positionClass', 'toast-bottom-left');
@@ -67,11 +68,11 @@ else
         // call the helloWorld function to populate the div on load
         App.Test.Test.sayHello(0);
         // call the setColor function on load
-        App.Test.Test.setColor(xajax.$('colorselect1').value);
+        App.Test.Test.setColor(jaxon.$('colorselect1').value);
         // Call the HelloWorld class to populate the 2nd div
         Ext.Test.Test.sayHello(0);
         // call the HelloWorld->setColor() method on load
-        Ext.Test.Test.setColor(xajax.$('colorselect2').value);
+        Ext.Test.Test.setColor(jaxon.$('colorselect2').value);
     }
     /* ]]> */
 </script>
@@ -114,7 +115,7 @@ A third-party autoloader is used to load the Jaxon classes.
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="App.Test.Test.setColor(xajax.$('colorselect1').value); return false;">
+                                    onchange="App.Test.Test.setColor(jaxon.$('colorselect1').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -132,7 +133,7 @@ A third-party autoloader is used to load the Jaxon classes.
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="Ext.Test.Test.setColor(xajax.$('colorselect2').value); return false;">
+                                    onchange="Ext.Test.Test.setColor(jaxon.$('colorselect2').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -233,7 +234,7 @@ class Test
 <p>The javascript event bindings</p>
 <pre>
 // Select
-&lt;select onchange="App.Test.Test.setColor(xajax.$('colorselect').value); return false;"&gt;
+&lt;select onchange="App.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 
 // Buttons
@@ -241,7 +242,7 @@ class Test
 &lt;button onclick="App.Test.Test.sayHello(1); return false;"&gt;CLICK ME&lt;/button&gt;
 
 // Select
-&lt;select onchange="Ext.Test.Test.setColor(xajax.$('colorselect').value); return false;"&gt;
+&lt;select onchange="Ext.Test.Test.setColor(jaxon.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 
 // Buttons

@@ -28,7 +28,7 @@ $config['lib'] = array(
     ),
     'js' => array(
         'lib' => array(
-            // 'uri' => '',
+            'uri' => '/jaxon/lib',
         ),
         'app' => array(
             // 'uri' => '',

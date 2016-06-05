@@ -10,9 +10,10 @@ $jaxon = Jaxon::getInstance();
 
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', 'Jaxon');
+$jaxon->setOption('js.lib.uri', '/jaxon/lib');
 
-$jaxonAppDir = __DIR__ . '/js/deferred';
-$jaxonAppURI = 'js/deferred';
+$jaxonAppDir = __DIR__ . '/jaxon/app';
+$jaxonAppURI = '/jaxon/app';
 $jaxon->exportJavascript($jaxonAppDir, $jaxonAppURI);
 
 class HelloWorld
@@ -166,7 +167,7 @@ class HelloWorld
 <p>The javascript event bindings</p>
 <pre>
 // Select
-&lt;select onchange="JaxonHelloWorld.setColor(xajax.$('colorselect').value); return false;"&gt;
+&lt;select onchange="JaxonHelloWorld.setColor(jaxon.$('colorselect').value); return false;"&gt;
 &lt;/select&gt;
 // Buttons
 &lt;button onclick="JaxonHelloWorld.sayHello(0); return false;"&gt;Click Me&lt;/button&gt;
@@ -180,8 +181,8 @@ $jaxon = Jaxon::getInstance();
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', 'Jaxon');
 
-$jaxonAppURI = 'js/deferred';
-$jaxonAppDir = __DIR__ . '/js/deferred';
+$jaxonAppURI = '/jaxon/app';
+$jaxonAppDir = __DIR__ . '/jaxon/app';
 $jaxon->mergeJavascript($jaxonAppURI, $jaxonAppDir);
 
 // Register object

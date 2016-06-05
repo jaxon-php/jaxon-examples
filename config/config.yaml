@@ -5,6 +5,10 @@ jaxon:
     prefix:
       class:                       "Jaxon"
   
+  js:
+    lib:
+      uri:                         "/jaxon/lib"
+  
   toastr:
     options:
       closeButton:                 true

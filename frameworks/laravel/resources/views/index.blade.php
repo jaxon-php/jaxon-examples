@@ -25,11 +25,11 @@
         // call the helloWorld function to populate the div on load
         Jaxon.App.Test.Pgw.sayHello(0);
         // call the setColor function on load
-        Jaxon.App.Test.Pgw.setColor(xajax.$('colorselect1').value);
+        Jaxon.App.Test.Pgw.setColor(jaxon.$('colorselect1').value);
         // Call the HelloWorld class to populate the 2nd div
         Jaxon.App.Test.Bts.sayHello(0);
         // call the HelloWorld->setColor() method on load
-        Jaxon.App.Test.Bts.setColor(xajax.$('colorselect2').value);
+        Jaxon.App.Test.Bts.setColor(jaxon.$('colorselect2').value);
     }
     /* ]]> */
 </script>
@@ -79,7 +79,7 @@ By default, the Jaxon plugin for Laravel registers all classes in the app/Jaxon/
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="Jaxon.App.Test.Pgw.setColor(xajax.$('colorselect1').value); return false;">
+                                    onchange="Jaxon.App.Test.Pgw.setColor(jaxon.$('colorselect1').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -97,7 +97,7 @@ By default, the Jaxon plugin for Laravel registers all classes in the app/Jaxon/
                         </div>
                         <div style="margin:10px;">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="Jaxon.App.Test.Bts.setColor(xajax.$('colorselect2').value); return false;">
+                                    onchange="Jaxon.App.Test.Bts.setColor(jaxon.$('colorselect2').value); return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>

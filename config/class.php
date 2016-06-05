@@ -7,7 +7,12 @@ return array(
                 'on' => false,
             ),
             'prefix' => array(
-                'class' => 'Xjx',
+                'class' => 'Jxn',
+            ),
+        ),
+        'js' => array(
+            'lib' => array(
+                'uri' => '/jaxon/lib',
             ),
         ),
     ),
