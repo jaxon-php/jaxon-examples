@@ -1,0 +1,12 @@
+{
+    "require": {
+        "lagdo/jaxon-core": "dev-master",
+        "lagdo/jaxon-framework": "dev-master",
+        "lagdo/jaxon-toastr": "dev-master",
+        "lagdo/jaxon-pgwjs": "dev-master",
+        "lagdo/jaxon-bootstrap": "dev-master",
+        "lagdo/jaxon-codeigniter": "dev-master",
+        "keradus/psr4autoloader": "dev-master"
+    },
+    "minimum-stability": "dev"
+}
