@@ -4,8 +4,6 @@
         "lagdo/jaxon-toastr": "dev-master",
         "lagdo/jaxon-pgwjs": "dev-master",
         "lagdo/jaxon-bootstrap": "dev-master",
-        "lagdo/jaxon-codeigniter": "dev-master",
-        "lagdo/jaxon-laravel": "dev-master",
         "keradus/psr4autoloader": "dev-master"
     },
     "minimum-stability": "dev"

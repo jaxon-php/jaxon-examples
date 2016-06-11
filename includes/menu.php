@@ -16,6 +16,7 @@ $menuEntries = array(
     'autoload-separated.php' => 'Separated Files',
     'laravel.php' => 'Laravel Framework',
     'codeigniter.php' => 'CodeIgniter Framework',
+    'yii.php' => 'Yii Framework',
 );
 
 $requestFile = new \SplFileInfo($_SERVER['SCRIPT_FILENAME']);

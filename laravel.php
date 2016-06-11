@@ -1,3 +1,3 @@
 <?php
 
-require __DIR__ . '/laravel/public/index.php';
+require __DIR__ . '/../laravel/index.php';
