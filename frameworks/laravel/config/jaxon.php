@@ -12,7 +12,7 @@ return array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-                'uri' => 'laravel/jaxon',
+                'uri' => '/laravel/jaxon',
             ),
             'prefix' => array(
                 'class' => '',

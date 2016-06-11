@@ -3,7 +3,7 @@
 namespace Jaxon\App\Test;
 
 use Jaxon\Request\Factory as xr;
-use Jaxon\Laravel\Controller as JaxonController;
+use Jaxon\Framework\Controller as JaxonController;
 
 class Bts extends JaxonController
 {

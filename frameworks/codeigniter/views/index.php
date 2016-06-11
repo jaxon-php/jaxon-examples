@@ -119,9 +119,7 @@ By default, the Jaxon plugin for CodeIgniter registers all classes in the applic
 <pre>
 namespace Jaxon\App\Test;
 
-use Jaxon\CodeIgniter\Controller as JaxonController;
-
-class Bts extends JaxonController
+class Bts extends \Jaxon\Framework\Controller
 {
     public function sayHello($isCaps)
     {
@@ -158,9 +156,7 @@ class Bts extends JaxonController
 <pre>
 namespace Jaxon\App\Test;
 
-use Jaxon\CodeIgniter\Controller as JaxonController;
-
-class Pgw extends JaxonController
+class Pgw extends \Jaxon\Framework\Controller
 {
     public function sayHello($isCaps)
     {

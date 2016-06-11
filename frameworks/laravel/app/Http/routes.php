@@ -15,4 +15,4 @@
 Route::get('/', array('as' => 'demo', 'uses' => 'DemoController@index'));
 
 // Route to Jaxon request processor
-Route::post('/laravel/jaxon', array('as' => 'jaxon', 'uses' => 'JaxonController@process'));
+Route::post('jaxon', array('as' => 'jaxon', 'uses' => 'JaxonController@process'));

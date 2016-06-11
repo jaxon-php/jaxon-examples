@@ -8,6 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "lagdo/jaxon-core": "dev-master",
+        "lagdo/jaxon-framework": "dev-master",
         "lagdo/jaxon-toastr": "dev-master",
         "lagdo/jaxon-pgwjs": "dev-master",
         "lagdo/jaxon-bootstrap": "dev-master",

@@ -1,7 +1,5 @@
 <?php
 
-require(dirname(dirname(APPPATH)) . '/vendor/autoload.php');
-
 $config['app'] = array(
     // 'route' => '',
     // 'dir' => '',
@@ -13,7 +11,7 @@ $config['lib'] = array(
         'language' => 'en',
         'encoding' => 'UTF-8',
         'request' => array(
-            'uri' => 'codeigniter/jaxon/process',
+            'uri' => '/codeigniter/jaxon/process',
         ),
         'prefix' => array(
             'class' => '',
