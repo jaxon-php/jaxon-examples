@@ -11,7 +11,7 @@ return array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-                'uri' => '/yii/jaxon/process',
+                'uri' => '/yii/demo/process',
             ),
             'prefix' => array(
                 'class' => '',
