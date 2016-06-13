@@ -18,12 +18,12 @@
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "lagdo/jaxon-core": "dev-master",
-        "lagdo/jaxon-framework": "dev-master",
-        "lagdo/jaxon-toastr": "dev-master",
-        "lagdo/jaxon-pgwjs": "dev-master",
-        "lagdo/jaxon-bootstrap": "dev-master",
-        "lagdo/jaxon-yii": "dev-master"
+        "jaxon-php/jaxon-core": "dev-master",
+        "jaxon-php/jaxon-framework": "dev-master",
+        "jaxon-php/jaxon-toastr": "dev-master",
+        "jaxon-php/jaxon-pgwjs": "dev-master",
+        "jaxon-php/jaxon-bootstrap": "dev-master",
+        "jaxon-php/jaxon-yii": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

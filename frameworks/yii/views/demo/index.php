@@ -193,7 +193,7 @@ class Pgw extends \Jaxon\Framework\Controller
                     <div class="col-sm-6 col-md-6 jaxon-code">
 <h5><b>Installation</b></h5>
 <p>
-See https://github.com/lagdo/jaxon-yii for how to install the Jaxon module fot Yii.
+See https://github.com/jaxon-php/jaxon-yii for how to install the Jaxon module fot Yii.
 </p>
 
 <h5><b>The Jaxon controller</b></h5>

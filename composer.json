@@ -1,9 +1,9 @@
 {
     "require": {
-        "lagdo/jaxon-core": "dev-master",
-        "lagdo/jaxon-toastr": "dev-master",
-        "lagdo/jaxon-pgwjs": "dev-master",
-        "lagdo/jaxon-bootstrap": "dev-master",
+        "jaxon-php/jaxon-core": "dev-master",
+        "jaxon-php/jaxon-toastr": "dev-master",
+        "jaxon-php/jaxon-pgwjs": "dev-master",
+        "jaxon-php/jaxon-bootstrap": "dev-master",
         "keradus/psr4autoloader": "dev-master"
     },
     "minimum-stability": "dev"
