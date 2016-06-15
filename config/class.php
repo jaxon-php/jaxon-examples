@@ -10,10 +10,5 @@ return array(
                 'class' => 'Jxn',
             ),
         ),
-        'js' => array(
-            'lib' => array(
-                'uri' => '/jaxon/lib',
-            ),
-        ),
     ),
 );

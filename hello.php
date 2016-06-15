@@ -10,7 +10,6 @@ $jaxon = Jaxon::getInstance();
 
 $jaxon->setOption('core.debug.on', false);
 $jaxon->setOption('core.prefix.function', 'jaxon_');
-$jaxon->setOption('js.lib.uri', '/jaxon/lib');
 
 /*
     Function: helloWorld

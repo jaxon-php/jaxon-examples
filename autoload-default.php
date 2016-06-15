@@ -9,7 +9,6 @@ $jaxon = Jaxon::getInstance();
 
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', '');
-$jaxon->setOption('js.lib.uri', '/jaxon/lib');
 
 $jaxon->setOption('toastr.options.closeButton', true);
 $jaxon->setOption('toastr.options.positionClass', 'toast-bottom-left');

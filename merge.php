@@ -10,7 +10,6 @@ $jaxon = Jaxon::getInstance();
 
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', 'Jaxon');
-$jaxon->setOption('js.lib.uri', '/jaxon/lib');
 
 $jaxonAppDir = __DIR__ . '/jaxon/app';
 $jaxonAppURI = '/jaxon/app';
