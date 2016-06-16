@@ -27,7 +27,7 @@ return array(
         ),
         'js' => array(
             'lib' => array(
-                'uri' => '/jaxon/lib',
+                // 'uri' => '/jaxon/lib',
             ),
             'app' => array(
                 // 'uri' => '',
