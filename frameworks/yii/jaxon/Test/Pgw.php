@@ -15,7 +15,7 @@ class Pgw extends JaxonController
             $text = 'Hello World!';
     
         $this->response->assign('div1', 'innerHTML', $text);
-        $this->response->toastr->success("div1 text is now $text, after calling " . $this->call('sayHello', $isCaps));
+        $this->response->toastr->success("div1 text is now $text");
     
         return $this->response;
     }

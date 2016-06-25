@@ -4,7 +4,7 @@
             "on": false
         },
         "request": {
-            "uri": "includes/autoload-separated/server.php"
+            "uri": "server.html"
         },
         "prefix": {
             "class": ""

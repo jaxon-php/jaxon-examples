@@ -4,20 +4,20 @@ jaxon:
       on:                          true
     prefix:
       class:                       "Jaxon"
-  
+
   toastr:
     options:
       closeButton:                 true
       closeMethod:                 "fadeOut"
       closeDuration:               300
       closeEasing:                 "swing"
-      positionClass:               "toast-bottom-left"
+      positionClass:               "toast-bottom-right"
   
   pgw:
     assets:
       include:                     true
     modal:
       options:
-        closeOnEscape:             true,
-        closeOnBackgroundClick:    true,
+        closeOnEscape:             true
+        closeOnBackgroundClick:    true
         maxWidth:                  600

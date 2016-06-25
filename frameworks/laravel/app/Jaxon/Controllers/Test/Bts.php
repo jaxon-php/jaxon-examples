@@ -15,7 +15,7 @@ class Bts extends JaxonController
             $text = 'Hello World!';
     
         $this->response->assign('div2', 'innerHTML', $text);
-        $this->response->toastr->success("div2 text is now $text, after calling " . $this->call('sayHello', $isCaps));
+        $this->response->toastr->success("div2 text is now $text");
     
         return $this->response;
     }

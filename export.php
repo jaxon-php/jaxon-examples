@@ -8,8 +8,12 @@ use Jaxon\Request\Factory as xr;
 
 $jaxon = Jaxon::getInstance();
 
-$jaxon->setOption('core.debug.on', false);
-$jaxon->setOption('core.prefix.function', 'jaxon_');
+// $jaxon->setOption('core.debug.on', true);
+$jaxon->setOption('core.prefix.class', 'Jaxon');
+
+$jaxonAppDir = __DIR__ . '/jaxon/app';
+$jaxonAppURI = '/jaxon/app';
+$jaxon->exportJavascript($jaxonAppDir, $jaxonAppURI);
 
 class HelloWorld
 {
@@ -30,15 +34,13 @@ class HelloWorld
     {
         $xResponse = new Response();
         $xResponse->assign('div2', 'style.color', $sColor);
-        
+
         return $xResponse;
     }
 }
 
-// Register functions
-$hello = new HelloWorld();
-$jaxon->register(Jaxon::USER_FUNCTION, array('helloWorld', $hello, 'sayHello'));
-$jaxon->register(Jaxon::USER_FUNCTION, array($hello, 'setColor'));
+// Register object
+$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
 $jaxon->processRequest();
@@ -48,9 +50,9 @@ $jaxon->processRequest();
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo xr::call('helloWorld', 0) ?>;
+        <?php echo xr::call('HelloWorld.sayHello', 0) ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo xr::call('setColor', xr::select('colorselect')) ?>;
+        <?php echo xr::call('HelloWorld.setColor', xr::select('colorselect')) ?>;
     }
     /* ]]> */
 </script>
@@ -59,7 +61,7 @@ $jaxon->processRequest();
                         </div>
                         <div class="medium-4 columns">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                    onchange="<?php echo xr::call('setColor', xr::select('colorselect')) ?>; return false;">
+                                onchange="<?php echo xr::call('HelloWorld.setColor', xr::select('colorselect')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -67,6 +69,6 @@ $jaxon->processRequest();
                             </select>
                         </div>
                         <div class="medium-8 columns">
-                            <button class="button radius" onclick="<?php echo xr::call('helloWorld', 0) ?>; return false;" >Click Me</button>
-                            <button class="button radius" onclick="<?php echo xr::call('helloWorld', 1) ?>; return false;" >CLICK ME</button>
+                            <button class="button radius" onclick="<?php echo xr::call('HelloWorld.sayHello', 0) ?>; return false;" >Click Me</button>
+                            <button class="button radius" onclick="<?php echo xr::call('HelloWorld.sayHello', 1) ?>; return false;" >CLICK ME</button>
                         </div>
