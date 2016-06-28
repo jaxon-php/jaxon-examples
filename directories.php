@@ -51,8 +51,8 @@ $jaxon->processRequest();
                             </select>
                         </div>
                         <div class="medium-8 columns">
-                            <button class="button radius" onclick='Test.App.sayHello(0); return false;' >Click Me</button>
-                            <button class="button radius" onclick='Test.App.sayHello(1); return false;' >CLICK ME</button>
+                            <button class="button radius" onclick="Test.App.sayHello(0); return false;" >Click Me</button>
+                            <button class="button radius" onclick="Test.App.sayHello(1); return false;" >CLICK ME</button>
                             <button class="button radius" onclick="Test.App.showDialog(); return false;" >PgwModal Dialog</button>
                         </div>
 

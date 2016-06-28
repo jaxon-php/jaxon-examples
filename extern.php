@@ -11,9 +11,13 @@ $jaxon = Jaxon::getInstance();
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', 'Jaxon');
 
-$jaxonAppDir = __DIR__ . '/jaxon/app';
+$jaxonAppDir = $GLOBALS['web_dir'] . '/jaxon/app';
 $jaxonAppURI = '/jaxon/app';
-$jaxon->exportJavascript($jaxonAppDir, $jaxonAppURI);
+
+$jaxon->setOption('js.app.export', true);
+$jaxon->setOption('js.app.dir', $jaxonAppDir);
+$jaxon->setOption('js.app.uri', $jaxonAppURI);
+$jaxon->setOption('js.app.minify', true); // Optionally, the file can be minified
 
 class HelloWorld
 {
