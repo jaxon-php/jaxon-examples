@@ -55,7 +55,7 @@ class HelloWorld
 // Register object
 $jaxon = Jaxon::getInstance();
 
-\Jaxon\Config\Yaml::read(__DIR__ . '/config/config.yaml', 'jaxon');
+$jaxon->readConfigFile(__DIR__ . '/config/config.yaml', 'jaxon');
 
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 

@@ -6,8 +6,6 @@ use Jaxon\Jaxon;
 use Jaxon\Response\Response;
 use Jaxon\Request\Factory as xr;
 
-\Jaxon\Config\Php::read(__DIR__ . '/config/class.php', 'lib');
-
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -34,6 +32,9 @@ class HelloWorld
 
 // Register object
 $jaxon = Jaxon::getInstance();
+
+$jaxon->readConfigFile(__DIR__ . '/config/class.php', 'lib');
+
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
 // Process the request, if any.
