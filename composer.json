@@ -4,6 +4,7 @@
         "jaxon-php/jaxon-toastr": "dev-master",
         "jaxon-php/jaxon-pgwjs": "dev-master",
         "jaxon-php/jaxon-bootstrap": "dev-master",
+        "jaxon-php/jaxon-bootbox": "dev-master",
         "keradus/psr4autoloader": "dev-master"
     },
     "minimum-stability": "dev"

@@ -26,19 +26,6 @@ $jaxon->setOptions(array(
     'toastr.options.positionClass' => 'toast-bottom-right',
 ));
 
-/*
- * Sets the following options on the PgwModal
- * - closeOnEscape = true;
- * - closeOnBackgroundClick = true;
- * - maxWidth = 300;
-*/
-$jaxon->setOptions(array(
-    'pgw.modal.options.closeOnEscape' => true,
-    'pgw.modal.options.closeOnBackgroundClick' => true,
-    'pgw.modal.options.maxWidth' => 600,
-));
-// $jaxon->plugin('pgwModal')->setInclude(false);
-
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -64,22 +51,12 @@ class HelloWorld
         return $xResponse;
     }
 
-    public function showPgwDialog()
+    public function showDialog()
     {
         $xResponse = new Response();
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array('maxWidth' => 400);
-        $xResponse->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
-        
-        return $xResponse;
-    }
-
-    public function showTbDialog()
-    {
-        $xResponse = new Response();
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $width = 300;
-        $xResponse->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
+        $width = 500;
+        $xResponse->bootbox->modal("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $width);
         
         return $xResponse;
     }
@@ -117,5 +94,5 @@ $jaxon->processRequest();
                         <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 0) ?>; return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 1) ?>; return false;" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.showPgwDialog') ?>; return false;" >PgwModal Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.showDialog') ?>; return false;" >PgwModal Dialog</button>
                         </div>
