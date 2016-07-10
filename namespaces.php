@@ -5,7 +5,7 @@ require (__DIR__ . '/vendor/autoload.php');
 use Jaxon\Jaxon;
 use Jaxon\Response\Response;
 
-$jaxon = Jaxon::getInstance();
+$jaxon = jaxon();
 
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', '');
@@ -38,10 +38,10 @@ $jaxon->processRequest();
     }
     /* ]]> */
 </script>
-                        <div style="margin:10px;" id="div1">
+                        <div class="col-md-12" id="div1">
                             &nbsp;
                         </div>
-                        <div class="medium-4 columns">
+                        <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect1" name="colorselect1"
                                     onchange="App.Test.Test.setColor(jaxon.$('colorselect1').value); return false;">
                                 <option value="black" selected="selected">Black</option>
@@ -50,16 +50,16 @@ $jaxon->processRequest();
                                 <option value="blue">Blue</option>
                             </select>
                         </div>
-                        <div class="medium-8 columns">
-                            <button class="button radius" onclick='App.Test.Test.sayHello(0); return false;' >Click Me</button>
-                            <button class="button radius" onclick='App.Test.Test.sayHello(1); return false;' >CLICK ME</button>
-                            <button class="button radius" onclick="App.Test.Test.showDialog(); return false;" >PgwModal Dialog</button>
+                        <div class="col-md-8 margin-vert-10">
+                            <button type="button" class="btn btn-primary" onclick='App.Test.Test.sayHello(0); return false;' >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick='App.Test.Test.sayHello(1); return false;' >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="App.Test.Test.showDialog(); return false;" >PgwModal Dialog</button>
                         </div>
 
-                        <div style="margin:10px;" id="div2">
+                        <div class="col-md-12" id="div2">
                             &nbsp;
                         </div>
-                        <div class="medium-4 columns">
+                        <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect2" name="colorselect2"
                                     onchange="Ext.Test.Test.setColor(jaxon.$('colorselect2').value); return false;">
                                 <option value="black" selected="selected">Black</option>
@@ -68,8 +68,8 @@ $jaxon->processRequest();
                                 <option value="blue">Blue</option>
                             </select>
                         </div>
-                        <div class="medium-8 columns">
-                            <button class="button radius" onclick="Ext.Test.Test.sayHello(0); return false;" >Click Me</button>
-                            <button class="button radius" onclick="Ext.Test.Test.sayHello(1); return false;" >CLICK ME</button>
-                            <button class="button radius" onclick="Ext.Test.Test.showDialog(); return false;" >Bootstrap Dialog</button>
+                        <div class="col-md-8 margin-vert-10">
+                            <button type="button" class="btn btn-primary" onclick="Ext.Test.Test.sayHello(0); return false;" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="Ext.Test.Test.sayHello(1); return false;" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="Ext.Test.Test.showDialog(); return false;" >Bootstrap Dialog</button>
                         </div>

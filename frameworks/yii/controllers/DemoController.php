@@ -8,30 +8,28 @@ use yii\helpers\Url;
 
 class DemoController extends Controller
 {
-    protected $jaxon = null;
-
     public function actionIndex()
     {
-        $this->jaxon = Yii::$app->getModule('jaxon');
+        $jaxon = Yii::$app->getModule('jaxon');
         // Set the layout
         $this->layout = 'demo';
         // Call the Jaxon module
-        $this->jaxon->register();
+        $jaxon->register();
 
         return $this->render('index', array(
-            'JaxonCss' => $this->jaxon->css(),
-            'JaxonJs' => $this->jaxon->js(),
-            'JaxonScript' => $this->jaxon->script(),
+            'JaxonCss' => $jaxon->css(),
+            'JaxonJs' => $jaxon->js(),
+            'JaxonScript' => $jaxon->script(),
         ));
     }
 
     public function actionProcess()
     {
-        $this->jaxon = Yii::$app->getModule('jaxon');
+        $jaxon = Yii::$app->getModule('jaxon');
         // Process Jaxon request
-        if($this->jaxon->canProcessRequest())
+        if($jaxon->canProcessRequest())
         {
-            $this->jaxon->processRequest();
+            $jaxon->processRequest();
         }
     }
 }

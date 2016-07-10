@@ -55,6 +55,8 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['default_controller'] = 'demo';
 
+$route['examples/integration/codeigniter'] = 'demo';
+$route['examples/integration/codeigniter.html'] = 'demo';
 $route['en/examples/integration/codeigniter'] = 'demo';
 $route['en/examples/integration/codeigniter.html'] = 'demo';
 $route['fr/examples/integration/codeigniter'] = 'demo';
