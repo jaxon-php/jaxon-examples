@@ -94,5 +94,5 @@ $jaxon->processRequest();
                         <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 0) ?>; return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 1) ?>; return false;" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.showDialog') ?>; return false;" >PgwModal Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.showDialog') ?>; return false;" >Bootbox Dialog</button>
                         </div>
