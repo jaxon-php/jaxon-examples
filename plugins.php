@@ -11,21 +11,6 @@ $jaxon = jaxon();
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', 'Jaxon');
 
-/*
- * Sets the following options on the Toastr library
- * - toastr.options.closeButton = true;
- * - toastr.options.closeMethod = 'fadeOut';
- * - toastr.options.closeDuration = 300;
- * - toastr.options.closeEasing = 'swing';
- */
-$jaxon->setOptions(array(
-    'toastr.options.closeButton' => true,
-    'toastr.options.closeMethod' => 'fadeOut',
-    'toastr.options.closeDuration' => 300,
-    'toastr.options.closeEasing' => 'swing',
-    'toastr.options.positionClass' => 'toast-bottom-right',
-));
-
 class HelloWorld
 {
     public function sayHello($isCaps)
@@ -37,7 +22,7 @@ class HelloWorld
 
         $xResponse = new Response();
         $xResponse->assign('div2', 'innerHTML', $text);
-        $xResponse->toastr->success("div2 text is now $text");
+        $xResponse->bootbox->success("div2 text is now $text");
 
         return $xResponse;
     }
@@ -46,8 +31,8 @@ class HelloWorld
     {
         $xResponse = new Response();
         $xResponse->assign('div2', 'style.color', $sColor);
-        $xResponse->toastr->success("div2 color is now $sColor");
-        
+        $xResponse->bootbox->success("div2 color is now $sColor");
+
         return $xResponse;
     }
 
@@ -57,7 +42,7 @@ class HelloWorld
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $width = 500;
         $xResponse->bootbox->modal("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $width);
-        
+
         return $xResponse;
     }
 }
