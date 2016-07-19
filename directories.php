@@ -28,13 +28,13 @@ $jaxon->processRequest();
     /* <![CDATA[ */
     window.onload = function() {
         // call the helloWorld function to populate the div on load
-        Test.App.sayHello(0);
+        Test.App.sayHello(0, false);
         // call the setColor function on load
-        Test.App.setColor(jaxon.$('colorselect1').value);
+        Test.App.setColor(jaxon.$('colorselect1').value, false);
         // Call the HelloWorld class to populate the 2nd div
-        Test.Ext.sayHello(0);
+        Test.Ext.sayHello(0, false);
         // call the HelloWorld->setColor() method on load
-        Test.Ext.setColor(jaxon.$('colorselect2').value);
+        Test.Ext.setColor(jaxon.$('colorselect2').value, false);
     }
     /* ]]> */
 </script>

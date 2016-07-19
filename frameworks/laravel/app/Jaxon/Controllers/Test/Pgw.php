@@ -7,7 +7,7 @@ use Jaxon\Laravel\Controller as JaxonController;
 
 class Pgw extends JaxonController
 {
-    public function sayHello($isCaps)
+    public function sayHello($isCaps, $bNotify = true)
     {
         if ($isCaps)
             $text = 'HELLO WORLD!';
@@ -15,15 +15,17 @@ class Pgw extends JaxonController
             $text = 'Hello World!';
     
         $this->response->assign('div1', 'innerHTML', $text);
-        $this->response->toastr->success("div1 text is now $text");
+        if(($bNotify))
+            $this->response->toastr->success("div1 text is now $text");
     
         return $this->response;
     }
 
-    public function setColor($sColor)
+    public function setColor($sColor, $bNotify = true)
     {
         $this->response->assign('div1', 'style.color', $sColor);
-        $this->response->toastr->success("div1 color is now $sColor");
+        if(($bNotify))
+            $this->response->toastr->success("div1 color is now $sColor");
     
         return $this->response;
     }

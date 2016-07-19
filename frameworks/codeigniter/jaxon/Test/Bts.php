@@ -7,7 +7,7 @@ use Jaxon\CI\Controller as JaxonController;
 
 class Bts extends JaxonController
 {
-    public function sayHello($isCaps)
+    public function sayHello($isCaps, $bNotify = true)
     {
         if ($isCaps)
             $text = 'HELLO WORLD!';
@@ -15,15 +15,17 @@ class Bts extends JaxonController
             $text = 'Hello World!';
     
         $this->response->assign('div2', 'innerHTML', $text);
-        $this->response->toastr->success("div2 text is now $text");
+        if(($bNotify))
+            $this->response->toastr->success("div2 text is now $text");
     
         return $this->response;
     }
 
-    public function setColor($sColor)
+    public function setColor($sColor, $bNotify = true)
     {
         $this->response->assign('div2', 'style.color', $sColor);
-        $this->response->toastr->success("div2 color is now $sColor");
+        if(($bNotify))
+            $this->response->toastr->success("div2 color is now $sColor");
     
         return $this->response;
     }

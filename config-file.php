@@ -8,7 +8,7 @@ use Jaxon\Request\Factory as xr;
 
 class HelloWorld
 {
-    public function sayHello($isCaps)
+    public function sayHello($isCaps, $bNotify = true)
     {
         if ($isCaps)
             $text = 'HELLO WORLD!';
@@ -17,16 +17,18 @@ class HelloWorld
 
         $xResponse = new Response();
         $xResponse->assign('div2', 'innerHTML', $text);
-        $xResponse->toastr->success("div2 text is now $text");
+        if(($bNotify))
+            $xResponse->toastr->success("div2 text is now $text");
 
         return $xResponse;
     }
 
-    public function setColor($sColor)
+    public function setColor($sColor, $bNotify = true)
     {
         $xResponse = new Response();
         $xResponse->assign('div2', 'style.color', $sColor);
-        $xResponse->toastr->success("div2 color is now $sColor");
+        if(($bNotify))
+            $xResponse->toastr->success("div2 color is now $sColor");
         
         return $xResponse;
     }
@@ -67,9 +69,9 @@ $jaxon->processRequest();
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo xr::call('HelloWorld.sayHello', 0) ?>;
+        <?php echo xr::call('HelloWorld.sayHello', 0, false) ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo xr::call('HelloWorld.setColor', xr::select('colorselect')) ?>;
+        <?php echo xr::call('HelloWorld.setColor', xr::select('colorselect'), false) ?>;
     }
     /* ]]> */
 </script>

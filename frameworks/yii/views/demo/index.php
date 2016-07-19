@@ -2,13 +2,13 @@
     /* <![CDATA[ */
     window.onload = function() {
         // call the helloWorld function to populate the div on load
-        Jaxon.App.Test.Pgw.sayHello(0);
+        Jaxon.App.Test.Pgw.sayHello(0, false);
         // call the setColor function on load
-        Jaxon.App.Test.Pgw.setColor(jaxon.$('colorselect1').value);
+        Jaxon.App.Test.Pgw.setColor(jaxon.$('colorselect1').value, false);
         // Call the HelloWorld class to populate the 2nd div
-        Jaxon.App.Test.Bts.sayHello(0);
+        Jaxon.App.Test.Bts.sayHello(0, false);
         // call the HelloWorld->setColor() method on load
-        Jaxon.App.Test.Bts.setColor(jaxon.$('colorselect2').value);
+        Jaxon.App.Test.Bts.setColor(jaxon.$('colorselect2').value, false);
     }
     /* ]]> */
 </script>
