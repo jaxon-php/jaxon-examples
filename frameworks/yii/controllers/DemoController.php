@@ -10,10 +10,10 @@ class DemoController extends Controller
 {
     public function actionIndex()
     {
-        $jaxon = Yii::$app->getModule('jaxon');
         // Set the layout
         $this->layout = 'demo';
         // Call the Jaxon module
+        $jaxon = Yii::$app->getModule('jaxon');
         $jaxon->register();
 
         return $this->render('index', array(
