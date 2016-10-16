@@ -1,0 +1,36 @@
+jaxon_ajax:
+    resource: "@JaxonAjaxBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# app:
+#     resource: "@AppBundle/Controller/"
+#     type:     annotation
+# 
+demo_0:
+    path:      /
+    defaults:  { _controller: AppBundle:Demo:index }
+
+demo_1:
+    path:      /examples/integration/symfony
+    defaults:  { _controller: AppBundle:Demo:index }
+
+demo_2:
+    path:      /examples/integration/symfony.html
+    defaults:  { _controller: AppBundle:Demo:index }
+
+demo_3:
+    path:      /en/examples/integration/symfony
+    defaults:  { _controller: AppBundle:Demo:index }
+
+demo_4:
+    path:      /en/examples/integration/symfony.html
+    defaults:  { _controller: AppBundle:Demo:index }
+
+demo_5:
+    path:      /fr/examples/integration/symfony
+    defaults:  { _controller: AppBundle:Demo:index }
+
+demo_6:
+    path:      /fr/examples/integration/symfony.html
+    defaults:  { _controller: AppBundle:Demo:index }
+    

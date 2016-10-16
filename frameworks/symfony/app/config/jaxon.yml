@@ -1,0 +1,40 @@
+jaxon_ajax:
+    app:
+      namespace:                      "\\Jaxon\\App"
+
+    lib:
+      core:
+        language:                      "en"
+        encoding:                      "UTF-8"
+        request:
+          uri:                         "/symfony/jaxon"
+        prefix:
+          class:                       ""
+        debug:
+          on:                          false
+          verbose:                     false
+        error:
+          handle:                      false
+
+      js:
+        lib:
+        app:
+          extern:                      false
+          minify:                      false
+
+      toastr:
+        options:
+          closeButton:                 true
+          closeMethod:                 "fadeOut"
+          closeDuration:               300
+          closeEasing:                 "swing"
+          positionClass:               "toast-bottom-right"
+  
+      pgw:
+        assets:
+          include:                     true
+        modal:
+          options:
+            closeOnEscape:             true
+            closeOnBackgroundClick:    true
+            maxWidth:                  600
