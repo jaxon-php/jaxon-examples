@@ -67,6 +67,6 @@ $jaxon->processRequest();
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('helloWorld', 0) ?>; return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('helloWorld', 1) ?>; return false;" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('helloWorld', 0) ?>; return false;" >Click Me</button>
                         </div>

@@ -25,8 +25,8 @@
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick='Jaxon.App.Test.Pgw.sayHello(0); return false;' >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick='Jaxon.App.Test.Pgw.sayHello(1); return false;' >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick='Jaxon.App.Test.Pgw.sayHello(0); return false;' >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="Jaxon.App.Test.Pgw.showDialog(); return false;" >PgwModal Dialog</button>
                         </div>
 
@@ -43,7 +43,7 @@
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="Jaxon.App.Test.Bts.sayHello(0); return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="Jaxon.App.Test.Bts.sayHello(1); return false;" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="Jaxon.App.Test.Bts.sayHello(0); return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="Jaxon.App.Test.Bts.showDialog(); return false;" >Bootstrap Dialog</button>
                         </div>

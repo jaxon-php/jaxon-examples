@@ -51,8 +51,8 @@ $jaxon->processRequest();
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="Test.App.sayHello(0); return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="Test.App.sayHello(1); return false;" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="Test.App.sayHello(0); return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="Test.App.showDialog(); return false;" >PgwModal Dialog</button>
                         </div>
 
@@ -69,7 +69,7 @@ $jaxon->processRequest();
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="Test.Ext.sayHello(0); return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="Test.Ext.sayHello(1); return false;" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="Test.Ext.sayHello(0); return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="Test.Ext.showDialog(); return false;" >Bootstrap Dialog</button>
                         </div>
