@@ -10,7 +10,7 @@ class DemoController extends AbstractActionController
     public function indexAction()
     {
         // Call the Jaxon module
-        $jaxon = $this->jaxon();
+        $jaxon = $this->getServiceLocator()->get('JaxonPlugin');
         $jaxon->register();
 
         $view = new ViewModel(array(

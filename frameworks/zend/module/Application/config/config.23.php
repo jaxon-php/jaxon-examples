@@ -148,6 +148,7 @@ return array(
     ),
     'controller_plugins' => array(
         'invokables' => array(
+            // 'jaxon' => 'Jaxon\Zend\Controller\Plugin\Jaxon',
         )
     ),
     'view_manager' => array(

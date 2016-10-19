@@ -16,7 +16,7 @@ class DemoController extends Controller
         // Register the Jaxon classes
         \LaravelJaxon::register();
         // Print the page
-        return view('index', array(
+        return view('demo/index', array(
             'JaxonCss' => \LaravelJaxon::css(),
             'JaxonJs' => \LaravelJaxon::js(),
             'JaxonScript' => \LaravelJaxon::script()

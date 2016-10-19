@@ -16,7 +16,7 @@ class Demo extends Jaxon_Controller
         $this->jaxon->register();
         // Print the page
         $this->load->library('parser');
-        $this->parser->parse('index', array(
+        $this->parser->parse('demo/index', array(
             'JaxonCss' => $this->jaxon->css(),
             'JaxonJs' => $this->jaxon->js(),
             'JaxonScript' => $this->jaxon->script()

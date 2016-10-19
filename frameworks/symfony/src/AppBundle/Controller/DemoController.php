@@ -18,9 +18,9 @@ class DemoController extends Controller
         $jaxon->register();
         // Print the page
         return $this->render('demo/index.html.twig', [
-            'jaxon_css' => $jaxon->css(),
-            'jaxon_js' => $jaxon->js(),
-            'jaxon_script' => $jaxon->script()
+            'jaxonCss' => $jaxon->css(),
+            'jaxonJs' => $jaxon->js(),
+            'jaxonScript' => $jaxon->script()
         ]);
     }
 }

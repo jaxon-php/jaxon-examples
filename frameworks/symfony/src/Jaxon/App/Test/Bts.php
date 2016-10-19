@@ -9,14 +9,17 @@ class Bts extends JaxonController
 {
     public function sayHello($isCaps, $bNotify = true)
     {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-    
-        $this->response->assign('div2', 'innerHTML', $text);
+        $html = $this->view->render('test/hello.html.twig', ['isCaps' => $isCaps]);
+        $this->response->assign('div2', 'innerHTML', $html);
         if(($bNotify))
-            $this->response->toastr->success("div2 text is now $text");
+        {
+            $message = $this->view->render('test/message.html.twig', [
+                'element' => 'div2',
+                'attr' => 'text',
+                'value' => $html,
+            ]);
+            $this->response->toastr->success($message);
+        }
     
         return $this->response;
     }
@@ -25,7 +28,14 @@ class Bts extends JaxonController
     {
         $this->response->assign('div2', 'style.color', $sColor);
         if(($bNotify))
-            $this->response->toastr->success("div2 color is now $sColor");
+        {
+            $message = $this->view->render('test/message.html.twig', [
+                'element' => 'div2',
+                'attr' => 'color',
+                'value' => $sColor,
+            ]);
+            $this->response->toastr->success($message);
+        }
     
         return $this->response;
     }
@@ -34,7 +44,8 @@ class Bts extends JaxonController
     {
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $width = 300;
-        $this->response->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
+        $html = $this->view->render('test/credit.html.twig', ['library' => 'Twitter Bootstrap']);
+        $this->response->bootstrap->modal("Modal Dialog", $html, $buttons, $width);
     
         return $this->response;
     }

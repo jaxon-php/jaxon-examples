@@ -9,32 +9,43 @@ class Pgw extends JaxonController
 {
     public function sayHello($isCaps, $bNotify = true)
     {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-    
-        $this->response->assign('div1', 'innerHTML', $text);
+        $html = $this->view->render('test/hello', ['isCaps' => $isCaps]);
+        $this->response->assign('div1', 'innerHTML', $html);
         if(($bNotify))
-            $this->response->toastr->success("div1 text is now $text");
+        {
+            $message = $this->view->render('test/message', [
+                'element' => 'div1',
+                'attr' => 'text',
+                'value' => $html,
+            ]);
+            $this->response->toastr->success($message);
+        }
     
         return $this->response;
     }
-
+    
     public function setColor($sColor, $bNotify = true)
     {
         $this->response->assign('div1', 'style.color', $sColor);
         if(($bNotify))
-            $this->response->toastr->success("div1 color is now $sColor");
+        {
+            $message = $this->view->render('test/message', [
+                'element' => 'div1',
+                'attr' => 'color',
+                'value' => $sColor,
+            ]);
+            $this->response->toastr->success($message);
+        }
     
         return $this->response;
     }
-
+    
     public function showDialog()
     {
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('maxWidth' => 400);
-        $this->response->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+        $html = $this->view->render('test/credit', ['library' => 'PgwModal']);
+        $this->response->pgw->modal("Modal Dialog", $html, $buttons, $options);
     
         return $this->response;
     }
