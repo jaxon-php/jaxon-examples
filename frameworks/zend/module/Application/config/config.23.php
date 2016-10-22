@@ -9,6 +9,8 @@
 
 namespace Application;
 
+use Jaxon\Zend\Factory\JaxonControllerFactory;
+
 return array(
     'router' => array(
         'routes' => array(
@@ -124,7 +126,7 @@ return array(
             'translator' => 'Zend\Mvc\Service\TranslatorServiceFactory',
             'Logger' => function($sm){
                 $logger = new \Zend\Log\Logger;
-                $writer = new \Zend\Log\Writer\Stream('/srv/contrib/site/www/frameworks/zend/log/error.log');
+                $writer = new \Zend\Log\Writer\Stream('/../log/error.log');
                 $logger->addWriter($writer);
                 return $logger;
             },
@@ -143,12 +145,14 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => Controller\IndexController::class,
-            'Application\Controller\Demo' => Controller\DemoController::class,
+            // 'Application\Controller\Demo' => Controller\DemoController::class,
+        ),
+        'factories' => array(
+            'Application\Controller\Demo' => JaxonControllerFactory::class,
         ),
     ),
     'controller_plugins' => array(
         'invokables' => array(
-            // 'jaxon' => 'Jaxon\Zend\Controller\Plugin\Jaxon',
         )
     ),
     'view_manager' => array(
