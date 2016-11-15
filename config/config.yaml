@@ -4,6 +4,8 @@ jaxon:
       on:                          true
     prefix:
       class:                       "Jaxon"
+    request:
+      csrf_meta:                   "csrf-token"
 
   toastr:
     options:
