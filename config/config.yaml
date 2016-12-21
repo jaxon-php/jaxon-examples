@@ -15,11 +15,20 @@ jaxon:
       closeEasing:                 "swing"
       positionClass:               "toast-bottom-right"
   
-  pgw:
-    assets:
-      include:                     true
-    modal:
+  dialogs:
+    libraries:
+      modal:                       bootstrap
+      alert:                       toastr
+    pgw:
+      assets:
+        include:                   true
+      modal:
+        options:
+          closeOnEscape:           true
+          closeOnBackgroundClick:  true
+          maxWidth:                600
+    toastr:
       options:
-        closeOnEscape:             true
-        closeOnBackgroundClick:    true
-        maxWidth:                  600
+        closeButton:               true
+        positionClass:             "toast-top-center"
+          

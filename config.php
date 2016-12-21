@@ -18,7 +18,7 @@ class HelloWorld
         $xResponse = new Response();
         $xResponse->assign('div2', 'innerHTML', $text);
         if(($bNotify))
-            $xResponse->toastr->success("div2 text is now $text");
+            $xResponse->dialog->success("div2 text is now $text");
 
         return $xResponse;
     }
@@ -28,7 +28,7 @@ class HelloWorld
         $xResponse = new Response();
         $xResponse->assign('div2', 'style.color', $sColor);
         if(($bNotify))
-            $xResponse->toastr->success("div2 color is now $sColor");
+            $xResponse->dialog->success("div2 color is now $sColor");
         
         return $xResponse;
     }
@@ -38,7 +38,7 @@ class HelloWorld
         $xResponse = new Response();
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('maxWidth' => 400);
-        $xResponse->pgw->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+        $xResponse->dialog->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
         
         return $xResponse;
     }
@@ -47,8 +47,8 @@ class HelloWorld
     {
         $xResponse = new Response();
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $width = 300;
-        $xResponse->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
+        $options = array('width' => 300);
+        $xResponse->dialog->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $options);
         
         return $xResponse;
     }
@@ -64,17 +64,16 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 // Process the request, if any.
 $jaxon->processRequest();
 
+require(__DIR__ . '/includes/header.php')
 ?>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    window.onload = function() {
-        // Call the HelloWorld class to populate the 2nd div
-        <?php echo xr::call('HelloWorld.sayHello', 0, false) ?>;
-        // call the HelloWorld->setColor() method on load
-        <?php echo xr::call('HelloWorld.setColor', xr::select('colorselect'), false) ?>;
-    }
-    /* ]]> */
-</script>
+
+    <div class="container-fluid">
+        <div class="row">
+<?php require(__DIR__ . '/includes/nav.php') ?>
+            <div class="col-sm-9 content">
+                <h3 class="page-header">Hello World Function</h3>
+
+                <div class="row" id="jaxon-html">
                         <div class="col-md-12" id="div2">
                             &nbsp;
                         </div>
@@ -92,3 +91,22 @@ $jaxon->processRequest();
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 0) ?>; return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.showTbDialog') ?>; return false;" >Bootstrap Dialog</button>
                         </div>
+
+                </div>
+            </div> <!-- class="content" -->
+       </div> <!-- class="row" -->
+    </div>
+<div id="jaxon-init">
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    window.onload = function() {
+        // Call the HelloWorld class to populate the 2nd div
+        <?php echo xr::call('HelloWorld.sayHello', 0, false) ?>;
+        // call the HelloWorld->setColor() method on load
+        <?php echo xr::call('HelloWorld.setColor', xr::select('colorselect'), false) ?>;
+    }
+    /* ]]> */
+</script>
+</div>
+
+<?php require(__DIR__ . '/includes/footer.php') ?>

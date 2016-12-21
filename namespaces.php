@@ -17,27 +17,28 @@ $jaxon->setOption('toastr.options.positionClass', 'toast-bottom-right');
 $jaxon->addClassDir(__DIR__ . '/classes/namespace/app', 'App');
 $jaxon->addClassDir(__DIR__ . '/classes/namespace/ext', 'Ext');
 
-// Register objects
-$jaxon->registerClasses();
+// Check if there is a request.
+if($jaxon->canProcessRequest())
+{
+    // When processing a request, the required class will be autoloaded
+    $jaxon->processRequest();
+}
+else
+{
+    // The Jaxon objects are registered only when the page is loaded
+    $jaxon->registerClasses();
+}
 
-// Process the request, if any.
-$jaxon->processRequest();
-
+require(__DIR__ . '/includes/header.php')
 ?>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    window.onload = function() {
-        // call the helloWorld function to populate the div on load
-        App.Test.Test.sayHello(0, false);
-        // call the setColor function on load
-        App.Test.Test.setColor(jaxon.$('colorselect1').value, false);
-        // Call the HelloWorld class to populate the 2nd div
-        Ext.Test.Test.sayHello(0, false);
-        // call the HelloWorld->setColor() method on load
-        Ext.Test.Test.setColor(jaxon.$('colorselect2').value, false);
-    }
-    /* ]]> */
-</script>
+
+    <div class="container-fluid">
+        <div class="row">
+<?php require(__DIR__ . '/includes/nav.php') ?>
+            <div class="col-sm-9 content">
+                <h3 class="page-header">Hello World Function</h3>
+
+                <div class="row" id="jaxon-html">
                         <div class="col-md-12" id="div1">
                             &nbsp;
                         </div>
@@ -73,3 +74,26 @@ $jaxon->processRequest();
                             <button type="button" class="btn btn-primary" onclick="Ext.Test.Test.sayHello(0); return false;" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="Ext.Test.Test.showDialog(); return false;" >Bootstrap Dialog</button>
                         </div>
+
+                </div>
+            </div> <!-- class="content" -->
+       </div> <!-- class="row" -->
+    </div>
+<div id="jaxon-init">
+<script type='text/javascript'>
+    /* <![CDATA[ */
+    window.onload = function() {
+        // call the helloWorld function to populate the div on load
+        App.Test.Test.sayHello(0, false);
+        // call the setColor function on load
+        App.Test.Test.setColor(jaxon.$('colorselect1').value, false);
+        // Call the HelloWorld class to populate the 2nd div
+        Ext.Test.Test.sayHello(0, false);
+        // call the HelloWorld->setColor() method on load
+        Ext.Test.Test.setColor(jaxon.$('colorselect2').value, false);
+    }
+    /* ]]> */
+</script>
+</div>
+
+<?php require(__DIR__ . '/includes/footer.php') ?>

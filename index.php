@@ -1,46 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/favicon.ico">
-
-    <title>Jaxon Examples</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="/examples/css/style.css" rel="stylesheet">
-</head>
-
-<body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Jaxon Examples</a>
-            </div>
-        </div>
-    </nav>
+<?php require(__DIR__ . '/includes/header.php') ?>
 
     <div class="container-fluid">
         <div class="row">
-<?php require(__DIR__ . '/includes/menu.php') ?>
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<?php require(__DIR__ . '/includes/nav.php') ?>
+            <div class="col-sm-9 content">
                 <h3 class="page-header">Jaxon Examples</h3>
 
-                <div class="row">
+                <div class="row col-md-12">
 <p>
 All examples are variants of the helloword.php example in the original Jaxon repository at
 <a href="https://github.com/Jaxon/Jaxon/blob/master/examples/helloworld.php" target="_blank">
@@ -120,17 +86,7 @@ In this example the autoloading is disabled in the Jaxon library.
 A third-party autoloader is used to load the Jaxon classes.
 </p>
                 </div>
-
-            </div>
-        </div>
+            </div> <!-- class="content" -->
+       </div> <!-- class="row" -->
     </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
-
 <?php require(__DIR__ . '/includes/footer.php') ?>
-</body>
-</html>

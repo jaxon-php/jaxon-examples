@@ -4,8 +4,12 @@ use Jaxon\Response\Response;
 
 class Ext
 {
-    use \Jaxon\Request\FactoryTrait;
-    use \Jaxon\Response\FactoryTrait;
+    protected $response;
+
+    public function __construct()
+    {
+        $this->response = new Response;
+    }
 
     public function sayHello($isCaps, $bNotify = true)
     {
@@ -16,7 +20,7 @@ class Ext
     
         $this->response->assign('div2', 'innerHTML', $text);
         if(($bNotify))
-            $this->response->toastr->success("div2 text is now $text");
+            $this->response->dialog->success("div2 text is now $text");
     
         return $this->response;
     }
@@ -25,7 +29,7 @@ class Ext
     {
         $this->response->assign('div2', 'style.color', $sColor);
         if(($bNotify))
-            $this->response->toastr->success("div2 color is now $sColor");
+            $this->response->dialog->success("div2 color is now $sColor");
     
         return $this->response;
     }
@@ -34,7 +38,7 @@ class Ext
     {
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $width = 300;
-        $this->response->bootstrap->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
+        $this->response->dialog->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $width);
     
         return $this->response;
     }

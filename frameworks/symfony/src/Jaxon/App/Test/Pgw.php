@@ -18,7 +18,7 @@ class Pgw extends JaxonController
                 'attr' => 'text',
                 'value' => $html,
             ]);
-            $this->response->toastr->success($message);
+            $this->response->dialog->success($message);
         }
     
         return $this->response;
@@ -34,7 +34,7 @@ class Pgw extends JaxonController
                 'attr' => 'color',
                 'value' => $sColor,
             ]);
-            $this->response->toastr->success($message);
+            $this->response->dialog->success($message);
         }
     
         return $this->response;
@@ -45,7 +45,7 @@ class Pgw extends JaxonController
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('maxWidth' => 400);
         $html = $this->view->render('test/credit.html.twig', ['library' => 'PgwModal']);
-        $this->response->pgw->modal("Modal Dialog", $html, $buttons, $options);
+        $this->response->dialog->modal("Modal Dialog", $html, $buttons, $options);
     
         return $this->response;
     }

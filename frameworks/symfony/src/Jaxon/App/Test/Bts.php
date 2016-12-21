@@ -18,7 +18,7 @@ class Bts extends JaxonController
                 'attr' => 'text',
                 'value' => $html,
             ]);
-            $this->response->toastr->success($message);
+            $this->response->dialog->success($message);
         }
     
         return $this->response;
@@ -34,7 +34,7 @@ class Bts extends JaxonController
                 'attr' => 'color',
                 'value' => $sColor,
             ]);
-            $this->response->toastr->success($message);
+            $this->response->dialog->success($message);
         }
     
         return $this->response;
@@ -45,7 +45,7 @@ class Bts extends JaxonController
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $width = 300;
         $html = $this->view->render('test/credit.html.twig', ['library' => 'Twitter Bootstrap']);
-        $this->response->bootstrap->modal("Modal Dialog", $html, $buttons, $width);
+        $this->response->dialog->modal("Modal Dialog", $html, $buttons, $width);
     
         return $this->response;
     }
