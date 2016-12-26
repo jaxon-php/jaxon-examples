@@ -7,7 +7,7 @@ jaxon_ajax:
         language:                      "en"
         encoding:                      "UTF-8"
         request:
-          uri:                         "/symfony/jaxon"
+          uri:                         "/exp/symfony/jaxon"
         prefix:
           class:                       ""
         debug:
@@ -17,24 +17,26 @@ jaxon_ajax:
           handle:                      false
 
       js:
-        lib:
-        app:
+          lib:
+          app:
           extern:                      false
           minify:                      false
 
-      toastr:
-        options:
-          closeButton:                 true
-          closeMethod:                 "fadeOut"
-          closeDuration:               300
-          closeEasing:                 "swing"
-          positionClass:               "toast-bottom-right"
-  
-      pgw:
-        assets:
-          include:                     true
-        modal:
-          options:
-            closeOnEscape:             true
-            closeOnBackgroundClick:    true
-            maxWidth:                  600
+      dialogs:
+          default:
+              modal:                       pgwjs
+              alert:                       toastr
+          toastr:
+              options:
+                closeButton:                 true
+                closeMethod:                 "fadeOut"
+                closeDuration:               300
+                closeEasing:                 "swing"
+                positionClass:               "toast-top-center"
+
+          pgwjs:
+              modal:
+                  options:
+                      closeOnEscape:             true
+                      closeOnBackgroundClick:    true
+                      maxWidth:                  600
