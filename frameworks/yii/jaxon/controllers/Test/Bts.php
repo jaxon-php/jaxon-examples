@@ -43,9 +43,9 @@ class Bts extends JaxonController
     public function showDialog()
     {
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $width = 300;
+        $options = array('width' => 400);
         $html = $this->view->render('test/credit', ['library' => 'Twitter Bootstrap']);
-        $this->response->dialog->modal("Modal Dialog", $html, $buttons, $width);
+        $this->response->dialog->modal("Modal Dialog", $html, $buttons, $options);
     
         return $this->response;
     }

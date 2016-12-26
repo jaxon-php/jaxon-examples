@@ -2,16 +2,19 @@
 
 return array(
     'app' => array(
-        // 'dir' => '',
-        // 'namespace' => '',
-        // 'excluded' => [],
+        'controllers' => array(
+            // 'directory' => '',
+            // 'namespace' => '',
+            // 'separator' => '.',
+            // 'protected' => [],
+        ),
     ),
     'lib' => array(
         'core' => array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-                'uri' => '/yii/demo/process',
+                'uri' => '/exp/yii/demo/process',
             ),
             'prefix' => array(
                 'class' => '',
@@ -35,15 +38,23 @@ return array(
                 'minify' => false,
             ),
         ),
-        'toastr' => array(
-            'options' => array(
-                'closeButton' => true,
-                'positionClass' => 'toast-bottom-right'
+        'dialogs' => array(
+            'libraries' => array('pgwjs'),
+            'default' => array(
+                'modal' => 'bootbox',
+                'alert' => 'bootbox',
+                'confirm' => 'bootbox',
             ),
-        ),
-        'assets' => array(
-            'include' => array(
-                'all' => true,
+            'toastr' => array(
+                'options' => array(
+                    'closeButton' => true,
+                    'positionClass' => 'toast-bottom-right'
+                ),
+            ),
+            'assets' => array(
+                'include' => array(
+                    'all' => true,
+                ),
             ),
         ),
     ),

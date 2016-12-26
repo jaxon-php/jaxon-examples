@@ -18,10 +18,8 @@
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "jaxon-php/jaxon-yii": "1.0.*",
-        "jaxon-php/jaxon-toastr": "1.0.*",
-        "jaxon-php/jaxon-pgwjs": "1.0.*",
-        "jaxon-php/jaxon-bootstrap": "1.0.*"
+        "jaxon-php/jaxon-yii": "dev-master",
+        "jaxon-php/jaxon-dialogs": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
@@ -54,5 +52,6 @@
             "npm-asset-library": "vendor/npm",
             "bower-asset-library": "vendor/bower"
         }
-    }
+    },
+    "minimum-stability": "dev"
 }

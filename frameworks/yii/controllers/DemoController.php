@@ -10,6 +10,26 @@ class DemoController extends Controller
 {
     public function actionIndex()
     {
+        $menuEntries = array(
+            'index.php' => 'Home',
+            'hello.php' => 'Hello World Function',
+            'alias.php' => 'Hello World Alias',
+            'class.php' => 'Hello World Class',
+            'extern.php' => 'Export Javascript',
+            'plugins.php' => 'Plugin Usage',
+            'config.php' => 'Config File',
+            'directories.php' => 'Register Directories',
+            'namespaces.php' => 'Register Namespaces',
+            'autoload-default.php' => 'Default Autoloader',
+            'autoload-disabled.php' => 'Third Party Autoloader',
+            'autoload-separated.php' => 'Separated Files',
+            'laravel/' => 'Laravel Framework',
+            'symfony/' => 'Symfony Framework',
+            'zend/' => 'Zend Framework',
+            'codeigniter/' => 'CodeIgniter Framework',
+            'yii/' => 'Yii Framework',
+        );
+
         // Set the layout
         $this->layout = 'demo';
         // Call the Jaxon module
@@ -17,9 +37,10 @@ class DemoController extends Controller
         $jaxon->register();
 
         return $this->render('index', array(
-            'JaxonCss' => $jaxon->css(),
-            'JaxonJs' => $jaxon->js(),
-            'JaxonScript' => $jaxon->script(),
+            'jaxonCss' => $jaxon->css(),
+            'jaxonJs' => $jaxon->js(),
+            'jaxonScript' => $jaxon->script(),
+            'menuEntries' => $menuEntries,
         ));
     }
 
