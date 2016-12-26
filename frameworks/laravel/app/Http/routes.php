@@ -13,12 +13,9 @@
 
 // Route to demo page
 Route::get('/', array('as' => 'demo', 'uses' => 'DemoController@index'));
-Route::get('examples/integration/laravel', array('as' => 'demo', 'uses' => 'DemoController@index'));
-Route::get('examples/integration/laravel.html', array('as' => 'demo', 'uses' => 'DemoController@index'));
-Route::get('en/examples/integration/laravel', array('as' => 'demo', 'uses' => 'DemoController@index'));
-Route::get('en/examples/integration/laravel.html', array('as' => 'demo', 'uses' => 'DemoController@index'));
-Route::get('fr/examples/integration/laravel', array('as' => 'demo', 'uses' => 'DemoController@index'));
-Route::get('fr/examples/integration/laravel.html', array('as' => 'demo', 'uses' => 'DemoController@index'));
 
 // Route to Jaxon request processor
-// Route::post('jaxon', array('as' => 'jaxon', 'uses' => 'JaxonController@process'));
+/*Route::post('jaxon', array(
+    'as' => 'laraveljaxon',
+    'uses' => '\Jaxon\Laravel\Http\Controllers\JaxonController@process',
+));*/
