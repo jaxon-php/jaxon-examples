@@ -1,17 +1,18 @@
 <?php
 
 $config['app'] = array(
-    // 'route' => '',
-    // 'dir' => '',
-    // 'namespace' => '',
-    // 'excluded' => array(),
+    'controllers' => array(
+        // 'directory' => '',
+        // 'namespace' => '',
+        // 'protected' => array(),
+    ),
 );
 $config['lib'] = array(
     'core' => array(
         'language' => 'en',
         'encoding' => 'UTF-8',
         'request' => array(
-            'uri' => '/codeigniter/jaxon/process',
+            'uri' => '/exp/codeigniter/jaxon/process',
         ),
         'prefix' => array(
             'class' => '',
@@ -26,7 +27,7 @@ $config['lib'] = array(
     ),
     'js' => array(
         'lib' => array(
-            // 'uri' => '/jaxon/lib',
+            'uri' => '/jaxon/lib',
         ),
         'app' => array(
             // 'uri' => '',
@@ -36,15 +37,23 @@ $config['lib'] = array(
             'options' => '',
         ),
     ),
-    'toastr' => array(
-        'options' => array(
-            'closeButton' => true,
-            'positionClass' => 'toast-bottom-right'
+    'dialogs' => array(
+        'libraries' => array('pgwjs'),
+        'default' => array(
+            'modal' => 'bootbox',
+            'alert' => 'bootbox',
+            'confirm' => 'bootbox',
         ),
-    ),
-    'assets' => array(
-        'include' => array(
-            'all' => true,
+        'toastr' => array(
+            'options' => array(
+                'closeButton' => true,
+                'positionClass' => 'toast-bottom-right'
+            ),
+        ),
+        'assets' => array(
+            'include' => array(
+                'all' => true,
+            ),
         ),
     ),
 );

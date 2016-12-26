@@ -2,19 +2,18 @@
 
 namespace Jaxon\App\Test;
 
-use Jaxon\Request\Factory as xr;
 use Jaxon\CI\Controller as JaxonController;
 
-class Bts extends JaxonController
+class Pgw extends JaxonController
 {
     public function sayHello($isCaps, $bNotify = true)
     {
         $html = $this->view->render('test/hello', ['isCaps' => $isCaps]);
-        $this->response->assign('div2', 'innerHTML', $html);
+        $this->response->assign('div1', 'innerHTML', $html);
         if(($bNotify))
         {
             $message = $this->view->render('test/message', [
-                'element' => 'div2',
+                'element' => 'div1',
                 'attr' => 'text',
                 'value' => $html,
             ]);
@@ -26,11 +25,11 @@ class Bts extends JaxonController
     
     public function setColor($sColor, $bNotify = true)
     {
-        $this->response->assign('div2', 'style.color', $sColor);
+        $this->response->assign('div1', 'style.color', $sColor);
         if(($bNotify))
         {
             $message = $this->view->render('test/message', [
-                'element' => 'div2',
+                'element' => 'div1',
                 'attr' => 'color',
                 'value' => $sColor,
             ]);
@@ -43,9 +42,9 @@ class Bts extends JaxonController
     public function showDialog()
     {
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $width = 300;
-        $html = $this->view->render('test/credit', ['library' => 'Twitter Bootstrap']);
-        $this->response->dialog->modal("Modal Dialog", $html, $buttons, $width);
+        $options = array('maxWidth' => 400);
+        $html = $this->view->render('test/credit', ['library' => 'PgwModal']);
+        $this->response->dialog->modal("Modal Dialog", $html, $buttons, $options);
     
         return $this->response;
     }

@@ -1,9 +1,7 @@
 {
     "require": {
-        "jaxon-php/jaxon-codeigniter": "1.0.*",
-        "jaxon-php/jaxon-toastr": "1.0.*",
-        "jaxon-php/jaxon-pgwjs": "1.0.*",
-        "jaxon-php/jaxon-bootstrap": "1.0.*",
+        "jaxon-php/jaxon-codeigniter": "dev-master",
+        "jaxon-php/jaxon-dialogs": "dev-master",
         "keradus/psr4autoloader": "dev-master"
     },
     "minimum-stability": "dev"
