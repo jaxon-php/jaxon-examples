@@ -47,7 +47,7 @@ class HelloWorld
 // Register object
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld(), array(
     '*' => array('mode' => "'synchronous'"),
-    'sayHello' => array('moda' => "'asynchronous'"),
+    'sayHello' => array('mode' => "'asynchronous'"),
 ));
 
 // Process the request, if any.

@@ -33,17 +33,7 @@ class HelloWorld
         return $xResponse;
     }
 
-    public function showPgwDialog()
-    {
-        $xResponse = new Response();
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array('maxWidth' => 400);
-        $xResponse->dialog->modal("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
-        
-        return $xResponse;
-    }
-
-    public function showTbDialog()
+    public function showDialog()
     {
         $xResponse = new Response();
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
@@ -58,6 +48,13 @@ class HelloWorld
 $jaxon = jaxon();
 
 $jaxon->readConfigFile(__DIR__ . '/config/config.yaml', 'jaxon');
+
+// Dialog options
+$jaxon->setOption('dialogs.default.modal', 'bootstrap');
+$jaxon->setOption('dialogs.default.alert', 'toastr');
+$jaxon->setOption('dialogs.libraries', array('pgwjs'));
+$jaxon->setOption('dialogs.toastr.options.closeButton', true);
+$jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
@@ -89,7 +86,7 @@ require(__DIR__ . '/includes/header.php')
                         <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 1) ?>; return false;" >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 0) ?>; return false;" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.showTbDialog') ?>; return false;" >Bootstrap Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.showDialog') ?>; return false;" >Bootstrap Dialog</button>
                         </div>
 
                 </div>

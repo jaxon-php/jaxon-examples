@@ -10,10 +10,10 @@ $jaxon = jaxon();
 
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', 'Jaxon');
-$jaxon->setOption('dialogs.libraries.modal', 'pgwjs');
-$jaxon->setOption('dialogs.libraries.alert', 'jalert');
-// $jaxon->setOption('dialogs.libraries.confirm', 'jalert');
 
+// Dialog options
+$jaxon->setOption('dialogs.default.modal', 'bootbox');
+$jaxon->setOption('dialogs.default.alert', 'toastr');
 $jaxon->setOption('dialogs.toastr.options.closeButton', true);
 $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 

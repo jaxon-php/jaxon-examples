@@ -23,16 +23,15 @@ jaxon_ajax:
           minify:                      false
 
       dialogs:
+          libraries:
+                                       - pgwjs
           default:
-              modal:                       pgwjs
-              alert:                       toastr
+              modal:                   bootstrap
+              alert:                   toastr
           toastr:
               options:
-                closeButton:                 true
-                closeMethod:                 "fadeOut"
-                closeDuration:               300
-                closeEasing:                 "swing"
-                positionClass:               "toast-top-center"
+                closeButton:           true
+                positionClass:         "toast-top-center"
 
           pgwjs:
               modal:

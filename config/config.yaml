@@ -16,10 +16,10 @@ jaxon:
       positionClass:               "toast-bottom-right"
   
   dialogs:
-    libraries:
+    default:
       modal:                       bootstrap
       alert:                       toastr
-    pgw:
+    pgwjs:
       assets:
         include:                   true
       modal:

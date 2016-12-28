@@ -41,14 +41,13 @@ return array(
         'dialogs' => array(
             'libraries' => array('pgwjs'),
             'default' => array(
-                'modal' => 'bootbox',
-                'alert' => 'bootbox',
-                'confirm' => 'bootbox',
+                'modal' => 'bootstrap',
+                'alert' => 'toastr',
             ),
             'toastr' => array(
                 'options' => array(
                     'closeButton' => true,
-                    'positionClass' => 'toast-bottom-right'
+                    'positionClass' => 'toast-top-center'
                 ),
             ),
             'assets' => array(
