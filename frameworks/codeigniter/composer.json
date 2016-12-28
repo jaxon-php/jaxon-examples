@@ -4,5 +4,6 @@
         "jaxon-php/jaxon-dialogs": "dev-master",
         "keradus/psr4autoloader": "dev-master"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

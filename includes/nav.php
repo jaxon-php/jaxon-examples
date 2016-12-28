@@ -5,16 +5,19 @@ $menuEntries = array(
     'hello.php' => 'Hello World Function',
     'alias.php' => 'Hello World Alias',
     'class.php' => 'Hello World Class',
-    'merge.php' => 'Merge Javascript',
+    'extern.php' => 'Export Javascript',
     'plugins.php' => 'Plugin Usage',
     'config.php' => 'Config File',
     'directories.php' => 'Register Directories',
     'namespaces.php' => 'Register Namespaces',
     'autoload-default.php' => 'Default Autoloader',
+    'autoload-composer.php' => 'Composer Autoloader',
     'autoload-disabled.php' => 'Third Party Autoloader',
-    'autoload-separated.php' => 'Separated Files',
-    'laravel.php' => 'Laravel Framework',
-    'codeigniter.php' => 'CodeIgniter Framework',
+    'laravel/' => 'Laravel Framework',
+    'symfony/' => 'Symfony Framework',
+    'zend/' => 'Zend Framework',
+    'codeigniter/' => 'CodeIgniter Framework',
+    'yii/' => 'Yii Framework',
 );
 
 $requestFile = new \SplFileInfo($_SERVER['SCRIPT_FILENAME']);
@@ -24,7 +27,7 @@ $requestFilename = $requestFile->getBasename();
             <div class="col-sm-3 sidebar">
                 <ul class="nav nav-sidebar">
 <?php foreach($menuEntries as $filename => $title): ?>
-                    <li<?php if($filename == $requestFilename) echo ' class="active"'; ?>><a href="<?php echo $filename ?>"><?php echo $title ?></a></li>
+                    <li<?php if($filename == $requestFilename) echo ' class="active"'; ?>><a href="/exp/<?php echo $filename ?>"><?php echo $title ?></a></li>
 <?php endforeach ?>
                 </ul>
             </div>

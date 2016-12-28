@@ -12,6 +12,26 @@ class Demo extends Jaxon_Controller
 
     public function index()
     {
+        $menuEntries = array(
+            'index.php' => 'Home',
+            'hello.php' => 'Hello World Function',
+            'alias.php' => 'Hello World Alias',
+            'class.php' => 'Hello World Class',
+            'extern.php' => 'Export Javascript',
+            'plugins.php' => 'Plugin Usage',
+            'config.php' => 'Config File',
+            'directories.php' => 'Register Directories',
+            'namespaces.php' => 'Register Namespaces',
+            'autoload-default.php' => 'Default Autoloader',
+            'autoload-composer.php' => 'Composer Autoloader',
+            'autoload-disabled.php' => 'Third Party Autoloader',
+            'laravel/' => 'Laravel Framework',
+            'symfony/' => 'Symfony Framework',
+            'zend/' => 'Zend Framework',
+            'codeigniter/' => 'CodeIgniter Framework',
+            'yii/' => 'Yii Framework',
+        );
+
         // Register the Jaxon classes
         $this->jaxon->register();
         // Print the page
@@ -19,7 +39,8 @@ class Demo extends Jaxon_Controller
         $this->parser->parse('demo/index', array(
             'JaxonCss' => $this->jaxon->css(),
             'JaxonJs' => $this->jaxon->js(),
-            'JaxonScript' => $this->jaxon->script()
+            'JaxonScript' => $this->jaxon->script(),
+            'menuEntries' => $menuEntries,
         ));
     }
 }

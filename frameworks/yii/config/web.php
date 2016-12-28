@@ -48,13 +48,6 @@ $config = [
             'enableStrictParsing' => false,
             'rules' => [
                 '/' => 'demo/index',
-                'examples/integration/yii' => 'demo/index',
-                'examples/integration/yii.html' => 'demo/index',
-                'en/examples/integration/yii' => 'demo/index',
-                'en/examples/integration/yii.html' => 'demo/index',
-                'fr/examples/integration/yii' => 'demo/index',
-                'fr/examples/integration/yii.html' => 'demo/index',
-                'demo' => 'demo/index',
             ],
         ],
     ],

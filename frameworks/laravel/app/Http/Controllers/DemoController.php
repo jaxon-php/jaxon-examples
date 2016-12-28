@@ -18,16 +18,19 @@ class DemoController extends Controller
             'hello.php' => 'Hello World Function',
             'alias.php' => 'Hello World Alias',
             'class.php' => 'Hello World Class',
-            'merge.php' => 'Merge Javascript',
+            'extern.php' => 'Export Javascript',
             'plugins.php' => 'Plugin Usage',
             'config.php' => 'Config File',
             'directories.php' => 'Register Directories',
             'namespaces.php' => 'Register Namespaces',
             'autoload-default.php' => 'Default Autoloader',
+            'autoload-composer.php' => 'Composer Autoloader',
             'autoload-disabled.php' => 'Third Party Autoloader',
-            'autoload-separated.php' => 'Separated Files',
-            'laravel.php' => 'Laravel Framework',
-            'codeigniter.php' => 'CodeIgniter Framework',
+            'laravel/' => 'Laravel Framework',
+            'symfony/' => 'Symfony Framework',
+            'zend/' => 'Zend Framework',
+            'codeigniter/' => 'CodeIgniter Framework',
+            'yii/' => 'Yii Framework',
         );
 
         // Register the Jaxon classes

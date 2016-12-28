@@ -19,7 +19,7 @@ use Symfony\Component\Debug\Debug;
 }*/
 
 /** @var \Composer\Autoload\ClassLoader $loader */
-$loader = require __DIR__ . '/../../frw/symfony/app/autoload.php';
+$loader = require __DIR__ . '/../../frw/symfony-2.8/app/autoload.php';
 Debug::enable();
 
 $kernel = new AppKernel('dev', true);
