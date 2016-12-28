@@ -9,78 +9,28 @@
 
 namespace Application;
 
-use Jaxon\Zend\Factory\JaxonControllerFactory;
+use Jaxon\Zend\Factory\Zf2ControllerFactory;
 
 return array(
     'router' => array(
         'routes' => array(
-            'home' => array(
+            'demo' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Index',
+                        'controller' => 'Application\Controller\Demo',
                         'action'     => 'index',
                     ),
                 ),
             ),
             // Route to the Jaxon request processor
-            'jaxondemo' => array(
+            'jaxon' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route'    => '/examples/integration/zend',
+                    'route'    => '/jaxon',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Demo',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-            'jaxondemohtml' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/examples/integration/zend.html',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Demo',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-            'jaxondemofr' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/fr/examples/integration/zend',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Demo',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-            'jaxondemofrhtml' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/fr/examples/integration/zend.html',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Demo',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-            'jaxondemoen' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/en/examples/integration/zend',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Demo',
-                        'action'     => 'index',
-                    ),
-                ),
-            ),
-            'jaxondemoenhtml' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/en/examples/integration/zend.html',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Demo',
+                        'controller' => 'Jaxon\Zend\Controller\Jaxon',
                         'action'     => 'index',
                     ),
                 ),
@@ -131,6 +81,9 @@ return array(
                 return $logger;
             },
         ),
+        'invokables' => array(
+            'JaxonPlugin' => 'Jaxon\Zend\Controller\Plugin\JaxonPlugin',
+        ),
     ),
     'translator' => array(
         'locale' => 'en_US',
@@ -145,10 +98,10 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => Controller\IndexController::class,
-            // 'Application\Controller\Demo' => Controller\DemoController::class,
         ),
         'factories' => array(
-            'Application\Controller\Demo' => JaxonControllerFactory::class,
+            'Application\Controller\Demo' => Zf2ControllerFactory::class,
+            'Jaxon\Zend\Controller\Jaxon' => Zf2ControllerFactory::class,
         ),
     ),
     'controller_plugins' => array(
