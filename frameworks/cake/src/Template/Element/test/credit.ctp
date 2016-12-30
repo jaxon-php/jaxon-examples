@@ -1,0 +1,1 @@
+This modal dialog is powered by <?php echo $library ?>!!
