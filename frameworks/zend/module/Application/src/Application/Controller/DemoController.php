@@ -38,6 +38,7 @@ class DemoController extends AbstractActionController
             'zend/' => 'Zend Framework',
             'codeigniter/' => 'CodeIgniter Framework',
             'yii/' => 'Yii Framework',
+            'cake/' => 'CakePHP Framework',
         );
 
         // Call the Jaxon module

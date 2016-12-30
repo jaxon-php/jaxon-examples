@@ -30,6 +30,7 @@ class Demo extends Jaxon_Controller
             'zend/' => 'Zend Framework',
             'codeigniter/' => 'CodeIgniter Framework',
             'yii/' => 'Yii Framework',
+            'cake/' => 'CakePHP Framework',
         );
 
         // Register the Jaxon classes

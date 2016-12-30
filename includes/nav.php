@@ -18,6 +18,7 @@ $menuEntries = array(
     'zend/' => 'Zend Framework',
     'codeigniter/' => 'CodeIgniter Framework',
     'yii/' => 'Yii Framework',
+    'cake/' => 'CakePHP Framework',
 );
 
 $requestFile = new \SplFileInfo($_SERVER['SCRIPT_FILENAME']);

@@ -28,6 +28,7 @@ class DemoController extends Controller
             'zend/' => 'Zend Framework',
             'codeigniter/' => 'CodeIgniter Framework',
             'yii/' => 'Yii Framework',
+            'cake/' => 'CakePHP Framework',
         );
 
         // Set the layout
