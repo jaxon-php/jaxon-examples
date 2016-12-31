@@ -7,8 +7,8 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
-        "jaxon-php/jaxon-laravel": "dev-master",
-        "jaxon-php/jaxon-dialogs": "dev-master"
+        "jaxon-php/jaxon-laravel": "~2.0",
+        "jaxon-php/jaxon-dialogs": "~1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

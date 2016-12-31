@@ -18,8 +18,8 @@
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "jaxon-php/jaxon-yii": "dev-master",
-        "jaxon-php/jaxon-dialogs": "dev-master"
+        "jaxon-php/jaxon-yii": "~2.0",
+        "jaxon-php/jaxon-dialogs": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

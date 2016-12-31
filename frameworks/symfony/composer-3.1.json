@@ -22,8 +22,8 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "jaxon-php/jaxon-symfony": "dev-master",
-        "jaxon-php/jaxon-dialogs": "dev-master"
+        "jaxon-php/jaxon-symfony": "~2.0",
+        "jaxon-php/jaxon-dialogs": "~1.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

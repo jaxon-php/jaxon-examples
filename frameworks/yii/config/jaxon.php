@@ -14,7 +14,7 @@ return array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-                'uri' => '/exp/yii/demo/process',
+                // 'uri' => '/exp/yii/demo/process',
             ),
             'prefix' => array(
                 'class' => '',
