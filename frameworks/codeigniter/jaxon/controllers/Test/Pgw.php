@@ -41,13 +41,12 @@ class Pgw extends JaxonController
     
     public function showDialog()
     {
-        $jaxon = jaxon();
-        $jaxon->setOption('dialogs.default.modal', 'pgwjs');
+        $this->response->dialog->setModalLibrary('pgwjs');
 
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('maxWidth' => 400);
         $html = $this->view->render('test/credit', ['library' => 'PgwModal']);
-        $this->response->dialog->modal("Modal Dialog", $html, $buttons, $options);
+        $this->response->dialog->show("Modal Dialog", $html, $buttons, $options);
     
         return $this->response;
     }

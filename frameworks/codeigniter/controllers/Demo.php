@@ -25,6 +25,7 @@ class Demo extends Jaxon_Controller
             'autoload-default.php' => 'Default Autoloader',
             'autoload-composer.php' => 'Composer Autoloader',
             'autoload-disabled.php' => 'Third Party Autoloader',
+            'module.php' => 'Module',
             'laravel/' => 'Laravel Framework',
             'symfony/' => 'Symfony Framework',
             'zend/' => 'Zend Framework',

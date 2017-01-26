@@ -13,23 +13,34 @@ $jaxon->setOption('core.prefix.class', 'Jaxon');
 
 // Dialog options
 $jaxon->setOption('dialogs.default.modal', 'bootbox');
-$jaxon->setOption('dialogs.default.alert', 'toastr');
+$jaxon->setOption('dialogs.default.alert', 'izi.toast');
+$jaxon->setOption('dialogs.default.confirm', 'izi.toast');
+
 $jaxon->setOption('dialogs.toastr.options.closeButton', true);
 $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
+$jaxon->setOption('dialogs.pnotify.options.styling', 'bootstrap3');
+$jaxon->setOption('dialogs.pgwjs.options.modal.maxWidth', 800);
+
+$jaxon->plugin('dialog')->registerClasses();
 
 class HelloWorld
 {
     public function sayHello($isCaps, $bNotify = true)
     {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-
+        $text = ($isCaps ? 'HELLO WORLD!': 'Hello World!');
         $xResponse = new Response();
-        $xResponse->assign('div2', 'innerHTML', $text);
         if(($bNotify))
-            $xResponse->dialog->success("div2 text is now $text");
+        {
+            // $xResponse->confirmCommands(2, 'Skip text assignement?');
+            $xResponse->assign('div2', 'innerHTML', $text);
+            // $xResponse->confirmCommands(1, 'Skip text notification?');
+            $xResponse->dialog->error("div2 text is now $text");
+        }
+        else
+        {
+            // $xResponse->confirmCommands(1, 'Skip text assignement?');
+            $xResponse->assign('div2', 'innerHTML', $text);
+        }
 
         return $xResponse;
     }
@@ -37,9 +48,18 @@ class HelloWorld
     public function setColor($sColor, $bNotify = true)
     {
         $xResponse = new Response();
-        $xResponse->assign('div2', 'style.color', $sColor);
         if(($bNotify))
-            $xResponse->dialog->success("div2 color is now $sColor");
+        {
+            // $xResponse->confirmCommands(1, 'Skip color assignement?');
+            $xResponse->assign('div2', 'style.color', $sColor);
+            // $xResponse->confirmCommands(1, 'Skip color assignement?');
+            $xResponse->dialog->error("div2 color is now $sColor");
+        }
+        else
+        {
+            // $xResponse->confirmCommands(1, 'Skip color assignement?');
+            $xResponse->assign('div2', 'style.color', $sColor);
+        }
 
         return $xResponse;
     }
@@ -48,8 +68,8 @@ class HelloWorld
     {
         $xResponse = new Response();
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $width = 500;
-        $xResponse->dialog->show("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, compact($width));
+        $options = array('width' => 500);
+        $xResponse->dialog->show("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $options);
 
         return $xResponse;
     }
@@ -61,6 +81,7 @@ $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 // Process the request, if any.
 $jaxon->processRequest();
 
+$color = jq('#colorselect')->val();
 require(__DIR__ . '/includes/header.php')
 ?>
 
@@ -76,7 +97,7 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                    onchange="<?php echo xr::call('HelloWorld.setColor', xr::select('colorselect'))->confirm('Sure?') ?>; return false;">
+                                    onchange="<?php echo xr::call('HelloWorld.setColor', $color)->confirm('Set color to {1}?', $color) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -84,9 +105,12 @@ require(__DIR__ . '/includes/header.php')
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 1)->confirm('Sure?') ?>; return false;" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 0)->confirm('Sure?') ?>; return false;" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.showDialog')->confirm('Sure?') ?>; return false;" >Bootbox Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 1)
+                                ->confirm('Sure?') ?>; return false;" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 0)
+                                ->confirm('Sure?') ?>; return false;" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.showDialog')
+                                ->confirm('Sure?') ?>; return false;" >Bootbox Dialog</button>
                         </div>
 
                 </div>

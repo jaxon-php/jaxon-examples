@@ -2,6 +2,9 @@
 
 return array(
     'app' => array(
+        'request' => array(
+            'route' => 'jaxon',
+        ),
         'controllers' => array(
             // 'directory' => '',
             // 'namespace' => '',
@@ -14,7 +17,7 @@ return array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-                'uri' => '/exp/cake/jaxon',
+                // 'uri' => '/exp/cake/jaxon',
             ),
             'prefix' => array(
                 'class' => '',

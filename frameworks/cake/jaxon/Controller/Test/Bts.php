@@ -17,7 +17,7 @@ class Bts extends JaxonController
                 'attr' => 'text',
                 'value' => $html,
             ]);
-            $this->response->dialog->success($message);
+            $this->response->dialog->success($message, 'Ok');
         }
     
         return $this->response;
@@ -26,6 +26,7 @@ class Bts extends JaxonController
     public function setColor($sColor, $bNotify = true)
     {
         $this->response->assign('div2', 'style.color', $sColor);
+        $this->response->dialog->hide();
         if(($bNotify))
         {
             $message = $this->view->render('test/message', [
@@ -33,7 +34,7 @@ class Bts extends JaxonController
                 'attr' => 'color',
                 'value' => $sColor,
             ]);
-            $this->response->dialog->success($message);
+            $this->response->dialog->success($message, 'Ok');
         }
     
         return $this->response;
@@ -41,10 +42,10 @@ class Bts extends JaxonController
     
     public function showDialog()
     {
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
+        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => $this->rq()->setColor('blue')));
         $width = 300;
         $html = $this->view->render('test/credit', ['library' => 'Twitter Bootstrap']);
-        $this->response->dialog->modal("Modal Dialog", $html, $buttons, compact($width));
+        $this->response->dialog->show("Modal Dialog", $html, $buttons, compact('width'));
     
         return $this->response;
     }

@@ -2,12 +2,14 @@
 
 return array(
     'app' => array(
-        'controllers' => array(
+        'request' => array(
             // 'route' => 'jaxon',
+        ),
+        'controllers' => array(
             // 'directory' => '',
             // 'namespace' => '',
-            // 'separator' => '.',
-            // 'protected' => [],
+            // 'separator' => '', // '.' or '_'
+            // 'protected' => array(),
         ),
     ),
     'lib' => array(
