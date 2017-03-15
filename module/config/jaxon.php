@@ -3,7 +3,7 @@
 return array(
     'app' => array(
         'controllers' => array(
-            'directory' => dirname(__DIR__) . '/classes/module',
+            'directory' => dirname(__DIR__) . '/classes',
             'namespace' => '\\Jaxon\\App',
             // 'separator' => '.',
             // 'protected' => [],

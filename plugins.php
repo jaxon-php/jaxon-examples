@@ -13,8 +13,12 @@ $jaxon->setOption('core.prefix.class', 'Jaxon');
 
 // Dialog options
 $jaxon->setOption('dialogs.default.modal', 'bootbox');
-$jaxon->setOption('dialogs.default.alert', 'izi.toast');
-$jaxon->setOption('dialogs.default.confirm', 'izi.toast');
+$jaxon->setOption('dialogs.default.alert', 'ymzbox');
+$jaxon->setOption('dialogs.default.confirm', 'ymzbox');
+
+$jaxon->setOption('dialogs.confirm.title', 'Confirmer');
+$jaxon->setOption('dialogs.confirm.yes', 'Oui');
+$jaxon->setOption('dialogs.confirm.no', 'Non');
 
 $jaxon->setOption('dialogs.toastr.options.closeButton', true);
 $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
@@ -34,7 +38,7 @@ class HelloWorld
             // $xResponse->confirmCommands(2, 'Skip text assignement?');
             $xResponse->assign('div2', 'innerHTML', $text);
             // $xResponse->confirmCommands(1, 'Skip text notification?');
-            $xResponse->dialog->error("div2 text is now $text");
+            $xResponse->dialog->success("div2 text is now $text");
         }
         else
         {
@@ -53,7 +57,7 @@ class HelloWorld
             // $xResponse->confirmCommands(1, 'Skip color assignement?');
             $xResponse->assign('div2', 'style.color', $sColor);
             // $xResponse->confirmCommands(1, 'Skip color assignement?');
-            $xResponse->dialog->error("div2 color is now $sColor");
+            $xResponse->dialog->success("div2 color is now $sColor");
         }
         else
         {

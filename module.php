@@ -3,7 +3,9 @@
 require (__DIR__ . '/vendor/autoload.php');
 
 $jaxon = jaxon()->module();
-$jaxon->config(__DIR__ . '/config/module.php');
+$jaxon->config(__DIR__ . '/module/config/jaxon.php');
+$jaxon->addTemplateNamespace('module', __DIR__ . '/module/views', true, '.tpl');
+
 if($jaxon->canProcessRequest())
 {
     // Process the request

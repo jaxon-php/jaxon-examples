@@ -4,20 +4,16 @@ require (__DIR__ . '/vendor/autoload.php');
 
 use Jaxon\Jaxon;
 use Jaxon\Response\Response;
+use Jaxon\Response\Manager as ResponseManager;
 use Jaxon\Request\Factory as xr;
 
 class HelloWorld
 {
     public function sayHello($isCaps)
     {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-
+        $text = (($isCaps) ? 'HELLO WORLD!' : 'Hello World!');
         $xResponse = new Response();
         $xResponse->assign('div2', 'innerHTML', $text);
-
         return $xResponse;
     }
 
@@ -25,7 +21,13 @@ class HelloWorld
     {
         $xResponse = new Response();
         $xResponse->assign('div2', 'style.color', $sColor);
-        
+        return $xResponse;
+    }
+
+    public function showError($sMessage)
+    {
+        $xResponse = new Response();
+        $xResponse->assign('div2', 'innerHTML', $sMessage);
         return $xResponse;
     }
 }
@@ -35,13 +37,33 @@ $jaxon = jaxon();
 
 $jaxon->readConfigFile(__DIR__ . '/config/class.php', 'lib');
 
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld(), array(
+$xCallableObject = new HelloWorld();
+$jaxon->register(Jaxon::CALLABLE_OBJECT, $xCallableObject, array(
     '*' => array('mode' => "'synchronous'"),
     'sayHello' => array('mode' => "'asynchronous'"),
 ));
+$jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_INVALID, array($xCallableObject, 'showError'));
 
 // Process the request, if any.
-$jaxon->processRequest();
+if($jaxon->canProcessRequest())
+{
+    $jaxon->processRequest();
+    /*try
+    {
+        $jaxon->processRequest();
+    }
+    catch(Exception $e)
+    {
+        $xResponse = new Response();
+        // Show the error message
+        $xResponse->alert($e->getMessage());
+        
+        $xResponseManager = new ResponseManager();
+        $xResponseManager->append($xResponse);
+        $xResponseManager->send();
+        exit();
+    }*/
+}
 
 require(__DIR__ . '/includes/header.php')
 ?>
@@ -68,6 +90,7 @@ require(__DIR__ . '/includes/header.php')
                         <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 1) ?>; return false;" >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo xr::call('HelloWorld.sayHello', 0) ?>; return false;" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="jaxon.request({jxncls:'HelloWorld',jxnmthd:'setColor0'},{parameters: arguments}); return false;" >Click Me</button>
                         </div>
 
                 </div>
