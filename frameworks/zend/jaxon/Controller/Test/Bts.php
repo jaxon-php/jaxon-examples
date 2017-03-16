@@ -9,11 +9,11 @@ class Bts extends JaxonController
 {
     public function sayHello($isCaps, $bNotify = true)
     {
-        $html = $this->view->render('test/hello', ['isCaps' => $isCaps]);
+        $html = $this->view()->render('test/hello', ['isCaps' => $isCaps]);
         $this->response->assign('div2', 'innerHTML', $html);
         if(($bNotify))
         {
-            $message = $this->view->render('test/message', [
+            $message = $this->view()->render('test/message', [
                 'element' => 'div2',
                 'attr' => 'text',
                 'value' => $html,
@@ -23,13 +23,13 @@ class Bts extends JaxonController
     
         return $this->response;
     }
-    
+
     public function setColor($sColor, $bNotify = true)
     {
         $this->response->assign('div2', 'style.color', $sColor);
         if(($bNotify))
         {
-            $message = $this->view->render('test/message', [
+            $message = $this->view()->render('test/message', [
                 'element' => 'div2',
                 'attr' => 'color',
                 'value' => $sColor,
@@ -39,12 +39,12 @@ class Bts extends JaxonController
     
         return $this->response;
     }
-    
+
     public function showDialog()
     {
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $width = 300;
-        $html = $this->view->render('test/credit', ['library' => 'Twitter Bootstrap']);
+        $html = $this->view()->render('test/credit', ['library' => 'Twitter Bootstrap']);
         $this->response->dialog->show("Modal Dialog", $html, $buttons, compact('width'));
     
         return $this->response;

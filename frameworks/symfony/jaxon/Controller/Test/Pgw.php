@@ -9,11 +9,11 @@ class Pgw extends JaxonController
 {
     public function sayHello($isCaps, $bNotify = true)
     {
-        $html = $this->view->render('test/hello.html.twig', ['isCaps' => $isCaps]);
+        $html = $this->view()->render('test/hello.html.twig', ['isCaps' => $isCaps]);
         $this->response->assign('div1', 'innerHTML', $html);
         if(($bNotify))
         {
-            $message = $this->view->render('test/message.html.twig', [
+            $message = $this->view()->render('test/message.html.twig', [
                 'element' => 'div1',
                 'attr' => 'text',
                 'value' => $html,
@@ -29,7 +29,7 @@ class Pgw extends JaxonController
         $this->response->assign('div1', 'style.color', $sColor);
         if(($bNotify))
         {
-            $message = $this->view->render('test/message.html.twig', [
+            $message = $this->view()->render('test/message.html.twig', [
                 'element' => 'div1',
                 'attr' => 'color',
                 'value' => $sColor,
@@ -46,7 +46,7 @@ class Pgw extends JaxonController
 
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('maxWidth' => 400);
-        $html = $this->view->render('test/credit.html.twig', ['library' => 'PgwModal']);
+        $html = $this->view()->render('test/credit.html.twig', ['library' => 'PgwModal']);
         $this->response->dialog->show("Modal Dialog", $html, $buttons, $options);
     
         return $this->response;
