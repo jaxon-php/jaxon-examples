@@ -17,7 +17,7 @@ class Bts extends JaxonController
                 'attr' => 'text',
                 'value' => $html,
             ]);
-            $this->response->dialog->success($message, 'Ok');
+            $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
     
         return $this->response;
@@ -34,7 +34,7 @@ class Bts extends JaxonController
                 'attr' => 'color',
                 'value' => $sColor,
             ]);
-            $this->response->dialog->success($message, 'Ok');
+            $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
     
         return $this->response;

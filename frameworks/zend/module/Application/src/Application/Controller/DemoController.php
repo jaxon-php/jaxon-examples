@@ -4,6 +4,7 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use Zend\Session\Container;
 use Jaxon\Zend\Controller\Plugin\JaxonPlugin;
 
 class DemoController extends AbstractActionController
@@ -41,6 +42,10 @@ class DemoController extends AbstractActionController
             'yii/' => 'Yii Framework',
             'cake/' => 'CakePHP Framework',
         );
+
+        // Init the session
+        $session = new Container('base');
+        $session->offsetSet('DialogTitle', 'Yeah Man!!');
 
         // Call the Jaxon module
         $this->jaxon->register();

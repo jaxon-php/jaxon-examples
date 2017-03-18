@@ -6,6 +6,7 @@ $jaxon = jaxon()->module();
 $jaxon->config(__DIR__ . '/module/config/jaxon.php');
 $jaxon->addTemplateNamespace('module', __DIR__ . '/module/views', true, '.tpl');
 
+session_start();
 if($jaxon->canProcessRequest())
 {
     // Process the request
@@ -13,6 +14,7 @@ if($jaxon->canProcessRequest())
 }
 else
 {
+    $_SESSION['DialogTitle'] = 'Yeah Man!!';
     // Register the classes
     $jaxon->register();
 }

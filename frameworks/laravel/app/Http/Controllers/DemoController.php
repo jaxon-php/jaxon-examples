@@ -35,6 +35,11 @@ class DemoController extends Controller
             'cake/' => 'CakePHP Framework',
         );
 
+        // Start and init the session
+        session()->start();
+        // session(['DialogTitle' => 'Yeah Man!!']);
+        session()->put('DialogTitle', 'Yeah Man!!');
+        session()->save();
         // Register the Jaxon classes
         \LaravelJaxon::register();
         // Print the page

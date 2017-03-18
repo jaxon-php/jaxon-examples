@@ -17,7 +17,7 @@ class Bts extends JaxonController
                 ->with('element', 'div2')
                 ->with('attr', 'text')
                 ->with('value', $html);
-            $this->response->dialog->success($message);
+            $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
     
         return $this->response;
@@ -32,7 +32,7 @@ class Bts extends JaxonController
                 ->with('element', 'div2')
                 ->with('attr', 'color')
                 ->with('value', $sColor);
-            $this->response->dialog->success($message);
+            $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
     
         return $this->response;

@@ -32,6 +32,8 @@ class DemoController extends Controller
             'cake/' => 'CakePHP Framework',
         );
 
+        // Init the session
+        Yii::$app->session->set('DialogTitle', 'Yeah Man!!');
         // Set the layout
         $this->layout = 'demo';
         // Call the Jaxon module

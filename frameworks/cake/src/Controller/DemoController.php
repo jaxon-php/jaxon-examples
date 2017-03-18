@@ -38,6 +38,9 @@ class DemoController extends AppController
             'cake/' => 'CakePHP Framework',
         );
 
+        // Start and init the session
+        $this->request->session()->write('DialogTitle', 'Yeah Man!!');
+
         // Set the layout
         if(substr(Configure::version(), 0, 3) != '3.0')
         {

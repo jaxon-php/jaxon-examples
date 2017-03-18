@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class DemoController extends Controller
 {
@@ -35,6 +36,9 @@ class DemoController extends Controller
             'cake/' => 'CakePHP Framework',
         );
 
+        // Init the session
+        $session = new Session();
+        $session->set('DialogTitle', 'Yeah Man!!');
         // Register the Jaxon classes
         $jaxon = $this->get('jaxon.ajax');
         $jaxon->register();
