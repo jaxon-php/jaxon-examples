@@ -2,8 +2,7 @@
 
 namespace Jaxon\App\Test;
 
-use Jaxon\Request\Factory as xr;
-use Jaxon\Laravel\Controller as JaxonController;
+use Jaxon\Module\Controller as JaxonController;
 
 class Pgw extends JaxonController
 {
@@ -13,10 +12,14 @@ class Pgw extends JaxonController
         $this->response->assign('div1', 'innerHTML', $html);
         if(($bNotify))
         {
-            $message = $this->view()->render('test/message')
-                ->with('element', 'div1')
-                ->with('attr', 'text')
-                ->with('value', $html);
+            // Show last command, and save this one in the session.
+            $this->controller('.Session')->command('sayHello');
+            // Show a success notification.
+            $message = $this->view()->render('test/message', [
+                'element' => 'div1',
+                'attr' => 'text',
+                'value' => $html,
+            ]);
             $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
     
@@ -28,10 +31,14 @@ class Pgw extends JaxonController
         $this->response->assign('div1', 'style.color', $sColor);
         if(($bNotify))
         {
-            $message = $this->view()->render('test/message')
-                ->with('element', 'div1')
-                ->with('attr', 'color')
-                ->with('value', $sColor);
+            // Show last command, and save this one in the session.
+            $this->controller('.Session')->command('setColor');
+            // Show a success notification.
+            $message = $this->view()->render('test/message', [
+                'element' => 'div1',
+                'attr' => 'color',
+                'value' => $sColor,
+            ]);
             $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
     
@@ -42,9 +49,20 @@ class Pgw extends JaxonController
     {
         $this->response->dialog->setModalLibrary('pgwjs');
 
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
+        $buttons = array(
+            array(
+                'title' => 'Session',
+                'class' => 'btn',
+                'click' => $this->ct('.Session')->rq()->reset()
+            ),
+            array(
+                'title' => 'Close',
+                'class' => 'btn',
+                'click' => 'close'
+            )
+        );
         $options = array('maxWidth' => 400);
-        $html = $this->view()->render('test/credit')->with('library', 'PgwModal');
+        $html = $this->view()->render('test/credit', ['library' => 'PgwModal']);
         $this->response->dialog->show("Modal Dialog", $html, $buttons, $options);
     
         return $this->response;
