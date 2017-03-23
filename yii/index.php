@@ -4,9 +4,11 @@
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENV') or define('YII_ENV', 'dev');
 
-require(__DIR__ . '/../../frw/yii/vendor/autoload.php');
-require(__DIR__ . '/../../frw/yii/vendor/yiisoft/yii2/Yii.php');
+$rootDir = realpath(__DIR__ . '/../../frw/yii');
 
-$config = require(__DIR__ . '/../../frw/yii/config/web.php');
+require($rootDir . '/vendor/autoload.php');
+require($rootDir . '/vendor/yiisoft/yii2/Yii.php');
+
+$config = require($rootDir . '/config/web.php');
 
 (new yii\web\Application($config))->run();

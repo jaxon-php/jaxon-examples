@@ -21,7 +21,10 @@ use Symfony\Component\Debug\Debug;
 /**
  * @var Composer\Autoload\ClassLoader $loader
  */
-$loader = require __DIR__ . '/../../frw/symfony-3.0/app/autoload.php';
+
+$rootDir = realpath(__DIR__ . '/../../frw/symfony-3.0');
+
+$loader = require $rootDir . '/app/autoload.php';
 Debug::enable();
 
 $kernel = new AppKernel('dev', true);

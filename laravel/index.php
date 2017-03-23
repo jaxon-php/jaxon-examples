@@ -7,6 +7,8 @@
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  */
 
+$rootDir = realpath(__DIR__ . '/../../frw/laravel');
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
@@ -19,7 +21,7 @@
 |
 */
 
-require __DIR__ . '/../../frw/laravel/bootstrap/autoload.php';
+require $rootDir . '/bootstrap/autoload.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,7 @@ require __DIR__ . '/../../frw/laravel/bootstrap/autoload.php';
 |
 */
 
-$app = require_once __DIR__ . '/../../frw/laravel/bootstrap/app.php';
+$app = require_once $rootDir . '/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------

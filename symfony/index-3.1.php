@@ -18,8 +18,10 @@ use Symfony\Component\Debug\Debug;
     exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
 }*/
 
+$rootDir = realpath(__DIR__ . '/../../frw/symfony-3.1');
+
 /** @var \Composer\Autoload\ClassLoader $loader */
-$loader = require __DIR__ . '/../../frw/symfony-3.1/app/autoload.php';
+$loader = require $rootDir . '/app/autoload.php';
 Debug::enable();
 
 $kernel = new AppKernel('dev', true);

@@ -10,6 +10,8 @@ class Demo extends CI_Controller
         $this->load->library('jaxon');
         // Load the session library
         $this->load->library('session');
+        // Load the template parser library
+        $this->load->library('parser');
     }
 
     public function index()
@@ -41,7 +43,6 @@ class Demo extends CI_Controller
         // Register the Jaxon classes
         $this->jaxon->register();
         // Print the page
-        $this->load->library('parser');
         $this->parser->parse('demo/index', array(
             'JaxonCss' => $this->jaxon->css(),
             'JaxonJs' => $this->jaxon->js(),
