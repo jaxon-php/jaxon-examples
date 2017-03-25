@@ -56,11 +56,9 @@ class DemoController extends AbstractActionController
             'jaxonScript' => $this->jaxon->script(),
             'menuEntries' => $menuEntries,
             // Jaxon request to the Jaxon\App\Test\Bts controller
-            'bts' => $this->jaxon->controller('Jaxon.App.Test.Bts')->rq(),
+            'bts' => $this->jaxon->request('Jaxon.App.Test.Bts'),
             // Jaxon request to the Jaxon\App\Test\Pgw controller
-            'pgw' => $this->jaxon->controller('Jaxon.App.Test.Pgw')->rq(),
-            // Jaxon Request Factory
-            'jxn' => new \Jaxon\Request\Factory,
+            'pgw' => $this->jaxon->request('Jaxon.App.Test.Pgw'),
         ));
         $view->setTemplate('demo/index');
         return $view;

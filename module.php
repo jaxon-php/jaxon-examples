@@ -20,11 +20,9 @@ else
 }
 
 // Jaxon request to the Jaxon\App\Test\Bts controller
-$bts = $jaxon->controller('Jaxon.App.Test.Bts')->rq();
+$bts = $jaxon->request('Jaxon.App.Test.Bts');
 // Jaxon request to the Jaxon\App\Test\Pgw controller
-$pgw = $jaxon->controller('Jaxon.App.Test.Pgw')->rq();
-// Jaxon Request Factory
-$jxn = new \Jaxon\Request\Factory;
+$pgw = $jaxon->request('Jaxon.App.Test.Pgw');
 
 require(__DIR__ . '/includes/header.php')
 ?>
@@ -41,7 +39,7 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="<?php echo $pgw->setColor($jxn->select('colorselect1')) ?>; return false;">
+                                    onchange="<?php echo $pgw->setColor(rq()->select('colorselect1')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -59,7 +57,7 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="<?php echo $bts->setColor($jxn->select('colorselect2')) ?>; return false;">
+                                    onchange="<?php echo $bts->setColor(rq()->select('colorselect2')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -83,11 +81,11 @@ require(__DIR__ . '/includes/header.php')
         // call the helloWorld function to populate the div on load
     	<?php echo $pgw->sayHello(0, false) ?>;
         // call the setColor function on load
-        <?php echo $pgw->setColor($jxn->select('colorselect1'), false) ?>;
+        <?php echo $pgw->setColor(rq()->select('colorselect1'), false) ?>;
         // Call the HelloWorld class to populate the 2nd div
         <?php echo $bts->sayHello(0, false) ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo $bts->setColor($jxn->select('colorselect2'), false) ?>;
+        <?php echo $bts->setColor(rq()->select('colorselect2'), false) ?>;
     }
     /* ]]> */
 </script>

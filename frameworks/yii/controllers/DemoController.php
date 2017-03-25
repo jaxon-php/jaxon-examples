@@ -46,11 +46,9 @@ class DemoController extends Controller
             'jaxonScript' => $jaxon->script(),
             'menuEntries' => $menuEntries,
             // Jaxon request to the Jaxon\App\Test\Bts controller
-            'bts' => $jaxon->controller('Jaxon.App.Test.Bts')->rq(),
+            'bts' => $jaxon->request('Jaxon.App.Test.Bts'),
             // Jaxon request to the Jaxon\App\Test\Pgw controller
-            'pgw' => $jaxon->controller('Jaxon.App.Test.Pgw')->rq(),
-            // Jaxon Request Factory
-            'jxn' => new \Jaxon\Request\Factory,
+            'pgw' => $jaxon->request('Jaxon.App.Test.Pgw'),
         ));
     }
 
