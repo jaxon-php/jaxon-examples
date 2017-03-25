@@ -50,7 +50,7 @@ class Bts extends JaxonController
     {
         $buttons = array(
             array(
-                'title' => 'Session',
+                'title' => 'Clear session',
                 'class' => 'btn',
                 'click' => $this->ct('.Session')->rq()->reset()
             ),

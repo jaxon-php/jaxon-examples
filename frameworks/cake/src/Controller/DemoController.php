@@ -58,6 +58,12 @@ class DemoController extends AppController
         $this->set('jaxonJs', $this->Jaxon->js());
         $this->set('jaxonScript', $this->Jaxon->script());
         $this->set('menuEntries', $menuEntries);
+        // Jaxon request to the Jaxon\App\Test\Bts controller
+        $this->set('bts', $this->Jaxon->controller('Jaxon.App.Test.Bts')->rq());
+        // Jaxon request to the Jaxon\App\Test\Pgw controller
+        $this->set('pgw', $this->Jaxon->controller('Jaxon.App.Test.Pgw')->rq());
+        // Jaxon Request Factory
+        $this->set('jxn', new \Jaxon\Request\Factory);
         $this->render('demo');
     }
 }

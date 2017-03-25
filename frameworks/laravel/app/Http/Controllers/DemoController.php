@@ -48,6 +48,12 @@ class DemoController extends Controller
             'jaxonJs' => \LaravelJaxon::js(),
             'jaxonScript' => \LaravelJaxon::script(),
             'menuEntries' => $menuEntries,
+            // Jaxon request to the Jaxon\App\Test\Bts controller
+            'bts' => \LaravelJaxon::controller('Jaxon.App.Test.Bts')->rq(),
+            // Jaxon request to the Jaxon\App\Test\Pgw controller
+            'pgw' => \LaravelJaxon::controller('Jaxon.App.Test.Pgw')->rq(),
+            // Jaxon Request Factory
+            'jxn' => new \Jaxon\Request\Factory,
         ));
     }
 }
