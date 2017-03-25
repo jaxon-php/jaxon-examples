@@ -8,6 +8,15 @@ return array(
             // 'separator' => '.',
             // 'protected' => [],
         ),
+        'views' => array(
+            'namespaces' => array(
+                'module' => array(
+                    'directory' => dirname(__DIR__) . '/views',
+                    'extension' => '.tpl',
+                    'isdefault' => true,
+                ),
+            ),
+        )
     ),
     'lib' => array(
         'core' => array(
