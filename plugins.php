@@ -11,6 +11,10 @@ $jaxon = jaxon();
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', 'Jaxon');
 
+// Js options
+$jaxon->setOption('js.lib.uri', '/exp/js/lib');
+$jaxon->setOption('js.app.minify', false);
+
 // Dialog options
 $jaxon->setOption('dialogs.default.modal', 'bootbox');
 $jaxon->setOption('dialogs.default.alert', 'ymzbox');

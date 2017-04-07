@@ -17,23 +17,23 @@ class App
             $text = 'HELLO WORLD!';
         else
             $text = 'Hello World!';
-    
+
         $this->response->assign('div1', 'innerHTML', $text);
         if(($bNotify))
             $this->response->dialog->success("div1 text is now $text");
-    
+
         return $this->response;
     }
-    
+
     public function setColor($sColor, $bNotify = true)
     {
         $this->response->assign('div1', 'style.color', $sColor);
         if(($bNotify))
             $this->response->dialog->success("div1 color is now $sColor");
-    
+
         return $this->response;
     }
-    
+
     public function showDialog()
     {
         $this->response->dialog->setModalLibrary('pgwjs');
@@ -41,7 +41,7 @@ class App
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('maxWidth' => 400);
         $this->response->dialog->show("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
-    
+
         return $this->response;
     }
 }

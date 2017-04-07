@@ -8,9 +8,13 @@ use Jaxon\Request\Factory as xr;
 
 $jaxon = jaxon();
 
+// Js options
+$jaxon->setOption('js.lib.uri', '/exp/js/lib');
+$jaxon->setOption('js.app.minify', false);
+
 /*
     Function: helloWorld
-    
+
     Modify the innerHTML of div1.
 */
 function helloWorld($isCaps)
@@ -22,20 +26,22 @@ function helloWorld($isCaps)
         
     $xResponse = new Response();
     $xResponse->assign('div1', 'innerHTML', $text);
-    
+    // This is to test the javascript console error logging
+    $xResponse->script('var test = null; alert(test.haha)');
+
     return $xResponse;
 }
 
 /*
     Function: setColor
-    
+
     Modify the style.color of div1
 */
 function setColor($sColor)
 {
     $xResponse = new Response();
     $xResponse->assign('div1', 'style.color', $sColor);
-    
+
     return $xResponse;
 }
 

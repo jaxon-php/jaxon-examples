@@ -22,10 +22,10 @@ class Pgw extends JaxonController
             ]);
             $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
-    
+
         return $this->response;
     }
-    
+
     public function setColor($sColor, $bNotify = true)
     {
         $this->response->assign('div1', 'style.color', $sColor);
@@ -41,10 +41,10 @@ class Pgw extends JaxonController
             ]);
             $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
-    
+
         return $this->response;
     }
-    
+
     public function showDialog()
     {
         $this->response->dialog->setModalLibrary('pgwjs');
@@ -64,7 +64,7 @@ class Pgw extends JaxonController
         $options = array('maxWidth' => 400);
         $html = $this->view()->render('test/credit', ['library' => 'PgwModal']);
         $this->response->dialog->show("Modal Dialog", $html, $buttons, $options);
-    
+
         return $this->response;
     }
 }

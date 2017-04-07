@@ -22,7 +22,7 @@ class Bts extends JaxonController
             ]);
             $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
-    
+
         return $this->response;
     }
 
@@ -42,7 +42,7 @@ class Bts extends JaxonController
             ]);
             $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
-    
+
         return $this->response;
     }
 
@@ -63,7 +63,7 @@ class Bts extends JaxonController
         $width = 300;
         $html = $this->view()->render('test/credit', ['library' => 'Twitter Bootstrap']);
         $this->response->dialog->show("Modal Dialog", $html, $buttons, compact('width'));
-    
+
         return $this->response;
     }
 }
