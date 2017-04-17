@@ -3,7 +3,6 @@
 namespace Ext\Test;
 
 use Jaxon\Response\Response;
-use Jaxon\Request\Factory as xr;
 
 class Test
 {
