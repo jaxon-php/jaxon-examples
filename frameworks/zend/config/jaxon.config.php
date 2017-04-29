@@ -3,10 +3,12 @@
 return array(
     'app' => array(
         'controllers' => array(
-            // 'directory' => '',
-            // 'namespace' => '',
-            // 'separator' => '.',
-            // 'protected' => [],
+            array(
+                'directory' => rtrim(getcwd(), '/') . '/jaxon/Controller',
+                'namespace' => '\\Jaxon\\App',
+                // 'separator' => '', // '.' or '_'
+                // 'protected' => array(),
+            ),
         ),
     ),
     'lib' => array(

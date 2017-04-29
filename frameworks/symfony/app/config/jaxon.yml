@@ -1,6 +1,12 @@
-jaxon_ajax:
+parameters:
+  jaxon:
     app:
-      namespace:                      "\\Jaxon\\App"
+      controllers:
+        -
+          directory: '%kernel.root_dir%/../jaxon/Controller'
+          namespace: \Jaxon\App
+          # separator: '' # '.' or '_'
+          # protected: []
 
     lib:
       core:
@@ -15,27 +21,25 @@ jaxon_ajax:
           verbose:                     false
         error:
           handle:                      false
-
-      js:
+        js:
           lib:
           app:
           extern:                      false
           minify:                      false
 
       dialogs:
-          libraries:
+        libraries:
                                        - pgwjs
-          default:
-              modal:                   bootstrap
-              alert:                   toastr
-          toastr:
-              options:
-                closeButton:           true
-                positionClass:         "toast-top-center"
-
-          pgwjs:
-              modal:
-                  options:
-                      closeOnEscape:             true
-                      closeOnBackgroundClick:    true
-                      maxWidth:                  600
+        default:
+          modal:                       bootstrap
+          alert:                       toastr
+        toastr:
+          options:
+            closeButton:               true
+            positionClass:             "toast-top-center"
+        pgwjs:
+          modal:
+            options:
+              closeOnEscape:           true
+              closeOnBackgroundClick:  true
+              maxWidth:                600

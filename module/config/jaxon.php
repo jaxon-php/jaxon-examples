@@ -3,20 +3,26 @@
 return array(
     'app' => array(
         'controllers' => array(
-            'directory' => dirname(__DIR__) . '/classes',
-            'namespace' => '\\Jaxon\\App',
-            // 'separator' => '.',
-            // 'protected' => [],
+            array(
+                'directory' => dirname(__DIR__) . '/classes',
+                'namespace' => '\\Jaxon\\App',
+                // 'separator' => '.',
+                // 'protected' => [],
+            ),
         ),
         'views' => array(
-            'namespaces' => array(
-                'module' => array(
-                    'directory' => dirname(__DIR__) . '/views',
-                    'extension' => '.tpl',
-                    'isdefault' => true,
-                ),
+            'demo' => array(
+                'directory' => dirname(__DIR__) . '/views',
+                'extension' => '.tpl',
+                'renderer' => 'jaxon',
+                'register' => true,
             ),
-        )
+        ),
+        /*'options' => array(
+            'views' => array(
+                'default' => 'demo',
+            ), 
+        ),*/
     ),
     'lib' => array(
         'core' => array(
@@ -56,7 +62,8 @@ return array(
             'libraries' => array('pgwjs'),
             'default' => array(
                 'modal' => 'bootstrap',
-                'alert' => 'toastr',
+                'alert' => 'bootstrap',
+                'confirm' => 'bootstrap',
             ),
             'toastr' => array(
                 'options' => array(

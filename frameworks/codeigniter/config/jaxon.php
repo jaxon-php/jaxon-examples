@@ -2,9 +2,12 @@
 
 $config['app'] = array(
     'controllers' => array(
-        // 'directory' => '',
-        // 'namespace' => '',
-        // 'protected' => array(),
+        array(
+            'directory' => rtrim(APPPATH, '/') . '/jaxon/controllers',
+            'namespace' => '\\Jaxon\\App',
+            // 'separator' => '', // '.' or '_'
+            // 'protected.' => array(),
+        ),
     ),
 );
 $config['lib'] = array(

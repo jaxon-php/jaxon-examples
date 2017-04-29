@@ -12,7 +12,8 @@ $jaxon->setOption('core.prefix.class', 'Jaxon');
 
 $jaxonAppDir = $GLOBALS['web_dir'] . '/jaxon/app';
 $jaxonAppURI = '/jaxon/app';
-$jaxon->setOption('js.lib.uri', '/jaxon/lib');
+
+$jaxon->setOption('js.lib.uri', '/exp/js/lib');
 
 $jaxon->setOption('js.app.extern', true);
 $jaxon->setOption('js.app.dir', $jaxonAppDir);

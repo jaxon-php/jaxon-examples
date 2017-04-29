@@ -38,7 +38,8 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="<?php echo $pgw->setColor(rq()->select('colorselect1')) ?>; return false;">
+                                    onchange="<?php echo $pgw->setColor(rq()->select('colorselect1'))
+                                    ->confirm('Set color to {1}?', rq()->select('colorselect1')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -46,17 +47,24 @@ require(__DIR__ . '/includes/header.php')
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick='<?php echo $pgw->sayHello(1) ?>; return false;' >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick='<?php echo $pgw->sayHello(0) ?>; return false;' >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->showDialog() ?>; return false;" >PgwModal Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->sayHello(1)
+                                ->confirm('Confirm?') ?>; return false;" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->sayHello(0)
+                                ->confirm('Confirm?') ?>; return false;" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->showDialog()
+                                ->confirm('Confirm?') ?>; return false;" >PgwModal Dialog</button>
                         </div>
 
-                        <div class="col-md-12" id="div2">
+                        <div class="col-md-6" id="div2">
                             &nbsp;
+                        </div>
+                        <div class="col-md-6">
+                            <input type="checkbox" name="div2-enabled" id="div2-enabled" /> Check to enable
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="<?php echo $bts->setColor(rq()->select('colorselect2')) ?>; return false;">
+                                    onchange="<?php echo $bts->setColor(rq()->select('colorselect2'))
+                                    ->when(rq()->checked('div2-enabled'), 'Cannot set color to {1} because the checkbox is disabled', rq()->select('colorselect2')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -64,9 +72,12 @@ require(__DIR__ . '/includes/header.php')
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick='<?php echo $bts->sayHello(1) ?>; return false;' >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick='<?php echo $bts->sayHello(0) ?>; return false;' >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->showDialog() ?>; return false;" >Bootstrap Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->sayHello(1)
+                                ->when(rq()->checked('div2-enabled'), 'Sorry, the checkbox is disabled') ?>; return false;" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->sayHello(0)
+                                ->when(rq()->checked('div2-enabled'), 'Sorry, the checkbox is disabled') ?>; return false;" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->showDialog()
+                                ->when(rq()->checked('div2-enabled'), 'Sorry, the checkbox is disabled') ?>; return false;" >Bootstrap Dialog</button>
                         </div>
 
                 </div>
