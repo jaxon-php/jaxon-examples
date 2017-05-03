@@ -27,7 +27,7 @@ class Demo extends CI_Controller
             'autoload-default.php' => 'Default Autoloader',
             'autoload-composer.php' => 'Composer Autoloader',
             'autoload-disabled.php' => 'Third Party Autoloader',
-            'module.php' => 'Module',
+            'armada.php' => 'Armada',
             'laravel/' => 'Laravel Framework',
             'symfony/' => 'Symfony Framework',
             'zend/' => 'Zend Framework',

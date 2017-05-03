@@ -2,9 +2,9 @@
 
 return array(
     'app' => array(
-        'controllers' => array(
+        'classes' => array(
             array(
-                'directory' => rtrim(getcwd(), '/') . '/jaxon/Controller',
+                'directory' => rtrim(getcwd(), '/') . '/jaxon/Classes',
                 'namespace' => '\\Jaxon\\App',
                 // 'separator' => '', // '.' or '_'
                 // 'protected' => array(),

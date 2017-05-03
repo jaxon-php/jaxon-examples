@@ -2,24 +2,34 @@
 
 return array(
     'app' => array(
-        'request' => array(
-            'route' => 'jaxon',
-        ),
         'classes' => array(
             array(
-                'directory' => rtrim(ROOT, '/') . '/jaxon/Classes',
+                'directory' => dirname(__DIR__) . '/classes',
                 'namespace' => '\\Jaxon\\App',
-                // 'separator' => '', // '.' or '_'
-                // 'protected' => array(),
+                // 'separator' => '.',
+                // 'protected' => [],
             ),
         ),
+        'views' => array(
+            'demo' => array(
+                'directory' => dirname(__DIR__) . '/views',
+                'extension' => '.tpl',
+                'renderer' => 'jaxon',
+                'register' => true,
+            ),
+        ),
+        /*'options' => array(
+            'views' => array(
+                'default' => 'demo',
+            ), 
+        ),*/
     ),
     'lib' => array(
         'core' => array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-                // 'uri' => '/exp/cake/jaxon',
+                // 'uri' => '',
             ),
             'prefix' => array(
                 'class' => '',
@@ -43,21 +53,22 @@ return array(
                 'minify' => false,
             ),
         ),
+        'assets' => array(
+            'include' => array(
+                'all' => true,
+            ),
+        ),
         'dialogs' => array(
             'libraries' => array('pgwjs'),
             'default' => array(
                 'modal' => 'bootstrap',
-                'alert' => 'toastr',
+                'alert' => 'noty',
+                'confirm' => 'noty',
             ),
             'toastr' => array(
                 'options' => array(
                     'closeButton' => true,
                     'positionClass' => 'toast-top-center'
-                ),
-            ),
-            'assets' => array(
-                'include' => array(
-                    'all' => true,
                 ),
             ),
         ),

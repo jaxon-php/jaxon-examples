@@ -1,9 +1,9 @@
 parameters:
   jaxon:
     app:
-      controllers:
+      classes:
         -
-          directory: '%kernel.root_dir%/../jaxon/Controller'
+          directory: '%kernel.root_dir%/../jaxon/Classes'
           namespace: \Jaxon\App
           # separator: '' # '.' or '_'
           # protected: []

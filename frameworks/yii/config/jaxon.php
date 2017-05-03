@@ -2,9 +2,9 @@
 
 return array(
     'app' => array(
-        'controllers' => array(
+        'classes' => array(
             array(
-                'directory' => rtrim(\Yii::getAlias('@app'), '/') . '/jaxon/controllers',
+                'directory' => rtrim(\Yii::getAlias('@app'), '/') . '/jaxon/classes',
                 'namespace' => '\\Jaxon\\App',
                 // 'separator' => '', // '.' or '_'
                 // 'protected' => array(),

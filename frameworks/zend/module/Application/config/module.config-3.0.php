@@ -13,7 +13,7 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 
 use Jaxon\Zend\Factory\Zf3ControllerFactory;
 use Jaxon\Zend\Controller\Plugin\JaxonPlugin;
-use Jaxon\Zend\Controller\JaxonController;
+use Jaxon\Zend\Controller\JaxonClass;
 
 return [
     'router' => [
@@ -34,7 +34,7 @@ return [
                 'options' => [
                     'route'    => '/jaxon',
                     'defaults' => [
-                        'controller' => JaxonController::class,
+                        'controller' => JaxonClass::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -55,7 +55,7 @@ return [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
             Controller\DemoController::class => Zf3ControllerFactory::class,
-            JaxonController::class => Zf3ControllerFactory::class,
+            JaxonClass::class => Zf3ControllerFactory::class,
         ],
     ],
     'service_manager' => array(
