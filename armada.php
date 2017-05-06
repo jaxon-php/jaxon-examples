@@ -30,15 +30,28 @@ require(__DIR__ . '/includes/header.php')
         <div class="row">
 <?php require(__DIR__ . '/includes/nav.php') ?>
             <div class="col-sm-9 content">
-                <h3 class="page-header">Hello World Function</h3>
+                <h3 class="page-header">Armada</h3>
 
                 <div class="row" id="jaxon-html">
-                        <div class="col-md-12" id="div1">
+                        <div class="col-md-4" id="div1">
                             &nbsp;
                         </div>
-                        <div class="col-md-4 margin-vert-10">
+                        <div class="col-md-2">
+                            Render with: 
+                        </div>
+                        <div class="col-md-6">
+                            <select class="form-control" id="renderer" name="renderer" style="width:150px;">
+                                <option value="default" selected="selected">Default</option>
+                                <option value="twig">Twig</option>
+                                <option value="blade">Blade</option>
+                                <option value="smarty">Smarty</option>
+                                <option value="dwoo">Dwoo</option>
+                                <option value="raintpl">RainTpl</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 margin-vert-10 clearfix">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="<?php echo $pgw->setColor(rq()->select('colorselect1'))
+                                    onchange="<?php echo $pgw->setColor(rq()->select('renderer'), rq()->select('colorselect1'))
                                     ->confirm('Set color to {1}?', rq()->select('colorselect1')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
@@ -47,23 +60,23 @@ require(__DIR__ . '/includes/header.php')
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->sayHello(1)
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->sayHello(rq()->select('renderer'), 1)
                                 ->confirm('Confirm?') ?>; return false;" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->sayHello(0)
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->sayHello(rq()->select('renderer'), 0)
                                 ->confirm('Confirm?') ?>; return false;" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->showDialog()
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->showDialog(rq()->select('renderer'))
                                 ->confirm('Confirm?') ?>; return false;" >PgwModal Dialog</button>
                         </div>
 
-                        <div class="col-md-6" id="div2">
+                        <div class="col-md-4" id="div2">
                             &nbsp;
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <input type="checkbox" name="div2-enabled" id="div2-enabled" /> Check to enable
                         </div>
-                        <div class="col-md-4 margin-vert-10">
+                        <div class="col-md-4 margin-vert-10 clearfix">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="<?php echo $bts->setColor(rq()->select('colorselect2'))
+                                    onchange="<?php echo $bts->setColor(rq()->select('renderer'), rq()->select('colorselect2'))
                                     ->when(rq()->checked('div2-enabled'), 'Cannot set color to {1} because the checkbox is disabled', rq()->select('colorselect2')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
@@ -72,11 +85,11 @@ require(__DIR__ . '/includes/header.php')
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->sayHello(1)
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->sayHello(rq()->select('renderer'), 1)
                                 ->when(rq()->checked('div2-enabled'), 'Sorry, the checkbox is disabled') ?>; return false;" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->sayHello(0)
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->sayHello(rq()->select('renderer'), 0)
                                 ->when(rq()->checked('div2-enabled'), 'Sorry, the checkbox is disabled') ?>; return false;" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->showDialog()
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->showDialog(rq()->select('renderer'))
                                 ->when(rq()->checked('div2-enabled'), 'Sorry, the checkbox is disabled') ?>; return false;" >Bootstrap Dialog</button>
                         </div>
 
@@ -89,13 +102,13 @@ require(__DIR__ . '/includes/header.php')
     /* <![CDATA[ */
     window.onload = function() {
         // call the helloWorld function to populate the div on load
-    	<?php echo $pgw->sayHello(0, false) ?>;
+    	<?php echo $pgw->sayHello(rq()->select('renderer'), 0, false) ?>;
         // call the setColor function on load
-        <?php echo $pgw->setColor(rq()->select('colorselect1'), false) ?>;
+        <?php echo $pgw->setColor(rq()->select('renderer'), rq()->select('colorselect1'), false) ?>;
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo $bts->sayHello(0, false) ?>;
+        <?php echo $bts->sayHello(rq()->select('renderer'), 0, false) ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo $bts->setColor(rq()->select('colorselect2'), false) ?>;
+        <?php echo $bts->setColor(rq()->select('renderer'), rq()->select('colorselect2'), false) ?>;
     }
     /* ]]> */
 </script>

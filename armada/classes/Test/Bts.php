@@ -6,16 +6,16 @@ use Jaxon\Sentry\Classes\Base as JaxonClass;
 
 class Bts extends JaxonClass
 {
-    public function sayHello($isCaps, $bNotify = true)
+    public function sayHello($sTemplate, $isCaps, $bNotify = true)
     {
-        $html = $this->view()->render('test/hello', ['isCaps' => $isCaps]);
+        $html = $this->view()->render($sTemplate . '::test/hello', ['isCaps' => $isCaps]);
         $this->response->assign('div2', 'innerHTML', $html);
         if(($bNotify))
         {
             // Show last command, and save this one in the session.
             $this->instance('.Session')->command('sayHello');
             // Show a success notification.
-            $message = $this->view()->render('test/message', [
+            $message = $this->view()->render($sTemplate . '::test/message', [
                 'element' => 'div2',
                 'attr' => 'text',
                 'value' => $html,
@@ -26,7 +26,7 @@ class Bts extends JaxonClass
         return $this->response;
     }
 
-    public function setColor($sColor, $bNotify = true)
+    public function setColor($sTemplate, $sColor, $bNotify = true)
     {
         $this->response->assign('div2', 'style.color', $sColor);
         $this->response->dialog->hide();
@@ -35,7 +35,7 @@ class Bts extends JaxonClass
             // Show last command, and save this one in the session.
             $this->instance('.Session')->command('setColor');
             // Show a success notification.
-            $message = $this->view()->render('test/message', [
+            $message = $this->view()->render($sTemplate . '::test/message', [
                 'element' => 'div2',
                 'attr' => 'color',
                 'value' => $sColor,
@@ -46,7 +46,7 @@ class Bts extends JaxonClass
         return $this->response;
     }
 
-    public function showDialog()
+    public function showDialog($sTemplate)
     {
         $buttons = array(
             array(
@@ -61,7 +61,7 @@ class Bts extends JaxonClass
             )
         );
         $width = 300;
-        $html = $this->view()->render('test/credit', ['library' => 'Twitter Bootstrap']);
+        $html = $this->view()->render($sTemplate . '::test/credit', ['library' => 'Twitter Bootstrap']);
         $this->response->dialog->show("Modal Dialog", $html, $buttons, compact('width'));
 
         return $this->response;

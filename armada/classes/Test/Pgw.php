@@ -6,16 +6,16 @@ use Jaxon\Sentry\Classes\Base as JaxonClass;
 
 class Pgw extends JaxonClass
 {
-    public function sayHello($isCaps, $bNotify = true)
+    public function sayHello($sTemplate, $isCaps, $bNotify = true)
     {
-        $html = $this->view()->render('test/hello', ['isCaps' => $isCaps]);
+        $html = $this->view()->render($sTemplate . '::test/hello', ['isCaps' => $isCaps]);
         $this->response->assign('div1', 'innerHTML', $html);
         if(($bNotify))
         {
             // Show last command, and save this one in the session.
             $this->instance('.Session')->command('sayHello');
             // Show a success notification.
-            $message = $this->view()->render('test/message', [
+            $message = $this->view()->render('raintpl::test/message', [
                 'element' => 'div1',
                 'attr' => 'text',
                 'value' => $html,
@@ -26,7 +26,7 @@ class Pgw extends JaxonClass
         return $this->response;
     }
 
-    public function setColor($sColor, $bNotify = true)
+    public function setColor($sTemplate, $sColor, $bNotify = true)
     {
         $this->response->assign('div1', 'style.color', $sColor);
         if(($bNotify))
@@ -34,7 +34,7 @@ class Pgw extends JaxonClass
             // Show last command, and save this one in the session.
             $this->instance('.Session')->command('setColor');
             // Show a success notification.
-            $message = $this->view()->render('test/message', [
+            $message = $this->view()->render($sTemplate . '::test/message', [
                 'element' => 'div1',
                 'attr' => 'color',
                 'value' => $sColor,
@@ -45,7 +45,7 @@ class Pgw extends JaxonClass
         return $this->response;
     }
 
-    public function showDialog()
+    public function showDialog($sTemplate)
     {
         $this->response->dialog->setModalLibrary('pgwjs');
 
@@ -62,7 +62,7 @@ class Pgw extends JaxonClass
             )
         );
         $options = array('maxWidth' => 400);
-        $html = $this->view()->render('test/credit', ['library' => 'PgwModal']);
+        $html = $this->view()->render($sTemplate . '::test/credit', ['library' => 'PgwModal']);
         $this->response->dialog->show("Modal Dialog", $html, $buttons, $options);
 
         return $this->response;

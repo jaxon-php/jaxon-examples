@@ -11,18 +11,48 @@ return array(
             ),
         ),
         'views' => array(
-            'demo' => array(
-                'directory' => dirname(__DIR__) . '/views',
+            'default' => array(
+                'directory' => dirname(__DIR__) . '/views/default',
                 'extension' => '.tpl',
                 'renderer' => 'jaxon',
                 'register' => true,
             ),
+            'smarty' => array(
+                'directory' => dirname(__DIR__) . '/views/smarty',
+                'extension' => '.tpl',
+                'renderer' => 'smarty',
+                'register' => true,
+            ),
+            'dwoo' => array(
+                'directory' => dirname(__DIR__) . '/views/dwoo',
+                'extension' => '.tpl',
+                'renderer' => 'dwoo',
+                'register' => true,
+            ),
+            'blade' => array(
+                'directory' => dirname(__DIR__) . '/views/blade',
+                'extension' => '.blade.php',
+                'renderer' => 'blade',
+                'register' => true,
+            ),
+            'twig' => array(
+                'directory' => dirname(__DIR__) . '/views/twig',
+                'extension' => '.html.twig',
+                'renderer' => 'twig',
+                'register' => true,
+            ),
+            'raintpl' => array(
+                'directory' => dirname(__DIR__) . '/views/raintpl',
+                'extension' => '.tpl',
+                'renderer' => 'raintpl',
+                'register' => true,
+            ),
         ),
-        /*'options' => array(
+        'options' => array(
             'views' => array(
-                'default' => 'demo',
+                'default' => 'jaxon',
             ), 
-        ),*/
+        ),
     ),
     'lib' => array(
         'core' => array(
@@ -44,7 +74,7 @@ return array(
         ),
         'js' => array(
             'lib' => array(
-                // 'uri' => '/jaxon/lib',
+                'uri' => 'https://cdn.jaxon-php.org/libs/jaxon/1.2.0',
             ),
             'app' => array(
                 // 'uri' => '',
