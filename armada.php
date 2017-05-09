@@ -46,6 +46,7 @@ require(__DIR__ . '/includes/header.php')
                                 <option value="blade">Blade</option>
                                 <option value="smarty">Smarty</option>
                                 <option value="dwoo">Dwoo</option>
+                                <option value="latte">Latte</option>
                                 <option value="raintpl">RainTpl</option>
                             </select>
                         </div>
