@@ -5,6 +5,7 @@
         "jaxon-php/jaxon-smarty": "dev-master",
         "jaxon-php/jaxon-twig": "dev-master",
         "jaxon-php/jaxon-dwoo": "dev-master",
+        "jaxon-php/jaxon-latte": "dev-master",
         "jaxon-php/jaxon-blade": "dev-master",
         "jaxon-php/jaxon-raintpl": "dev-master",
         "keradus/psr4autoloader": "dev-master"

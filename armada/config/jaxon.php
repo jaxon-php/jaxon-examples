@@ -41,6 +41,12 @@ return array(
                 'renderer' => 'twig',
                 'register' => true,
             ),
+            'latte' => array(
+                'directory' => dirname(__DIR__) . '/views/latte',
+                'extension' => '.tpl',
+                'renderer' => 'latte',
+                'register' => true,
+            ),
             'raintpl' => array(
                 'directory' => dirname(__DIR__) . '/views/raintpl',
                 'extension' => '.tpl',
@@ -50,7 +56,7 @@ return array(
         ),
         'options' => array(
             'views' => array(
-                'default' => 'jaxon',
+                'default' => 'default',
             ), 
         ),
     ),
