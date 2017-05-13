@@ -10,7 +10,7 @@ $jaxon = jaxon();
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', 'Jaxon');
 
-$jaxonAppDir = $GLOBALS['web_dir'] . '/jaxon/app';
+$jaxonAppDir = (key_exists('web_dir', $GLOBALS) ? $GLOBALS['web_dir'] : __DIR__) . '/../jaxon/app';
 $jaxonAppURI = '/jaxon/app';
 
 $jaxon->setOption('js.lib.uri', '/exp/js/lib');
@@ -64,7 +64,7 @@ require(__DIR__ . '/includes/header.php')
 
                 <div class="row" id="jaxon-html">
                         <div class="col-md-12" id="div2">
-                            &nbsp;
+                            &nbsp;<?php echo $jaxonAppDir ?>
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect" name="colorselect"

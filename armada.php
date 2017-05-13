@@ -41,12 +41,11 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-6">
                             <select class="form-control" id="renderer" name="renderer" style="width:150px;">
-                                <option value="default" selected="selected">Default</option>
+                                <option value="smarty" selected="selected">Smarty</option>
                                 <option value="twig">Twig</option>
-                                <option value="blade">Blade</option>
-                                <option value="smarty">Smarty</option>
                                 <option value="dwoo">Dwoo</option>
                                 <option value="latte">Latte</option>
+                                <option value="blade">Blade</option>
                                 <option value="raintpl">RainTpl</option>
                             </select>
                         </div>

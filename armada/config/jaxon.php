@@ -11,12 +11,6 @@ return array(
             ),
         ),
         'views' => array(
-            'default' => array(
-                'directory' => dirname(__DIR__) . '/views/default',
-                'extension' => '.tpl',
-                'renderer' => 'jaxon',
-                'register' => true,
-            ),
             'smarty' => array(
                 'directory' => dirname(__DIR__) . '/views/smarty',
                 'extension' => '.tpl',
