@@ -5,7 +5,7 @@ require (__DIR__ . '/vendor/autoload.php');
 $armada = jaxon()->armada();
 $armada->config(__DIR__ . '/armada/config/jaxon.php');
 
-session_start();
+$armada->session()->start();
 if($armada->canProcessRequest())
 {
     // Process the request
@@ -18,9 +18,9 @@ else
     $armada->register();
 }
 
-// Jaxon request to the Jaxon\App\Test\Bts controller
+// Jaxon request to the Jaxon\App\Test\Bts classe
 $bts = $armada->request('Jaxon.App.Test.Bts');
-// Jaxon request to the Jaxon\App\Test\Pgw controller
+// Jaxon request to the Jaxon\App\Test\Pgw classe
 $pgw = $armada->request('Jaxon.App.Test.Pgw');
 
 require(__DIR__ . '/includes/header.php')
