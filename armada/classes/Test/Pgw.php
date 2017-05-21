@@ -15,7 +15,7 @@ class Pgw extends JaxonClass
             // Show last command, and save this one in the session.
             $this->instance('.Session')->command('sayHello');
             // Show a success notification.
-            $message = $this->view()->render('raintpl::test/message', [
+            $message = $this->view()->render($sTemplate . '::test/message', [
                 'element' => 'div1',
                 'attr' => 'text',
                 'value' => $html,

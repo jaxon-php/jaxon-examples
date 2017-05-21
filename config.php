@@ -9,10 +9,7 @@ class HelloWorld
 {
     public function sayHello($isCaps, $bNotify = true)
     {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
+        $text = ($isCaps) ? 'HELLO WORLD!' : 'Hello World!';
 
         $xResponse = new Response();
         $xResponse->assign('div2', 'innerHTML', $text);
@@ -36,8 +33,8 @@ class HelloWorld
     {
         $xResponse = new Response();
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array('width' => 300);
-        $xResponse->dialog->modal("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, $options);
+        $options = array('width' => 500);
+        $xResponse->dialog->modal("Modal Dialog", "This modal dialog is powered by PgwJs!!", $buttons, $options);
         
         return $xResponse;
     }
@@ -47,13 +44,6 @@ class HelloWorld
 $jaxon = jaxon();
 
 $jaxon->readConfigFile(__DIR__ . '/config/config.yaml', 'jaxon');
-
-// Dialog options
-$jaxon->setOption('dialogs.default.modal', 'bootstrap');
-$jaxon->setOption('dialogs.default.alert', 'toastr');
-$jaxon->setOption('dialogs.libraries', array('pgwjs'));
-$jaxon->setOption('dialogs.toastr.options.closeButton', true);
-$jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 
 $jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
 
@@ -85,7 +75,7 @@ require(__DIR__ . '/includes/header.php')
                         <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.sayHello', 1) ?>; return false;" >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.sayHello', 0) ?>; return false;" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.showDialog') ?>; return false;" >Bootstrap Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.showDialog') ?>; return false;" >Show Dialog</button>
                         </div>
 
                 </div>

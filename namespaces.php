@@ -48,7 +48,7 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="App.Test.Test.setColor(jaxon.$('colorselect1').value); return false;">
+                                    onchange="<?php echo rq()->call('App.Test.Test.setColor', rq()->select('colorselect1')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -56,9 +56,9 @@ require(__DIR__ . '/includes/header.php')
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick='App.Test.Test.sayHello(1); return false;' >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick='App.Test.Test.sayHello(0); return false;' >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="App.Test.Test.showDialog(); return false;" >PgwModal Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('App.Test.Test.sayHello', 1) ?>" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('App.Test.Test.sayHello', 0) ?>" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('App.Test.Test.showDialog') ?>" >Show Dialog</button>
                         </div>
 
                         <div class="col-md-12" id="div2">
@@ -66,7 +66,7 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="Ext.Test.Test.setColor(jaxon.$('colorselect2').value); return false;">
+                                    onchange="<?php echo rq()->call('Ext.Test.Test.setColor', rq()->select('colorselect2')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -74,9 +74,9 @@ require(__DIR__ . '/includes/header.php')
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="Ext.Test.Test.sayHello(1); return false;" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="Ext.Test.Test.sayHello(0); return false;" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="Ext.Test.Test.showDialog(); return false;" >Bootstrap Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('Ext.Test.Test.sayHello', 1) ?>" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('Ext.Test.Test.sayHello', 0) ?>" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('Ext.Test.Test.showDialog') ?>" >Show Dialog</button>
                         </div>
 
                 </div>
@@ -87,14 +87,10 @@ require(__DIR__ . '/includes/header.php')
 <script type='text/javascript'>
     /* <![CDATA[ */
     window.onload = function() {
-        // call the helloWorld function to populate the div on load
-        App.Test.Test.sayHello(0, false);
-        // call the setColor function on load
-        App.Test.Test.setColor(jaxon.$('colorselect1').value, false);
-        // Call the HelloWorld class to populate the 2nd div
-        Ext.Test.Test.sayHello(0, false);
-        // call the HelloWorld->setColor() method on load
-        Ext.Test.Test.setColor(jaxon.$('colorselect2').value, false);
+        <?php echo rq()->call('App.Test.Test.sayHello', 0, false) ?>;
+        <?php echo rq()->call('App.Test.Test.setColor', rq()->select('colorselect1'), false) ?>;
+        <?php echo rq()->call('Ext.Test.Test.sayHello', 0, false) ?>;
+        <?php echo rq()->call('Ext.Test.Test.setColor', rq()->select('colorselect2'), false) ?>;
     }
     /* ]]> */
 </script>

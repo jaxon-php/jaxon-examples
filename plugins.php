@@ -104,7 +104,7 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                    onchange="<?php echo rq()->call('HelloWorld.setColor', $color)->confirm('Set color to {1}?', $color) ?>; return false;">
+                                    onchange="<?php echo rq()->call('HelloWorld.setColor', $color)->confirm('Set color to {1}?', $color) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -113,11 +113,11 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.sayHello', 1)
-                                ->confirm('Sure?') ?>; return false;" >CLICK ME</button>
+                                ->confirm('Sure?') ?>" >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.sayHello', 0)
-                                ->confirm('Sure?') ?>; return false;" >Click Me</button>
+                                ->confirm('Sure?') ?>" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.showDialog')
-                                ->confirm('Sure?') ?>; return false;" >Bootbox Dialog</button>
+                                ->confirm('Sure?') ?>" >Show Dialog</button>
                         </div>
 
                 </div>

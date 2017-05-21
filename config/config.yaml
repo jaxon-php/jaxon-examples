@@ -6,18 +6,10 @@ jaxon:
       class:                       "Jaxon"
     request:
       csrf_meta:                   "csrf-token"
-
-  toastr:
-    options:
-      closeButton:                 true
-      closeMethod:                 "fadeOut"
-      closeDuration:               300
-      closeEasing:                 "swing"
-      positionClass:               "toast-bottom-right"
   
   dialogs:
     default:
-      modal:                       bootstrap
+      modal:                       pgwjs
       alert:                       toastr
     pgwjs:
       assets:
@@ -30,5 +22,8 @@ jaxon:
     toastr:
       options:
         closeButton:               true
+        closeMethod:               "fadeOut"
+        closeDuration:             300
+        closeEasing:               "swing"
         positionClass:             "toast-top-center"
           
