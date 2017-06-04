@@ -2,7 +2,7 @@
 
 namespace Jaxon\App\Test;
 
-use Jaxon\Sentry\Classes\Base as JaxonClass;
+use Jaxon\Sentry\Classes\Armada as JaxonClass;
 
 class Bts extends JaxonClass
 {
