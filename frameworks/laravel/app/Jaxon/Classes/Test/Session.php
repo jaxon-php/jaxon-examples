@@ -2,7 +2,7 @@
 
 namespace Jaxon\App\Test;
 
-use Jaxon\Sentry\Classes\Armada as JaxonClass;
+use Jaxon\Sentry\Armada as JaxonClass;
 
 class Session extends JaxonClass
 {
