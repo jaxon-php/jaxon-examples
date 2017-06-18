@@ -11,8 +11,11 @@
 {!! $jaxonScript !!}
 
 {!! $jaxonCss !!}
-
 </div>
+
+<script type="text/javascript">
+jaxon.config.postHeaders = {'X-CSRF-TOKEN': "{!! csrf_token() !!}"};
+</script>
 
 </body>
 </html>
