@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use LaravelJaxon;
 
 class DemoController extends Controller
 {
-    public function __construct()
-    {
-        // parent::__construct();
-    }
-
     public function index()
     {
         $menuEntries = array(
@@ -35,23 +31,20 @@ class DemoController extends Controller
             'cake/' => 'CakePHP Framework',
         );
 
-        // Start and init the session
-        session()->start();
-        // session(['DialogTitle' => 'Yeah Man!!']);
-        session()->put('DialogTitle', 'Yeah Man!!');
-        session()->save();
+        // Save the DialogTitle var in the session
+        session()->set('DialogTitle', 'Yeah Man!!');
         // Register the Jaxon classes
-        \LaravelJaxon::register();
+        LaravelJaxon::register();
         // Print the page
         return view('demo/index', array(
-            'jaxonCss' => \LaravelJaxon::css(),
-            'jaxonJs' => \LaravelJaxon::js(),
-            'jaxonScript' => \LaravelJaxon::script(),
+            'jaxonCss' => LaravelJaxon::css(),
+            'jaxonJs' => LaravelJaxon::js(),
+            'jaxonScript' => LaravelJaxon::script(),
             'menuEntries' => $menuEntries,
             // Jaxon request to the Jaxon\App\Test\Bts controller
-            'bts' => \LaravelJaxon::request('Jaxon.App.Test.Bts'),
+            'bts' => LaravelJaxon::request('Jaxon.App.Test.Bts'),
             // Jaxon request to the Jaxon\App\Test\Pgw controller
-            'pgw' => \LaravelJaxon::request('Jaxon.App.Test.Pgw'),
+            'pgw' => LaravelJaxon::request('Jaxon.App.Test.Pgw'),
         ));
     }
 }
