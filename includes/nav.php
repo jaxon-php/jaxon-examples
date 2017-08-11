@@ -25,12 +25,15 @@ $menuEntries = array(
 
 $requestFile = new \SplFileInfo($_SERVER['SCRIPT_FILENAME']);
 $requestFilename = $requestFile->getBasename();
+$pageTitle = '';
 
 ?>
             <div class="col-sm-3 sidebar">
                 <ul class="nav nav-sidebar">
 <?php foreach($menuEntries as $filename => $title): ?>
-                    <li<?php if($filename == $requestFilename) echo ' class="active"'; ?>><a href="/exp/<?php echo $filename ?>"><?php echo $title ?></a></li>
+                    <li<?php if($filename == $requestFilename) {echo ' class="active"'; $pageTitle = $title;} ?>>
+                        <a href="/exp/<?php echo $filename ?>"><?php echo $title ?></a>
+                    </li>
 <?php endforeach ?>
                 </ul>
             </div>

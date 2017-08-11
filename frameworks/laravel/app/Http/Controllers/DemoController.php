@@ -41,6 +41,7 @@ class DemoController extends Controller
             'jaxonCss' => LaravelJaxon::css(),
             'jaxonJs' => LaravelJaxon::js(),
             'jaxonScript' => LaravelJaxon::script(),
+            'pageTitle' => "Laravel Framework",
             'menuEntries' => $menuEntries,
             // Jaxon request to the Jaxon\App\Test\Bts controller
             'bts' => LaravelJaxon::request('Jaxon.App.Test.Bts'),

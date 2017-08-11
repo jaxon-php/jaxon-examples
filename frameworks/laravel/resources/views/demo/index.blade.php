@@ -4,7 +4,7 @@
         <div class="row">
 @include( 'demo.includes.nav', compact($menuEntries) )
             <div class="col-sm-9 content">
-                <h3 class="page-header">Hello World Function</h3>
+                <h3 class="page-header">{!! $pageTitle !!}</h3>
 
                 <div class="row" id="jaxon-html">
                         <div class="col-md-12" id="div1">

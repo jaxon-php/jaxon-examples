@@ -45,6 +45,7 @@ class DemoController extends Controller
             'jaxonCss' => $jaxon->css(),
             'jaxonJs' => $jaxon->js(),
             'jaxonScript' => $jaxon->script(),
+            'pageTitle' => "Yii Framework",
             'menuEntries' => $menuEntries,
             // Jaxon request to the Jaxon\App\Test\Bts controller
             'bts' => $jaxon->request('Jaxon.App.Test.Bts'),

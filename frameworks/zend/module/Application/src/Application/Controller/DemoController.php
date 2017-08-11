@@ -55,6 +55,7 @@ class DemoController extends AbstractActionController
             'jaxonCss' => $this->jaxon->css(),
             'jaxonJs' => $this->jaxon->js(),
             'jaxonScript' => $this->jaxon->script(),
+            'pageTitle' => "Zend Framework",
             'menuEntries' => $menuEntries,
             // Jaxon request to the Jaxon\App\Test\Bts controller
             'bts' => $this->jaxon->request('Jaxon.App.Test.Bts'),

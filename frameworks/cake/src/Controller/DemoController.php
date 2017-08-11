@@ -58,6 +58,7 @@ class DemoController extends AppController
         $this->set('jaxonCss', $this->Jaxon->css());
         $this->set('jaxonJs', $this->Jaxon->js());
         $this->set('jaxonScript', $this->Jaxon->script());
+        $this->set('pageTitle', "Cake Framework");
         $this->set('menuEntries', $menuEntries);
         // Jaxon request to the Jaxon\App\Test\Bts controller
         $this->set('bts', $this->Jaxon->request('Jaxon.App.Test.Bts'));

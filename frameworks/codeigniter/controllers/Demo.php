@@ -46,6 +46,7 @@ class Demo extends CI_Controller
             'JaxonCss' => $this->jaxon->css(),
             'JaxonJs' => $this->jaxon->js(),
             'JaxonScript' => $this->jaxon->script(),
+            'pageTitle' => "CodeIgniter Framework",
             'menuEntries' => $menuEntries,
             // Jaxon request to the Jaxon\App\Test\Bts controller
             'bts' => $this->jaxon->request('Jaxon.App.Test.Bts'),
