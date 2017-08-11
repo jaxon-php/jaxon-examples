@@ -17,6 +17,7 @@ class DemoController extends Controller
             'class.php' => 'Hello World Class',
             'extern.php' => 'Export Javascript',
             'plugins.php' => 'Plugin Usage',
+            'flot.php' => 'Flot Plugin',
             'config.php' => 'Config File',
             'directories.php' => 'Register Directories',
             'namespaces.php' => 'Register Namespaces',

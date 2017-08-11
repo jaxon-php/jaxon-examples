@@ -8,6 +8,7 @@
         "jaxon-php/jaxon-latte": "dev-master",
         "jaxon-php/jaxon-blade": "dev-master",
         "jaxon-php/jaxon-raintpl": "dev-master",
+        "jaxon-php/jaxon-flot": "dev-master",
         "keradus/psr4autoloader": "dev-master"
     },
     "minimum-stability": "dev"
