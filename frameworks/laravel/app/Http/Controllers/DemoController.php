@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use LaravelJaxon;
+use Jaxon\Laravel\Jaxon;
 
 class DemoController extends Controller
 {
-    public function index()
+    public function index(Jaxon $jaxon)
     {
         $menuEntries = array(
             'index.php' => 'Home',
@@ -35,18 +35,18 @@ class DemoController extends Controller
         // Save the DialogTitle var in the session
         session()->set('DialogTitle', 'Yeah Man!!');
         // Register the Jaxon classes
-        LaravelJaxon::register();
+        $jaxon->register();
         // Print the page
         return view('demo/index', array(
-            'jaxonCss' => LaravelJaxon::css(),
-            'jaxonJs' => LaravelJaxon::js(),
-            'jaxonScript' => LaravelJaxon::script(),
+            'jaxonCss' => $jaxon->css(),
+            'jaxonJs' => $jaxon->js(),
+            'jaxonScript' => $jaxon->script(),
             'pageTitle' => "Laravel Framework",
             'menuEntries' => $menuEntries,
             // Jaxon request to the Jaxon\App\Test\Bts controller
-            'bts' => LaravelJaxon::request('Jaxon.App.Test.Bts'),
+            'bts' => $jaxon->request(\Jaxon\App\Test\Bts::class),
             // Jaxon request to the Jaxon\App\Test\Pgw controller
-            'pgw' => LaravelJaxon::request('Jaxon.App.Test.Pgw'),
+            'pgw' => $jaxon->request(\Jaxon\App\Test\Pgw::class),
         ));
     }
 }

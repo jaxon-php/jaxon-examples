@@ -49,9 +49,9 @@ class Demo extends CI_Controller
             'pageTitle' => "CodeIgniter Framework",
             'menuEntries' => $menuEntries,
             // Jaxon request to the Jaxon\App\Test\Bts controller
-            'bts' => $this->jaxon->request('Jaxon.App.Test.Bts'),
+            'bts' => $this->jaxon->request(\Jaxon\App\Test\Bts::class),
             // Jaxon request to the Jaxon\App\Test\Pgw controller
-            'pgw' => $this->jaxon->request('Jaxon.App.Test.Pgw'),
+            'pgw' => $this->jaxon->request(\Jaxon\App\Test\Pgw::class),
         ));
     }
 }

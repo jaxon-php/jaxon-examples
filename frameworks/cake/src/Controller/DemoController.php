@@ -61,9 +61,9 @@ class DemoController extends AppController
         $this->set('pageTitle', "Cake Framework");
         $this->set('menuEntries', $menuEntries);
         // Jaxon request to the Jaxon\App\Test\Bts controller
-        $this->set('bts', $this->Jaxon->request('Jaxon.App.Test.Bts'));
+        $this->set('bts', $this->Jaxon->request(\Jaxon\App\Test\Bts::class));
         // Jaxon request to the Jaxon\App\Test\Pgw controller
-        $this->set('pgw', $this->Jaxon->request('Jaxon.App.Test.Pgw'));
+        $this->set('pgw', $this->Jaxon->request(\Jaxon\App\Test\Pgw::class));
         $this->render('demo');
     }
 }

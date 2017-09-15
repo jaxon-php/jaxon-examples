@@ -6,6 +6,7 @@ $armada = jaxon()->armada();
 $armada->config(__DIR__ . '/armada/config/jaxon.php');
 
 $armada->session()->start();
+$armada->session()->set('DialogTitle', 'Yeah Man!!');
 if($armada->canProcessRequest())
 {
     // Process the request
@@ -13,15 +14,27 @@ if($armada->canProcessRequest())
 }
 else
 {
-    $_SESSION['DialogTitle'] = 'Yeah Man!!';
     // Register the classes
     $armada->register();
 }
 
 // Jaxon request to the Jaxon\App\Test\Bts classe
-$bts = $armada->request('Jaxon.App.Test.Bts');
+$bts = $armada->request(\Jaxon\App\Test\Bts::class);
 // Jaxon request to the Jaxon\App\Test\Pgw classe
-$pgw = $armada->request('Jaxon.App.Test.Pgw');
+$pgw = $armada->request(\Jaxon\App\Test\Pgw::class);
+
+$rqPgwSetColor = $pgw->setColor(rq()->select('renderer'), rq()->select('colorselect1'))
+    ->confirm('Set color to {1}?', rq()->select('colorselect1'));
+$rqPgwShowDialog = $pgw->showDialog(rq()->select('renderer'))->confirm('Confirm?');
+
+$rqBtsSetColor = $bts->setColor(rq()->select('renderer'), rq()->select('colorselect2'))
+    ->when(rq()->checked('div2-enabled'))
+    // ->ifeq(rq()->select('colorselect2'), 'blue')
+    ->else('Cannot set color to {1} because the checkbox is disabled', rq()->select('colorselect2'));
+$rqBtsShowDialog = $bts->showDialog(rq()->select('renderer'))
+    ->when(rq()->checked('div2-enabled'))
+    // ->ifne(rq()->select('colorselect2'), 'blue')
+    ->else('Sorry, the checkbox is disabled');
 
 require(__DIR__ . '/includes/header.php')
 ?>
@@ -50,9 +63,7 @@ require(__DIR__ . '/includes/header.php')
                             </select>
                         </div>
                         <div class="col-md-4 margin-vert-10 clearfix">
-                            <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="<?php echo $pgw->setColor(rq()->select('renderer'), rq()->select('colorselect1'))
-                                    ->confirm('Set color to {1}?', rq()->select('colorselect1')) ?>">
+                            <select class="form-control" id="colorselect1" name="colorselect1" onchange="<?php echo $rqPgwSetColor ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -64,8 +75,7 @@ require(__DIR__ . '/includes/header.php')
                                 ->confirm('Confirm?') ?>" >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->sayHello(rq()->select('renderer'), 0)
                                 ->confirm('Confirm?') ?>" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo $pgw->showDialog(rq()->select('renderer'))
-                                ->confirm('Confirm?') ?>" >PgwModal Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $rqPgwShowDialog ?>" >PgwModal Dialog</button>
                         </div>
 
                         <div class="col-md-4" id="div2">
@@ -75,9 +85,7 @@ require(__DIR__ . '/includes/header.php')
                             <input type="checkbox" name="div2-enabled" id="div2-enabled" /> Check to enable
                         </div>
                         <div class="col-md-4 margin-vert-10 clearfix">
-                            <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="<?php echo $bts->setColor(rq()->select('renderer'), rq()->select('colorselect2'))
-                                    ->when(rq()->checked('div2-enabled'), 'Cannot set color to {1} because the checkbox is disabled', rq()->select('colorselect2')) ?>">
+                            <select class="form-control" id="colorselect2" name="colorselect2" onchange="<?php echo $rqBtsSetColor ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -86,11 +94,10 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick="<?php echo $bts->sayHello(rq()->select('renderer'), 1)
-                                ->when(rq()->checked('div2-enabled'), 'Sorry, the checkbox is disabled') ?>" >CLICK ME</button>
+                                ->when(rq()->checked('div2-enabled'))->else('Sorry, the checkbox is disabled') ?>" >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo $bts->sayHello(rq()->select('renderer'), 0)
-                                ->when(rq()->checked('div2-enabled'), 'Sorry, the checkbox is disabled') ?>" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo $bts->showDialog(rq()->select('renderer'))
-                                ->when(rq()->checked('div2-enabled'), 'Sorry, the checkbox is disabled') ?>" >Bootstrap Dialog</button>
+                                ->when(rq()->checked('div2-enabled'))->else('Sorry, the checkbox is disabled') ?>" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo $rqBtsShowDialog ?>" >Bootstrap Dialog</button>
                         </div>
 
                 </div>

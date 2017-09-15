@@ -51,9 +51,9 @@ class DemoController extends Controller
             'pageTitle' => "Symfony Framework",
             'menuEntries' => $menuEntries,
             // Jaxon request to the Jaxon\App\Test\Bts controller
-            'bts' => $jaxon->request('Jaxon.App.Test.Bts'),
+            'bts' => $jaxon->request(\Jaxon\App\Test\Bts::class),
             // Jaxon request to the Jaxon\App\Test\Pgw controller
-            'pgw' => $jaxon->request('Jaxon.App.Test.Pgw'),
+            'pgw' => $jaxon->request(\Jaxon\App\Test\Pgw::class),
             // Jaxon Request Factory
             'rq' => rq(),
         ]);
