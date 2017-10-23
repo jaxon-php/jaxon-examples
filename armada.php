@@ -15,7 +15,13 @@ if($armada->canProcessRequest())
 else
 {
     // Register the classes
-    $armada->register();
+    $armada->register([
+        \Jaxon\App\Test\Bts::class => [
+            '*' => [
+                'mode' => "'asynchronous'",
+            ]
+        ]
+    ]);
 }
 
 // Jaxon request to the Jaxon\App\Test\Bts classe
@@ -30,11 +36,11 @@ $rqPgwShowDialog = $pgw->showDialog(rq()->select('renderer'))->confirm('Confirm?
 $rqBtsSetColor = $bts->setColor(rq()->select('renderer'), rq()->select('colorselect2'))
     ->when(rq()->checked('div2-enabled'))
     // ->ifeq(rq()->select('colorselect2'), 'blue')
-    ->else('Cannot set color to {1} because the checkbox is disabled', rq()->select('colorselect2'));
+    ->elseShow('Cannot set color to {1} because the checkbox is disabled', rq()->select('colorselect2'));
 $rqBtsShowDialog = $bts->showDialog(rq()->select('renderer'))
     ->when(rq()->checked('div2-enabled'))
     // ->ifne(rq()->select('colorselect2'), 'blue')
-    ->else('Sorry, the checkbox is disabled');
+    ->elseShow('Sorry, the checkbox is disabled');
 
 require(__DIR__ . '/includes/header.php')
 ?>
@@ -94,9 +100,9 @@ require(__DIR__ . '/includes/header.php')
                         </div>
                         <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick="<?php echo $bts->sayHello(rq()->select('renderer'), 1)
-                                ->when(rq()->checked('div2-enabled'))->else('Sorry, the checkbox is disabled') ?>" >CLICK ME</button>
+                                ->when(rq()->checked('div2-enabled'))->elseShow('Sorry, the checkbox is disabled') ?>" >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo $bts->sayHello(rq()->select('renderer'), 0)
-                                ->when(rq()->checked('div2-enabled'))->else('Sorry, the checkbox is disabled') ?>" >Click Me</button>
+                                ->when(rq()->checked('div2-enabled'))->elseShow('Sorry, the checkbox is disabled') ?>" >Click Me</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo $rqBtsShowDialog ?>" >Bootstrap Dialog</button>
                         </div>
 

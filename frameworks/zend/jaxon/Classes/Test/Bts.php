@@ -13,7 +13,7 @@ class Bts extends JaxonClass
         if(($bNotify))
         {
             // Show last command, and save this one in the session.
-            $this->instance('.Session')->command('sayHello');
+            $this->instance(Session::class)->command('sayHello');
             // Show a success notification.
             $message = $this->view()->render('test/message', [
                 'element' => 'div2',
@@ -33,7 +33,7 @@ class Bts extends JaxonClass
         if(($bNotify))
         {
             // Show last command, and save this one in the session.
-            $this->instance('.Session')->command('setColor');
+            $this->instance(Session::class)->command('setColor');
             // Show a success notification.
             $message = $this->view()->render('test/message', [
                 'element' => 'div2',

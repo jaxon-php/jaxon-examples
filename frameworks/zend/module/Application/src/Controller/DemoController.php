@@ -28,6 +28,7 @@ class DemoController extends AbstractActionController
             'class.php' => 'Hello World Class',
             'extern.php' => 'Export Javascript',
             'plugins.php' => 'Plugin Usage',
+            'dialogs.php' => 'Modal, Alert and Confirm Dialogs',
             'flot.php' => 'Flot Plugin',
             'config.php' => 'Config File',
             'directories.php' => 'Register Directories',

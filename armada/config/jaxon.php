@@ -1,106 +1,106 @@
 <?php
 
-return array(
-    'app' => array(
-        'classes' => array(
-            array(
+return [
+    'app' => [
+        'classes' => [
+            [
                 'directory' => dirname(__DIR__) . '/classes',
                 'namespace' => '\\Jaxon\\App',
                 // 'separator' => '.',
                 // 'protected' => [],
-            ),
-        ),
-        'views' => array(
-            'smarty' => array(
+            ],
+        ],
+        'views' => [
+            'smarty' => [
                 'directory' => dirname(__DIR__) . '/views/smarty',
                 'extension' => '.tpl',
                 'renderer' => 'smarty',
                 'register' => true,
-            ),
-            'dwoo' => array(
+            ],
+            'dwoo' => [
                 'directory' => dirname(__DIR__) . '/views/dwoo',
                 'extension' => '.tpl',
                 'renderer' => 'dwoo',
                 'register' => true,
-            ),
-            'blade' => array(
+            ],
+            'blade' => [
                 'directory' => dirname(__DIR__) . '/views/blade',
                 'extension' => '.blade.php',
                 'renderer' => 'blade',
                 'register' => true,
-            ),
-            'twig' => array(
+            ],
+            'twig' => [
                 'directory' => dirname(__DIR__) . '/views/twig',
                 'extension' => '.html.twig',
                 'renderer' => 'twig',
                 'register' => true,
-            ),
-            'latte' => array(
+            ],
+            'latte' => [
                 'directory' => dirname(__DIR__) . '/views/latte',
                 'extension' => '.tpl',
                 'renderer' => 'latte',
                 'register' => true,
-            ),
-            'raintpl' => array(
+            ],
+            'raintpl' => [
                 'directory' => dirname(__DIR__) . '/views/raintpl',
                 'extension' => '.tpl',
                 'renderer' => 'raintpl',
                 'register' => true,
-            ),
-        ),
-        'options' => array(
-            'views' => array(
+            ],
+        ],
+        'options' => [
+            'views' => [
                 'default' => 'default',
-            ), 
-        ),
-    ),
-    'lib' => array(
-        'core' => array(
+            ],
+        ],
+    ],
+    'lib' => [
+        'core' => [
             'language' => 'en',
             'encoding' => 'UTF-8',
-            'request' => array(
+            'request' => [
                 // 'uri' => '',
-            ),
-            'prefix' => array(
+            ],
+            'prefix' => [
                 'class' => '',
-            ),
-            'debug' => array(
+            ],
+            'debug' => [
                 'on' => false,
                 'verbose' => false,
-            ),
-            'error' => array(
+            ],
+            'error' => [
                 'handle' => false,
-            ),
-        ),
-        'js' => array(
-            'lib' => array(
+            ],
+        ],
+        'js' => [
+            'lib' => [
                 'uri' => 'https://cdn.jaxon-php.org/libs/jaxon/1.2.0',
-            ),
-            'app' => array(
+            ],
+            'app' => [
                 // 'uri' => '',
                 // 'dir' => '',
                 'extern' => false,
                 'minify' => false,
-            ),
-        ),
-        'assets' => array(
-            'include' => array(
+            ],
+        ],
+        'assets' => [
+            'include' => [
                 'all' => true,
-            ),
-        ),
-        'dialogs' => array(
-            'libraries' => array('pgwjs'),
-            'default' => array(
+            ],
+        ],
+        'dialogs' => [
+            'libraries' => ['pgwjs'],
+            'default' => [
                 'modal' => 'bootstrap',
                 'alert' => 'noty',
                 'confirm' => 'noty',
-            ),
-            'toastr' => array(
-                'options' => array(
+            ],
+            'toastr' => [
+                'options' => [
                     'closeButton' => true,
                     'positionClass' => 'toast-top-center'
-                ),
-            ),
-        ),
-    ),
-);
+                ],
+            ],
+        ],
+    ],
+];
