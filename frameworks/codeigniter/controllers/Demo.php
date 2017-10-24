@@ -14,30 +14,6 @@ class Demo extends CI_Controller
 
     public function index()
     {
-        $menuEntries = array(
-            'index.php' => 'Home',
-            'hello.php' => 'Hello World Function',
-            'alias.php' => 'Hello World Alias',
-            'class.php' => 'Hello World Class',
-            'extern.php' => 'Export Javascript',
-            'plugins.php' => 'Plugin Usage',
-            'dialogs.php' => 'Modal, Alert and Confirm Dialogs',
-            'flot.php' => 'Flot Plugin',
-            'config.php' => 'Config File',
-            'directories.php' => 'Register Directories',
-            'namespaces.php' => 'Register Namespaces',
-            'autoload-default.php' => 'Default Autoloader',
-            'autoload-composer.php' => 'Composer Autoloader',
-            'autoload-disabled.php' => 'Third Party Autoloader',
-            'armada.php' => 'Armada',
-            'laravel/' => 'Laravel Framework',
-            'symfony/' => 'Symfony Framework',
-            'zend/' => 'Zend Framework',
-            'codeigniter/' => 'CodeIgniter Framework',
-            'yii/' => 'Yii Framework',
-            'cake/' => 'CakePHP Framework',
-        );
-
         $this->load->library('session');
         $this->session->set_userdata(['DialogTitle' => 'Yeah Man!!']);
         // Register the Jaxon classes
@@ -48,7 +24,8 @@ class Demo extends CI_Controller
             'JaxonJs' => $this->jaxon->js(),
             'JaxonScript' => $this->jaxon->script(),
             'pageTitle' => "CodeIgniter Framework",
-            'menuEntries' => $menuEntries,
+            'menuEntries' => menu_entries(),
+            'menuSubdir' => menu_subdir(),
             // Jaxon request to the Jaxon\App\Test\Bts controller
             'bts' => $this->jaxon->request(\Jaxon\App\Test\Bts::class),
             // Jaxon request to the Jaxon\App\Test\Pgw controller

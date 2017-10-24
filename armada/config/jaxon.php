@@ -59,7 +59,7 @@ return [
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => [
-                // 'uri' => '',
+                'uri' => 'ajax.php',
             ],
             'prefix' => [
                 'class' => '',

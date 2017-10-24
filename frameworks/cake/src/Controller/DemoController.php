@@ -16,30 +16,6 @@ class DemoController extends AppController
 
     public function index()
     {
-        $menuEntries = array(
-            'index.php' => 'Home',
-            'hello.php' => 'Hello World Function',
-            'alias.php' => 'Hello World Alias',
-            'class.php' => 'Hello World Class',
-            'extern.php' => 'Export Javascript',
-            'plugins.php' => 'Plugin Usage',
-            'dialogs.php' => 'Modal, Alert and Confirm Dialogs',
-            'flot.php' => 'Flot Plugin',
-            'config.php' => 'Config File',
-            'directories.php' => 'Register Directories',
-            'namespaces.php' => 'Register Namespaces',
-            'autoload-default.php' => 'Default Autoloader',
-            'autoload-composer.php' => 'Composer Autoloader',
-            'autoload-disabled.php' => 'Third Party Autoloader',
-            'armada.php' => 'Armada',
-            'laravel/' => 'Laravel Framework',
-            'symfony/' => 'Symfony Framework',
-            'zend/' => 'Zend Framework',
-            'codeigniter/' => 'CodeIgniter Framework',
-            'yii/' => 'Yii Framework',
-            'cake/' => 'CakePHP Framework',
-        );
-
         // Start and init the session
         $this->request->session()->write('DialogTitle', 'Yeah Man!!');
 
@@ -60,7 +36,8 @@ class DemoController extends AppController
         $this->set('jaxonJs', $this->Jaxon->js());
         $this->set('jaxonScript', $this->Jaxon->script());
         $this->set('pageTitle', "Cake Framework");
-        $this->set('menuEntries', $menuEntries);
+        $this->set('menuEntries', menu_entries());
+        $this->set('menuSubdir', menu_subdir());
         // Jaxon request to the Jaxon\App\Test\Bts controller
         $this->set('bts', $this->Jaxon->request(\Jaxon\App\Test\Bts::class));
         // Jaxon request to the Jaxon\App\Test\Pgw controller

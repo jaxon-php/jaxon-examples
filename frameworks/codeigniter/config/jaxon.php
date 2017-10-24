@@ -15,7 +15,7 @@ $config['lib'] = array(
         'language' => 'en',
         'encoding' => 'UTF-8',
         'request' => array(
-            'uri' => '/exp/codeigniter/jaxon/process',
+            'uri' => 'jaxon/process',
         ),
         'prefix' => array(
             'class' => '',

@@ -19,7 +19,7 @@ return array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-                'uri' => '/exp/laravel/jaxon',
+                'uri' => 'jaxon',
             ),
             'prefix' => array(
                 'class' => '',

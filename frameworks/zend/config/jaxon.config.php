@@ -16,7 +16,7 @@ return array(
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => array(
-                'uri' => '/exp/zend/jaxon',
+                'uri' => 'jaxon',
             ),
             'prefix' => array(
                 'class' => '',

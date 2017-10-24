@@ -14,30 +14,6 @@ class DemoController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $menuEntries = array(
-            'index.php' => 'Home',
-            'hello.php' => 'Hello World Function',
-            'alias.php' => 'Hello World Alias',
-            'class.php' => 'Hello World Class',
-            'extern.php' => 'Export Javascript',
-            'plugins.php' => 'Plugin Usage',
-            'dialogs.php' => 'Modal, Alert and Confirm Dialogs',
-            'flot.php' => 'Flot Plugin',
-            'config.php' => 'Config File',
-            'directories.php' => 'Register Directories',
-            'namespaces.php' => 'Register Namespaces',
-            'autoload-default.php' => 'Default Autoloader',
-            'autoload-composer.php' => 'Composer Autoloader',
-            'autoload-disabled.php' => 'Third Party Autoloader',
-            'armada.php' => 'Armada',
-            'laravel/' => 'Laravel Framework',
-            'symfony/' => 'Symfony Framework',
-            'zend/' => 'Zend Framework',
-            'codeigniter/' => 'CodeIgniter Framework',
-            'yii/' => 'Yii Framework',
-            'cake/' => 'CakePHP Framework',
-        );
-
         // Init the session
         $session = new Session();
         $session->set('DialogTitle', 'Yeah Man!!');
@@ -50,7 +26,8 @@ class DemoController extends Controller
             'jaxonJs' => $jaxon->js(),
             'jaxonScript' => $jaxon->script(),
             'pageTitle' => "Symfony Framework",
-            'menuEntries' => $menuEntries,
+            'menuEntries' => menu_entries(),
+            'menuSubdir' => menu_subdir(),
             // Jaxon request to the Jaxon\App\Test\Bts controller
             'bts' => $jaxon->request(\Jaxon\App\Test\Bts::class),
             // Jaxon request to the Jaxon\App\Test\Pgw controller

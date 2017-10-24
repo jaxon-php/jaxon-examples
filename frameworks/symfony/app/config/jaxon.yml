@@ -13,7 +13,7 @@ parameters:
         language:                      "en"
         encoding:                      "UTF-8"
         request:
-          uri:                         "/exp/symfony/jaxon"
+          uri:                         "jaxon"
         prefix:
           class:                       ""
         debug:

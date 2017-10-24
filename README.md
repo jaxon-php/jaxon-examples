@@ -8,13 +8,13 @@ All examples are based on the helloword.php example in the original Jaxon reposi
 
 #### Installation
 
-Download the files of this repository to a subdirectory of your web server.
+Download the files of this repository to your web server.
 
 Cd to the directory and run the `composer update` command.
-This will install the `jaxon-php/jaxon-core` package and its dependencies.
+This will install the Jaxon packages and their dependencies.
 
-Configure your web server to give access to the directory.
-You can then open any php example file in a browser.
+Configure your web server to give access to the `web` subdirectory, and edit the `menu_subdir()` function in the `includes\menu.php` file accordingly.
+You will then be able to browse the examples.
 
 #### Frameworks
 
