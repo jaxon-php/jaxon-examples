@@ -27,11 +27,11 @@ require(__DIR__ . '/../../includes/header.php')
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.sayHello', 1) ?>" >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.sayHello', 0) ?>" >Click Me</button>
                         </div>
-                        <div class="col-md-4 margin-vert-10">
+                        <!-- <div class="col-md-4 margin-vert-10">
                             <form>
                                 <input type="file" id="file-select" name="photos[]" multiple="multiple" />
                             </form>
-                        </div>
+                        </div> -->
 
                 </div>
             </div> <!-- class="content" -->
