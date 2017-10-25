@@ -7,7 +7,7 @@ function menu_subdir()
 
 function menu_entries()
 {
-    return array(
+    return [
         '/' => 'Home',
         '/hello/' => 'Hello World Function',
         '/alias/' => 'Hello World Alias',
@@ -19,9 +19,9 @@ function menu_entries()
         '/config/' => 'Config File',
         '/directories/' => 'Register Directories',
         '/namespaces/' => 'Register Namespaces',
-        '/autoload/default.php' => 'Default Autoloader',
-        '/autoload/composer.php' => 'Composer Autoloader',
-        '/autoload/disabled.php' => 'Third Party Autoloader',
+        '/autoload-default/' => 'Default Autoloader',
+        '/autoload-composer/' => 'Composer Autoloader',
+        '/autoload-disabled/' => 'Third Party Autoloader',
         '/armada/' => 'Armada',
         '/laravel/' => 'Laravel Framework',
         '/symfony/' => 'Symfony Framework',
@@ -29,5 +29,5 @@ function menu_entries()
         '/codeigniter/' => 'CodeIgniter Framework',
         '/yii/' => 'Yii Framework',
         '/cake/' => 'CakePHP Framework',
-    );
+    ];
 }

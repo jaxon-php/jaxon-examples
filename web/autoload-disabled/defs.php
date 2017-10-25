@@ -20,6 +20,15 @@ $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
+// Disable autoload
+$jaxon->disableAutoload();
+
+// Register the namespaces with a third-party autoloader
+$loader = new Keradus\Psr4Autoloader;
+$loader->register();
+$loader->addNamespace('App', __DIR__ . '/../../classes/namespace/app');
+$loader->addNamespace('Ext', __DIR__ . '/../../classes/namespace/ext');
+
 // Add class dirs with namespaces
 $jaxon->addClassDir(__DIR__ . '/../../classes/namespace/app', 'App');
 $jaxon->addClassDir(__DIR__ . '/../../classes/namespace/ext', 'Ext');

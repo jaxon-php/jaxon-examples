@@ -20,6 +20,9 @@ $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
+// Use the Composer autoloader
+$jaxon->useComposerAutoloader();
+
 // Add class dirs with namespaces
 $jaxon->addClassDir(__DIR__ . '/../../classes/namespace/app', 'App');
 $jaxon->addClassDir(__DIR__ . '/../../classes/namespace/ext', 'Ext');
