@@ -22,6 +22,7 @@ function menu_entries()
         '/autoload-default/' => 'Default Autoloader',
         '/autoload-composer/' => 'Composer Autoloader',
         '/autoload-disabled/' => 'Third Party Autoloader',
+        '/dependency-injection/' => 'Dependency Injection',
         '/armada/' => 'Armada',
         '/laravel/' => 'Laravel Framework',
         '/symfony/' => 'Symfony Framework',
