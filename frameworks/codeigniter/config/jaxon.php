@@ -35,7 +35,7 @@ $config['lib'] = array(
         'app' => array(
             // 'uri' => '',
             // 'dir' => '',
-            'extern' => false,
+            'export' => false,
             'minify' => false,
             'options' => '',
         ),

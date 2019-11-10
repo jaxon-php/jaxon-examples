@@ -3,8 +3,6 @@
 require(__DIR__ . '/defs.php');
 require(__DIR__ . '/../../includes/header.php');
 
-// The Jaxon objects are registered only when the page is loaded
-$jaxon->registerClasses();
 ?>
 
     <div class="container-fluid">
@@ -19,7 +17,7 @@ $jaxon->registerClasses();
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="<?php echo rq()->call('App.Test.Test.setColor', rq()->select('colorselect1')) ?>">
+                                    onchange="<?php echo rq()->call('App.Test.Test.setColor', pr()->select('colorselect1')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -37,7 +35,7 @@ $jaxon->registerClasses();
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="<?php echo rq()->call('Ext.Test.Test.setColor', rq()->select('colorselect2')) ?>">
+                                    onchange="<?php echo rq()->call('Ext.Test.Test.setColor', pr()->select('colorselect2')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -59,9 +57,9 @@ $jaxon->registerClasses();
     /* <![CDATA[ */
     window.onload = function() {
         <?php echo rq()->call('App.Test.Test.sayHello', 0, false) ?>;
-        <?php echo rq()->call('App.Test.Test.setColor', rq()->select('colorselect1'), false) ?>;
+        <?php echo rq()->call('App.Test.Test.setColor', pr()->select('colorselect1'), false) ?>;
         <?php echo rq()->call('Ext.Test.Test.sayHello', 0, false) ?>;
-        <?php echo rq()->call('Ext.Test.Test.setColor', rq()->select('colorselect2'), false) ?>;
+        <?php echo rq()->call('Ext.Test.Test.setColor', pr()->select('colorselect2'), false) ?>;
     }
     /* ]]> */
 </script>

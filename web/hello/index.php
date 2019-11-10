@@ -16,7 +16,7 @@ require(__DIR__ . '/../../includes/header.php')
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                    onchange="<?php echo rq()->call('setColor', rq()->select('colorselect')) ?>">
+                                    onchange="<?php echo rq()->call('setColor', pr()->select('colorselect')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -39,7 +39,7 @@ require(__DIR__ . '/../../includes/header.php')
         // call the helloWorld function to populate the div on load
         <?php echo rq()->call('helloWorld', 0) ?>;
         // call the setColor function on load
-        <?php echo rq()->call('setColor', rq()->select('colorselect')) ?>;
+        <?php echo rq()->call('setColor', pr()->select('colorselect')) ?>;
     }
     /* ]]> */
 </script>

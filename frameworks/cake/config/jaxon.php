@@ -39,7 +39,7 @@ return array(
             'app' => array(
                 // 'uri' => '',
                 // 'dir' => '',
-                'extern' => false,
+                'export' => false,
                 'minify' => false,
             ),
         ),

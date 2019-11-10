@@ -2,9 +2,8 @@
 
 return [
     'app' => [
-        'classes' => [
-            [
-                'directory' => dirname(__DIR__) . '/classes',
+        'directories' => [
+            dirname(__DIR__) . '/classes' => [
                 'namespace' => '\\Jaxon\\App',
                 // 'separator' => '.',
                 // 'protected' => [],
@@ -79,7 +78,7 @@ return [
             'app' => [
                 // 'uri' => '',
                 // 'dir' => '',
-                'extern' => false,
+                'export' => false,
                 'minify' => false,
             ],
         ],

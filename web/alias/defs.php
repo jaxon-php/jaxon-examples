@@ -24,7 +24,7 @@ class HelloWorld
     {
         $xResponse = new Response();
         $xResponse->assign('div2', 'style.color', $sColor);
-        
+
         return $xResponse;
     }
 }
@@ -38,6 +38,5 @@ $jaxon->setOption('core.prefix.function', 'jaxon_');
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
 // Register functions
-$hello = new HelloWorld();
-$jaxon->register(Jaxon::USER_FUNCTION, array('helloWorld', $hello, 'sayHello'));
-$jaxon->register(Jaxon::USER_FUNCTION, array($hello, 'setColor'));
+$jaxon->register(Jaxon::USER_FUNCTION, 'sayHello', ['class' => 'HelloWorld', 'alias' => 'helloWorld']);
+$jaxon->register(Jaxon::USER_FUNCTION, 'setColor', ['class' => 'HelloWorld']);

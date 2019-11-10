@@ -3,8 +3,6 @@
 require(__DIR__ . '/defs.php');
 require(__DIR__ . '/../../includes/header.php');
 
-// The Jaxon objects are registered only when the page is loaded
-$jaxon->registerClasses();
 ?>
 
     <div class="container-fluid">

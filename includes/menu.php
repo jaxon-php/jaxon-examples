@@ -2,7 +2,7 @@
 
 function menu_subdir()
 {
-    return '/exp/web';
+    return '/web';
 }
 
 function menu_entries()
@@ -12,7 +12,8 @@ function menu_entries()
         '/hello/' => 'Hello World Function',
         '/alias/' => 'Hello World Alias',
         '/class/' => 'Hello World Class',
-        '/extern/' => 'Export Javascript',
+        '/export/' => 'Export Javascript',
+        '/pagination/' => 'Pagination',
         '/plugins/' => 'Plugin Usage',
         '/dialogs/' => 'Dialogs',
         '/flot/' => 'Flot Plugin',
@@ -23,7 +24,6 @@ function menu_entries()
         '/autoload-composer/' => 'Composer Autoloader',
         '/autoload-disabled/' => 'Third Party Autoloader',
         '/dependency-injection/' => 'Dependency Injection',
-        '/armada/' => 'Armada',
         '/laravel/' => 'Laravel Framework',
         '/symfony/' => 'Symfony Framework',
         '/zend/' => 'Zend Framework',

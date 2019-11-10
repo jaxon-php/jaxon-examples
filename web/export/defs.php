@@ -36,9 +36,9 @@ $jaxon = jaxon();
 $jaxon->setOption('core.prefix.class', 'Jaxon');
 
 $jaxonAppDir = __DIR__ . '/js';
-$jaxonAppURI = menu_subdir() . '/extern/js';
+$jaxonAppURI = menu_subdir() . '/export/js';
 
-$jaxon->setOption('js.app.extern', true);
+$jaxon->setOption('js.app.export', true);
 $jaxon->setOption('js.app.dir', $jaxonAppDir);
 $jaxon->setOption('js.app.uri', $jaxonAppURI);
 $jaxon->setOption('js.app.minify', true); // Optionally, the file can be minified
@@ -52,7 +52,4 @@ $jaxon->setOption('dialogs.default.alert', 'bootbox');
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
 // Register object
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld(), array(
-    '*' => array('mode' => "'synchronous'"),
-    'sayHello' => array('mode' => "'asynchronous'"),
-));
+$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

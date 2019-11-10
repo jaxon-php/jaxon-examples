@@ -24,7 +24,7 @@ parameters:
         js:
           lib:
           app:
-          extern:                      false
+          export:                      false
           minify:                      false
 
       dialogs:

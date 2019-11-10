@@ -33,7 +33,7 @@ class DemoController extends Controller
             // Jaxon request to the Jaxon\App\Test\Pgw controller
             'pgw' => $jaxon->request(\Jaxon\App\Test\Pgw::class),
             // Jaxon Request Factory
-            'rq' => rq(),
+            'rq' => pr(),
         ]);
     }
 }

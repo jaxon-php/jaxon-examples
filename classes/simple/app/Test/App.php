@@ -2,15 +2,8 @@
 
 use Jaxon\Response\Response;
 
-class App
+class App extends \Jaxon\CallableClass
 {
-    protected $response;
-
-    public function __construct()
-    {
-        $this->response = new Response;
-    }
-
     public function sayHello($isCaps, $bNotify = true)
     {
         if ($isCaps)

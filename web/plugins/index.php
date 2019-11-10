@@ -18,7 +18,7 @@ $color = jq('#colorselect')->val();
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                    onchange="<?php echo rq()->call('HelloWorld.setColor', $color)->confirm('Set color to {1}?', $color) ?>">
+                                    onchange="<?php echo rq('HelloWorld')->call('setColor', $color)->confirm('Set color to {1}?', $color) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -26,11 +26,11 @@ $color = jq('#colorselect')->val();
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.sayHello', 1)
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('sayHello', 1)
                                 ->confirm('Sure?') ?>" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.sayHello', 0)
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('sayHello', 0)
                                 ->confirm('Sure?') ?>" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('HelloWorld.showDialog')
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('showDialog')
                                 ->confirm('Sure?') ?>" >Show Dialog</button>
                         </div>
 
@@ -43,9 +43,9 @@ $color = jq('#colorselect')->val();
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo rq()->call('HelloWorld.sayHello', 0, false) ?>;
+        <?php echo rq('HelloWorld')->call('sayHello', 0, false) ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo rq()->call('HelloWorld.setColor', rq()->select('colorselect'), false) ?>;
+        <?php echo rq('HelloWorld')->call('setColor', pr()->select('colorselect'), false) ?>;
     }
     /* ]]> */
 </script>

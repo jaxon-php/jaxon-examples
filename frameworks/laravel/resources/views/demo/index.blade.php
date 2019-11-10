@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="{!! $pgw->setColor(rq()->select('colorselect1')) !!}; return false;">
+                                    onchange="{!! $pgw->setColor(pr()->select('colorselect1')) !!}; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="{!! $bts->setColor(rq()->select('colorselect2')) !!}; return false;">
+                                    onchange="{!! $bts->setColor(pr()->select('colorselect2')) !!}; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -54,11 +54,11 @@
         // call the helloWorld function to populate the div on load
         {!! $pgw->sayHello(0, false) !!};
         // call the setColor function on load
-        {!! $pgw->setColor(rq()->select('colorselect1'), false) !!};
+        {!! $pgw->setColor(pr()->select('colorselect1'), false) !!};
         // Call the HelloWorld class to populate the 2nd div
         {!! $bts->sayHello(0, false) !!};
         // call the HelloWorld->setColor() method on load
-        {!! $bts->setColor(rq()->select('colorselect2'), false) !!};
+        {!! $bts->setColor(pr()->select('colorselect2'), false) !!};
     }
     /* ]]> */
 </script>

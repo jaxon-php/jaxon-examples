@@ -3,6 +3,7 @@
 require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
+use Jaxon\CallableClass;
 use Jaxon\Response\Response;
 
 use Service\ExampleInterface;
@@ -13,15 +14,13 @@ $loader = new Keradus\Psr4Autoloader;
 $loader->register();
 $loader->addNamespace('Service', __DIR__ . '/../../classes/namespace/service');
 
-class HelloWorld
+class HelloWorld extends CallableClass
 {
     protected $service;
-    protected $response;
 
     public function __construct(ExampleInterface $service)
     {
         $this->service = $service;
-        $this->response = new Response();
     }
 
     public function sayHello($isCaps)
@@ -42,7 +41,7 @@ class HelloWorld
 // Register object
 $jaxon = jaxon();
 
-$jaxon->readConfigFile(__DIR__ . '/../../config/class.php', 'lib');
+$jaxon->app()->setup(__DIR__ . '/../../config/class.php', 'lib');
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');
@@ -52,4 +51,4 @@ $jaxon->di()->set(ExampleInterface::class, function($di){
     return new Example();
 });
 
-$jaxon->register(Jaxon::CALLABLE_OBJECT, HelloWorld::class);
+$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

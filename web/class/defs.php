@@ -3,29 +3,27 @@
 require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
-use Jaxon\Response\Response;
-use Jaxon\Response\Manager as ResponseManager;
 
 class HelloWorld
 {
     public function sayHello($isCaps)
     {
         $text = (($isCaps) ? 'HELLO WORLD!' : 'Hello World!');
-        $xResponse = new Response();
+        $xResponse = jaxon()->getResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
         return $xResponse;
     }
 
     public function setColor($sColor)
     {
-        $xResponse = new Response();
+        $xResponse = jaxon()->getResponse();
         $xResponse->assign('div2', 'style.color', $sColor);
         return $xResponse;
     }
 
     public function showError($sMessage)
     {
-        $xResponse = new Response();
+        $xResponse = jaxon()->getResponse();
         $xResponse->assign('div2', 'innerHTML', $sMessage);
         return $xResponse;
     }
@@ -34,14 +32,16 @@ class HelloWorld
 // Register object
 $jaxon = jaxon();
 
-$jaxon->readConfigFile(__DIR__ . '/../../config/class.php', 'lib');
+$jaxon->callback()->before(function($target, &$end) {
+    error_log('Target: ' . print_r($target, true));
+});
+
+$jaxon->app()->setup(__DIR__ . '/../../config/class.php');
 
 // Request processing URI
-$jaxon->setOption('core.request.uri', 'ajax.php');
+// $jaxon->setOption('core.request.uri', 'ajax.php');
 
-$xCallableObject = new HelloWorld();
-$jaxon->register(Jaxon::CALLABLE_OBJECT, $xCallableObject, array(
-    '*' => array('mode' => "'synchronous'"),
-    'sayHello' => array('mode' => "'asynchronous'"),
-));
-$jaxon->register(Jaxon::PROCESSING_EVENT, Jaxon::PROCESSING_EVENT_INVALID, array($xCallableObject, 'showError'));
+// $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, [
+//     '*' => ['mode' => "'synchronous'"],
+//     'sayHello' => ['mode' => "'asynchronous'"],
+// ]);
