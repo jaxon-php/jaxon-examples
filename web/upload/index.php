@@ -1,14 +1,14 @@
 <?php
 
 require(__DIR__ . '/defs.php');
-require(__DIR__ . '/../../includes/header.php')
+require(__DIR__ . '/../../includes/header.php');
 ?>
 
     <div class="container-fluid">
         <div class="row">
 <?php require(__DIR__ . '/../../includes/nav.php') ?>
             <div class="col-sm-9 content">
-                <h3 class="page-header">Export Javascript</h3>
+                <h3 class="page-header">Hello World Class</h3>
 
                 <div class="row" id="jaxon-html">
                         <div class="col-md-12" id="div2">
@@ -16,16 +16,28 @@ require(__DIR__ . '/../../includes/header.php')
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                onchange="<?php echo rq('HelloWorld')->call('setColor', pr()->select('colorselect')) ?>">
+                                    onchange="<?php echo rq('HelloWorld')->call('setColor', pr()->select('colorselect')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
                                 <option value="blue">Blue</option>
                             </select>
                         </div>
-                        <div class="col-md-4 margin-vert-10">
+                        <div class="col-md-12" id="div2">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-12 margin-vert-10">
+                            <form>
+                                <input type="file" id="file-select" name="photos[]" multiple="multiple" />
+                            </form>
+                        </div>
+                        <div class="col-md-12" id="div2">
+                            &nbsp;
+                        </div>
+                        <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('sayHello', 1) ?>" >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('sayHello', 0) ?>" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('upload') ?>" >Upload files</button>
                         </div>
 
                 </div>
