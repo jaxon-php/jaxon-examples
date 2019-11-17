@@ -9,6 +9,7 @@ class HelloWorld
     public function sayHello($isCaps)
     {
         $text = (($isCaps) ? 'HELLO WORLD!' : 'Hello World!');
+        $text = (($isCaps) ? strtoupper($this->message) : strtolower($this->message));
         $xResponse = jaxon()->getResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
         return $xResponse;
@@ -34,6 +35,10 @@ $jaxon = jaxon();
 
 $jaxon->callback()->before(function($target, &$end) {
     error_log('Target: ' . print_r($target, true));
+});
+
+$jaxon->callback()->init(function($instance) {
+    $instance->message = 'voici le message';
 });
 
 $jaxon->app()->setup(__DIR__ . '/../../config/class.php');
