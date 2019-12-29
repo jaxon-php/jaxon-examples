@@ -26,6 +26,7 @@ require(__DIR__ . '/../../includes/header.php')
                         <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('helloWorld', 1) ?>" >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('helloWorld', 0) ?>" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('Test')->call('foo4', 25, pr()->js('true')) ?>" >Test</button>
                         </div>
 
                 </div>

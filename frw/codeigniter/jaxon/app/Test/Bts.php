@@ -42,6 +42,7 @@ class Bts extends JaxonClass
             ]);
             $this->response->dialog->success($message, $this->session()->get('DialogTitle', 'No title'));
         }
+        jaxon()->logger()->info('We have set the color to ' . $sColor);
 
         return $this->response;
     }

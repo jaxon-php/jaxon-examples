@@ -1,6 +1,6 @@
 <?php
 
-$directory = rtrim(APPPATH, '/') . '/jaxon/classes';
+$directory = rtrim(APPPATH, '/') . '/jaxon/app';
 
 $config['app'] = [
     'directories' => [

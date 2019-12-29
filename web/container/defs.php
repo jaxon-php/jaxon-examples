@@ -23,9 +23,9 @@ class HelloWorld extends CallableClass
         $this->service = $service;
     }
 
-    public function sayHello($isCaps)
+    public function sayHello($isCaps, $sMessage)
     {
-        $sMessage = $this->service->message($isCaps);
+        $sMessage = $this->service->message($isCaps) . ', ' . $sMessage;
         $this->response->assign('div2', 'innerHTML', $sMessage);
         return $this->response;
     }
@@ -41,14 +41,10 @@ class HelloWorld extends CallableClass
 // Register object
 $jaxon = jaxon();
 
-$jaxon->app()->setup(__DIR__ . '/../../config/class.php', 'lib');
+$jaxon->app()->setup(__DIR__ . '/../../config/container.php', 'lib');
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');
-
-// Bind the interface with its implementation
-$jaxon->di()->set(ExampleInterface::class, function($di){
-    return new Example();
-});
+$jaxon->setOption('core.decode_utf8', true);
 
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

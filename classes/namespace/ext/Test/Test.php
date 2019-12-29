@@ -6,13 +6,6 @@ use Jaxon\Response\Response;
 
 class Test extends \Jaxon\CallableClass
 {
-    // protected $response;
-
-    // public function __construct()
-    // {
-    //     $this->response = new Response;
-    // }
-
     public function sayHello($isCaps, $bNotify = true)
     {
         if ($isCaps)

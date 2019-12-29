@@ -35,11 +35,20 @@ function setColor($sColor)
     return $xResponse;
 }
 
+class Test {
+	public function foo4($ID,$isTrue) {
+        $xResponse = jaxon()->newResponse();
+        $xResponse->alert('foo function');
+		return $xResponse;
+	}
+}
+
 $jaxon = jaxon();
 
 // Js options
-// $jaxon->setOption('js.lib.uri', '/exp/js/lib');
-// $jaxon->setOption('js.app.minify', false);
+$jaxon->setOption('js.lib.uri', '/js');
+$jaxon->setOption('js.app.minify', false);
+$jaxon->setOption('core.decode_utf8', true);
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');
@@ -51,3 +60,4 @@ $jaxon->callback()->before(function($target, &$end) {
 // Register functions
 $jaxon->register(Jaxon::CALLABLE_FUNCTION, 'helloWorld', ['mode' => "'asynchronous'"]);
 $jaxon->register(Jaxon::CALLABLE_FUNCTION, 'setColor', ['mode' => "'asynchronous'"]);
+$jaxon->register(Jaxon::CALLABLE_CLASS, 'Test');

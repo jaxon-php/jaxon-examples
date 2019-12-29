@@ -66,8 +66,8 @@ $jaxon->setOption('core.prefix.class', 'Jaxon');
 
 // Dialog options
 $jaxon->setOption('dialogs.default.modal', 'bootbox');
-$jaxon->setOption('dialogs.default.alert', 'ymzbox');
-$jaxon->setOption('dialogs.default.confirm', 'ymzbox');
+$jaxon->setOption('dialogs.default.message', 'ymzbox');
+$jaxon->setOption('dialogs.default.question', 'ymzbox');
 
 $jaxon->setOption('dialogs.confirm.title', 'Confirmer');
 $jaxon->setOption('dialogs.confirm.yes', 'Oui');

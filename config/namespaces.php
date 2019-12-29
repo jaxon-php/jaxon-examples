@@ -26,7 +26,8 @@ return [
         'dialogs' => [
             'default' => [
                 'modal' => 'tingle',
-                'alert' => 'toastr',
+                'message' => 'toastr',
+                'question' => 'noty',
             ],
             'libraries' => ['pgwjs', 'bootstrap'],
             'toastr' => [

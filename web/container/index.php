@@ -24,8 +24,8 @@ require(__DIR__ . '/../../includes/header.php');
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('sayHello', 1) ?>" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('sayHello', 0) ?>" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('sayHello', 1, 'Thierry Feuzeu') ?>" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('sayHello', 0, 'Thierry Feuzeu') ?>" >Click Me</button>
                         </div>
 
                 </div>
@@ -37,7 +37,7 @@ require(__DIR__ . '/../../includes/header.php');
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo rq('HelloWorld')->call('sayHello', 0) ?>;
+        <?php echo rq('HelloWorld')->call('sayHello', 0, 'Thierry Feuzeu') ?>;
         // call the HelloWorld->setColor() method on load
         <?php echo rq('HelloWorld')->call('setColor', pr()->select('colorselect')) ?>;
     }

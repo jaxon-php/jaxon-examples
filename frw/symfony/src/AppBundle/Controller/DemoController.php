@@ -12,7 +12,7 @@ class DemoController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction(Request $request)
+    public function index(Request $request)
     {
         // Init the session
         $session = new Session();

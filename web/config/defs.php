@@ -43,9 +43,6 @@ class HelloWorld
 // Register object
 $jaxon = jaxon();
 
-$jaxon->app()->setup(__DIR__ . '/../../config/config.yaml', 'jaxon');
-
-// Request processing URI
-$jaxon->setOption('core.request.uri', 'ajax.php');
+$jaxon->config()->load(__DIR__ . '/../../config/config.yaml', 'jaxon');
 
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

@@ -16,8 +16,7 @@ class Demo extends CI_Controller
     {
         $this->load->library('session');
         $this->session->set_userdata(['DialogTitle' => 'Yeah Man!!']);
-        // Register the Jaxon classes
-        $this->jaxon->register();
+
         // Print the page
         $this->load->view('demo/index', array(
             'JaxonCss' => $this->jaxon->css(),
