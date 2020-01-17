@@ -3,8 +3,9 @@
 require(__DIR__ . '/defs.php');
 require(__DIR__ . '/../../includes/header.php');
 
-// The Jaxon objects are registered only when the page is loaded
-$jaxon->registerClasses();
+$appTest = jaxon()->request(\App\Test\Test::class);
+$extTest = jaxon()->request(\Ext\Test\Test::class);
+
 ?>
 
     <div class="container-fluid">
@@ -19,7 +20,7 @@ $jaxon->registerClasses();
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="App.Test.Test.setColor(jaxon.$('colorselect1').value); return false;">
+                                    onchange="<?php echo $appTest->setColor(pr()->select('colorselect1')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -37,7 +38,7 @@ $jaxon->registerClasses();
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="Ext.Test.Test.setColor(jaxon.$('colorselect2').value); return false;">
+                                    onchange="<?php echo $extTest->setColor(pr()->select('colorselect2')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>

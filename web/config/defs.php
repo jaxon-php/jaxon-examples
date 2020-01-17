@@ -25,17 +25,17 @@ class HelloWorld
         $xResponse->assign('div2', 'style.color', $sColor);
         if(($bNotify))
             $xResponse->dialog->success("div2 color is now $sColor");
-        
+
         return $xResponse;
     }
 
     public function showDialog()
     {
         $xResponse = new Response();
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array('width' => 500);
+        $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
+        $options = ['width' => 500];
         $xResponse->dialog->modal("Modal Dialog", "This modal dialog is powered by PgwJs!!", $buttons, $options);
-        
+
         return $xResponse;
     }
 }
@@ -43,9 +43,6 @@ class HelloWorld
 // Register object
 $jaxon = jaxon();
 
-$jaxon->readConfigFile(__DIR__ . '/../../config/config.yaml', 'jaxon');
+$jaxon->config()->load(__DIR__ . '/../../config/config.yaml', 'jaxon');
 
-// Request processing URI
-$jaxon->setOption('core.request.uri', 'ajax.php');
-
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
+$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

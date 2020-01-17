@@ -11,8 +11,8 @@ class HelloWorld
     {
         jaxon()->setOption('dialogs.default.modal', $id);
         $xResponse = new Response();
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array();
+        $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
+        $options = [];
         $xResponse->dialog->show("Modal Dialog", "This modal dialog is powered by $name!!", $buttons, $options);
 
         return $xResponse;
@@ -62,4 +62,4 @@ $jaxon->setOption('dialogs.libraries', array_keys($aLibraries));
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
 // Register functions
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
+$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

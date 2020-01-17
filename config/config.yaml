@@ -1,16 +1,17 @@
 jaxon:
   core:
     debug:
-      on:                          true
+      on:                          false
     prefix:
       class:                       "Jaxon"
     request:
+      uri:                         "ajax.php"
       csrf_meta:                   "csrf-token"
-  
+
   dialogs:
     default:
       modal:                       pgwjs
-      alert:                       toastr
+      message:                     toastr
     pgwjs:
       assets:
         include:                   true
@@ -26,4 +27,3 @@ jaxon:
         closeDuration:             300
         closeEasing:               "swing"
         positionClass:             "toast-top-center"
-          

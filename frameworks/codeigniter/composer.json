@@ -1,8 +1,0 @@
-{
-    "require": {
-        "jaxon-php/jaxon-codeigniter": "~2.0",
-        "jaxon-php/jaxon-dialogs": "~1.0"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
-}

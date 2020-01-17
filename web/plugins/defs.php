@@ -3,57 +3,55 @@
 require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
+use Jaxon\CallableClass;
 use Jaxon\Response\Response;
 
-class HelloWorld
+class HelloWorld extends CallableClass
 {
     public function sayHello($isCaps, $bNotify = true)
     {
         $text = ($isCaps ? 'HELLO WORLD!': 'Hello World!');
-        $xResponse = new Response();
         if(($bNotify))
         {
-            // $xResponse->confirmCommands(2, 'Skip text assignement?');
-            $xResponse->assign('div2', 'innerHTML', $text);
-            // $xResponse->confirmCommands(1, 'Skip text notification?');
-            $xResponse->dialog->success("div2 text is now $text");
+            // $this->response->confirmCommands(2, 'Skip text assignement?');
+            $this->response->assign('div2', 'innerHTML', $text);
+            // $this->response->confirmCommands(1, 'Skip text notification?');
+            $this->response->dialog->success("div2 text is now $text");
         }
         else
         {
-            // $xResponse->confirmCommands(1, 'Skip text assignement?');
-            $xResponse->assign('div2', 'innerHTML', $text);
+            // $this->response->confirmCommands(1, 'Skip text assignement?');
+            $this->response->assign('div2', 'innerHTML', $text);
         }
 
-        return $xResponse;
+        return $this->response;
     }
 
     public function setColor($sColor, $bNotify = true)
     {
-        $xResponse = new Response();
         if(($bNotify))
         {
-            // $xResponse->confirmCommands(1, 'Skip color assignement?');
-            $xResponse->assign('div2', 'style.color', $sColor);
-            // $xResponse->confirmCommands(1, 'Skip color assignement?');
-            $xResponse->dialog->success("div2 color is now $sColor");
+            // $this->response->confirmCommands(1, 'Skip color assignement?');
+            $this->response->assign('div2', 'style.color', $sColor);
+            // $this->response->confirmCommands(1, 'Skip color assignement?');
+            $this->response->dialog->success("div2 color is now $sColor");
         }
         else
         {
-            // $xResponse->confirmCommands(1, 'Skip color assignement?');
-            $xResponse->assign('div2', 'style.color', $sColor);
+            // $this->response->confirmCommands(1, 'Skip color assignement?');
+            $this->response->assign('div2', 'style.color', $sColor);
         }
 
-        return $xResponse;
+        return $this->response;
     }
 
     public function showDialog()
     {
-        $xResponse = new Response();
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('width' => 500);
-        $xResponse->dialog->show("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $options);
+        $this->response->dialog->show("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $options);
 
-        return $xResponse;
+        return $this->response;
     }
 }
 
@@ -68,8 +66,8 @@ $jaxon->setOption('core.prefix.class', 'Jaxon');
 
 // Dialog options
 $jaxon->setOption('dialogs.default.modal', 'bootbox');
-$jaxon->setOption('dialogs.default.alert', 'ymzbox');
-$jaxon->setOption('dialogs.default.confirm', 'ymzbox');
+$jaxon->setOption('dialogs.default.message', 'ymzbox');
+$jaxon->setOption('dialogs.default.question', 'ymzbox');
 
 $jaxon->setOption('dialogs.confirm.title', 'Confirmer');
 $jaxon->setOption('dialogs.confirm.yes', 'Oui');
@@ -86,4 +84,4 @@ $jaxon->setOption('core.request.uri', 'ajax.php');
 $jaxon->plugin('dialog')->registerClasses();
 
 // Register object
-$jaxon->register(Jaxon::CALLABLE_OBJECT, new HelloWorld());
+$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

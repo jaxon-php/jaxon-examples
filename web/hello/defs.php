@@ -3,7 +3,6 @@
 require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
-use Jaxon\Response\Response;
 
 /*
     Function: helloWorld
@@ -16,11 +15,9 @@ function helloWorld($isCaps)
         $text = 'HELLO WORLD!';
     else
         $text = 'Hello World!';
-        
-    $xResponse = new Response();
+
+    $xResponse = jaxon()->newResponse();
     $xResponse->assign('div1', 'innerHTML', $text);
-    // This is to test the javascript console error logging
-    $xResponse->script('var test = null; alert(test.haha)');
 
     return $xResponse;
 }
@@ -32,21 +29,35 @@ function helloWorld($isCaps)
 */
 function setColor($sColor)
 {
-    $xResponse = new Response();
+    $xResponse = jaxon()->newResponse();
     $xResponse->assign('div1', 'style.color', $sColor);
 
     return $xResponse;
 }
 
+class Test {
+	public function foo4($ID,$isTrue) {
+        $xResponse = jaxon()->newResponse();
+        $xResponse->alert('foo function');
+		return $xResponse;
+	}
+}
+
 $jaxon = jaxon();
 
 // Js options
-$jaxon->setOption('js.lib.uri', '/exp/js/lib');
+$jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('js.app.minify', false);
+$jaxon->setOption('core.decode_utf8', true);
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
+$jaxon->callback()->before(function($target, &$end) {
+    error_log('Target: ' . print_r($target, true));
+});
+
 // Register functions
-$jaxon->register(Jaxon::USER_FUNCTION, 'helloWorld', array('mode' => "'synchronous'"));
-$jaxon->register(Jaxon::USER_FUNCTION, 'setColor', array('mode' => "'synchronous'"));
+$jaxon->register(Jaxon::CALLABLE_FUNCTION, 'helloWorld', ['mode' => "'asynchronous'"]);
+$jaxon->register(Jaxon::CALLABLE_FUNCTION, 'setColor', ['mode' => "'asynchronous'"]);
+$jaxon->register(Jaxon::CALLABLE_CLASS, 'Test');

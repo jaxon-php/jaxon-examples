@@ -13,7 +13,7 @@ $jaxon->setOption('core.prefix.class', '');
 // Dialog options
 $jaxon->setOption('dialogs.default.modal', 'bootstrap');
 $jaxon->setOption('dialogs.default.alert', 'toastr');
-$jaxon->setOption('dialogs.libraries', array('pgwjs'));
+$jaxon->setOption('dialogs.libraries', ['pgwjs']);
 $jaxon->setOption('dialogs.toastr.options.closeButton', true);
 $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 
@@ -21,5 +21,5 @@ $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
 // Add class dirs with namespaces
-$jaxon->addClassDir(__DIR__ . '/../../classes/namespace/app', 'App');
-$jaxon->addClassDir(__DIR__ . '/../../classes/namespace/ext', 'Ext');
+$jaxon->register(Jaxon::CALLABLE_DIR, __DIR__ . '/../../classes/namespace/app', ['namespace' => 'App']);
+$jaxon->register(Jaxon::CALLABLE_DIR, __DIR__ . '/../../classes/namespace/ext', ['namespace' => 'Ext']);

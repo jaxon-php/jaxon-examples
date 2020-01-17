@@ -4,7 +4,7 @@ Sample codes demonstrating the Jaxon library usage.
 
 #### The examples
 
-All examples are based on the helloword.php example in the original Jaxon repository https://github.com/Jaxon/Jaxon/blob/master/examples/helloworld.php.
+All examples are based on the helloword.php example in the original Xajax repository https://github.com/Xajax/Xajax/blob/master/examples/helloworld.php.
 
 #### Installation
 
