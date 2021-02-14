@@ -7,7 +7,7 @@ use Cake\Routing\Router;
 
 class DemoController extends AppController
 {
-    public function initialize()
+    public function initialize(): void
     {
         parent::initialize();
         // Load the Jaxon component
@@ -17,27 +17,19 @@ class DemoController extends AppController
     public function index()
     {
         // Start and init the session
-        $this->request->session()->write('DialogTitle', 'Yeah Man!!');
+        $this->request->getSession()->write('DialogTitle', 'Yeah Man!!');
 
         // Set the layout
-        if(substr(Configure::version(), 0, 3) != '3.0')
-        {
-            $this->viewBuilder()->layout('empty');
-        }
-        else
-        {
-            $this->layout = 'empty';
-        }
+        $this->viewBuilder()->setLayout('empty');
 
-        // Call the Jaxon module
-        $this->Jaxon->register();
+        $this->set('csrfToken', $this->request->getAttribute('csrfToken'));
 
         $this->set('jaxonCss', $this->Jaxon->css());
         $this->set('jaxonJs', $this->Jaxon->js());
         $this->set('jaxonScript', $this->Jaxon->script());
         $this->set('pageTitle', "Cake Framework");
-        $this->set('menuEntries', menu_entries());
-        $this->set('menuSubdir', menu_subdir());
+        $this->set('menuEntries', []);
+        $this->set('menuSubdir', '');
         // Jaxon request to the Jaxon\App\Test\Bts controller
         $this->set('bts', $this->Jaxon->request(\Jaxon\App\Test\Bts::class));
         // Jaxon request to the Jaxon\App\Test\Pgw controller

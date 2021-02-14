@@ -1,11 +1,11 @@
 <?php
 
-$directory = rtrim(ROOT, '/') . '/jaxon/Classes';
+$directory = rtrim(ROOT, '/') . '/jaxon/App';
 
 return [
     'app' => [
         'request' => [
-            'route' => 'jaxon',
+            // 'route' => 'jaxon',
         ],
         'directories' => [
             $directory => [
@@ -20,7 +20,8 @@ return [
             'language' => 'en',
             'encoding' => 'UTF-8',
             'request' => [
-                // 'uri' => 'jaxon',
+                'uri' => '/jaxon',
+                'csrf_meta' => 'csrf-token',
             ],
             'prefix' => [
                 'class' => '',
@@ -48,7 +49,7 @@ return [
             'libraries' => ['pgwjs'],
             'default' => [
                 'modal' => 'bootstrap',
-                'alert' => 'toastr',
+                'message' => 'toastr',
             ],
             'toastr' => [
                 'options' => [
