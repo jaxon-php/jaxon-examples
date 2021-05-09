@@ -45,7 +45,7 @@ $config['lib'] = [
         'libraries' => ['pgwjs'],
         'default' => [
             'modal' => 'bootstrap',
-            'alert' => 'toastr',
+            'message' => 'toastr',
         ],
         'toastr' => [
             'options' => [

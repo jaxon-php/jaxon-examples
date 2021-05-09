@@ -1,7 +1,7 @@
 <?php require(__DIR__ . '/includes/header.php') ?>
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="margin-top:30px;">
 <?php require(__DIR__ . '/includes/nav.php') ?>
             <div class="col-sm-9 content">
                 <h3 class="page-header"><?php echo $pageTitle ?></h3>
@@ -12,7 +12,7 @@
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="<?php echo $pgw->setColor(pr()->select('colorselect1')) ?>; return false;">
+                                    onchange="<?php echo $pgw->setColor(pm()->select('colorselect1')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="<?php echo $bts->setColor(pr()->select('colorselect2')) ?>; return false;">
+                                    onchange="<?php echo $bts->setColor(pm()->select('colorselect2')) ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -54,11 +54,11 @@
     	// call the helloWorld function to populate the div on load
         <?php echo $pgw->sayHello(0, false) ?>;
         // call the setColor function on load
-        <?php echo $pgw->setColor(pr()->select('colorselect1'), false) ?>;
+        <?php echo $pgw->setColor(pm()->select('colorselect1'), false) ?>;
         // Call the HelloWorld class to populate the 2nd div
         <?php echo $bts->sayHello(0, false) ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo $bts->setColor(pr()->select('colorselect2'), false) ?>;
+        <?php echo $bts->setColor(pm()->select('colorselect2'), false) ?>;
     };
     /* ]]> */
 </script>
