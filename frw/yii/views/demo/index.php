@@ -1,7 +1,7 @@
 <?php require(__DIR__ . '/includes/header.php') ?>
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="margin-top:30px;">
 <?php require(__DIR__ . '/includes/nav.php') ?>
             <div class="col-sm-9 content">
                 <h3 class="page-header"><?php echo $pageTitle ?></h3>

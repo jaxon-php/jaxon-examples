@@ -91,7 +91,7 @@ switch (ENVIRONMENT)
 		exit(1); // EXIT_ERROR
 }
 
-$rootDir = realpath(__DIR__ . '/../../../frw/codeigniter');
+$rootDir = realpath(__DIR__ . '/../../../frw/codeigniter-3.1');
 
 /*
  *---------------------------------------------------------------

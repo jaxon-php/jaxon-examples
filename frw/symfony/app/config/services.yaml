@@ -1,0 +1,3 @@
+imports:
+    - { resource: jaxon.yaml }
+    - { resource: "@JaxonAjaxBundle/Resources/config/services.yaml" }

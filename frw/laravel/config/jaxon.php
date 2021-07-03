@@ -1,6 +1,6 @@
 <?php
 
-$directory = app_path('Jaxon/Classes');
+$directory = app_path('Jaxon/App');
 
 return [
     'app' => [
@@ -48,7 +48,7 @@ return [
             'libraries' => ['pgwjs'],
             'default' => [
                 'modal' => 'bootstrap',
-                'alert' => 'toastr',
+                'message' => 'toastr',
             ],
             'toastr' => [
                 'options' => [

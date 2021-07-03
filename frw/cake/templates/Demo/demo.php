@@ -1,7 +1,7 @@
 <?php echo $this->element('includes/header') ?>
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="margin-top:30px;">
 <?php echo $this->element('includes/nav') ?>
             <div class="col-sm-9 content">
                 <h3 class="page-header"><?php echo $pageTitle ?></h3>

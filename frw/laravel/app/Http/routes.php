@@ -12,10 +12,4 @@
 */
 
 // Route to demo page
-Route::get('/', array('as' => 'demo', 'uses' => 'DemoController@index'))->middleware('web');
-
-// Route to Jaxon request processor
-/*Route::post('jaxon', array(
-    'as' => 'laraveljaxon',
-    'uses' => '\Jaxon\Laravel\Http\Controllers\JaxonClass@process',
-))->middleware('web');*/
+Route::get('/', 'DemoController@index')->name('demo')->middleware('web');

@@ -11,8 +11,7 @@ class DemoController extends Controller
     {
         // Save the DialogTitle var in the session
         session()->set('DialogTitle', 'Yeah Man!!');
-        // Register the Jaxon classes
-        $jaxon->register();
+
         // Print the page
         return view('demo/index', array(
             'jaxonCss' => $jaxon->css(),

@@ -91,7 +91,7 @@ return [
             'libraries' => ['pgwjs'],
             'default' => [
                 'modal' => 'bootstrap',
-                'alert' => 'noty',
+                'message' => 'noty',
                 'confirm' => 'noty',
             ],
             'toastr' => [

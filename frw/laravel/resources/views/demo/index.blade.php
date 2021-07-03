@@ -1,7 +1,7 @@
 @include( 'demo.includes.header' )
 
     <div class="container-fluid">
-        <div class="row">
+        <div class="row" style="margin-top:30px;">
 @include( 'demo.includes.nav', compact($menuEntries) )
             <div class="col-sm-9 content">
                 <h3 class="page-header">{!! $pageTitle !!}</h3>

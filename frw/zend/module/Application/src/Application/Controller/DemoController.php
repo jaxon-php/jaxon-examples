@@ -25,16 +25,13 @@ class DemoController extends AbstractActionController
         $session = new Container('base');
         $session->offsetSet('DialogTitle', 'Yeah Man!!');
 
-        // Call the Jaxon module
-        $this->jaxon->register();
-
         $view = new ViewModel(array(
             'jaxonCss' => $this->jaxon->css(),
             'jaxonJs' => $this->jaxon->js(),
             'jaxonScript' => $this->jaxon->script(),
             'pageTitle' => "Zend Framework",
-            'menuEntries' => menu_entries(),
-            'menuSubdir' => menu_subdir(),
+            'menuEntries' => [],
+            'menuSubdir' => '',
             // Jaxon request to the Jaxon\App\Test\Bts controller
             'bts' => $this->jaxon->request(\Jaxon\App\Test\Bts::class),
             // Jaxon request to the Jaxon\App\Test\Pgw controller

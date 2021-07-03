@@ -16,15 +16,14 @@ class DemoController extends Controller
         $this->layout = 'demo';
         // Call the Jaxon module
         $jaxon = Yii::$app->getModule('jaxon');
-        $jaxon->register();
 
         return $this->render('index', array(
             'jaxonCss' => $jaxon->css(),
             'jaxonJs' => $jaxon->js(),
             'jaxonScript' => $jaxon->script(),
             'pageTitle' => "Yii Framework",
-            'menuEntries' => menu_entries(),
-            'menuSubdir' => menu_subdir(),
+            'menuEntries' => [],
+            'menuSubdir' => '',
             // Jaxon request to the Jaxon\App\Test\Bts controller
             'bts' => $jaxon->request(\Jaxon\App\Test\Bts::class),
             // Jaxon request to the Jaxon\App\Test\Pgw controller

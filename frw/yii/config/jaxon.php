@@ -1,6 +1,6 @@
 <?php
 
-$directory = rtrim(\Yii::getAlias('@app'), '/') . '/jaxon/classes';
+$directory = rtrim(\Yii::getAlias('@app'), '/') . '/jaxon/App';
 
 return [
     'app' => [
@@ -45,7 +45,7 @@ return [
             'libraries' => ['pgwjs'],
             'default' => [
                 'modal' => 'bootstrap',
-                'alert' => 'toastr',
+                'message' => 'toastr',
             ],
             'toastr' => [
                 'options' => [

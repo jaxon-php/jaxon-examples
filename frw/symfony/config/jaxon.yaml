@@ -1,0 +1,87 @@
+parameters:
+  jaxon:
+    app:
+      directories:
+        '%kernel.project_dir%/jaxon/App':
+          namespace: \Jaxon\App
+          # separator: '' # '.' or '_'
+          # protected: []
+      packages:
+        Lagdo\Adminer\Package:
+          # template: bootstrap
+          servers:
+            mysql:
+              name: MySQL
+              driver: mysql
+              host: localhost
+              port: 3306
+              username: invoice
+              password: t27M9RpaJmd45Twz
+              access:
+                server: true
+                databases:
+                  - voyager
+                  - adminer
+                  - crater
+                  - invoice
+                  - demo
+            pgsql:
+              name: PostgreSQL
+              driver: pgsql
+              host: 127.0.0.1
+              port: 5432
+              username: postgres
+              password:
+              access:
+                server: true
+                databases:
+                  - demo
+                  - voyager
+                schemas:
+                  - public
+          default: mysql
+          access:
+            server: false
+          export:
+            url: http://symfony.jaxon.loc/exports
+            dir: /home/thierry/www/jaxon/frw/symfony-4.4/public/exports
+    lib:
+      core:
+        language:                      "en"
+        encoding:                      "UTF-8"
+        request:
+          uri:                         "jaxon"
+        prefix:
+          class:                       ""
+        debug:
+          on:                          false
+          verbose:                     false
+        error:
+          handle:                      false
+        js:
+          lib:
+          app:
+          export:                      false
+          minify:                      false
+      upload:
+        files:
+          sql_files:
+            dir:                       /home/thierry/workspace/contrib/lagdo/adminer/uploads
+
+      dialogs:
+        libraries:
+                                       - pgwjs
+        default:
+          modal:                       bootbox
+          message:                     noty
+          question:                    noty
+        toastr:
+          options:
+            closeButton:               true
+            positionClass:             "toast-top-center"
+        pgwjs:
+          modal:
+            options:
+              closeOnEscape:           true
+              closeOnBackgroundClick:  true
+              maxWidth:                600

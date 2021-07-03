@@ -1,6 +1,6 @@
 <?php
 
-$directory = rtrim(getcwd(), '/') . '/jaxon/Classes';
+$directory = rtrim(getcwd(), '/') . '/jaxon/App';
 
 return [
     'app' => [
@@ -45,7 +45,7 @@ return [
             'libraries' => ['pgwjs'],
             'default' => [
                 'modal' => 'bootstrap',
-                'alert' => 'toastr',
+                'message' => 'toastr',
             ],
             'toastr' => [
                 'options' => [
