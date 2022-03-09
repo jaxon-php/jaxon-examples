@@ -37,7 +37,7 @@ function setColor($sColor)
 
 class Test {
 	public function foo4($ID,$isTrue) {
-        $xResponse = jaxon()->newResponse();
+        $xResponse = jaxon()->getResponse();
         $xResponse->alert('foo function');
 		return $xResponse;
 	}
@@ -46,7 +46,7 @@ class Test {
 $jaxon = jaxon();
 
 // Js options
-$jaxon->setOption('js.lib.uri', '/js');
+// $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('js.app.minify', false);
 $jaxon->setOption('core.decode_utf8', true);
 

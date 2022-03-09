@@ -2,7 +2,7 @@
 
 function menu_subdir()
 {
-    return '/web';
+    return '';
 }
 
 function menu_entries()
@@ -24,11 +24,5 @@ function menu_entries()
         '/package/' => 'Package',
         '/autoload-default/' => 'Default Autoloader',
         '/autoload-disabled/' => 'Third Party Autoloader',
-        '/laravel/' => 'Laravel Framework',
-        '/symfony/' => 'Symfony Framework',
-        '/zend/' => 'Zend Framework',
-        '/codeigniter/' => 'CodeIgniter Framework',
-        '/yii/' => 'Yii Framework',
-        '/cake/' => 'CakePHP Framework',
     ];
 }

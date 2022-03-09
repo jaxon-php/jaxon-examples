@@ -16,7 +16,7 @@ class HelloWorld extends \Jaxon\CallableClass
     public function showPage($pageNumber)
     {
         $this->response->assign('div2', 'innerHTML', "Showing page number $pageNumber");
-        $this->response->assign('pagination', 'innerHTML', $this->rq()->showPage(pr()->page())->paginate($pageNumber, 10, 150));
+        $this->response->assign('pagination', 'innerHTML', $this->rq()->showPage(pm()->page())->paginate($pageNumber, 10, 150));
         return $this->response;
     }
 }
@@ -24,12 +24,7 @@ class HelloWorld extends \Jaxon\CallableClass
 // Register object
 $jaxon = jaxon();
 
-$jaxon->app()->setup(__DIR__ . '/../../config/class.php');
-
 // Request processing URI
-// $jaxon->setOption('core.request.uri', 'ajax.php');
+$jaxon->setOption('core.request.uri', 'ajax.php');
 
-// $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, [
-//     '*' => ['mode' => "'synchronous'"],
-//     'sayHello' => ['mode' => "'asynchronous'"],
-// ]);
+$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

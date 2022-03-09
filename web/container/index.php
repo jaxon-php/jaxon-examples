@@ -16,7 +16,7 @@ require(__DIR__ . '/../../includes/header.php');
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                    onchange="<?php echo rq('HelloWorld')->call('setColor', pr()->select('colorselect')) ?>">
+                                    onchange="<?php echo rq('HelloWorld')->setColor(pm()->select('colorselect')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -24,8 +24,8 @@ require(__DIR__ . '/../../includes/header.php');
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('sayHello', 1, 'Thierry Feuzeu') ?>" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->call('sayHello', 0, 'Thierry Feuzeu') ?>" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(1, 'Thierry Feuzeu') ?>" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(0, 'Thierry Feuzeu') ?>" >Click Me</button>
                         </div>
 
                 </div>
@@ -37,9 +37,9 @@ require(__DIR__ . '/../../includes/header.php');
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo rq('HelloWorld')->call('sayHello', 0, 'Thierry Feuzeu') ?>;
+        <?php echo rq('HelloWorld')->sayHello(0, 'Thierry Feuzeu') ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo rq('HelloWorld')->call('setColor', pr()->select('colorselect')) ?>;
+        <?php echo rq('HelloWorld')->setColor(pm()->select('colorselect')) ?>;
     }
     /* ]]> */
 </script>

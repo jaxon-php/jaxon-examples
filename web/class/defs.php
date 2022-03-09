@@ -45,18 +45,8 @@ $jaxon->callback()->init(function($instance) {
 $jaxon->app()->setup(__DIR__ . '/../../config/class.php');
 
 // Js options
-$jaxon->setOption('js.lib.uri', '/js');
+// $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('js.app.minify', false);
 
 // Request processing URI
 // $jaxon->setOption('core.request.uri', 'ajax.php');
-
-$jaxon->callback()->after(function($target, $bEndRequest) {
-    $response = jaxon()->di()->getResponseManager()->getResponse();
-    $commands = $response->getCommands();
-    // Apply the changes on the commands
-    error_log('================= Here are the comands ' . print_r($commands, true));
-    $commands[0]['data'] = 'purple';
-    // Reset the changed commands in the response
-    $response->clearCommands()->appendResponse($commands);
-});

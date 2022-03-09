@@ -38,5 +38,5 @@ $jaxon->setOption('core.prefix.function', 'jaxon_');
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
 // Register functions
-$jaxon->register(Jaxon::USER_FUNCTION, 'sayHello', ['class' => 'HelloWorld', 'alias' => 'helloWorld']);
-$jaxon->register(Jaxon::USER_FUNCTION, 'setColor', ['class' => 'HelloWorld']);
+$jaxon->register(Jaxon::CALLABLE_FUNCTION, 'sayHello', ['class' => 'HelloWorld', 'alias' => 'helloWorld']);
+$jaxon->register(Jaxon::CALLABLE_FUNCTION, 'setColor', ['class' => 'HelloWorld']);

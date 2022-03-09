@@ -81,7 +81,5 @@ $jaxon->setOption('dialogs.pgwjs.options.modal.maxWidth', 800);
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
-$jaxon->plugin('dialog')->registerClasses();
-
 // Register object
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

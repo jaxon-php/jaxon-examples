@@ -43,6 +43,6 @@ class HelloWorld
 // Register object
 $jaxon = jaxon();
 
-$jaxon->config()->load(__DIR__ . '/../../config/config.yaml', 'jaxon');
+$jaxon->loadConfig(__DIR__ . '/../../config/config.yaml', 'jaxon');
 
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

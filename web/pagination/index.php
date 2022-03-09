@@ -15,7 +15,7 @@ require(__DIR__ . '/../../includes/header.php');
                             Showing page number 1
                         </div>
                         <div class="col-md-12 margin-vert-10" id="pagination">
-                            <?php echo rq('HelloWorld')->call('showPage')->paginate(1, 10, 150) ?>
+                            <?php echo rq('HelloWorld')->showPage()->paginate(1, 10, 150) ?>
                         </div>
                 </div>
             </div> <!-- class="content" -->

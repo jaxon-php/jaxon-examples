@@ -1,1 +1,0 @@
-This modal dialog is powered by {{ $library }}!!

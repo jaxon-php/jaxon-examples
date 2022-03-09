@@ -20,7 +20,7 @@ $extTest = jaxon()->request(\Ext\Test\Test::class);
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="<?php echo $appTest->setColor(pr()->select('colorselect1')) ?>">
+                                    onchange="<?php echo $appTest->setColor(pm()->select('colorselect1')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -38,7 +38,7 @@ $extTest = jaxon()->request(\Ext\Test\Test::class);
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="<?php echo $extTest->setColor(pr()->select('colorselect2')) ?>">
+                                    onchange="<?php echo $extTest->setColor(pm()->select('colorselect2')) ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>

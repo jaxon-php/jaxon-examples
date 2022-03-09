@@ -8,17 +8,17 @@ use Jaxon\Plugin\Package;
 
 class DemoPackage extends Package
 {
-    public static function getConfigFile()
+    public static function getConfigFile(): string
     {
         return realpath(__DIR__ . '/../../config/package.php');
     }
 
-    public function getReadyScript()
+    public function getReadyScript(): string
     {
         return '';
     }
 
-    public function getHtml()
+    public function getHtml(): string
     {
         return '';
     }
@@ -46,4 +46,4 @@ $jaxon->setOption('dialogs.libraries', ['pgwjs', 'bootstrap']);
 $jaxon->setOption('dialogs.toastr.options.closeButton', true);
 $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 
-$jaxon->register(Jaxon::PLUGIN_PACKAGE, DemoPackage::class);
+$jaxon->registerPackage(DemoPackage::class);

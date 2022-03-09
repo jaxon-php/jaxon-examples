@@ -17,7 +17,7 @@ require(__DIR__ . '/../../includes/header.php')
                             </div>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('Flot.drawGraph') ?>" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq(Flot::class)->drawGraph() ?>" >CLICK ME</button>
                         </div>
 
                 </div>
@@ -29,7 +29,7 @@ require(__DIR__ . '/../../includes/header.php')
     /* <![CDATA[ */
     window.onload = function() {
         // Call the Flot class to populate the 2nd div
-        // <?php echo rq()->call('Flot.drawGraph') ?>;
+        // <?php echo rq(Flot::class)->drawGraph() ?>;
     }
     /* ]]> */
 </script>

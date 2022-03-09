@@ -8,7 +8,8 @@
 <div id="jaxon-code">
 <?php
 $jaxon = jaxon();
-echo $jaxon->getJs(), "\n", $jaxon->getScript(), "\n", $jaxon->getCss(), "\n";
+echo $jaxon->getCss(), "\n", $jaxon->getJs(), "\n", $jaxon->getScript(), "\n";
+echo "<!-- HTTP comment  -->\n"
 ?>
 </div>
 
