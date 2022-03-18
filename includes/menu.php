@@ -2,7 +2,7 @@
 
 function menu_subdir()
 {
-    return '';
+    return '/web';
 }
 
 function menu_entries()

@@ -14,7 +14,7 @@ class HelloWorld
         else
             $text = 'Hello World!';
 
-        $xResponse = new Response();
+        $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
 
         return $xResponse;
@@ -22,7 +22,7 @@ class HelloWorld
 
     public function setColor($sColor)
     {
-        $xResponse = new Response();
+        $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'style.color', $sColor);
 
         return $xResponse;

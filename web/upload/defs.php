@@ -35,7 +35,7 @@ class HelloWorld
 $jaxon = jaxon();
 
 // Request processing URI
-$jaxon->setOption('js.lib.uri', '/js/upload');
+$jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('js.app.minify', false);
 $jaxon->setOption('upload.default.dir', __DIR__ . '/files');
 $jaxon->setOption('core.request.uri', 'ajax.php');
@@ -48,5 +48,5 @@ $jaxon->callback()->after(function($target, $end) {
 });
 
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, [
-    'upload' => ['upload' => "'file-select'"],
+    'functions' => ['upload' => ['upload' => "'file-select'"]],
 ]);

@@ -10,7 +10,7 @@ class HelloWorld
     public function showDialog($id, $name)
     {
         jaxon()->setOption('dialogs.default.modal', $id);
-        $xResponse = new Response();
+        $xResponse = jaxon()->newResponse();
         $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $options = [];
         $xResponse->dialog->show("Modal Dialog", "This modal dialog is powered by $name!!", $buttons, $options);

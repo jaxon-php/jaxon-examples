@@ -8,7 +8,7 @@ use Jaxon\Plugin\Package;
 
 class DemoPackage extends Package
 {
-    public static function getConfigFile(): string
+    public static function config(): string
     {
         return realpath(__DIR__ . '/../../config/package.php');
     }

@@ -16,7 +16,7 @@ require(__DIR__ . '/../../includes/header.php')
                         <div class="col-md-12">
                             <?php echo $lib['name'] ?>
                         </div>
-<?php if($plugin instanceof \Jaxon\Contracts\Dialogs\Message): ?>
+<?php if($plugin instanceof \Jaxon\Ui\Dialogs\MessageInterface): ?>
                         <div class="col-md-12" style="padding-bottom: 15px;">
                             <button type="button" class="btn btn-primary" onclick="<?php
                                 echo $class ?>.success('Yeah Man!!!')" >Success</button>
@@ -28,7 +28,7 @@ require(__DIR__ . '/../../includes/header.php')
                                 echo $class ?>.error('Yeah Man!!!')" >Error</button>
                         </div>
 <?php endif ?>
-<?php if($plugin instanceof \Jaxon\Contracts\Dialogs\Question): ?>
+<?php if($plugin instanceof \Jaxon\Ui\Dialogs\QuestionInterface): ?>
                         <div class="col-md-12" style="padding-bottom: 15px;">
                             <button type="button" class="btn btn-primary" onclick="<?php
                                 echo $class ?>.confirm('Really?', 'Question', function(){<?php
@@ -36,7 +36,7 @@ require(__DIR__ . '/../../includes/header.php')
                                 echo $class ?>.info('So Sorry!!!');})" >Confirm</button>
                         </div>
 <?php endif ?>
-<?php if($plugin instanceof \Jaxon\Dialogs\Contracts\Modal): ?>
+<?php if($plugin instanceof \Jaxon\Dialogs\ModalInterface): ?>
                         <div class="col-md-12" style="padding-bottom: 15px;">
                             <button type="button" class="btn btn-primary" onclick="JaxonHelloWorld.showDialog('<?php
                                 echo $id ?>', '<?php echo $lib['name'] ?>')" >Modal</button>
