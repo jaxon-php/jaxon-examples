@@ -4,6 +4,9 @@ require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
 use Jaxon\Response\Response;
+use Jaxon\Dialogs\Library\Bootstrap\BootstrapLibrary;
+use Jaxon\Dialogs\Library\PgwJS\PgwJsLibrary;
+use Jaxon\Dialogs\Library\Toastr\ToastrLibrary;
 
 $jaxon = jaxon();
 
@@ -13,7 +16,11 @@ $jaxon->setOption('core.prefix.class', '');
 // Dialog options
 $jaxon->setOption('dialogs.default.modal', 'bootstrap');
 $jaxon->setOption('dialogs.default.alert', 'toastr');
-$jaxon->setOption('dialogs.libraries', ['pgwjs']);
+$jaxon->setOption('dialogs.libraries', [
+    BootstrapLibrary::class => BootstrapLibrary::NAME,
+    PgwJsLibrary::class => PgwJsLibrary::NAME,
+    ToastrLibrary::class => ToastrLibrary::NAME,
+]);
 $jaxon->setOption('dialogs.toastr.options.closeButton', true);
 $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 

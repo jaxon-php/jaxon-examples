@@ -29,11 +29,10 @@ class App extends \Jaxon\CallableClass
 
     public function showDialog()
     {
-        $this->response->dialog->setModalLibrary('pgwjs');
-
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('maxWidth' => 400);
-        $this->response->dialog->show("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+        $this->response->dialog->with('pgwjs')
+            ->show("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
 
         return $this->response;
     }

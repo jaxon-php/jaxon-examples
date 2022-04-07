@@ -1,6 +1,6 @@
 <?php
 
-namespace Jaxon\App\Test;
+namespace App\Jaxon\Test;
 
 use Jaxon\CallableClass as JaxonClass;
 

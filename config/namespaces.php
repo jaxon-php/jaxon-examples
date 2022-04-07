@@ -1,5 +1,11 @@
 <?php
 
+use Jaxon\Dialogs\Library\Bootstrap\BootstrapLibrary;
+use Jaxon\Dialogs\Library\PgwJS\PgwJsLibrary;
+use Jaxon\Dialogs\Library\Toastr\ToastrLibrary;
+use Jaxon\Dialogs\Library\Tingle\TingleLibrary;
+use Jaxon\Dialogs\Library\Noty\NotyLibrary;
+
 return [
     'app' => [
         'directories' => [
@@ -24,12 +30,18 @@ return [
             ],
         ],
         'dialogs' => [
-            'default' => [
-                'modal' => 'tingle',
-                'message' => 'toastr',
-                'question' => 'noty',
+            'libraries' => [
+                BootstrapLibrary::class => BootstrapLibrary::NAME,
+                PgwJsLibrary::class => PgwJsLibrary::NAME,
+                ToastrLibrary::class => ToastrLibrary::NAME,
+                TingleLibrary::class => TingleLibrary::NAME,
+                NotyLibrary::class => NotyLibrary::NAME,
             ],
-            'libraries' => ['pgwjs', 'bootstrap'],
+            'default' => [
+                'modal' => TingleLibrary::NAME,
+                'message' => ToastrLibrary::NAME,
+                'question' => NotyLibrary::NAME,
+            ],
             'toastr' => [
                 'options' => [
                     'closeButton' => true,

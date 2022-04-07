@@ -16,9 +16,11 @@ return [
             ]
         ],
         'container' => [
-            ExampleInterface::class => function() {
-                return new Example();
-            }
+            'set' => [
+                ExampleInterface::class => function() {
+                    return new Example();
+                }
+            ],
         ],
     ],
     'lib' => [

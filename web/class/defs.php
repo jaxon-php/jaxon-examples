@@ -10,22 +10,21 @@ class HelloWorld
     public function sayHello($isCaps)
     {
         $text = (($isCaps) ? 'HELLO WORLD!' : 'Hello World!');
-        $text = (($isCaps) ? strtoupper($this->message) : strtolower($this->message));
-        $xResponse = jaxon()->getResponse();
+        $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
         return $xResponse;
     }
 
     public function setColor($sColor)
     {
-        $xResponse = jaxon()->getResponse();
+        $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'style.color', $sColor);
         return $xResponse;
     }
 
     public function showError($sMessage)
     {
-        $xResponse = jaxon()->getResponse();
+        $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $sMessage);
         return $xResponse;
     }
@@ -33,14 +32,6 @@ class HelloWorld
 
 // Register object
 $jaxon = jaxon();
-
-$jaxon->callback()->before(function($target, &$end) {
-    error_log('Target: ' . print_r($target, true));
-});
-
-$jaxon->callback()->init(function($instance) {
-    $instance->message = 'voici le message';
-});
 
 $jaxon->app()->setup(__DIR__ . '/../../config/class.php');
 

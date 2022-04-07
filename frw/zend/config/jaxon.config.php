@@ -1,5 +1,9 @@
 <?php
 
+use Jaxon\Dialogs\Library\PgwJS\PgwJsLibrary;
+use Jaxon\Dialogs\Library\Bootstrap\BootstrapLibrary;
+use Jaxon\Dialogs\Library\Toastr\ToastrLibrary;
+
 $directory = rtrim(getcwd(), '/') . '/jaxon/App';
 
 return [
@@ -42,12 +46,17 @@ return [
             ],
         ],
         'dialogs' => [
-            'libraries' => ['pgwjs'],
-            'default' => [
-                'modal' => 'bootstrap',
-                'message' => 'toastr',
+            'libraries' => [
+                BootstrapLibrary::class => BootstrapLibrary::NAME,
+                ToastrLibrary::class => ToastrLibrary::NAME,
+                PgwJsLibrary::class => PgwJsLibrary::NAME,
             ],
-            'toastr' => [
+            'default' => [
+                'modal' => BootstrapLibrary::NAME,
+                'message' => ToastrLibrary::NAME,
+                'question' => BootstrapLibrary::NAME,
+            ],
+            ToastrLibrary::NAME => [
                 'options' => [
                     'closeButton' => true,
                     'positionClass' => 'toast-top-center'

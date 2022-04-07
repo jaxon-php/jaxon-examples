@@ -48,8 +48,6 @@ class Pgw extends JaxonClass
 
     public function showDialog()
     {
-        $this->response->dialog->setModalLibrary('pgwjs');
-
         $buttons = array(
             array(
                 'title' => 'Clear session',
@@ -64,7 +62,7 @@ class Pgw extends JaxonClass
         );
         $options = array('maxWidth' => 400);
         $html = $this->view()->render('test/credit', ['library' => 'PgwModal']);
-        $this->response->dialog->show("Modal Dialog", $html, $buttons, $options);
+        $this->response->dialog->with('pgwjs')->show("Modal Dialog", $html, $buttons, $options);
 
         return $this->response;
     }

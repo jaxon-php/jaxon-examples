@@ -1,22 +1,22 @@
 <?php
 
-namespace Jaxon\App\Test;
+namespace App\Jaxon\Test;
 
 use Jaxon\CallableClass as JaxonClass;
 
-class Bts extends JaxonClass
+class Pgw extends JaxonClass
 {
     public function sayHello($isCaps, $bNotify = true)
     {
         $html = $this->view()->render('test/hello', ['isCaps' => $isCaps]);
-        $this->response->assign('div2', 'innerHTML', $html);
+        $this->response->assign('div1', 'innerHTML', $html);
         if(($bNotify))
         {
             // Show last command, and save this one in the session.
             $this->cl(Session::class)->command('sayHello');
             // Show a success notification.
             $message = $this->view()->render('test/message', [
-                'element' => 'div2',
+                'element' => 'div1',
                 'attr' => 'text',
                 'value' => $html,
             ]);
@@ -28,15 +28,14 @@ class Bts extends JaxonClass
 
     public function setColor($sColor, $bNotify = true)
     {
-        $this->response->assign('div2', 'style.color', $sColor);
-        $this->response->dialog->hide();
+        $this->response->assign('div1', 'style.color', $sColor);
         if(($bNotify))
         {
             // Show last command, and save this one in the session.
             $this->cl(Session::class)->command('setColor');
             // Show a success notification.
             $message = $this->view()->render('test/message', [
-                'element' => 'div2',
+                'element' => 'div1',
                 'attr' => 'color',
                 'value' => $sColor,
             ]);
@@ -60,9 +59,9 @@ class Bts extends JaxonClass
                 'click' => 'close'
             )
         );
-        $width = 300;
-        $html = $this->view()->render('test/credit', ['library' => 'Twitter Bootstrap']);
-        $this->response->dialog->show("Modal Dialog", $html, $buttons, compact('width'));
+        $options = array('maxWidth' => 400);
+        $html = $this->view()->render('test/credit', ['library' => 'PgwModal']);
+        $this->response->dialog->with('pgwjs')->show("Modal Dialog", $html, $buttons, $options);
 
         return $this->response;
     }

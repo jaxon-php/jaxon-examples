@@ -13,3 +13,6 @@
 
 // Route to demo page
 Route::get('/', 'DemoController@index')->name('demo')->middleware('web');
+
+// Route to Jaxon request processor
+Route::post('/ajax', 'DemoController@jaxon')->name('jaxon')->middleware('web');

@@ -3,14 +3,15 @@
 namespace Jaxon\App\Test;
 
 use Jaxon\CallableClass as JaxonClass;
+use Twig\Environment as TemplateEngine;
 
 class Bts extends JaxonClass
 {
     protected $twig;
 
-    public function __construct()
+    public function __construct(TemplateEngine $twig)
     {
-        // $this->twig = $twig;
+        $this->twig = $twig;
     }
 
     public function sayHello($isCaps, $bNotify = true)

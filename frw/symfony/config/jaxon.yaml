@@ -7,8 +7,8 @@ parameters:
           # separator: '' # '.' or '_'
           # protected: []
       packages:
-        Lagdo\Adminer\Package:
-          # template: bootstrap
+        Lagdo\DbAdmin\Package:
+          template: bootstrap4
           servers:
             mysql:
               name: MySQL
@@ -18,7 +18,7 @@ parameters:
               username: invoice
               password: t27M9RpaJmd45Twz
               access:
-                server: true
+                # server: true
                 databases:
                   - voyager
                   - adminer
@@ -33,55 +33,61 @@ parameters:
               username: postgres
               password:
               access:
-                server: true
+                # server: true
                 databases:
-                  - demo
                   - voyager
+                  - demo
                 schemas:
                   - public
+            sqlite:
+              name: Sqlite
+              driver: sqlite
+              prefer_pdo: true
+              directory: "/home/thierry/sqlite"
           default: mysql
           access:
-            server: false
+            server: true
           export:
             url: http://symfony.jaxon.loc/exports
-            dir: /home/thierry/www/jaxon/frw/symfony-4.4/public/exports
+            dir: /home/thierry/www/jaxon/frw/symfony-5.3/public/exports
     lib:
       core:
-        language:                      "en"
-        encoding:                      "UTF-8"
+        language:                     "en"
+        encoding:                     "UTF-8"
         request:
-          uri:                         "jaxon"
+          uri:                        "ajax"
         prefix:
-          class:                       ""
+          class:                      ""
         debug:
-          on:                          false
-          verbose:                     false
+          on:                         false
+          verbose:                    false
         error:
-          handle:                      false
-        js:
-          lib:
-          app:
-          export:                      false
-          minify:                      false
+          handle:                     false
+      js:
+        lib:
+          uri:                        "/jaxon/lib"
+        app:
+          # uri:
+          # dir:
+          export:                     false
+          minify:                     false
       upload:
         files:
           sql_files:
-            dir:                       /home/thierry/workspace/contrib/lagdo/adminer/uploads
+            dir:                      /home/thierry/workspace/contrib/lagdo/adminer/uploads
 
       dialogs:
         libraries:
-                                       - pgwjs
+          Jaxon\Dialogs\Library\Bootbox\BootboxLibrary:     bootbox
+          Jaxon\Dialogs\Library\Noty\NotyLibrary:           noty
+          Jaxon\Dialogs\Library\PgwJS\PgwJsLibrary:         pgwjs
         default:
-          modal:                       bootbox
-          message:                     noty
-          question:                    noty
-        toastr:
-          options:
-            closeButton:               true
-            positionClass:             "toast-top-center"
+          modal:                      bootbox
+          message:                    noty
+          question:                   noty
         pgwjs:
           modal:
             options:
-              closeOnEscape:           true
-              closeOnBackgroundClick:  true
-              maxWidth:                600
+              closeOnEscape:          true
+              closeOnBackgroundClick: true
+              maxWidth:               600

@@ -3,10 +3,10 @@
     <div class="container-fluid">
         <div class="row" style="margin-top:30px;">
 {% include 'demo/includes/nav.html.twig' %}
-            <div class="col-sm-8 content">
+            <div class="col-sm-9 content">
                 <h3 class="page-header">{{ pageTitle }}</h3>
 
-                <div class="row" id="jaxon-html">
+                <!-- <div class="row" id="jaxon-html">
                     <div class="col-md-12" id="div1">
                         &nbsp;
                     </div>
@@ -42,7 +42,9 @@
                         <button type="button" class="btn btn-primary" onclick='{{ bts.sayHello(0) }}; return false;' >Click Me</button>
                         <button type="button" class="btn btn-primary" onclick="{{ bts.showDialog() }}; return false;" >Bootstrap Dialog</button>
                     </div>
-                </div>
+                </div> -->
+
+{{ dbAdmin | raw }}
 
             </div> <!-- class="content" -->
        </div> <!-- class="row" -->

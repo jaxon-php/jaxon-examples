@@ -4,11 +4,13 @@ return [
     'app' => [
         'classes' => [
             HelloWorld::class => [
-                '*' => [
-                    'mode' => "'asynchronous'",
-                ],
-                'sayHello' => [
-                    'mode' => "'synchronous'",
+                'functions' => [
+                    '*' => [
+                        'mode' => "'asynchronous'",
+                    ],
+                    'sayHello' => [
+                        'mode' => "'synchronous'",
+                    ],
                 ],
             ]
         ],

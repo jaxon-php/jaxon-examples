@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Lagdo\DbAdmin\Package as DbAdmin;
+
 use Cake\Core\Configure;
 use Cake\Routing\Router;
 
@@ -19,6 +21,10 @@ class DemoController extends AppController
         // Start and init the session
         $this->request->getSession()->write('DialogTitle', 'Yeah Man!!');
 
+        // Set the DbAdmin package as ready
+        $dbAdmin = $this->Jaxon->package(DbAdmin::class);
+        $dbAdmin->ready();
+
         // Set the layout
         $this->viewBuilder()->setLayout('empty');
 
@@ -34,6 +40,8 @@ class DemoController extends AppController
         $this->set('bts', $this->Jaxon->request(\Jaxon\App\Test\Bts::class));
         // Jaxon request to the Jaxon\App\Test\Pgw controller
         $this->set('pgw', $this->Jaxon->request(\Jaxon\App\Test\Pgw::class));
+        // DbAdmin home
+        $this->set('dbAdmin', $dbAdmin->getHtml());
         $this->render('demo');
     }
 }

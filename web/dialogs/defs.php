@@ -4,6 +4,20 @@ require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
 use Jaxon\Response\Response;
+use Jaxon\Dialogs\Library\Bootbox\BootboxLibrary;
+use Jaxon\Dialogs\Library\Bootstrap\BootstrapLibrary;
+use Jaxon\Dialogs\Library\PgwJS\PgwJsLibrary;
+use Jaxon\Dialogs\Library\Toastr\ToastrLibrary;
+use Jaxon\Dialogs\Library\JAlert\JAlertLibrary;
+use Jaxon\Dialogs\Library\Tingle\TingleLibrary;
+use Jaxon\Dialogs\Library\SimplyToast\SimplyToastLibrary;
+use Jaxon\Dialogs\Library\Noty\NotyLibrary;
+use Jaxon\Dialogs\Library\Notify\NotifyLibrary;
+use Jaxon\Dialogs\Library\Lobibox\LobiboxLibrary;
+use Jaxon\Dialogs\Library\Overhang\OverhangLibrary;
+use Jaxon\Dialogs\Library\PNotify\PNotifyLibrary;
+use Jaxon\Dialogs\Library\SweetAlert\SweetAlertLibrary;
+use Jaxon\Dialogs\Library\JQueryConfirm\JQueryConfirmLibrary;
 
 class HelloWorld
 {
@@ -21,42 +35,41 @@ class HelloWorld
 
 $aLibraries = [
     // Bootbox
-    'bootbox'       => ['class' => 'bootbox', 'name' => 'Bootbox'],
+    'bootbox'       => ['class' => BootboxLibrary::class, 'id' => 'bootbox', 'name' => 'Bootbox'],
     // Bootstrap
-    'bootstrap'     => ['class' => 'bootstrap', 'name' => 'Bootstrap'],
+    'bootstrap'     => ['class' => BootstrapLibrary::class, 'id' => 'bootstrap', 'name' => 'Bootstrap'],
     // PgwJS
-    'pgwjs'         => ['class' => 'pgwjs', 'name' => 'PgwJS'],
+    'pgwjs'         => ['class' => PgwJsLibrary::class, 'id' => 'pgwjs', 'name' => 'PgwJS'],
     // Toastr
-    'toastr'        => ['class' => 'toastr', 'name' => 'Toastr'],
+    'toastr'        => ['class' => ToastrLibrary::class, 'id' => 'toastr', 'name' => 'Toastr'],
     // JAlert
-    'jalert'        => ['class' => 'jalert', 'name' => 'JAlert'],
+    'jalert'        => ['class' => JAlertLibrary::class, 'id' => 'jalert', 'name' => 'JAlert'],
     // Tingle
-    'tingle'        => ['class' => 'tingle', 'name' => 'Tingle'],
+    'tingle'        => ['class' => TingleLibrary::class, 'id' => 'tingle', 'name' => 'Tingle'],
     // SimplyToast
-    'simply'        => ['class' => 'simplytoast', 'name' => 'SimplyToast'],
+    'simply'        => ['class' => SimplyToastLibrary::class, 'id' => 'simplytoast', 'name' => 'SimplyToast'],
     // Noty
-    'noty'          => ['class' => 'noty', 'name' => 'Noty'],
+    'noty'          => ['class' => NotyLibrary::class, 'id' => 'noty', 'name' => 'Noty'],
     // Notify
-    'notify'        => ['class' => 'notify', 'name' => 'Notify'],
+    'notify'        => ['class' => NotifyLibrary::class, 'id' => 'notify', 'name' => 'Notify'],
     // Lobibox
-    'lobibox'       => ['class' => 'lobibox', 'name' => 'Lobibox'],
+    'lobibox'       => ['class' => LobiboxLibrary::class, 'id' => 'lobibox', 'name' => 'Lobibox'],
     // Overhang
-    'overhang'      => ['class' => 'overhang', 'name' => 'Overhang'],
+    'overhang'      => ['class' => OverhangLibrary::class, 'id' => 'overhang', 'name' => 'Overhang'],
     // PNotify
-    'pnotify'       => ['class' => 'pnotify', 'name' => 'PNotify'],
+    'pnotify'       => ['class' => PNotifyLibrary::class, 'id' => 'pnotify', 'name' => 'PNotify'],
     // SweetAlert
-    'sweetalert'    => ['class' => 'swal', 'name' => 'SweetAlert'],
+    'sweetalert'    => ['class' => SweetAlertLibrary::class, 'id' => 'swal', 'name' => 'SweetAlert'],
     // JQuery Confirm
-    'jconfirm'      => ['class' => 'jconfirm', 'name' => 'JQueryConfirm'],
-    // IziModal and IziToast
-    'izi-toast'     => ['class' => 'izi', 'name' => 'Izi'],
-    // YmzBox
-    'ymzbox'        => ['class' => 'ymzbox', 'name' => 'YmzBox'],
+    'jconfirm'      => ['class' => JQueryConfirmLibrary::class, 'id' => 'jconfirm', 'name' => 'JQueryConfirm'],
 ];
 
 $jaxon = jaxon();
 
-$jaxon->setOption('dialogs.libraries', array_keys($aLibraries));
+foreach($aLibraries as $sName => $aLibrary)
+{
+    $jaxon->dialog()->registerLibrary($aLibrary['class'], $sName);
+}
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');

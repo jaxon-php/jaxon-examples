@@ -1,22 +1,22 @@
 <?php
 
-namespace Jaxon\App\Test;
+namespace App\Jaxon\Test;
 
 use Jaxon\CallableClass as JaxonClass;
 
-class Pgw extends JaxonClass
+class Bts extends JaxonClass
 {
     public function sayHello($isCaps, $bNotify = true)
     {
         $html = $this->view()->render('test/hello', ['isCaps' => $isCaps]);
-        $this->response->assign('div1', 'innerHTML', $html);
+        $this->response->assign('div2', 'innerHTML', $html);
         if(($bNotify))
         {
             // Show last command, and save this one in the session.
             $this->cl(Session::class)->command('sayHello');
             // Show a success notification.
             $message = $this->view()->render('test/message', [
-                'element' => 'div1',
+                'element' => 'div2',
                 'attr' => 'text',
                 'value' => $html,
             ]);
@@ -28,14 +28,15 @@ class Pgw extends JaxonClass
 
     public function setColor($sColor, $bNotify = true)
     {
-        $this->response->assign('div1', 'style.color', $sColor);
+        $this->response->assign('div2', 'style.color', $sColor);
+        $this->response->dialog->hide();
         if(($bNotify))
         {
             // Show last command, and save this one in the session.
             $this->cl(Session::class)->command('setColor');
             // Show a success notification.
             $message = $this->view()->render('test/message', [
-                'element' => 'div1',
+                'element' => 'div2',
                 'attr' => 'color',
                 'value' => $sColor,
             ]);
@@ -47,8 +48,6 @@ class Pgw extends JaxonClass
 
     public function showDialog()
     {
-        $this->response->dialog->setModalLibrary('pgwjs');
-
         $buttons = array(
             array(
                 'title' => 'Clear session',
@@ -61,10 +60,18 @@ class Pgw extends JaxonClass
                 'click' => 'close'
             )
         );
-        $options = array('maxWidth' => 400);
-        $html = $this->view()->render('test/credit', ['library' => 'PgwModal']);
-        $this->response->dialog->show("Modal Dialog", $html, $buttons, $options);
+        $width = 300;
+        $html = $this->view()->render('test/credit', ['library' => 'Twitter Bootstrap']);
+        $this->response->dialog->show("Modal Dialog", $html, $buttons, compact('width'));
 
+        return $this->response;
+    }
+
+    public function upload()
+    {
+        $files = jaxon()->upload()->files();
+        $this->response->dialog->modal('Uploaded files', print_r($files['photos'], true), []);
+        $this->response->dialog->info('Uploaded ' . count($files['photos']) . ' file(s).');
         return $this->response;
     }
 }
