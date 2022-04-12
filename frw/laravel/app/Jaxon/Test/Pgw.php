@@ -2,7 +2,7 @@
 
 namespace App\Jaxon\Test;
 
-use Jaxon\CallableClass as JaxonClass;
+use Jaxon\App\CallableClass as JaxonClass;
 
 class Pgw extends JaxonClass
 {

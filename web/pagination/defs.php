@@ -4,7 +4,7 @@ require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
 
-class HelloWorld extends \Jaxon\CallableClass
+class HelloWorld extends \Jaxon\App\CallableClass
 {
     public function sayHello($isCaps)
     {

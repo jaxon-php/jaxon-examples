@@ -5,6 +5,7 @@ require_once(__DIR__ . '/../../includes/menu.php');
 
 use Jaxon\Jaxon;
 use Jaxon\Response\Response;
+use Jaxon\Dialogs\Library\Bootbox\BootboxLibrary;
 
 class HelloWorld
 {
@@ -44,8 +45,9 @@ $jaxon->setOption('js.app.uri', $jaxonAppURI);
 $jaxon->setOption('js.app.minify', true); // Optionally, the file can be minified
 
 // Dialog options
-$jaxon->setOption('dialogs.default.modal', 'bootbox');
-$jaxon->setOption('dialogs.default.alert', 'bootbox');
+$jaxon->registerDialogLibrary(BootboxLibrary::class, BootboxLibrary::NAME);
+$jaxon->setOption('dialogs.default.modal', BootboxLibrary::NAME);
+$jaxon->setOption('dialogs.default.alert', BootboxLibrary::NAME);
 // $jaxon->setOption('dialogs.default.confirm', 'noty');
 
 // Request processing URI

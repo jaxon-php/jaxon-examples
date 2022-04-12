@@ -2,7 +2,7 @@
 
 namespace Jaxon\App\Test;
 
-use Jaxon\CallableClass as JaxonClass;
+use Jaxon\App\CallableClass as JaxonClass;
 use Twig\Environment as TemplateEngine;
 
 class Bts extends JaxonClass

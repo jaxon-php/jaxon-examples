@@ -4,7 +4,7 @@ require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
 
-class Flot extends \Jaxon\CallableClass
+class Flot extends \Jaxon\App\CallableClass
 {
     public function drawGraph()
     {

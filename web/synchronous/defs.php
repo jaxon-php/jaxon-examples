@@ -3,7 +3,7 @@
 require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
-use Jaxon\CallableClass;
+use Jaxon\App\CallableClass;
 
 class HelloWorld extends CallableClass
 {

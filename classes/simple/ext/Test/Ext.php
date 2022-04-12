@@ -2,7 +2,7 @@
 
 use Jaxon\Response\Response;
 
-class Ext extends \Jaxon\CallableClass
+class Ext extends \Jaxon\App\CallableClass
 {
     public function sayHello($isCaps, $bNotify = true)
     {

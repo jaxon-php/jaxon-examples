@@ -4,7 +4,7 @@ namespace App\Test;
 
 use Jaxon\Response\Response;
 
-class Test extends \Jaxon\CallableClass
+class Test extends \Jaxon\App\CallableClass
 {
     public function sayHello($isCaps, $bNotify = true)
     {
