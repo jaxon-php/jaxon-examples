@@ -77,10 +77,6 @@ parameters:
             dir:                      /home/thierry/workspace/contrib/lagdo/adminer/uploads
 
       dialogs:
-        libraries:
-          Jaxon\Dialogs\Library\Bootbox\BootboxLibrary:     bootbox
-          Jaxon\Dialogs\Library\Noty\NotyLibrary:           noty
-          Jaxon\Dialogs\Library\PgwJS\PgwJsLibrary:         pgwjs
         default:
           modal:                      bootbox
           message:                    noty

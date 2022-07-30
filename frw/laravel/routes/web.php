@@ -1,5 +1,7 @@
 <?php
 
+use Jaxon\Laravel\Middleware\AjaxMiddleware;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -15,4 +17,4 @@
 Route::get('/', 'DemoController@index')->name('demo')->middleware('web');
 
 // Route to Jaxon request processor
-Route::post('/ajax', 'DemoController@jaxon')->name('jaxon')->middleware('web');
+Route::post('/ajax', 'DemoController@jaxon')->name('jaxon')->middleware(['web', AjaxMiddleware::class]);

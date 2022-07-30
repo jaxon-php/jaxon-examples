@@ -2,22 +2,49 @@
 
 namespace app\controllers;
 
-use Yii;
-use yii\web\Controller;
+use Jaxon\App\Test\Bts;
+use Jaxon\App\Test\Pgw;
+use Jaxon\Yii\Filter\ConfigFilter as JaxonConfigFilter;
 use yii\helpers\Url;
+use yii\web\Controller;
+use yii\web\Response;
+use Yii;
+
+use function jaxon;
 
 class DemoController extends Controller
 {
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => JaxonConfigFilter::class,
+                'only' => ['index', 'jaxon'],
+            ],
+        ];
+    }
+
+    public function actionJaxon()
+    {
+        $jaxon = jaxon()->app();
+        if(!$jaxon->canProcessRequest())
+        {
+            // Jaxon failed to find a plugin to process the request
+            return; // Todo: return an error message
+        }
+
+        $jaxon->processRequest();
+        return $jaxon->httpResponse();
+    }
+
     public function actionIndex()
     {
-        // Init the session
-        Yii::$app->session->set('DialogTitle', 'Yeah Man!!');
+        $jaxon = jaxon()->app();
+
         // Set the layout
         $this->layout = 'demo';
-        // Call the Jaxon module
-        $jaxon = Yii::$app->getModule('jaxon');
 
-        return $this->render('index', array(
+        return $this->render('index', [
             'jaxonCss' => $jaxon->css(),
             'jaxonJs' => $jaxon->js(),
             'jaxonScript' => $jaxon->script(),
@@ -25,19 +52,9 @@ class DemoController extends Controller
             'menuEntries' => [],
             'menuSubdir' => '',
             // Jaxon request to the Jaxon\App\Test\Bts controller
-            'bts' => $jaxon->request(\Jaxon\App\Test\Bts::class),
+            'bts' => $jaxon->request(Bts::class),
             // Jaxon request to the Jaxon\App\Test\Pgw controller
-            'pgw' => $jaxon->request(\Jaxon\App\Test\Pgw::class),
-        ));
-    }
-
-    public function actionProcess()
-    {
-        $jaxon = Yii::$app->getModule('jaxon');
-        // Process Jaxon request
-        if($jaxon->canProcessRequest())
-        {
-            $jaxon->processRequest();
-        }
+            'pgw' => $jaxon->request(Pgw::class),
+        ]);
     }
 }

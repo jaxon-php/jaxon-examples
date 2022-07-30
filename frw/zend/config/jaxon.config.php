@@ -1,8 +1,8 @@
 <?php
 
-use Jaxon\Dialogs\Library\PgwJS\PgwJsLibrary;
-use Jaxon\Dialogs\Library\Bootstrap\BootstrapLibrary;
-use Jaxon\Dialogs\Library\Toastr\ToastrLibrary;
+use Jaxon\Dialogs\PgwJs\PgwJsLibrary;
+use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
+use Jaxon\Dialogs\Toastr\ToastrLibrary;
 
 $directory = rtrim(getcwd(), '/') . '/jaxon/App';
 
@@ -46,11 +46,6 @@ return [
             ],
         ],
         'dialogs' => [
-            'libraries' => [
-                BootstrapLibrary::class => BootstrapLibrary::NAME,
-                ToastrLibrary::class => ToastrLibrary::NAME,
-                PgwJsLibrary::class => PgwJsLibrary::NAME,
-            ],
             'default' => [
                 'modal' => BootstrapLibrary::NAME,
                 'message' => ToastrLibrary::NAME,

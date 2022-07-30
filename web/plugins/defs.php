@@ -1,10 +1,13 @@
 <?php
 
 require(__DIR__ . '/../../vendor/autoload.php');
+require_once(__DIR__ . '/../../vendor/jaxon-php/jaxon-dialogs/src/start.php');
 
 use Jaxon\Jaxon;
 use Jaxon\App\CallableClass;
 use Jaxon\Response\Response;
+use Jaxon\Dialogs\Bootbox\BootboxLibrary;
+use Jaxon\Dialogs\Noty\NotyLibrary;
 
 class HelloWorld extends CallableClass
 {
@@ -65,18 +68,13 @@ $jaxon->setOption('core.prefix.class', 'Jaxon');
 // $jaxon->setOption('js.app.minify', false);
 
 // Dialog options
-$jaxon->setOption('dialogs.default.modal', 'bootbox');
-$jaxon->setOption('dialogs.default.message', 'ymzbox');
-$jaxon->setOption('dialogs.default.question', 'ymzbox');
+$jaxon->setOption('dialogs.default.modal', BootboxLibrary::NAME);
+$jaxon->setOption('dialogs.default.message', NotyLibrary::NAME);
+$jaxon->setOption('dialogs.default.question', NotyLibrary::NAME);
 
 $jaxon->setOption('dialogs.confirm.title', 'Confirmer');
 $jaxon->setOption('dialogs.confirm.yes', 'Oui');
 $jaxon->setOption('dialogs.confirm.no', 'Non');
-
-$jaxon->setOption('dialogs.toastr.options.closeButton', true);
-$jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
-$jaxon->setOption('dialogs.pnotify.options.styling', 'bootstrap3');
-$jaxon->setOption('dialogs.pgwjs.options.modal.maxWidth', 800);
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');

@@ -53,7 +53,7 @@
 <div id="jaxon-init">
 <script type='text/javascript'>
     /* <![CDATA[ */
-    window.onload = function() {
+    /*window.onload = function() {
         // call the helloWorld function to populate the div on load
         <?php echo $pgw->sayHello(0, false) ?>;
         // call the setColor function on load
@@ -62,7 +62,7 @@
         <?php echo $bts->sayHello(0, false) ?>;
         // call the HelloWorld->setColor() method on load
         <?php echo $bts->setColor(pm()->select('colorselect2'), false) ?>;
-    };
+    };*/
     /* ]]> */
 </script>
 </div>

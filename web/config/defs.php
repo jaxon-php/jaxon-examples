@@ -1,6 +1,7 @@
 <?php
 
 require(__DIR__ . '/../../vendor/autoload.php');
+require_once(__DIR__ . '/../../vendor/jaxon-php/jaxon-dialogs/src/start.php');
 
 use Jaxon\Jaxon;
 use Jaxon\Response\Response;
@@ -34,7 +35,7 @@ class HelloWorld
         $xResponse = jaxon()->newResponse();
         $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $options = ['width' => 500];
-        $xResponse->dialog->modal("Modal Dialog", "This modal dialog is powered by PgwJs!!", $buttons, $options);
+        $xResponse->dialog->show("Modal Dialog", "This modal dialog is powered by PgwJs!!", $buttons, $options);
 
         return $xResponse;
     }

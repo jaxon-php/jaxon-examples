@@ -1,9 +1,5 @@
 <?php
 
-use Jaxon\Dialogs\Library\Bootbox\BootboxLibrary;
-use Jaxon\Dialogs\Library\Noty\NotyLibrary;
-use Jaxon\Dialogs\Library\PgwJS\PgwJsLibrary;
-
 $directory = app_path('Jaxon');
 
 return [
@@ -101,15 +97,10 @@ return [
             ],
         ],
         'dialogs' => [
-            'libraries' => [
-                BootboxLibrary::class => BootboxLibrary::NAME,
-                NotyLibrary::class => NotyLibrary::NAME,
-                PgwJsLibrary::class => PgwJsLibrary::NAME,
-            ],
             'default' => [
-                'modal' => BootboxLibrary::NAME,
-                'message' => NotyLibrary::NAME,
-                'question' => NotyLibrary::NAME,
+                'modal' => 'xdialog',
+                'message' => 'xdialog',
+                'question' => 'xdialog',
             ],
             'assets' => [
                 'include' => [

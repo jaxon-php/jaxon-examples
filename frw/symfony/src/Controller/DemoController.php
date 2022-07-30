@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use Jaxon\AjaxBundle\Jaxon;
+use Jaxon\Symfony\Jaxon;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,6 +13,9 @@ use Jaxon\App\Test\Bts;
 use Jaxon\App\Test\Pgw;
 use Lagdo\DbAdmin\Package as DbAdmin;
 
+use function jaxon;
+use function pm;
+
 class DemoController extends AbstractController
 {
     /**
@@ -20,10 +23,6 @@ class DemoController extends AbstractController
      */
     public function index(Request $request, Jaxon $jaxon, LoggerInterface $logger)
     {
-        // Init the session
-        // $session = new Session();
-        // $session->set('DialogTitle', 'Yeah Man!!');
-
         // Set the DbAdmin package as ready
         $dbAdmin = $jaxon->package(DbAdmin::class);
         $dbAdmin->ready();
@@ -41,9 +40,23 @@ class DemoController extends AbstractController
             // Jaxon request to the Pgw controller
             'pgw' => $jaxon->request(Pgw::class),
             // Jaxon Request Factory
-            'pr' => \pm(),
+            'pr' => pm(),
             // DbAdmin home
             'dbAdmin' => $dbAdmin->getHtml(),
         ]);
+    }
+
+    /**
+     * @Route("/ajax", name="jaxon.ajax")
+     */
+    public function jaxon(Jaxon $jaxon)
+    {
+        if(!$jaxon->canProcessRequest())
+        {
+            return; // Todo: return an error message
+        }
+
+        $jaxon->processRequest();
+        return $jaxon->httpResponse();
     }
 }

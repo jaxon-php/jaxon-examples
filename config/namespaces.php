@@ -1,10 +1,10 @@
 <?php
 
-use Jaxon\Dialogs\Library\Bootstrap\BootstrapLibrary;
-use Jaxon\Dialogs\Library\PgwJS\PgwJsLibrary;
-use Jaxon\Dialogs\Library\Toastr\ToastrLibrary;
-use Jaxon\Dialogs\Library\Tingle\TingleLibrary;
-use Jaxon\Dialogs\Library\Noty\NotyLibrary;
+use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
+use Jaxon\Dialogs\PgwJs\PgwJsLibrary;
+use Jaxon\Dialogs\Toastr\ToastrLibrary;
+use Jaxon\Dialogs\Tingle\TingleLibrary;
+use Jaxon\Dialogs\Noty\NotyLibrary;
 
 return [
     'app' => [
@@ -30,17 +30,10 @@ return [
             ],
         ],
         'dialogs' => [
-            'libraries' => [
-                BootstrapLibrary::class => BootstrapLibrary::NAME,
-                PgwJsLibrary::class => PgwJsLibrary::NAME,
-                ToastrLibrary::class => ToastrLibrary::NAME,
-                TingleLibrary::class => TingleLibrary::NAME,
-                NotyLibrary::class => NotyLibrary::NAME,
-            ],
             'default' => [
-                'modal' => TingleLibrary::NAME,
-                'message' => ToastrLibrary::NAME,
-                'question' => NotyLibrary::NAME,
+                'modal' => 'bootbox',
+                'message' => 'noty',
+                'question' => 'noty',
             ],
             'toastr' => [
                 'options' => [

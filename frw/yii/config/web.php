@@ -51,12 +51,13 @@ $config = [
             ],
         ],
     ],
-    'modules' => [
-        'jaxon' => [
-            'class' => 'Jaxon\Yii\Module',
+    'params' => $params,
+    'container' => [
+        'singletons' => [
+            \Jaxon\Yii\Middleware\ConfigMiddleware::class => [],
+            \Jaxon\Yii\Middleware\AjaxMiddleware::class => [],
         ],
     ],
-    'params' => $params,
 ];
 
 if (YII_ENV_DEV) {

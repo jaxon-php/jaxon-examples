@@ -13,7 +13,6 @@ $jaxon->setOption('core.prefix.class', '');
 // Dialog options
 $jaxon->setOption('dialogs.default.modal', 'bootstrap');
 $jaxon->setOption('dialogs.default.alert', 'toastr');
-$jaxon->setOption('dialogs.libraries', array('pgwjs'));
 $jaxon->setOption('dialogs.toastr.options.closeButton', true);
 $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 
