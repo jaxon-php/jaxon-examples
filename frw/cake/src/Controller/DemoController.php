@@ -6,7 +6,7 @@ use Lagdo\DbAdmin\Package as DbAdmin;
 use Cake\Core\Configure;
 use Cake\Routing\Router;
 
-use function jaxon;
+use function Jaxon\jaxon;
 
 class DemoController extends AppController
 {

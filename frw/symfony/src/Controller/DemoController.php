@@ -13,8 +13,8 @@ use Jaxon\App\Test\Bts;
 use Jaxon\App\Test\Pgw;
 use Lagdo\DbAdmin\Package as DbAdmin;
 
-use function jaxon;
-use function pm;
+use function Jaxon\jaxon;
+use function Jaxon\pm;
 
 class DemoController extends AbstractController
 {

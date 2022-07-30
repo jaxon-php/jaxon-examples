@@ -10,7 +10,7 @@ use yii\web\Controller;
 use yii\web\Response;
 use Yii;
 
-use function jaxon;
+use function Jaxon\jaxon;
 
 class DemoController extends Controller
 {
