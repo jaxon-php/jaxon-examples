@@ -8,6 +8,7 @@ use Jaxon\App\CallableClass;
 use Jaxon\Response\Response;
 use Jaxon\Dialogs\Bootbox\BootboxLibrary;
 use Jaxon\Dialogs\Noty\NotyLibrary;
+use function Jaxon\jaxon;
 
 class HelloWorld extends CallableClass
 {

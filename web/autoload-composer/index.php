@@ -2,6 +2,8 @@
 
 require(__DIR__ . '/defs.php');
 require(__DIR__ . '/../../includes/header.php');
+use function Jaxon\jaxon;
+use function Jaxon\pm;
 
 $appTest = jaxon()->request(\App\Test\Test::class);
 $extTest = jaxon()->request(\Ext\Test\Test::class);

@@ -9,6 +9,7 @@ use Jaxon\Plugin\Package;
 use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
 use Jaxon\Dialogs\PgwJs\PgwJsLibrary;
 use Jaxon\Dialogs\Toastr\ToastrLibrary;
+use function Jaxon\jaxon;
 
 class DemoPackage extends Package
 {

@@ -8,6 +8,7 @@ use Jaxon\Response\Response;
 use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
 use Jaxon\Dialogs\PgwJs\PgwJsLibrary;
 use Jaxon\Dialogs\Toastr\ToastrLibrary;
+use function Jaxon\jaxon;
 
 $jaxon = jaxon();
 

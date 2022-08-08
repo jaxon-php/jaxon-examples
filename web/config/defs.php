@@ -5,6 +5,7 @@ require_once(__DIR__ . '/../../vendor/jaxon-php/jaxon-dialogs/src/start.php');
 
 use Jaxon\Jaxon;
 use Jaxon\Response\Response;
+use function Jaxon\jaxon;
 
 class HelloWorld
 {

@@ -6,6 +6,7 @@ require_once(__DIR__ . '/../../includes/menu.php');
 use Jaxon\Jaxon;
 use Jaxon\Response\Response;
 use Jaxon\Dialogs\Bootbox\BootboxLibrary;
+use function Jaxon\jaxon;
 
 class HelloWorld
 {

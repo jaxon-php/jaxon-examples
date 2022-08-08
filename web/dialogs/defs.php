@@ -17,6 +17,7 @@ use Jaxon\Dialogs\Overhang\OverhangLibrary;
 use Jaxon\Dialogs\PNotify\PNotifyLibrary;
 use Jaxon\Dialogs\SweetAlert\SweetAlertLibrary;
 use Jaxon\Dialogs\JQueryConfirm\JQueryConfirmLibrary;
+use function Jaxon\jaxon;
 
 class HelloWorld
 {
@@ -63,6 +64,9 @@ $jaxon = jaxon();
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');
+
+$jaxon->setOption('dialogs.lib.use', ['bootbox', 'bootstrap', 'pgwjs', 'toastr', 'jalert',
+    'tingle', 'noty', 'notify', 'overhang', 'pnotify', 'sweetalert', 'jconfirm']);
 
 // Register functions
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

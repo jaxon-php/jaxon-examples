@@ -2,6 +2,8 @@
 
 require(__DIR__ . '/defs.php');
 require(__DIR__ . '/../../includes/header.php');
+use function Jaxon\pm;
+use function Jaxon\rq;
 ?>
 
     <div class="container-fluid">

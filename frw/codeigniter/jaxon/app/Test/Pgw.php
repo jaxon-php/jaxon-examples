@@ -3,6 +3,7 @@
 namespace Jaxon\App\Test;
 
 use Jaxon\App\CallableClass as JaxonClass;
+use function Jaxon\jaxon;
 
 class Pgw extends JaxonClass
 {

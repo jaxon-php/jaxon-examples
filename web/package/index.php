@@ -2,6 +2,8 @@
 
 require(__DIR__ . '/defs.php');
 require(__DIR__ . '/../../includes/header.php');
+use function Jaxon\pm;
+use function Jaxon\rq;
 
 $color1 = jq('#colorselect1')->val();
 $color2 = jq('#colorselect2')->val();

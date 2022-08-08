@@ -7,7 +7,7 @@
 
 <div id="jaxon-code">
 <?php
-$jaxon = jaxon();
+$jaxon = Jaxon\jaxon();
 echo $jaxon->getCss(), "\n", $jaxon->getJs(), "\n", $jaxon->getScript(), "\n";
 echo "<!-- HTTP comment  -->\n"
 ?>

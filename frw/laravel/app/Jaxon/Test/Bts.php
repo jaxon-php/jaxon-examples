@@ -3,6 +3,7 @@
 namespace App\Jaxon\Test;
 
 use Jaxon\App\CallableClass as JaxonClass;
+use function Jaxon\jaxon;
 
 class Bts extends JaxonClass
 {

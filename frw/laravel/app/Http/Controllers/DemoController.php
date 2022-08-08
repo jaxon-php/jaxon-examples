@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Jaxon\Laravel\Jaxon;
 use Lagdo\DbAdmin\Package as DbAdmin;
+use function Jaxon\jaxon;
 
 class DemoController extends Controller
 {

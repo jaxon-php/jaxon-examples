@@ -5,6 +5,7 @@ require(__DIR__ . '/../../vendor/autoload.php');
 use Jaxon\Jaxon;
 use Jaxon\App\CallableClass;
 use Jaxon\Response\Response;
+use function Jaxon\jaxon;
 
 use Service\ExampleInterface;
 use Service\Example;

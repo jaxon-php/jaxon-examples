@@ -4,6 +4,7 @@ require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
 use Jaxon\Response\Response;
+use function Jaxon\jaxon;
 
 $jaxon = jaxon();
 
