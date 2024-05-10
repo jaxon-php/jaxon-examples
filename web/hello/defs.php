@@ -39,6 +39,7 @@ function setColor($sColor)
 $jaxon = jaxon();
 
 // Js options
+$jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('js.app.minify', false);
 $jaxon->setOption('core.decode_utf8', true);
 

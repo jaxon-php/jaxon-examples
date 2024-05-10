@@ -1,12 +1,7 @@
 {
     "require": {
-        "jaxon-php/jaxon-dialogs": "~1.0",
-        "jaxon-php/jaxon-smarty": "dev-master",
-        "jaxon-php/jaxon-twig": "dev-master",
-        "jaxon-php/jaxon-latte": "dev-master",
-        "jaxon-php/jaxon-blade": "dev-master",
-        "jaxon-php/jaxon-raintpl": "dev-master",
-        "jaxon-php/jaxon-flot": "dev-master",
+        "jaxon-php/jaxon-core": "v5.x-dev",
+        "jaxon-php/jaxon-dialogs": "v5.x-dev",
         "keradus/psr4autoloader": "dev-master"
     },
     "minimum-stability": "dev"

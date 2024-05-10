@@ -27,6 +27,7 @@ class HelloWorld extends \Jaxon\App\CallableClass
 $jaxon = jaxon();
 
 // Request processing URI
+$jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

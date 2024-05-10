@@ -65,6 +65,7 @@ $jaxon = jaxon();
 $jaxon->setOption('core.prefix.class', 'Jaxon');
 
 // Js options
+$jaxon->setOption('js.lib.uri', '/js');
 // $jaxon->setOption('js.lib.uri', '/exp/js/lib');
 // $jaxon->setOption('js.app.minify', false);
 

@@ -12,28 +12,28 @@ require(__DIR__ . '/../../includes/header.php')
 
                 <div class="row" id="jaxon-html">
 <?php foreach($aLibraries as $id => $lib): ?>
-<?php $class = 'jaxon.dialogs.' . $lib['id']; ?>
+<?php $class = 'jaxon.dialog.lib.' . $lib['id']; ?>
                         <div class="col-md-12">
                             <?php echo $lib['name'] ?>
                         </div>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\MessageInterface::class)): ?>
                         <div class="col-md-12" style="padding-bottom: 15px;">
                             <button type="button" class="btn btn-primary" onclick="<?php
-                                echo $class ?>.success('Yeah Man!!!')" >Success</button>
+                                echo $class ?>.alert('success', 'Yeah Man!!!', 'Success')" >Success</button>
                             <button type="button" class="btn btn-primary" onclick="<?php
-                                echo $class ?>.info('Yeah Man!!!')" >Info</button>
+                                echo $class ?>.alert('info', 'Yeah Man!!!', 'Info')" >Info</button>
                             <button type="button" class="btn btn-primary" onclick="<?php
-                                echo $class ?>.warning('Yeah Man!!!')" >Warning</button>
+                                echo $class ?>.alert('warning', 'Yeah Man!!!', 'Warning')" >Warning</button>
                             <button type="button" class="btn btn-primary" onclick="<?php
-                                echo $class ?>.error('Yeah Man!!!')" >Error</button>
+                                echo $class ?>.alert('error', 'Yeah Man!!!', 'Error')" >Error</button>
                         </div>
 <?php endif ?>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\QuestionInterface::class)): ?>
                         <div class="col-md-12" style="padding-bottom: 15px;">
                             <button type="button" class="btn btn-primary" onclick="<?php
                                 echo $class ?>.confirm('Really?', 'Question', function(){<?php
-                                echo $class ?>.info('Oh! Yeah!!!');}, function(){<?php
-                                echo $class ?>.info('So Sorry!!!');})" >Confirm</button>
+                                echo $class ?>.alert('info', 'Oh! Yeah!!!');}, function(){<?php
+                                echo $class ?>.alert('info', 'So Sorry!!!');})" >Confirm</button>
                         </div>
 <?php endif ?>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\ModalInterface::class)): ?>

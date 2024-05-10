@@ -37,7 +37,7 @@ $jaxon = jaxon();
 $jaxon->app()->setup(__DIR__ . '/../../config/class.php');
 
 // Js options
-// $jaxon->setOption('js.lib.uri', '/js');
+$jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('js.app.minify', false);
 
 // Request processing URI

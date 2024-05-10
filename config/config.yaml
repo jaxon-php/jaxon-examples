@@ -8,6 +8,10 @@ jaxon:
       uri:                         "ajax.php"
       csrf_meta:                   "csrf-token"
 
+  js:
+    lib:
+      uri:                         "/js"
+
   dialogs:
     default:
       modal:                       pgwjs

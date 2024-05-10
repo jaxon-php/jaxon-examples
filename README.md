@@ -10,10 +10,10 @@ All examples are based on the helloword.php example in the original Xajax reposi
 
 Download the files of this repository to your web server.
 
-Cd to the directory and run the `composer update` command.
+Cd to the directory and run the `composer install` command.
 This will install the Jaxon packages and their dependencies.
 
-Configure your web server to give access to the `web` subdirectory, and edit the `menu_subdir()` function in the `includes\menu.php` file accordingly.
+Configure your web server to give access to the `web` subdirectory.
 You will then be able to browse the examples.
 
 That's it.

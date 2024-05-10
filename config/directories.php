@@ -27,6 +27,11 @@ return [
                 'class' => '',
             ],
         ],
+        'js' => [
+            'lib' => [
+                'uri' => '/js',
+            ],
+        ],
         'dialogs' => [
             'default' => [
                 'modal' => TingleLibrary::NAME,

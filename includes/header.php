@@ -1,3 +1,6 @@
+<?php
+require dirname(__DIR__) . '/vendor/autoload.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

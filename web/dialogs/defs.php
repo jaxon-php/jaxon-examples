@@ -7,13 +7,12 @@ use Jaxon\Jaxon;
 use Jaxon\Response\Response;
 use Jaxon\Dialogs\Bootbox\BootboxLibrary;
 use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
-use Jaxon\Dialogs\PgwJs\PgwJsLibrary;
+use Jaxon\Dialogs\CuteAlert\CuteAlertLibrary;
 use Jaxon\Dialogs\Toastr\ToastrLibrary;
 use Jaxon\Dialogs\JAlert\JAlertLibrary;
 use Jaxon\Dialogs\Tingle\TingleLibrary;
 use Jaxon\Dialogs\Noty\NotyLibrary;
 use Jaxon\Dialogs\Notify\NotifyLibrary;
-use Jaxon\Dialogs\Overhang\OverhangLibrary;
 use Jaxon\Dialogs\PNotify\PNotifyLibrary;
 use Jaxon\Dialogs\SweetAlert\SweetAlertLibrary;
 use Jaxon\Dialogs\JQueryConfirm\JQueryConfirmLibrary;
@@ -38,8 +37,8 @@ $aLibraries = [
     'bootbox'       => ['class' => BootboxLibrary::class, 'id' => 'bootbox', 'name' => 'Bootbox'],
     // Bootstrap
     'bootstrap'     => ['class' => BootstrapLibrary::class, 'id' => 'bootstrap', 'name' => 'Bootstrap'],
-    // PgwJs
-    'pgwjs'         => ['class' => PgwJsLibrary::class, 'id' => 'pgwjs', 'name' => 'PgwJs'],
+    // CuteAlert
+    'cute'          => ['class' => CuteAlertLibrary::class, 'id' => 'cute', 'name' => 'CuteAlert'],
     // Toastr
     'toastr'        => ['class' => ToastrLibrary::class, 'id' => 'toastr', 'name' => 'Toastr'],
     // JAlert
@@ -50,12 +49,8 @@ $aLibraries = [
     'noty'          => ['class' => NotyLibrary::class, 'id' => 'noty', 'name' => 'Noty'],
     // Notify
     'notify'        => ['class' => NotifyLibrary::class, 'id' => 'notify', 'name' => 'Notify'],
-    // Overhang
-    'overhang'      => ['class' => OverhangLibrary::class, 'id' => 'overhang', 'name' => 'Overhang'],
-    // PNotify
-    'pnotify'       => ['class' => PNotifyLibrary::class, 'id' => 'pnotify', 'name' => 'PNotify'],
     // SweetAlert
-    'sweetalert'    => ['class' => SweetAlertLibrary::class, 'id' => 'swal', 'name' => 'SweetAlert'],
+    'sweetalert'    => ['class' => SweetAlertLibrary::class, 'id' => 'sweetalert', 'name' => 'SweetAlert'],
     // JQuery Confirm
     'jconfirm'      => ['class' => JQueryConfirmLibrary::class, 'id' => 'jconfirm', 'name' => 'JQueryConfirm'],
 ];
@@ -63,10 +58,11 @@ $aLibraries = [
 $jaxon = jaxon();
 
 // Request processing URI
+$jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
-$jaxon->setOption('dialogs.lib.use', ['bootbox', 'bootstrap', 'pgwjs', 'toastr', 'jalert',
-    'tingle', 'noty', 'notify', 'overhang', 'pnotify', 'sweetalert', 'jconfirm']);
+$jaxon->setOption('dialogs.lib.use', ['bootbox', 'bootstrap', 'toastr',
+    'tingle', 'jalert', 'noty', 'notify', 'cute', 'sweetalert', 'jconfirm']);
 
 // Register functions
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

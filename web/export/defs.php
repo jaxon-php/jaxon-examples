@@ -34,6 +34,7 @@ class HelloWorld
 
 $jaxon = jaxon();
 
+$jaxon->setOption('js.lib.uri', '/js');
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', 'Jaxon');
 
