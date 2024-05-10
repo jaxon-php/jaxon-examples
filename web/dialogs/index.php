@@ -18,14 +18,14 @@ require(__DIR__ . '/../../includes/header.php')
                         </div>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\MessageInterface::class)): ?>
                         <div class="col-md-12" style="padding-bottom: 15px;">
-                            <button type="button" class="btn btn-primary" onclick="<?php
-                                echo $class ?>.alert('success', 'Yeah Man!!!', 'Success')" >Success</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php
-                                echo $class ?>.alert('info', 'Yeah Man!!!', 'Info')" >Info</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php
-                                echo $class ?>.alert('warning', 'Yeah Man!!!', 'Warning')" >Warning</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php
-                                echo $class ?>.alert('error', 'Yeah Man!!!', 'Error')" >Error</button>
+                            <button type="button" class="btn btn-primary" onclick="JaxonHelloWorld.showSuccess('<?php
+                                echo $id ?>', '<?php echo $lib['name'] ?>')" >Success</button>
+                            <button type="button" class="btn btn-primary" onclick="JaxonHelloWorld.showInfo('<?php
+                                echo $id ?>', '<?php echo $lib['name'] ?>')" >Info</button>
+                            <button type="button" class="btn btn-primary" onclick="JaxonHelloWorld.showWarning('<?php
+                                echo $id ?>', '<?php echo $lib['name'] ?>')" >Warning</button>
+                            <button type="button" class="btn btn-primary" onclick="JaxonHelloWorld.showError('<?php
+                                echo $id ?>', '<?php echo $lib['name'] ?>')" >Error</button>
                         </div>
 <?php endif ?>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\QuestionInterface::class)): ?>
@@ -33,7 +33,7 @@ require(__DIR__ . '/../../includes/header.php')
                             <button type="button" class="btn btn-primary" onclick="<?php
                                 echo $class ?>.confirm('Really?', 'Question', function(){<?php
                                 echo $class ?>.alert('info', 'Oh! Yeah!!!');}, function(){<?php
-                                echo $class ?>.alert('info', 'So Sorry!!!');})" >Confirm</button>
+                                echo $class ?>.alert('warning', 'So Sorry!!!');})" >Confirm</button>
                         </div>
 <?php endif ?>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\ModalInterface::class)): ?>

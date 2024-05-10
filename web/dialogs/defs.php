@@ -13,7 +13,6 @@ use Jaxon\Dialogs\JAlert\JAlertLibrary;
 use Jaxon\Dialogs\Tingle\TingleLibrary;
 use Jaxon\Dialogs\Noty\NotyLibrary;
 use Jaxon\Dialogs\Notify\NotifyLibrary;
-use Jaxon\Dialogs\PNotify\PNotifyLibrary;
 use Jaxon\Dialogs\SweetAlert\SweetAlertLibrary;
 use Jaxon\Dialogs\JQueryConfirm\JQueryConfirmLibrary;
 use function Jaxon\jaxon;
@@ -27,6 +26,42 @@ class HelloWorld
         $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $options = [];
         $xResponse->dialog->show("Modal Dialog", "This modal dialog is powered by $name!!", $buttons, $options);
+
+        return $xResponse;
+    }
+
+    public function showSuccess($id, $name)
+    {
+        jaxon()->setOption('dialogs.default.message', $id);
+        $xResponse = jaxon()->newResponse();
+        $xResponse->dialog->title("Yeah Man!!!")->success("Powered by $name!!");
+
+        return $xResponse;
+    }
+
+    public function showInfo($id, $name)
+    {
+        jaxon()->setOption('dialogs.default.message', $id);
+        $xResponse = jaxon()->newResponse();
+        $xResponse->dialog->title("Yeah Man!!!")->info("Powered by $name!!");
+
+        return $xResponse;
+    }
+
+    public function showWarning($id, $name)
+    {
+        jaxon()->setOption('dialogs.default.message', $id);
+        $xResponse = jaxon()->newResponse();
+        $xResponse->dialog->title("Yeah Man!!!")->warning("Powered by $name!!");
+
+        return $xResponse;
+    }
+
+    public function showError($id, $name)
+    {
+        jaxon()->setOption('dialogs.default.message', $id);
+        $xResponse = jaxon()->newResponse();
+        $xResponse->dialog->title("Yeah Man!!!")->error("Powered by $name!!");
 
         return $xResponse;
     }
