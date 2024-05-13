@@ -4,7 +4,6 @@ require(__DIR__ . '/../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
 use function Jaxon\jaxon;
-use function Jaxon\pm;
 
 class HelloWorld extends \Jaxon\App\CallableClass
 {
@@ -18,7 +17,7 @@ class HelloWorld extends \Jaxon\App\CallableClass
     public function showPage($pageNumber)
     {
         $this->response->assign('div2', 'innerHTML', "Showing page number $pageNumber");
-        $this->response->assign('pagination', 'innerHTML', $this->rq()->showPage(pm()->page())->paginate($pageNumber, 10, 150));
+        $this->paginator($pageNumber, 10, 150)->paginate($this->rq()->showPage(), 'pagination');
         return $this->response;
     }
 }

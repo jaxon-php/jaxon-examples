@@ -16,7 +16,6 @@ use function Jaxon\rq;
                             Showing page number 1
                         </div>
                         <div class="col-md-12 margin-vert-10" id="pagination">
-                            <?php echo rq('HelloWorld')->showPage()->paginate(1, 10, 150) ?>
                         </div>
                 </div>
             </div> <!-- class="content" -->
@@ -26,6 +25,7 @@ use function Jaxon\rq;
 <script type='text/javascript'>
     /* <![CDATA[ */
     window.onload = function() {
+        <?php echo rq('HelloWorld')->showPage(1) ?>;
     }
     /* ]]> */
 </script>
