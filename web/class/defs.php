@@ -13,6 +13,15 @@ class HelloWorld
         $text = (($isCaps) ? 'HELLO WORLD!' : 'Hello World!');
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
+
+        $xResponse->confirmCommands(2, 'Exécuter les 2 prochaines commandes?');
+        $xResponse->debug('Le premier message à afficher.');
+        $xResponse->debug('Le deuxième message à afficher.');
+        $xResponse->debug('Le message à afficher dans tous les cas.');
+
+        $xResponse->debug('Le message avant le sleep.');
+        $xResponse->sleep(50);
+        $xResponse->debug('Le message après le sleep.');
         return $xResponse;
     }
 
@@ -35,6 +44,7 @@ class HelloWorld
 $jaxon = jaxon();
 
 $jaxon->app()->setup(__DIR__ . '/../../config/class.php');
+$jaxon->setOption('dialogs.default.question', 'bootbox');
 
 // Js options
 $jaxon->setOption('js.lib.uri', '/js');
