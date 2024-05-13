@@ -1,7 +1,0 @@
-            <div class="col-sm-2 sidebar">
-                <ul class="nav nav-sidebar">
-{% for filename, title in menuEntries %}
-                    <li {% if filename == 'symfony/' %} class="active" {% endif %}><a href="{{ menuSubdir }}{{ filename }}">{{ title }}</a></li>
-{% endfor %}
-                </ul>
-            </div>
