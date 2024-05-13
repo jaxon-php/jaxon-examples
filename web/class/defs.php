@@ -14,9 +14,11 @@ class HelloWorld
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
 
-        $xResponse->confirmCommands(2, 'Exécuter les 2 prochaines commandes?');
-        $xResponse->debug('Le premier message à afficher.');
-        $xResponse->debug('Le deuxième message à afficher.');
+        $xResponse->confirm(function($xResp) {
+            $xResp->debug('Le premier message à afficher.');
+            $xResp->debug('Le deuxième message à afficher.');
+        }, 'Exécuter les 2 prochaines commandes?');
+
         $xResponse->debug('Le message à afficher dans tous les cas.');
 
         $xResponse->debug('Le message avant le sleep.');
@@ -44,7 +46,7 @@ class HelloWorld
 $jaxon = jaxon();
 
 $jaxon->app()->setup(__DIR__ . '/../../config/class.php');
-$jaxon->setOption('dialogs.default.question', 'bootbox');
+$jaxon->setOption('dialogs.default.question', 'cute');
 
 // Js options
 $jaxon->setOption('js.lib.uri', '/js');
