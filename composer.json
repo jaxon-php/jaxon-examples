@@ -2,6 +2,7 @@
     "require": {
         "jaxon-php/jaxon-core": "v5.x-dev",
         "jaxon-php/jaxon-dialogs": "v5.x-dev",
+        "jaxon-php/jaxon-flot": "v5.x-dev",
         "keradus/psr4autoloader": "dev-master"
     },
     "minimum-stability": "dev"

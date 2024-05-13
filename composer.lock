@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79c0331c6146af7475aa42b06d7ca5aa",
+    "content-hash": "17c6a209bb0b9e5fcafc3a9565541dc3",
     "packages": [
         {
             "name": "jaxon-php/jaxon-core",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-core.git",
-                "reference": "57c2ac31129ac48c592cf7a0483627879f7ff064"
+                "reference": "6eb5e28dca29caa8444236b7c2e5e1222493ff91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-core/zipball/57c2ac31129ac48c592cf7a0483627879f7ff064",
-                "reference": "57c2ac31129ac48c592cf7a0483627879f7ff064",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-core/zipball/6eb5e28dca29caa8444236b7c2e5e1222493ff91",
+                "reference": "6eb5e28dca29caa8444236b7c2e5e1222493ff91",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "issues": "https://github.com/jaxon-php/jaxon-core/issues",
                 "source": "https://github.com/jaxon-php/jaxon-core"
             },
-            "time": "2024-03-14T00:26:43+00:00"
+            "time": "2024-05-13T07:25:04+00:00"
         },
         {
             "name": "jaxon-php/jaxon-dialogs",
@@ -93,12 +93,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-dialogs.git",
-                "reference": "092db183b3789937435b3062bb0bf1f851a8fdb5"
+                "reference": "8731842024f705ad3c83c4e8a024db15e07f8b91"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-dialogs/zipball/092db183b3789937435b3062bb0bf1f851a8fdb5",
-                "reference": "092db183b3789937435b3062bb0bf1f851a8fdb5",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-dialogs/zipball/8731842024f705ad3c83c4e8a024db15e07f8b91",
+                "reference": "8731842024f705ad3c83c4e8a024db15e07f8b91",
                 "shasum": ""
             },
             "require": {
@@ -139,7 +139,58 @@
                 "issues": "https://github.com/jaxon-php/jaxon-dialogs/issues",
                 "source": "https://github.com/jaxon-php/jaxon-dialogs"
             },
-            "time": "2024-03-13T23:20:38+00:00"
+            "time": "2024-05-10T11:04:06+00:00"
+        },
+        {
+            "name": "jaxon-php/jaxon-flot",
+            "version": "v5.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jaxon-php/jaxon-flot.git",
+                "reference": "9a6598888b4825ab800b6ba2aa8608d8d0801573"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-flot/zipball/9a6598888b4825ab800b6ba2aa8608d8d0801573",
+                "reference": "9a6598888b4825ab800b6ba2aa8608d8d0801573",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/start.php"
+                ],
+                "psr-4": {
+                    "Jaxon\\Flot\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Thierry Feuzeu"
+                }
+            ],
+            "description": "Javascript charts for Jaxon with the Flot library",
+            "homepage": "https://github.com/jaxon-php/jaxon-flot",
+            "keywords": [
+                "Jaxon",
+                "ajax",
+                "chart",
+                "flot",
+                "graph",
+                "javascript",
+                "php",
+                "plot",
+                "xajax"
+            ],
+            "support": {
+                "issues": "https://github.com/jaxon-php/jaxon-flot/issues",
+                "source": "https://github.com/jaxon-php/jaxon-flot"
+            },
+            "time": "2024-05-13T14:45:27+00:00"
         },
         {
             "name": "jaxon-php/jaxon-utils",
@@ -482,7 +533,7 @@
         },
         {
             "name": "psr/http-factory",
-            "version": "dev-master",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-factory.git",
@@ -498,7 +549,6 @@
                 "php": ">=7.1",
                 "psr/http-message": "^1.0 || ^2.0"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -823,6 +873,7 @@
     "stability-flags": {
         "jaxon-php/jaxon-core": 20,
         "jaxon-php/jaxon-dialogs": 20,
+        "jaxon-php/jaxon-flot": 20,
         "keradus/psr4autoloader": 20
     },
     "prefer-stable": false,

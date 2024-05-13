@@ -18,7 +18,7 @@ class Flot extends \Jaxon\App\CallableClass
         $plot->xaxis()->expr(1, 14, 1, "'Pt' + x");
         // Add a graph to the plot
         $graph = $plot->graph(['lines' => ['show' => true], 'label' => 'Sqrt']);
-        $graph->series()->expr(0, 14, 0.5, 'Math.sqrt(x * 10)', "series + '(' + x + ' * 10) = ' + y");
+        $graph->series()->expr(0, 14, 0.5, 'Math.sqrt(x * 50)', "series + '(' + x + ' * 50) = ' + y");
         $graph = $plot->graph(['lines' => ['show' => true], 'points' => ['show' => true], 'label' => 'Graph 2']);
         $graph->series()->points([[0, 3, 'Pt 1'], [4, 8, 'Pt 2'], [8, 5, 'Pt 3'], [9, 13, 'Pt 4']]);
         $this->response->flot->draw($plot);
