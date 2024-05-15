@@ -9,8 +9,8 @@
                 <div class="row col-md-12">
 <p>
 All examples are variants of the helloword.php example in the original Jaxon repository at
-<a href="https://github.com/Jaxon/Jaxon/blob/master/examples/helloworld.php" target="_blank">
-https://github.com/Jaxon/Jaxon/blob/master/examples/helloworld.php</a>.
+<a href="https://github.com/Xajax/Xajax/blob/master/examples/helloworld.php" target="_blank">
+https://github.com/Xajax/Xajax/blob/master/examples/helloworld.php</a>.
 </p>
 
 <h5 style="margin-top:15px;"><a href="hello.php">Hello World Function</a></h5>
