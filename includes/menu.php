@@ -13,6 +13,7 @@ function menu_entries()
         '/alias/' => 'Hello World Alias',
         '/class/' => 'Hello World Class',
         '/export/' => 'Export Javascript',
+        '/confirm/' => 'Confirm question',
         '/pagination/' => 'Pagination',
         '/plugins/' => 'Plugin Usage',
         '/dialogs/' => 'Dialogs',
