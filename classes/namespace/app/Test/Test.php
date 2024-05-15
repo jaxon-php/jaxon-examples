@@ -33,8 +33,8 @@ class Test extends \Jaxon\App\CallableClass
     {
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('maxWidth' => 400);
-        $this->response->dialog->with('pgwjs')
-            ->show("Modal Dialog", "This modal dialog is powered by PgwModal!!", $buttons, $options);
+        $this->response->dialog->with('tingle')->show("Modal Dialog",
+            "This modal dialog is powered by Tingle!!", $buttons, $options);
 
         return $this->response;
     }

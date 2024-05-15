@@ -2,8 +2,7 @@
 
 require(__DIR__ . '/../../../vendor/autoload.php');
 
-use Jaxon\Jaxon;
-use Jaxon\Response\Response;
+use Jaxon\Jaxon;use Jaxon\Response\Response;
 use function Jaxon\jaxon;
 
 class HelloWorld

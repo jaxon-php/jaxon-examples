@@ -8,8 +8,9 @@ require(__DIR__ . '/../../../includes/header.php');
     <div class="container-fluid">
         <div class="row">
 <?php require(__DIR__ . '/../../../includes/nav.php') ?>
+
             <div class="col-sm-9 content">
-                <h3 class="page-header">Default Autoloader</h3>
+<?php require(__DIR__ . '/../../../includes/title.php') ?>
 
                 <div class="row" id="jaxon-html">
                         <div class="col-md-12" id="div1">
@@ -27,7 +28,7 @@ require(__DIR__ . '/../../../includes/header.php');
                         <div class="col-md-8 margin-vert-10">
                             <button type="button" class="btn btn-primary" onclick='App.Test.Test.sayHello(1); return false;' >CLICK ME</button>
                             <button type="button" class="btn btn-primary" onclick='App.Test.Test.sayHello(0); return false;' >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="App.Test.Test.showDialog(); return false;" >PgwModal Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="App.Test.Test.showDialog(); return false;" >Tingle Dialog</button>
                         </div>
 
                         <div class="col-md-12" id="div2">

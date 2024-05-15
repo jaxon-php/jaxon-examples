@@ -8,8 +8,9 @@ use function Jaxon\rq;
     <div class="container-fluid">
         <div class="row">
 <?php require(__DIR__ . '/../../../includes/nav.php') ?>
+
             <div class="col-sm-9 content">
-                <h3 class="page-header">Graphs with the Flot library</h3>
+<?php require(__DIR__ . '/../../../includes/title.php') ?>
 
                 <div class="row" id="jaxon-html">
                         <div class="col-md-12">

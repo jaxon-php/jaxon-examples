@@ -1078,7 +1078,7 @@ window.jaxon = jaxon;
     /**
      * Execute the javascript code represented by an expression object.
      *
-     * @param {array} aCalls
+     * @param {array} aCalls The calls to execute
      *
      * @returns {mixed}
      */
@@ -1110,16 +1110,15 @@ window.jaxon = jaxon;
      * @returns {void}
      */
     const showMessage = (message) => {
-        if(!message) {
-            return;
+        if ((message)) {
+            const {
+                lib: sLibName,
+                type: sType,
+                content: { title: sTitle, phrase },
+            } = message;
+            const xLib = dialog.get(sLibName);
+            xLib.alert(sType, self.makePhrase(phrase), sTitle);
         }
-        const {
-            lib: sLibName,
-            type: sType,
-            content: { title: sTitle, phrase },
-        } = message;
-        const xLib = dialog.get(sLibName);
-        xLib.alert(sType, self.makePhrase(phrase), sTitle);
     };
 
     /**
@@ -1146,31 +1145,27 @@ window.jaxon = jaxon;
     };
 
     /**
-     * @param {object} xExpression
+     * @param {array} aCalls The calls to execute
+     * @param {array} aCondition The condition to chek
+     * @param {object} oMessage The message to show if the condition is not met
      *
      * @returns {boolean}
      */
-    const execWithCondition = (xExpression) => {
-        const {
-            condition: [sOperator, xLeftArg, xRightArg],
-            calls: aCalls,
-            message: oMessage,
-        } = xExpression;
+    const execWithCondition = (aCalls, aCondition, oMessage) => {
+        const [sOperator, xLeftArg, xRightArg] = aCondition;
         const xComparator = xComparators[sOperator] ?? xDefaultComparator;
         xComparator(getValue(xLeftArg), getValue(xRightArg)) ? execCalls(aCalls) : showMessage(oMessage);
     };
 
     /**
-     * @param {object} xExpression
+     * @param {array} aCalls The calls to execute
+     * @param {object} oQuestion The confirmation question
+     * @param {object} oMessage The message to show if the user anwsers no to the question
      *
      * @returns {boolean}
      */
-    const execWithConfirmation = (xExpression) => {
-        const {
-            question: { lib: sLibName, phrase },
-            calls: aCalls,
-            message: oMessage,
-        } = xExpression;
+    const execWithConfirmation = (aCalls, oQuestion, oMessage) => {
+        const { lib: sLibName, phrase } = oQuestion;
         const xLib = dialog.get(sLibName);
         xLib.confirm(self.makePhrase(phrase), '', () => execCalls(aCalls), () => showMessage(oMessage));
     };
@@ -1183,16 +1178,16 @@ window.jaxon = jaxon;
      * @returns {mixed}
      */
     const execExpression = (xExpression) => {
-        const { calls: aCalls, question, condition } = xExpression;
+        const { calls, question, condition, message } = xExpression;
         if((question)) {
-            execWithConfirmation(xExpression);
+            execWithConfirmation(calls, question, message);
             return;
         }
         if((condition)) {
-            execWithCondition(xExpression);
+            execWithCondition(calls, condition, message);
             return;
         }
-        return execCalls(aCalls);
+        return execCalls(calls);
     };
 
     /**

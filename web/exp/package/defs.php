@@ -30,7 +30,7 @@ class DemoPackage extends Package
 }
 
 $jaxonAppDir = __DIR__ . '/js';
-$jaxonAppURI = menu_subdir() . '/package/js';
+$jaxonAppURI = '/package/js';
 
 $jaxon = jaxon();
 

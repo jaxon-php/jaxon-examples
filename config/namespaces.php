@@ -1,11 +1,5 @@
 <?php
 
-use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
-use Jaxon\Dialogs\PgwJs\PgwJsLibrary;
-use Jaxon\Dialogs\Toastr\ToastrLibrary;
-use Jaxon\Dialogs\Tingle\TingleLibrary;
-use Jaxon\Dialogs\Noty\NotyLibrary;
-
 return [
     'app' => [
         'directories' => [
@@ -45,6 +39,9 @@ return [
                     'closeButton' => true,
                     'positionClass' => 'toast-top-center',
                 ],
+            ],
+            'lib' => [
+                'use' => ['bootstrap'],
             ],
         ],
     ],

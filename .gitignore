@@ -3,4 +3,4 @@
 .settings/*
 .idea/
 vendor/
-web/export/js/
+web/exp/export/js/

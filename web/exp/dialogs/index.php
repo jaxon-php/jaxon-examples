@@ -7,8 +7,9 @@ require(__DIR__ . '/../../../includes/header.php')
     <div class="container-fluid">
         <div class="row">
 <?php require(__DIR__ . '/../../../includes/nav.php') ?>
+
             <div class="col-sm-9 content">
-                <h3 class="page-header">Modal, Alert and Confirm Dialogs</h3>
+<?php require(__DIR__ . '/../../../includes/title.php') ?>
 
                 <div class="row" id="jaxon-html">
 <?php foreach($aLibraries as $id => $lib): ?>
