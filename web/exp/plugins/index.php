@@ -2,11 +2,9 @@
 
 require(__DIR__ . '/defs.php');
 require(__DIR__ . '/../../../includes/header.php');
-use function Jaxon\pm;
-use function Jaxon\jq;
-use function Jaxon\rq;
 
-$color = jq('#colorselect')->val();
+use function Jaxon\pm;
+use function Jaxon\rq;
 ?>
 
     <div class="container-fluid">
@@ -21,8 +19,7 @@ $color = jq('#colorselect')->val();
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                    onchange="<?php echo rq('HelloWorld')->setColor($color)
-                                    ->confirm('Set color to {1}?', $color)->toJs() ?>">
+                                    onchange="<?php echo rq('HelloWorld')->setColor(pm()->select('colorselect'))->toJs() ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
