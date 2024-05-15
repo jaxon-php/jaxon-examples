@@ -831,7 +831,7 @@ window.jaxon = jaxon;
 
 
 /**
- * Class: jaxon.utils.string
+ * Class: jaxon.utils.types
  */
 
 (function(self) {
@@ -947,7 +947,7 @@ window.jaxon = jaxon;
      *
      * @var {object}
      */
-    const xContext = { };
+    const xContext = {};
 
     /**
      * Get the current target.
@@ -1027,7 +1027,7 @@ window.jaxon = jaxon;
         },
         func: ({ _name: sName, args: aArgs = [] }, xCurrValue) => {
             // Call a "global" function with the current target as "this" and an array of arguments.
-            const func = dom.findFunction(sName);
+            const func = sName === 'toInt' ? types.toInt : dom.findFunction(sName);
             return !func ? null : func.apply(getCurrentTarget(), getValues(aArgs, xCurrValue));
         },
         method: ({ _name: sName, args: aArgs = [] }, xCurrValue) => {
@@ -1122,7 +1122,7 @@ window.jaxon = jaxon;
     };
 
     /**
-     * The dfault comparison operator.
+     * The default comparison operator.
      *
      * @var {function}
      */
