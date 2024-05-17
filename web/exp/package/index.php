@@ -23,8 +23,8 @@ $color2 = jq('#colorselect2')->val();
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect1" name="colorselect1"
-                                    onchange="<?php echo rq('App.Test.Test')->call('setColor', pm()->select('colorselect1'))
-                                        ->confirm('Set color to {1} not {2}?', $color1, $color2)->toJs() ?>">
+                                    onchange="<?php echo rq('App.Test.Test')->setColor(pm()->select('colorselect1'))
+                                        ->confirm('Set color to {1} not {2}?', $color1, $color2)->raw() ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -32,9 +32,9 @@ $color2 = jq('#colorselect2')->val();
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('App.Test.Test')->sayHello(1)->toJs() ?>" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('App.Test.Test')->sayHello(0)->toJs() ?>" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('App.Test.Test')->showDialog()->toJs() ?>" >Show Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('App.Test.Test')->sayHello(1)->raw() ?>" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('App.Test.Test')->sayHello(0)->raw() ?>" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('App.Test.Test')->showDialog()->raw() ?>" >Show Dialog</button>
                         </div>
 
                         <div class="col-md-12" id="div2">
@@ -42,8 +42,8 @@ $color2 = jq('#colorselect2')->val();
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect2" name="colorselect2"
-                                    onchange="<?php echo rq('Ext.Test.Test')->call('setColor', pm()->select('colorselect2'))
-                                        ->confirm('Set color to {2} not {1}?', $color1, $color2)->toJs() ?>">
+                                    onchange="<?php echo rq('Ext.Test.Test')->setColor(pm()->select('colorselect2'))
+                                        ->confirm('Set color to {2} not {1}?', $color1, $color2)->raw() ?>">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -51,9 +51,9 @@ $color2 = jq('#colorselect2')->val();
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('Ext.Test.Test')->sayHello(1)->toJs() ?>" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('Ext.Test.Test')->sayHello(0)->toJs() ?>" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('Ext.Test.Test')->showDialog()->toJs() ?>" >Show Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('Ext.Test.Test')->sayHello(1)->raw() ?>" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('Ext.Test.Test')->sayHello(0)->raw() ?>" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('Ext.Test.Test')->showDialog()->raw() ?>" >Show Dialog</button>
                         </div>
 
                 </div>

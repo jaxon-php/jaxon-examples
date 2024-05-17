@@ -44,6 +44,9 @@ return [
                     'positionClass' => 'toast-top-center',
                 ],
             ],
+            'lib' => [
+                'use' => ['bootbox', 'bootstrap'],
+            ],
         ],
     ],
 ];

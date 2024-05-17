@@ -19,7 +19,7 @@ use function Jaxon\rq;
                         </div>
                         <div class="col-md-4 margin-vert-10">
                             <select class="form-control" id="colorselect" name="colorselect"
-                                    onchange="<?php echo rq('HelloWorld')->setColor(pm()->select('colorselect'))->toJs() ?>; return false;">
+                                    onchange="<?php echo rq('HelloWorld')->setColor(pm()->select('colorselect'))->raw() ?>; return false;">
                                 <option value="black" selected="selected">Black</option>
                                 <option value="red">Red</option>
                                 <option value="green">Green</option>
@@ -27,9 +27,9 @@ use function Jaxon\rq;
                             </select>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(1)->toJs() ?>; return false;" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(0)->toJs() ?>; return false;" >Click Me</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->showDialog()->toJs() ?>; return false;" >Show Dialog</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(1)->raw() ?>; return false;" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(0)->raw() ?>; return false;" >Click Me</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->showDialog()->raw() ?>; return false;" >Show Dialog</button>
                         </div>
 
                 </div>

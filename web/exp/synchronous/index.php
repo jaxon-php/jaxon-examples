@@ -28,27 +28,27 @@ use function Jaxon\rq;
 <script type='text/javascript'>
     /* <![CDATA[ */
     function testSyncRequests() {
-        <?php echo rq('HelloWorld')->call('ssleep', 5) ?>;
-        <?php echo rq('HelloWorld')->call('sleep', 6) ?>;
-        <?php echo rq('HelloWorld')->call('sleep', 1) ?>;
-        <?php echo rq('HelloWorld')->call('sleep', 2) ?>;
+        <?php echo rq('HelloWorld')->ssleep(5) ?>;
+        <?php echo rq('HelloWorld')->sleep(6) ?>;
+        <?php echo rq('HelloWorld')->sleep(1) ?>;
+        <?php echo rq('HelloWorld')->sleep(2) ?>;
 
-        <?php echo rq('HelloWorld')->call('ssleep', 5) ?>;
-        <?php echo rq('HelloWorld')->call('sleep', 6) ?>;
-        <?php echo rq('HelloWorld')->call('sleep', 1) ?>;
-        <?php echo rq('HelloWorld')->call('sleep', 2) ?>;
+        <?php echo rq('HelloWorld')->ssleep(5) ?>;
+        <?php echo rq('HelloWorld')->sleep(6) ?>;
+        <?php echo rq('HelloWorld')->sleep(1) ?>;
+        <?php echo rq('HelloWorld')->sleep(2) ?>;
     }
 
     function testNodupRequests() {
-        <?php echo rq('HelloWorld')->call('nodup', 5) ?>;
-        <?php echo rq('HelloWorld')->call('nodup', 1) ?>;
+        <?php echo rq('HelloWorld')->nodup(5) ?>;
+        <?php echo rq('HelloWorld')->nodup(1) ?>;
         setTimeout(function() {
-            <?php echo rq('HelloWorld')->call('nodup', 1) ?>;
+            <?php echo rq('HelloWorld')->nodup(1) ?>;
         }, 3000);
         setTimeout(function() {
-            <?php echo rq('HelloWorld')->call('nodup', 1) ?>;
+            <?php echo rq('HelloWorld')->nodup(1) ?>;
         }, 6000);
-        <?php echo rq('HelloWorld')->call('nodup', 1) ?>;
+        <?php echo rq('HelloWorld')->nodup(1) ?>;
     }
 
     nodupCallbacks = {

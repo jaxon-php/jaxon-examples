@@ -30,8 +30,9 @@ class Ext extends \Jaxon\App\CallableClass
     public function showDialog()
     {
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $width = 300;
-        $this->response->dialog->show("Modal Dialog", "This modal dialog is powered by Twitter Bootstrap!!", $buttons, compact('width'));
+        $width = 500;
+        $this->response->dialog->with('bootstrap')->show("Modal Dialog",
+            "This modal dialog is powered by Bootstrap!!", $buttons, compact('width'));
 
         return $this->response;
     }

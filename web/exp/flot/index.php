@@ -19,7 +19,7 @@ use function Jaxon\rq;
                             </div>
                         </div>
                         <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq(Flot::class)->drawGraph()->toJs() ?>" >CLICK ME</button>
+                            <button type="button" class="btn btn-primary" onclick="<?php echo rq(Flot::class)->drawGraph()->raw() ?>" >CLICK ME</button>
                         </div>
 
                 </div>
