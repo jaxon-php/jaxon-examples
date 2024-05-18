@@ -29,6 +29,15 @@ use function Jaxon\rq;
 <div id="jaxon-init">
 <script type='text/javascript'>
     /* <![CDATA[ */
+    var plots = {
+        xaxis: {
+            label: x => `x${x}`,
+        },
+        sqrt: {
+            value: x => Math.sqrt(x * 50),
+            label: (series, x, y) => `${series}(${x} * 50) = ${y}`,
+        },
+    };
     window.onload = function() {
         // Call the Flot class to populate the 2nd div
         // <?php echo rq(Flot::class)->drawGraph() ?>;

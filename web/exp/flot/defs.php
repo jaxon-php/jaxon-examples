@@ -15,10 +15,10 @@ class Flot extends \Jaxon\App\CallableClass
         // $ticks = [];
         // for($i = 0; $i < 10; $i++) $ticks[] = [$i, 'Pt' . $i];
         // $plot->xaxis()->points($ticks);
-        $plot->xaxis()->expr(1, 14, 1, "'Pt' + x");
+        $plot->xaxis()->expr(0, 16, 1, 'plots.xaxis.label');
         // Add a graph to the plot
         $graph = $plot->graph(['lines' => ['show' => true], 'label' => 'Sqrt']);
-        $graph->series()->expr(0, 14, 0.5, 'Math.sqrt(x * 50)', "series + '(' + x + ' * 50) = ' + y");
+        $graph->series()->expr(0, 14, 0.5, 'plots.sqrt.value', 'plots.sqrt.label');
         $graph = $plot->graph(['lines' => ['show' => true], 'points' => ['show' => true], 'label' => 'Graph 2']);
         $graph->series()->points([[0, 3, 'Pt 1'], [4, 8, 'Pt 2'], [8, 5, 'Pt 3'], [9, 13, 'Pt 4']]);
         $this->response->flot->draw($plot);
