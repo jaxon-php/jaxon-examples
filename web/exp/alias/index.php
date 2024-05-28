@@ -27,8 +27,8 @@ use function Jaxon\rq;
                         </select>
                     </div>
                     <div class="col-md-8 margin-vert-10">
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('helloWorld', 1)->raw() ?>" >CLICK ME</button>
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq()->call('helloWorld', 0)->raw() ?>" >Click Me</button>
+                        <button type="button" class="btn btn-primary" onclick="<?php echo rq()->helloWorld(1)->raw() ?>" >CLICK ME</button>
+                        <button type="button" class="btn btn-primary" onclick="<?php echo rq()->helloWorld( 0)->raw() ?>" >Click Me</button>
                     </div>
                 </div>
             </div> <!-- class="content" -->
@@ -39,7 +39,7 @@ use function Jaxon\rq;
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo rq()->call('helloWorld', 0) ?>;
+        <?php echo rq()->helloWorld(0) ?>;
         // call the HelloWorld->setColor() method on load
         <?php echo rq()->setColor(pm()->select('colorselect')) ?>;
     }
