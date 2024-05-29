@@ -7,9 +7,9 @@ use function Jaxon\jaxon;
 
 class HelloWorld extends \Jaxon\App\CallableClass
 {
-    public function sayHello($isCaps)
+    public function sayHello(bool $isCaps)
     {
-        $text = (($isCaps) ? 'HELLO WORLD!' : 'Hello World!');
+        $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $this->response->assign('div2', 'innerHTML', $text);
         return $this->response;
     }

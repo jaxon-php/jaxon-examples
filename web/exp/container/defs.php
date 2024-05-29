@@ -4,11 +4,9 @@ require(__DIR__ . '/../../../vendor/autoload.php');
 
 use Jaxon\Jaxon;
 use Jaxon\App\CallableClass;
-use Jaxon\Response\Response;
 use function Jaxon\jaxon;
 
 use Service\ExampleInterface;
-use Service\Example;
 
 // Register the namespace with a third-party autoloader
 $loader = new Keradus\Psr4Autoloader;
@@ -24,14 +22,14 @@ class HelloWorld extends CallableClass
         $this->service = $service;
     }
 
-    public function sayHello($isCaps, $sMessage)
+    public function sayHello(bool $isCaps, $sMessage)
     {
         $sMessage = $this->service->message($isCaps) . ', ' . $sMessage;
         $this->response->assign('div2', 'innerHTML', $sMessage);
         return $this->response;
     }
 
-    public function setColor($sColor)
+    public function setColor(string $sColor)
     {
         $sColor = $this->service->color($sColor);
         $this->response->assign('div2', 'style.color', $sColor);

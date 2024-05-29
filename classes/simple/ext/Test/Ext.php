@@ -1,10 +1,8 @@
 <?php
 
-use Jaxon\Response\Response;
-
 class Ext extends \Jaxon\App\CallableClass
 {
-    public function sayHello($isCaps, $bNotify = true)
+    public function sayHello(bool $isCaps, bool $bNotify = true)
     {
         if ($isCaps)
             $text = 'HELLO WORLD!';
@@ -18,7 +16,7 @@ class Ext extends \Jaxon\App\CallableClass
         return $this->response;
     }
 
-    public function setColor($sColor, $bNotify = true)
+    public function setColor(string $sColor, bool $bNotify = true)
     {
         $this->response->assign('div2', 'style.color', $sColor);
         if(($bNotify))

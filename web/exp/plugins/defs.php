@@ -5,16 +5,15 @@ require_once(__DIR__ . '/../../../vendor/jaxon-php/jaxon-dialogs/src/start.php')
 
 use Jaxon\Jaxon;
 use Jaxon\App\CallableClass;
-use Jaxon\Response\Response;
 use Jaxon\Dialogs\Bootbox\BootboxLibrary;
 use Jaxon\Dialogs\Noty\NotyLibrary;
 use function Jaxon\jaxon;
 
 class HelloWorld extends CallableClass
 {
-    public function sayHello($isCaps, $bNotify = true)
+    public function sayHello(bool $isCaps, bool $bNotify = true)
     {
-        $text = ($isCaps ? 'HELLO WORLD!': 'Hello World!');
+        $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         if(($bNotify))
         {
             // $this->response->confirmCommands(2, 'Skip text assignement?');
@@ -31,7 +30,7 @@ class HelloWorld extends CallableClass
         return $this->response;
     }
 
-    public function setColor($sColor, $bNotify = true)
+    public function setColor(string $sColor, bool $bNotify = true)
     {
         if(($bNotify))
         {

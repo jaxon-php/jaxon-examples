@@ -6,15 +6,15 @@ use function Jaxon\jaxon;
 
 class HelloWorld
 {
-    public function sayHello($isCaps)
+    public function sayHello(bool $isCaps)
     {
-        $text = (($isCaps) ? 'HELLO WORLD!' : 'Hello World!');
+        $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
         return $xResponse;
     }
 
-    public function setColor($sColor)
+    public function setColor(string $sColor)
     {
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'style.color', $sColor);

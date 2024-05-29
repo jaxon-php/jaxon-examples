@@ -4,10 +4,6 @@ require(__DIR__ . '/../../../vendor/autoload.php');
 require_once(__DIR__ . '/../../../vendor/jaxon-php/jaxon-dialogs/src/start.php');
 
 use Jaxon\Jaxon;
-use Jaxon\Response\Response;
-use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
-use Jaxon\Dialogs\PgwJs\PgwJsLibrary;
-use Jaxon\Dialogs\Toastr\ToastrLibrary;
 use function Jaxon\jaxon;
 
 $jaxon = jaxon();

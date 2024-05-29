@@ -10,13 +10,9 @@ use function Jaxon\jaxon;
 
     Modify the innerHTML of div1.
 */
-function helloWorld($isCaps)
+function helloWorld(bool $isCaps)
 {
-    if ($isCaps)
-        $text = 'HELLO WORLD!';
-    else
-        $text = 'Hello World!';
-
+    $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
     $xResponse = jaxon()->newResponse();
     $xResponse->assign('div1', 'innerHTML', $text);
 
@@ -28,7 +24,7 @@ function helloWorld($isCaps)
 
     Modify the style.color of div1
 */
-function setColor($sColor)
+function setColor(string $sColor)
 {
     $xResponse = jaxon()->newResponse();
     $xResponse->assign('div1', 'style.color', $sColor);

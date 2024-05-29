@@ -4,15 +4,13 @@ require(__DIR__ . '/../../../vendor/autoload.php');
 require_once(__DIR__ . '/../../../vendor/jaxon-php/jaxon-dialogs/src/start.php');
 
 use Jaxon\Jaxon;
-use Jaxon\Response\Response;
 use function Jaxon\jaxon;
 
 class HelloWorld
 {
-    public function sayHello($isCaps, $bNotify = true)
+    public function sayHello(bool $isCaps, bool $bNotify = true)
     {
-        $text = ($isCaps) ? 'HELLO WORLD!' : 'Hello World!';
-
+        $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
         if(($bNotify))
@@ -21,7 +19,7 @@ class HelloWorld
         return $xResponse;
     }
 
-    public function setColor($sColor, $bNotify = true)
+    public function setColor(string $sColor, bool $bNotify = true)
     {
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'style.color', $sColor);
