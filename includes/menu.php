@@ -21,6 +21,12 @@ This example shows how to set an alias to an exported function with Jaxon.
 This example shows how to export a class with Jaxon.
 </p>',
         ],
+        '/exp/component/' => [
+            'title' => 'Hello World Component',
+            'desc' => '<p>
+This example shows how to attach a component to a DOM node.
+</p>',
+        ],
         '/exp/export/' => [
             'title' => 'Export Javascript',
             'desc' => '<p>

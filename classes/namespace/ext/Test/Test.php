@@ -6,11 +6,7 @@ class Test extends \Jaxon\App\CallableClass
 {
     public function sayHello(bool $isCaps, bool $bNotify = true)
     {
-        if ($isCaps)
-            $text = 'HELLO WORLD!';
-        else
-            $text = 'Hello World!';
-
+        $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $this->response->assign('div2', 'innerHTML', $text);
         if(($bNotify))
             $this->response->dialog->success("div2 text is now $text");
