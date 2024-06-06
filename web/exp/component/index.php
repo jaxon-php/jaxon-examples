@@ -21,7 +21,7 @@ use function Jaxon\rq;
             <div class="col-sm-9 content">
 <?php require(__DIR__ . '/../../../includes/title.php') ?>
 
-                <div class="row" id="jaxon-html">
+                <div class="row">
                     <div class="col-md-12" jxn-component="<?php echo attr()->name(rq(AppTest::class)) ?>">
                         Initial content : <?php echo cl(AppTest::class)->html() ?>
                     </div>
@@ -54,6 +54,14 @@ use function Jaxon\rq;
                     <div class="col-md-8 margin-vert-10" jxn-component="<?php echo attr()->name(rq(ExtButtons::class)) ?>">
                     </div>
                 </div>
+
+                <div class="row" style="margin-top: 20px;">
+                    <div class="col-md-12" jxn-component="<?php echo attr()->name(rq(PageTitle::class)) ?>">
+                        Showing page number 1
+                    </div>
+                    <div class="col-md-12 margin-vert-10" jxn-component="<?php echo attr()->name(rq(Paginator::class)) ?>" id="pagination">
+                    </div>
+                </div>
             </div> <!-- class="content" -->
        </div> <!-- class="row" -->
     </div>
@@ -63,6 +71,7 @@ use function Jaxon\rq;
     window.onload = function() {
         <?php echo rq(AppTest::class)->sayHello(true) ?>;
         <?php echo rq(ExtTest::class)->sayHello(true) ?>;
+        <?php echo rq(Paginator::class)->showPage(1) ?>;
     }
     /* ]]> */
 </script>

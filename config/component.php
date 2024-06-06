@@ -2,6 +2,10 @@
 
 return [
     'app' => [
+        'classes' => [
+            PageTitle::class,
+            Paginator::class,
+        ],
         'directories' => [
             __DIR__ . '/../classes/component/app' => [
                 'namespace' => 'App',
