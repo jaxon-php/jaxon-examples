@@ -13,7 +13,6 @@ require(__DIR__ . '/../../../includes/header.php')
 
                 <div class="row" id="jaxon-html">
 <?php foreach($aLibraries as $id => $lib): ?>
-<?php $class = 'jaxon.dialog.lib.' . $lib['id']; ?>
                         <div class="col-md-12">
                             <?php echo $lib['name'] ?>
                         </div>
@@ -31,10 +30,10 @@ require(__DIR__ . '/../../../includes/header.php')
 <?php endif ?>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\QuestionInterface::class)): ?>
                         <div class="col-md-12" style="padding-bottom: 15px;">
-                            <button type="button" class="btn btn-primary" onclick="<?php
-                                echo $class ?>.confirm('Really?', 'Question', function(){<?php
-                                echo $class ?>.alert('info', 'Oh! Yeah!!!');}, function(){<?php
-                                echo $class ?>.alert('warning', 'So Sorry!!!');})" >Confirm</button>
+                            <button type="button" class="btn btn-primary"
+                                onclick="jaxon.confirm({ lib: '<?php echo $id ?>', title: 'Question', text: 'Really?' },
+                                () => jaxon.alert({ lib: '<?php echo $id ?>', type: 'info', title: 'Info', text: 'Oh! Yeah!!!' }),
+                                () => jaxon.alert({ lib: '<?php echo $id ?>', type: 'warning', title: 'Warning', text: 'So Sorry!!!' }))" >Confirm</button>
                         </div>
 <?php endif ?>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\ModalInterface::class)): ?>

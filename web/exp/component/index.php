@@ -56,8 +56,8 @@ use function Jaxon\rq;
                 </div>
 
                 <div class="row" style="margin-top: 20px;">
-                    <div class="col-md-12" jxn-component="<?php echo attr()->name(rq(PageTitle::class)) ?>">
-                        Showing page number 1
+                    <div class="col-md-12" jxn-component="<?php echo attr()->name(rq(PageContent::class)) ?>">
+                        <?php echo cl(PageContent::class)->html() ?>
                     </div>
                     <div class="col-md-12 margin-vert-10" jxn-component="<?php echo attr()->name(rq(Paginator::class)) ?>" id="pagination">
                     </div>

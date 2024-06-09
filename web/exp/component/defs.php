@@ -1,25 +1,35 @@
 <?php
 
 require(__DIR__ . '/../../../vendor/autoload.php');
+
+use Jaxon\App\Component;
 use function Jaxon\jaxon;
 
-class PageTitle extends \Jaxon\App\Component
+class PageContent extends Component
 {
-    public $page = 1;
+    private $page = 1;
 
     public function html():  string
     {
         return 'Showing page number ' . $this->page;
     }
+
+    /**
+     * @exclude
+     */
+    public function update(int $pageNumber)
+    {
+        $this->page = $pageNumber;
+
+        return $this->show();
+    }
 }
 
-class Paginator extends \Jaxon\App\Component
+class Paginator extends Component
 {
-    public function showPage($pageNumber)
+    public function showPage(int $pageNumber)
     {
-        $pageTitle = $this->cl(PageTitle::class);
-        $pageTitle->page = $pageNumber;
-        $pageTitle->show();
+        $this->cl(PageContent::class)->update($pageNumber);
 
         $this->paginator($pageNumber, 10, 150)->paginate($this->rq()->showPage());
         return $this->response;

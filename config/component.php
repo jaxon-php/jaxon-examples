@@ -3,7 +3,7 @@
 return [
     'app' => [
         'classes' => [
-            PageTitle::class,
+            PageContent::class,
             Paginator::class,
         ],
         'directories' => [
