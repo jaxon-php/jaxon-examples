@@ -22,7 +22,7 @@ use function Jaxon\rq;
 <?php require(__DIR__ . '/../../../includes/title.php') ?>
 
                 <div class="row">
-                    <div class="col-md-12" jxn-component="<?php echo attr()->name(rq(AppTest::class)) ?>">
+                    <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(AppTest::class)) ?>">
                         Initial content : <?php echo cl(AppTest::class)->html() ?>
                     </div>
                     <div class="col-md-4 margin-vert-10">
@@ -35,10 +35,10 @@ use function Jaxon\rq;
                             <option value="blue">Blue</option>
                         </select>
                     </div>
-                    <div class="col-md-8 margin-vert-10" jxn-component="<?php echo attr()->name(rq(AppButtons::class)) ?>">
+                    <div class="col-md-8 margin-vert-10" jxn-show="<?php echo attr()->show(rq(AppButtons::class)) ?>">
                     </div>
 
-                    <div class="col-md-12" jxn-component="<?php echo attr()->name(rq(ExtTest::class)) ?>">
+                    <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(ExtTest::class)) ?>">
                         Initial content : <?php echo cl(ExtTest::class)->html() ?>
                     </div>
                     <div class="col-md-4 margin-vert-10">
@@ -51,15 +51,15 @@ use function Jaxon\rq;
                             <option value="blue">Blue</option>
                         </select>
                     </div>
-                    <div class="col-md-8 margin-vert-10" jxn-component="<?php echo attr()->name(rq(ExtButtons::class)) ?>">
+                    <div class="col-md-8 margin-vert-10" jxn-show="<?php echo attr()->show(rq(ExtButtons::class)) ?>">
                     </div>
                 </div>
 
                 <div class="row" style="margin-top: 20px;">
-                    <div class="col-md-12" jxn-component="<?php echo attr()->name(rq(PageContent::class)) ?>">
+                    <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(PageContent::class)) ?>">
                         <?php echo cl(PageContent::class)->html() ?>
                     </div>
-                    <div class="col-md-12 margin-vert-10" jxn-component="<?php echo attr()->name(rq(Paginator::class)) ?>" id="pagination">
+                    <div class="col-md-12 margin-vert-10" jxn-show="<?php echo attr()->show(rq(Paginator::class)) ?>" id="pagination">
                     </div>
                 </div>
             </div> <!-- class="content" -->
