@@ -17,11 +17,11 @@ class HelloWorld
         $this->setColor('black');
 
         $xResponse = jaxon()->getResponse();
-        $xResponse->jquery->jq('#btn-uppercase')->click(rq('HelloWorld')->sayHello(1)
+        $xResponse->jq('#btn-uppercase')->click(rq('HelloWorld')->sayHello(1)
             ->confirm('Change {1} to uppercase?', pm()->html('div2')));
-        $xResponse->jquery->jq('#btn-lowercase')->click(rq('HelloWorld')->sayHello(0)
+        $xResponse->jq('#btn-lowercase')->click(rq('HelloWorld')->sayHello(0)
             ->confirm('Change {1} to lowercase?', pm()->html('div2')));
-        $xResponse->jquery->jq('#colorselect')
+        $xResponse->jq('#colorselect')
             ->on('change', rq('HelloWorld')->setColor(pm()->select('colorselect'))
             ->confirm('Change the color to {1}?', pm()->select('colorselect'))
             ->elseWarning('The color may be different'));

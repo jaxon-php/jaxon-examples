@@ -16,8 +16,8 @@ class Test extends \Jaxon\App\Component
         // There is no need to specify an HTML id attribute here.
         // The HTML code is automatically assigned to the attached DOM node
         $this->isCaps = $isCaps;
-        $this->show();
-        $this->cl(Buttons::class)->show();
+        $this->refresh();
+        $this->cl(Buttons::class)->refresh();
         return $this->response;
     }
 

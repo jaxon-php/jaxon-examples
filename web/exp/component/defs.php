@@ -3,6 +3,7 @@
 require(__DIR__ . '/../../../vendor/autoload.php');
 
 use Jaxon\App\Component;
+use Jaxon\App\PaginatorComponent;
 use function Jaxon\jaxon;
 
 class PageContent extends Component
@@ -21,11 +22,11 @@ class PageContent extends Component
     {
         $this->page = $pageNumber;
 
-        return $this->show();
+        return $this->refresh();
     }
 }
 
-class Paginator extends Component
+class Paginator extends PaginatorComponent
 {
     public function showPage(int $pageNumber)
     {
