@@ -7,7 +7,6 @@ $requestUri = $_SERVER['REQUEST_URI'];
 $pageTitle = $menuEntries[$requestUri] ?? '';
 
 ?>
-            <div class="col-sm-3 sidebar">
                 <ul class="nav nav-sidebar">
                     <li <?php if($requestUri === '/') { echo ' class="active"'; } ?>>
                         <a href="/">Home</a>
@@ -18,4 +17,3 @@ $pageTitle = $menuEntries[$requestUri] ?? '';
                     </li>
 <?php endforeach ?>
                 </ul>
-            </div>

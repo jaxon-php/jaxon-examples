@@ -4,12 +4,12 @@ require(__DIR__ . '/../../../vendor/autoload.php');
 require_once(__DIR__ . '/../../../vendor/jaxon-php/jaxon-dialogs/src/start.php');
 require_once(__DIR__ . '/../../../includes/menu.php');
 
-use Jaxon\Plugin\Package;
+use Jaxon\Plugin\AbstractPackage;
 use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
 use Jaxon\Dialogs\Toastr\ToastrLibrary;
 use function Jaxon\jaxon;
 
-class DemoPackage extends Package
+class DemoPackage extends AbstractPackage
 {
     public static function config(): string
     {

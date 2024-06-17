@@ -6,7 +6,9 @@ require(__DIR__ . '/../../../includes/header.php')
 
     <div class="container-fluid">
         <div class="row">
+            <div class="col-sm-3 sidebar">
 <?php require(__DIR__ . '/../../../includes/nav.php') ?>
+            </div>
 
             <div class="col-sm-9 content">
 <?php require(__DIR__ . '/../../../includes/title.php') ?>
