@@ -8,6 +8,7 @@ use Jaxon\Dialogs\Bootbox\BootboxLibrary;
 use function Jaxon\jaxon;
 use function Jaxon\pm;
 use function Jaxon\rq;
+use function Jaxon\jq;
 
 class HelloWorld
 {
@@ -18,12 +19,15 @@ class HelloWorld
 
         $xResponse = jaxon()->getResponse();
         $xResponse->jq('#btn-uppercase')->click(rq('HelloWorld')->sayHello(1)
-            ->confirm('Change {1} to uppercase?', pm()->html('div2')));
+            ->confirm('Change {1} to uppercase?', jq('#div2')->html()));
+            // ->confirm('Change {1} to uppercase?', pm()->html('div2')));
         $xResponse->jq('#btn-lowercase')->click(rq('HelloWorld')->sayHello(0)
-            ->confirm('Change {1} to lowercase?', pm()->html('div2')));
+            ->confirm('Change {1} to lowercase?', jq('#div2')->html()));
+            // ->confirm('Change {1} to lowercase?', pm()->html('div2')));
         $xResponse->jq('#colorselect')
-            ->on('change', rq('HelloWorld')->setColor(pm()->select('colorselect'))
-            ->confirm('Change the color to {1}?', pm()->select('colorselect'))
+            ->on('change', rq('HelloWorld')->setColor(jq()->val())
+            ->confirm('Change the color to {1}?', jq()->val())
+            // ->confirm('Change the color to {1}?', pm()->select('colorselect'))
             ->elseWarning('The color may be different'));
         // $xResponse->setEventHandler('btn-uppercase', 'click', rq('HelloWorld')->sayHello(1));
         // $xResponse->setEventHandler('btn-lowercase', 'click', rq('HelloWorld')->sayHello(0));

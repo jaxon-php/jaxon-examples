@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-core.git",
-                "reference": "4a85a1a6bdba8a514b09886cf358ff902491c19d"
+                "reference": "c50b54ebd224f717a1244396843048d949b96ea3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-core/zipball/4a85a1a6bdba8a514b09886cf358ff902491c19d",
-                "reference": "4a85a1a6bdba8a514b09886cf358ff902491c19d",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-core/zipball/c50b54ebd224f717a1244396843048d949b96ea3",
+                "reference": "c50b54ebd224f717a1244396843048d949b96ea3",
                 "shasum": ""
             },
             "require": {
@@ -85,7 +85,7 @@
                 "issues": "https://github.com/jaxon-php/jaxon-core/issues",
                 "source": "https://github.com/jaxon-php/jaxon-core"
             },
-            "time": "2024-06-15T14:32:20+00:00"
+            "time": "2024-06-16T07:54:42+00:00"
         },
         {
             "name": "jaxon-php/jaxon-dialogs",
@@ -93,12 +93,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-dialogs.git",
-                "reference": "b473f320cc78e58f3ca508347d3be8e249a83f71"
+                "reference": "cb431fd80b074d16de400c93d1f592961dafd494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-dialogs/zipball/b473f320cc78e58f3ca508347d3be8e249a83f71",
-                "reference": "b473f320cc78e58f3ca508347d3be8e249a83f71",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-dialogs/zipball/cb431fd80b074d16de400c93d1f592961dafd494",
+                "reference": "cb431fd80b074d16de400c93d1f592961dafd494",
                 "shasum": ""
             },
             "require": {
@@ -139,7 +139,7 @@
                 "issues": "https://github.com/jaxon-php/jaxon-dialogs/issues",
                 "source": "https://github.com/jaxon-php/jaxon-dialogs"
             },
-            "time": "2024-06-09T17:44:02+00:00"
+            "time": "2024-06-16T03:42:56+00:00"
         },
         {
             "name": "jaxon-php/jaxon-flot",
@@ -880,5 +880,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

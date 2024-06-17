@@ -65,9 +65,9 @@ $color2 = jq('#colorselect2')->val();
     /* <![CDATA[ */
     window.onload = function() {
         <?php echo rq('App.Test.Test')->sayHello(0, false) ?>;
-        <?php echo rq('App.Test.Test')->setColor(pm()->select('colorselect1'), false) ?>;
+        <?php echo rq('App.Test.Test')->setColor(jq('#colorselect1')->val(), false) ?>;
         <?php echo rq('Ext.Test.Test')->sayHello(0, false) ?>;
-        <?php echo rq('Ext.Test.Test')->setColor(pm()->select('colorselect2'), false) ?>;
+        <?php echo rq('Ext.Test.Test')->setColor(jq('#colorselect2')->val(), false) ?>;
     }
     /* ]]> */
 </script>

@@ -10,7 +10,7 @@ use Ext\Test\Buttons as ExtButtons;
 
 use function Jaxon\attr;
 use function Jaxon\cl;
-use function Jaxon\pm;
+use function Jaxon\jq;
 use function Jaxon\rq;
 ?>
 
@@ -26,9 +26,9 @@ use function Jaxon\rq;
                         Initial content : <?php echo cl(AppTest::class)->html() ?>
                     </div>
                     <div class="col-md-4 margin-vert-10">
-                        <select class="form-control" id="colorselect1" jxn-on="change"
-                            jxn-func="<?php echo attr()->func(rq(AppTest::class)
-                                ->setColor(pm()->select('colorselect1'))) ?>">
+                        <!-- Custom attribute: Event handler on DOM node. -->
+                        <select class="form-control" jxn-on="change"
+                            jxn-func="<?php echo attr()->func(rq(AppTest::class)->setColor(jq()->val())) ?>">
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>
                             <option value="green">Green</option>
@@ -41,10 +41,10 @@ use function Jaxon\rq;
                     <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(ExtTest::class)) ?>">
                         Initial content : <?php echo cl(ExtTest::class)->html() ?>
                     </div>
-                    <div class="col-md-4 margin-vert-10">
-                        <select class="form-control" id="colorselect2" jxn-on="change"
-                            jxn-func="<?php echo attr()->func(rq(ExtTest::class)
-                                ->setColor(pm()->select('colorselect2'))) ?>">
+                    <div class="col-md-4 margin-vert-10" jxn-target="">
+                        <!-- Custom attribute: Event handler on DOM node. -->
+                        <select class="form-control" jxn-on="change"
+                            jxn-func="<?php echo attr()->func(rq(ExtTest::class)->setColor(jq()->val())) ?>">
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>
                             <option value="green">Green</option>
@@ -56,9 +56,11 @@ use function Jaxon\rq;
                 </div>
 
                 <div class="row" style="margin-top: 20px;">
+                    <!-- Custom attribute: Component for paginated content. -->
                     <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(PageContent::class)) ?>">
                         <?php echo cl(PageContent::class)->html() ?>
                     </div>
+                    <!-- Custom attribute: Component for pagination links. -->
                     <div class="col-md-12 margin-vert-10" jxn-show="<?php echo attr()->show(rq(Paginator::class)) ?>">
                     </div>
                 </div>

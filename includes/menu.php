@@ -35,10 +35,22 @@ This example shows how to export the generated javascript code in an external fi
             'title' => 'Pagination',
             'desc' => '',
         ],
-        '/exp/component/' => [
-            'title' => 'Component',
+        '/exp/html-attributes/' => [
+            'title' => 'Custom HTML attributes',
             'desc' => '<p>
-This example shows how to attach a component to a DOM node.
+This example shows how to use Jaxon HTML custom attributes to attach a component to a DOM node, and define event handlers.
+</p>',
+        ],
+        '/exp/event-parent/' => [
+            'title' => 'Children event handlers',
+            'desc' => '<p>
+This example shows how to use Jaxon HTML custom attributes to define event handlers on child DOM nodes.
+</p>',
+        ],
+        '/exp/event-target/' => [
+            'title' => 'Multiple event handlers',
+            'desc' => '<p>
+This example shows how to use Jaxon HTML custom attributes to define multiple event handlers on a single DOM node.
 </p>',
         ],
         '/exp/plugins/' => [

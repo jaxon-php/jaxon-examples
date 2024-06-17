@@ -28,7 +28,7 @@ use function Jaxon\rq;
                     </div>
                     <div class="col-md-8 margin-vert-10">
                         <button type="button" class="btn btn-primary" onclick="<?php echo rq()->helloWorld(1)->raw() ?>" >CLICK ME</button>
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq()->helloWorld( 0)->raw() ?>" >Click Me</button>
+                        <button type="button" class="btn btn-primary" onclick="<?php echo rq()->helloWorld(0)->raw() ?>" >Click Me</button>
                     </div>
                 </div>
             </div> <!-- class="content" -->
