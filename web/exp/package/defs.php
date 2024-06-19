@@ -13,7 +13,7 @@ class DemoPackage extends AbstractPackage
 {
     public static function config(): string
     {
-        return realpath(__DIR__ . '/../../../config/package.php');
+        return realpath(__DIR__ . '/config/jaxon.php');
     }
 
     public function getReadyScript(): string

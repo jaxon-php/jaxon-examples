@@ -22,7 +22,7 @@ class PageContent extends Component
     {
         $this->page = $pageNumber;
 
-        return $this->display();
+        return $this->render();
     }
 }
 
