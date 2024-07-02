@@ -23,14 +23,14 @@ use function Jaxon\rq;
                     </div>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\MessageInterface::class)): ?>
                     <div class="col-md-12" style="padding-bottom: 15px;">
-                        <button type="button" class="btn btn-primary" jxn-click="<?php
-                            echo attr()->func(rq(HelloWorld::class)->showSuccess($id, $lib['name'])) ?>">Success</button>
-                        <button type="button" class="btn btn-primary" jxn-click="<?php
-                            echo attr()->func(rq(HelloWorld::class)->showInfo($id, $lib['name'])) ?>">Info</button>
-                        <button type="button" class="btn btn-primary" jxn-click="<?php
-                            echo attr()->func(rq(HelloWorld::class)->showWarning($id, $lib['name'])) ?>">Warning</button>
-                        <button type="button" class="btn btn-primary" jxn-click="<?php
-                            echo attr()->func(rq(HelloWorld::class)->showError($id, $lib['name'])) ?>">Error</button>
+                        <button type="button" class="btn btn-primary" <?php
+                            echo attr()->on('click', rq(HelloWorld::class)->showSuccess($id, $lib['name'])) ?>>Success</button>
+                        <button type="button" class="btn btn-primary" <?php
+                            echo attr()->on('click', rq(HelloWorld::class)->showInfo($id, $lib['name'])) ?>>Info</button>
+                        <button type="button" class="btn btn-primary" <?php
+                            echo attr()->on('click', rq(HelloWorld::class)->showWarning($id, $lib['name'])) ?>>Warning</button>
+                        <button type="button" class="btn btn-primary" <?php
+                            echo attr()->on('click', rq(HelloWorld::class)->showError($id, $lib['name'])) ?>>Error</button>
                     </div>
 <?php endif ?>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\QuestionInterface::class)): ?>
@@ -43,8 +43,8 @@ use function Jaxon\rq;
 <?php endif ?>
 <?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\ModalInterface::class)): ?>
                     <div class="col-md-12" style="padding-bottom: 15px;">
-                        <button type="button" class="btn btn-primary" jxn-click="<?php
-                            echo attr()->func(rq(HelloWorld::class)->showDialog($id, $lib['name'])) ?>">Modal</button>
+                        <button type="button" class="btn btn-primary" <?php
+                            echo attr()->on('click', rq(HelloWorld::class)->showDialog($id, $lib['name'])) ?>>Modal</button>
                     </div>
 <?php endif ?>
 <?php endforeach ?>

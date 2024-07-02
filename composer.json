@@ -5,5 +5,10 @@
         "jaxon-php/jaxon-flot": "v5.x-dev",
         "keradus/psr4autoloader": "dev-master"
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
 }

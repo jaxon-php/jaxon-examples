@@ -9,7 +9,6 @@ use Ext\Test\Test as ExtTest;
 use Ext\Test\Buttons as ExtButtons;
 
 use function Jaxon\attr;
-use function Jaxon\cl;
 use function Jaxon\jq;
 use function Jaxon\rq;
 ?>
@@ -24,16 +23,16 @@ use function Jaxon\rq;
 <?php require(__DIR__ . '/../../../includes/title.php') ?>
 
                 <!-- Custom attribute: Multiple event handlers on child nodes, using dedicated divs. -->
-                <div class="row" jxn-target="">
-                    <div jxn-select=".app-color-choice" jxn-event="change"
-                        jxn-func="<?php echo attr()->func(rq(AppTest::class)->setColor(jq()->val())) ?>">
+                <div class="row" <?php echo attr()->target('') ?>>
+                    <div <?php echo attr()->on(['.app-color-choice', 'change'],
+                        rq(AppTest::class)->setColor(jq()->val()), ['target' => '']) ?>>
                     </div>
-                    <div jxn-select=".ext-color-choice" jxn-event="change"
-                        jxn-func="<?php echo attr()->func(rq(ExtTest::class)->setColor(jq()->val())) ?>">
+                    <div <?php echo attr()->on(['.ext-color-choice', 'change'],
+                        rq(ExtTest::class)->setColor(jq()->val()), ['target' => '']) ?>>
                     </div>
 
-                    <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(AppTest::class)) ?>">
-                        Initial content : <?php echo cl(AppTest::class)->html() ?>
+                    <div class="col-md-12" <?php echo attr()->show(rq(AppTest::class)) ?>>
+                        Initial content : <?php echo attr()->html(rq(AppTest::class)) ?>
                     </div>
                     <div class="col-md-4 margin-vert-10">
                         <select class="form-control app-color-choice">
@@ -43,11 +42,11 @@ use function Jaxon\rq;
                             <option value="blue">Blue</option>
                         </select>
                     </div>
-                    <div class="col-md-8 margin-vert-10" jxn-show="<?php echo attr()->show(rq(AppButtons::class)) ?>">
+                    <div class="col-md-8 margin-vert-10" <?php echo attr()->show(rq(AppButtons::class)) ?>>
                     </div>
 
-                    <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(ExtTest::class)) ?>">
-                        Initial content : <?php echo cl(ExtTest::class)->html() ?>
+                    <div class="col-md-12" <?php echo attr()->show(rq(ExtTest::class)) ?>>
+                        Initial content : <?php echo attr()->html(rq(ExtTest::class)) ?>
                     </div>
                     <div class="col-md-4 margin-vert-10">
                         <select class="form-control ext-color-choice">
@@ -57,17 +56,17 @@ use function Jaxon\rq;
                             <option value="blue">Blue</option>
                         </select>
                     </div>
-                    <div class="col-md-8 margin-vert-10" jxn-show="<?php echo attr()->show(rq(ExtButtons::class)) ?>">
+                    <div class="col-md-8 margin-vert-10" <?php echo attr()->show(rq(ExtButtons::class)) ?>>
                     </div>
                 </div>
 
                 <div class="row" style="margin-top: 20px;">
                     <!-- Custom attribute: Component for paginated content. -->
-                    <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(PageContent::class)) ?>">
-                        <?php echo cl(PageContent::class)->html() ?>
+                    <div class="col-md-12" <?php echo attr()->show(rq(PageContent::class)) ?>>
+                        <?php echo attr()->html(rq(PageContent::class)) ?>
                     </div>
                     <!-- Custom attribute: Component for pagination links. -->
-                    <div class="col-md-12 margin-vert-10" jxn-show="<?php echo attr()->show(rq(Paginator::class)) ?>">
+                    <div class="col-md-12 margin-vert-10" <?php echo attr()->show(rq(Paginator::class)) ?>>
                     </div>
                 </div>
             </div> <!-- class="content" -->
