@@ -1,4 +1,10 @@
 {
+    "name": "jaxon-php/jaxon-examples",
+    "type": "project",
+    "description": "Examples for the Jaxon library",
+    "authors": [
+        {"name": "Thierry Feuzeu"}
+    ],
     "require": {
         "jaxon-php/jaxon-core": "dev-main",
         "jaxon-php/jaxon-dialogs": "dev-main",
