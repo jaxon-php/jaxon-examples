@@ -5,7 +5,7 @@
     "authors": [
         {"name": "Thierry Feuzeu"}
     ],
-    "require": {
+    "require-dev": {
         "jaxon-php/jaxon-core": "dev-main",
         "jaxon-php/jaxon-dialogs": "dev-main",
         "jaxon-php/jaxon-flot": "dev-main",
