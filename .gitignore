@@ -1,0 +1,6 @@
+# Do not commit Eclipse files
+.project
+.settings/*
+.idea/
+vendor/
+web/exp/export/js/

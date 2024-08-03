@@ -1,0 +1,33 @@
+jaxon:
+  core:
+    debug:
+      on:                          false
+    prefix:
+      class:                       "Jaxon"
+    request:
+      uri:                         "ajax.php"
+      csrf_meta:                   "csrf-token"
+
+  js:
+    lib:
+      uri:                         "/js"
+
+  dialogs:
+    default:
+      modal:                       pgwjs
+      message:                     toastr
+    pgwjs:
+      assets:
+        include:                   true
+      modal:
+        options:
+          closeOnEscape:           true
+          closeOnBackgroundClick:  true
+          maxWidth:                600
+    toastr:
+      options:
+        closeButton:               true
+        closeMethod:               "fadeOut"
+        closeDuration:             300
+        closeEasing:               "swing"
+        positionClass:             "toast-top-center"
