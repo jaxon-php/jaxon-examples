@@ -24,46 +24,46 @@ use function Jaxon\rq;
 <?php require(__DIR__ . '/../../../includes/title.php') ?>
 
                 <div class="row">
-                    <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(AppTest::class)) ?>">
+                    <div class="col-md-12" <?php echo attr()->show(rq(AppTest::class)) ?>>
                         Initial content : <?php echo cl(AppTest::class)->html() ?>
                     </div>
                     <div class="col-md-4 margin-vert-10">
                         <!-- Custom attribute: Event handler on DOM node. -->
-                        <select class="form-control" jxn-on="change"
-                            jxn-func="<?php echo attr()->func(rq(AppTest::class)->setColor(jq()->val())) ?>">
+                        <select class="form-control" <?php
+                                echo attr()->on('change', rq(AppTest::class)->setColor(jq()->val())) ?>>
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>
                             <option value="green">Green</option>
                             <option value="blue">Blue</option>
                         </select>
                     </div>
-                    <div class="col-md-8 margin-vert-10" jxn-show="<?php echo attr()->show(rq(AppButtons::class)) ?>">
+                    <div class="col-md-8 margin-vert-10" <?php echo attr()->show(rq(AppButtons::class)) ?>>
                     </div>
 
-                    <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(ExtTest::class)) ?>">
+                    <div class="col-md-12" <?php echo attr()->show(rq(ExtTest::class)) ?>>
                         Initial content : <?php echo cl(ExtTest::class)->html() ?>
                     </div>
-                    <div class="col-md-4 margin-vert-10" jxn-target="">
+                    <div class="col-md-4 margin-vert-10" <?php echo attr()->target() ?>>
                         <!-- Custom attribute: Event handler on DOM node. -->
-                        <select class="form-control" jxn-on="change"
-                            jxn-func="<?php echo attr()->func(rq(ExtTest::class)->setColor(jq()->val())) ?>">
+                        <select class="form-control" <?php
+                                echo attr()->on('change', rq(ExtTest::class)->setColor(jq()->val())) ?>>
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>
                             <option value="green">Green</option>
                             <option value="blue">Blue</option>
                         </select>
                     </div>
-                    <div class="col-md-8 margin-vert-10" jxn-show="<?php echo attr()->show(rq(ExtButtons::class)) ?>">
+                    <div class="col-md-8 margin-vert-10" <?php echo attr()->show(rq(ExtButtons::class)) ?>>
                     </div>
                 </div>
 
                 <div class="row" style="margin-top: 20px;">
                     <!-- Custom attribute: Component for paginated content. -->
-                    <div class="col-md-12" jxn-show="<?php echo attr()->show(rq(PageContent::class)) ?>">
+                    <div class="col-md-12" <?php echo attr()->show(rq(PageContent::class)) ?>>
                         <?php echo cl(PageContent::class)->html() ?>
                     </div>
                     <!-- Custom attribute: Component for pagination links. -->
-                    <div class="col-md-12 margin-vert-10" jxn-show="<?php echo attr()->show(rq(Pagination::class)) ?>">
+                    <div class="col-md-12 margin-vert-10" <?php echo attr()->show(rq(Pagination::class)) ?>>
                     </div>
                 </div>
             </div> <!-- class="content" -->
