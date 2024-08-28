@@ -16,8 +16,11 @@ class HelloWorld extends \Jaxon\App\CallableClass
 
     public function showPage($pageNumber)
     {
-        $this->response->assign('div2', 'innerHTML', "Showing page number $pageNumber");
-        $this->paginator($pageNumber, 10, 150)->paginate($this->rq()->showPage(), 'pagination');
+        $this->paginator($pageNumber, 10, 150)
+            ->page(function(int $page) {
+                $this->response->assign('div2', 'innerHTML', "Showing page number $page");
+            })
+            ->render($this->rq()->showPage(), 'pagination');
         return $this->response;
     }
 }

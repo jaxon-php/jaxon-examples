@@ -63,7 +63,7 @@ use function Jaxon\rq;
                         <?php echo cl(PageContent::class)->html() ?>
                     </div>
                     <!-- Custom attribute: Component for pagination links. -->
-                    <div class="col-md-12 margin-vert-10" jxn-show="<?php echo attr()->show(rq(Paginator::class)) ?>">
+                    <div class="col-md-12 margin-vert-10" jxn-show="<?php echo attr()->show(rq(Pagination::class)) ?>">
                     </div>
                 </div>
             </div> <!-- class="content" -->
@@ -75,7 +75,7 @@ use function Jaxon\rq;
     window.onload = function() {
         <?php echo rq(AppTest::class)->sayHello(true) ?>;
         <?php echo rq(ExtTest::class)->sayHello(true) ?>;
-        <?php echo rq(Paginator::class)->showPage(1) ?>;
+        <?php echo rq(Pagination::class)->showPage(1) ?>;
     }
     /* ]]> */
 </script>
