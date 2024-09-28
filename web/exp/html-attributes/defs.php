@@ -1,6 +1,6 @@
 <?php
 
-require(__DIR__ . '/../../../vendor/autoload.php');
+require(dirname(__DIR__) . '/autoload.php');
 
 use Jaxon\App\Component;
 use Jaxon\App\PaginationComponent;
@@ -32,14 +32,6 @@ class PageContent extends Component
 }
 
 class Pagination extends PaginationComponent
-{
-    /**
-     * @inheritDoc
-     */
-    protected function itemsPerPage(): int
-    {
-        return 10;
-    }
-}
+{}
 
 jaxon()->app()->setup(__DIR__ . '/../../../config/component.php');

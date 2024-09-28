@@ -4,7 +4,7 @@ return [
     'app' => [
         'classes' => [
             PageContent::class,
-            Paginator::class,
+            Pagination::class,
         ],
         'directories' => [
             __DIR__ . '/../classes/component/app' => [

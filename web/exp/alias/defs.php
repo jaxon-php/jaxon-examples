@@ -1,6 +1,6 @@
 <?php
 
-require(__DIR__ . '/../../../vendor/autoload.php');
+require(dirname(__DIR__) . '/autoload.php');
 
 use Jaxon\Jaxon;
 use function Jaxon\jaxon;

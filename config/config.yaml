@@ -14,8 +14,9 @@ jaxon:
 
   dialogs:
     default:
-      modal:                       pgwjs
-      message:                     toastr
+      modal:                       bootbox
+      message:                     noty
+      question:                    noty
     pgwjs:
       assets:
         include:                   true
@@ -24,10 +25,3 @@ jaxon:
           closeOnEscape:           true
           closeOnBackgroundClick:  true
           maxWidth:                600
-    toastr:
-      options:
-        closeButton:               true
-        closeMethod:               "fadeOut"
-        closeDuration:             300
-        closeEasing:               "swing"
-        positionClass:             "toast-top-center"

@@ -1,7 +1,6 @@
 <?php
 
-require(__DIR__ . '/../../../vendor/autoload.php');
-require_once(__DIR__ . '/../../../vendor/jaxon-php/jaxon-dialogs/src/start.php');
+require(dirname(__DIR__) . '/autoload.php');
 use function Jaxon\jaxon;
 
 jaxon()->callback()->before(function($target, &$end) {
