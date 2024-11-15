@@ -26,10 +26,10 @@ use function Jaxon\rq;
                 <!-- Custom attribute: Multiple event handlers on child nodes, using dedicated divs. -->
                 <div class="row" <?php echo attr()->target() ?>>
                     <div <?php echo attr()
-                        ->on(['.app-color-choice', 'change'], rq(AppTest::class)->setColor(jq()->val())) ?>>
+                        ->event(['.app-color-choice', 'change'], rq(AppTest::class)->setColor(jq()->val())) ?>>
                     </div>
                     <div <?php echo attr()
-                        ->on(['.ext-color-choice', 'change'], rq(ExtTest::class)->setColor(jq()->val())) ?>>
+                        ->event(['.ext-color-choice', 'change'], rq(ExtTest::class)->setColor(jq()->val())) ?>>
                     </div>
 
                     <div class="col-md-12" <?php echo attr()->show(rq(AppTest::class)) ?>>

@@ -43,7 +43,7 @@ use function Jaxon\rq;
                     <div class="col-md-12" <?php echo attr()->show(rq(ExtTest::class)) ?>>
                         Initial content : <?php echo cl(ExtTest::class)->html() ?>
                     </div>
-                    <div class="col-md-4 margin-vert-10" <?php echo attr()->target() ?>>
+                    <div class="col-md-4 margin-vert-10">
                         <!-- Custom attribute: Event handler on DOM node. -->
                         <select class="form-control" <?php
                                 echo attr()->on('change', rq(ExtTest::class)->setColor(jq()->val())) ?>>
