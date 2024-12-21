@@ -23,7 +23,7 @@ class Test extends \Jaxon\App\Component
 
     public function setColor(string $sColor)
     {
-        $this->response->assign('style.color', $sColor);
+        $this->node()->assign('style.color', $sColor);
         return $this->response;
     }
 }

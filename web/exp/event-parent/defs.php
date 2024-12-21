@@ -2,36 +2,43 @@
 
 require(dirname(__DIR__) . '/autoload.php');
 
-use Jaxon\App\Component;
-use Jaxon\App\PaginationComponent;
+use Jaxon\App\PageComponent;
 use function Jaxon\jaxon;
 
-class PageContent extends Component
+class PageContent extends PageComponent
 {
-    private $page = 1;
+    /**
+     * @inheritDoc
+     */
+    protected function limit(): int
+    {
+        return 10;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function count(): int
+    {
+        return 150;
+    }
 
     public function html():  string
     {
-        return 'Showing page number ' . $this->page;
+        return 'Showing page number ' . $this->currentPage();
     }
 
     public function showPage(int $pageNumber)
     {
-        $this->cl(Pagination::class)
-            ->paginator($pageNumber, 150)
-            ->page(function(int $page) {
-                $this->page = $page;
-                // Render the page content.
-                $this->render();
-            })
-            // Render the paginator.
-            ->render($this->rq()->showPage());
+        // Get the paginator. This will also set the final page number value.
+        $paginator = $this->paginator($pageNumber);
+        // Render the page content.
+        $this->render();
+        // Render the pagination component.
+        $paginator->render($this->rq()->showPage());
 
         return $this->response;
     }
 }
-
-class Pagination extends PaginationComponent
-{}
 
 jaxon()->app()->setup(__DIR__ . '/../../../config/component.php');

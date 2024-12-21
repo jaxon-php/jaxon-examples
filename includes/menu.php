@@ -53,6 +53,10 @@ This example shows how to use Jaxon HTML custom attributes to define event handl
 This example shows how to use Jaxon HTML custom attributes to define multiple event handlers on a single DOM node.
 </p>',
         ],
+        '/exp/pagination-component/' => [
+            'title' => 'Pagination component',
+            'desc' => '',
+        ],
         '/exp/plugins/' => [
             'title' => 'Plugin Usage',
             'desc' => '<p>

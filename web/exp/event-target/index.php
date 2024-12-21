@@ -32,7 +32,7 @@ use function Jaxon\rq;
                         ->event(['.ext-color-choice', 'change'], rq(ExtTest::class)->setColor(jq()->val())) ?>>
                     </div>
 
-                    <div class="col-md-12" <?php echo attr()->show(rq(AppTest::class)) ?>>
+                    <div class="col-md-12" <?php echo attr()->bind(rq(AppTest::class)) ?>>
                         Initial content : <?php echo cl(AppTest::class)->html() ?>
                     </div>
                     <div class="col-md-4 margin-vert-10">
@@ -43,11 +43,11 @@ use function Jaxon\rq;
                             <option value="blue">Blue</option>
                         </select>
                     </div>
-                    <div class="col-md-8 margin-vert-10" <?php echo attr()->show(rq(AppButtons::class)) ?>>
+                    <div class="col-md-8 margin-vert-10" <?php echo attr()->bind(rq(AppButtons::class)) ?>>
                     </div>
 
-                    <div class="col-md-12" <?php echo attr()->show(rq(ExtTest::class)) ?>>
-                        Initial content : <?php echo cl(ExtTest::class)->html() ?>
+                    <div class="col-md-12" <?php echo attr()->bind(rq(ExtTest::class)) ?>>
+                        Initial content : <?php echo attr()->html(rq(ExtTest::class)) ?>
                     </div>
                     <div class="col-md-4 margin-vert-10">
                         <select class="form-control ext-color-choice">
@@ -57,17 +57,7 @@ use function Jaxon\rq;
                             <option value="blue">Blue</option>
                         </select>
                     </div>
-                    <div class="col-md-8 margin-vert-10" <?php echo attr()->show(rq(ExtButtons::class)) ?>>
-                    </div>
-                </div>
-
-                <div class="row" style="margin-top: 20px;">
-                    <!-- Custom attribute: Component for paginated content. -->
-                    <div class="col-md-12" <?php echo attr()->show(rq(PageContent::class)) ?>>
-                        <?php echo cl(PageContent::class)->html() ?>
-                    </div>
-                    <!-- Custom attribute: Component for pagination links. -->
-                    <div class="col-md-12 margin-vert-10" <?php echo attr()->show(rq(Pagination::class)) ?>>
+                    <div class="col-md-8 margin-vert-10" <?php echo attr()->bind(rq(ExtButtons::class)) ?>>
                     </div>
                 </div>
             </div> <!-- class="content" -->
@@ -79,7 +69,6 @@ use function Jaxon\rq;
     window.onload = function() {
         <?php echo rq(AppTest::class)->sayHello(true) ?>;
         <?php echo rq(ExtTest::class)->sayHello(true) ?>;
-        <?php echo rq(Pagination::class)->showPage(1) ?>;
     }
     /* ]]> */
 </script>

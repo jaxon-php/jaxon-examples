@@ -38,7 +38,7 @@ var jaxon = {
     },
 
     cmd: {
-        body: {},
+        node: {},
         script: {},
         event: {},
     },
@@ -979,7 +979,7 @@ window.jaxon = jaxon;
  * Process Jaxon custom HTML attributes
  */
 
-(function(self, event) {
+(function(self, event, debug) {
     /**
      * The DOM nodes associated to Jaxon components
      *
@@ -988,7 +988,7 @@ window.jaxon = jaxon;
     const xComponentNodes = {};
 
     /**
-     * The DOM nodes associated to Jaxon components
+     * The default component item name
      *
      * @var {string}
      */
@@ -999,7 +999,7 @@ window.jaxon = jaxon;
      *
      * @var {array}
      */
-    const aCommands = ['dom.assign', 'dom.append', 'dom.prepend', 'dom.replace'];
+    const aCommands = ['node.assign', 'node.append', 'node.prepend', 'node.replace'];
 
     /**
      * The attributes to check for changes
@@ -1007,6 +1007,27 @@ window.jaxon = jaxon;
      * @var {array}
      */
     const aAttributes = ['innerHTML', 'outerHTML'];
+
+    /**
+     * Remove attributes from a DOM node.
+     *
+     * @param {Element} xNode A DOM node.
+     * @param {array} aAttrs An array of attribute names.
+     *
+     * @returns {void}
+     */
+    const removeAttributes = (xNode, aAttrs) => !debug.active &&
+        aAttrs.forEach(sAttr => xNode.removeAttribute(sAttr));
+
+    /**
+     * Remove a child node from a DOM node.
+     *
+     * @param {Element} xNode A DOM node.
+     * @param {Element} xChild A Child node.
+     *
+     * @returns {void}
+     */
+    const removeChildNode = (xNode, xChild) => !debug.active && xNode.removeChild(xChild);
 
     /**
      * Check if a the attributes on a targeted node must be processed after a command is executed.
@@ -1018,8 +1039,7 @@ window.jaxon = jaxon;
      * @returns {void}
      */
     self.changed = (xTarget, sCommand, sAttribute) => (xTarget) &&
-        aAttributes.some(sVal => sVal === sAttribute) &&
-        aCommands.some(sVal => sVal === sCommand);
+        aAttributes.some(sVal => sVal === sAttribute) && aCommands.some(sVal => sVal === sCommand);
 
     /**
      * @param {Element} xContainer A DOM node.
@@ -1031,7 +1051,7 @@ window.jaxon = jaxon;
             const oHandler = JSON.parse(xNode.getAttribute('jxn-click'));
             event.setEventHandler({ event: 'click', func: oHandler }, { target: xNode });
 
-            xNode.removeAttribute('jxn-click');
+            removeAttributes(xNode, ['jxn-click']);
         });
     };
 
@@ -1057,7 +1077,7 @@ window.jaxon = jaxon;
             return;
         }
 
-        // Set the event handler on the selected children nodes.
+        // Set the event handler on the selected child nodes.
         const sSelector = xNode.getAttribute('jxn-select').trim();
         xTarget.querySelectorAll(`:scope ${sSelector}`).forEach(xChild => {
             // Set the event handler on the child node.
@@ -1074,9 +1094,7 @@ window.jaxon = jaxon;
         xContainer.querySelectorAll(':scope [jxn-on]').forEach(xNode => {
             setEventHandler(xNode, xNode, 'jxn-on');
 
-            xNode.removeAttribute('jxn-on');
-            xNode.removeAttribute('jxn-call');
-            xNode.removeAttribute('jxn-select');
+            removeAttributes(xNode, ['jxn-on', 'jxn-call', 'jxn-select']);
         });
     };
 
@@ -1085,18 +1103,18 @@ window.jaxon = jaxon;
      *
      * @returns {void}
      */
-    const setParentEventHandlers = (xContainer) => {
+    const setTargetEventHandlers = (xContainer) => {
         xContainer.querySelectorAll(':scope [jxn-target]').forEach(xTarget => {
             xTarget.querySelectorAll(':scope [jxn-event]').forEach(xNode => {
                 // Check event declarations only on direct child.
                 if (xNode.parentNode === xTarget) {
                     setEventHandler(xTarget, xNode, 'jxn-event');
 
-                    xTarget.removeChild(xNode);
+                    removeChildNode(xTarget, xNode);
                 }
             });
 
-            xTarget.removeAttribute('jxn-target');
+            removeAttributes(xTarget, ['jxn-target']);
         });
     };
 
@@ -1105,14 +1123,13 @@ window.jaxon = jaxon;
      *
      * @returns {void}
      */
-    const attachComponents = (xContainer) => {
-        xContainer.querySelectorAll(':scope [jxn-show]').forEach(xNode => {
-            const sComponentName = xNode.getAttribute('jxn-show');
+    const bindNodesToComponents = (xContainer) => {
+        xContainer.querySelectorAll(':scope [jxn-bind]').forEach(xNode => {
+            const sComponentName = xNode.getAttribute('jxn-bind');
             const sComponentItem = xNode.getAttribute('jxn-item') ?? sDefaultComponentItem;
             xComponentNodes[`${sComponentName}_${sComponentItem}`] = xNode;
 
-            xNode.removeAttribute('jxn-show');
-            xNode.removeAttribute('jxn-item');
+            removeAttributes(xNode, ['jxn-bind', 'jxn-item']);
         });
     };
 
@@ -1125,7 +1142,7 @@ window.jaxon = jaxon;
      */
     self.process = (xContainer = document) => {
         // Set event handlers on nodes
-        setParentEventHandlers(xContainer);
+        setTargetEventHandlers(xContainer);
 
         // Set event handlers on nodes
         setEventHandlers(xContainer);
@@ -1134,7 +1151,7 @@ window.jaxon = jaxon;
         setClickHandlers(xContainer);
 
         // Attach DOM nodes to Jaxon components
-        attachComponents(xContainer)
+        bindNodesToComponents(xContainer);
     };
 
     /**
@@ -1147,7 +1164,7 @@ window.jaxon = jaxon;
      */
     self.node = (sComponentName, sComponentItem = sDefaultComponentItem) =>
         xComponentNodes[`${sComponentName}_${sComponentItem}`] ?? null;
-})(jaxon.parser.attr, jaxon.cmd.event);
+})(jaxon.parser.attr, jaxon.cmd.event, jaxon.debug);
 
 
 /**
@@ -1472,7 +1489,7 @@ window.jaxon = jaxon;
     self.select = (xSelector, xContext = null) => !xContext ?
         self.jq(xSelector) : self.jq(xSelector, xContext);
 })(jaxon.parser.query, window.jQuery ?? window.chibi);
-// window.chibi is the ChibiJs (https://umbrellajs.com) selector function.
+// window.chibi is the ChibiJs (https://github.com/kylebarrow/chibi) selector function.
 
 
 /**
@@ -1882,7 +1899,7 @@ window.jaxon = jaxon;
      *
      * @returns {boolean}
      */
-    self.callHandler = (name, args, context) => {
+    self.call = (name, args, context) => {
         const { func, desc } = handlers[name];
         context.command.desc = desc;
         return func(args, context);
@@ -1919,7 +1936,7 @@ window.jaxon = jaxon;
         }
 
         // Process the command
-        self.callHandler(name, args, context);
+        self.call(name, args, context);
         // Process Jaxon custom attributes in the new node HTML content.
         attr.changed(context.target, name, args.attr) && attr.process(context.target);
         return true;
@@ -2202,8 +2219,9 @@ window.jaxon = jaxon;
         setParams(oRequest, (sParam, sValue) => rd.append(sParam, sValue));
 
         // Files to upload
-        const input = oRequest.upload.input;
-        input.files && input.files.forEach(file => rd.append(input.name, file));
+        const { name: field, files } = oRequest.upload.input;
+        // The "files" var is an array-like object, that we need to convert to a real array.
+        files && [...files].forEach(file => rd.append(field, file));
         return rd;
     };
 
@@ -2234,7 +2252,7 @@ window.jaxon = jaxon;
      *
      * @return {boolean}
      */
-    const hasUpload = ({ upload }) => upload && upload.ajax && upload.input;
+    const hasUpload = ({ upload: { form, input } = {} }) => form && input;
 
     /**
      * Processes request specific parameters and generates the temporary
@@ -2562,13 +2580,13 @@ window.jaxon = jaxon;
         }
         if (self.isRedirectCode(status)) {
             cbk.execute(oRequest, 'onRedirect');
-            req.complete(oRequest);
+            self.complete(oRequest);
             window.location = headers.get('location');
             return true;
         }
         if (self.isErrorCode(status)) {
             cbk.execute(oRequest, 'onFailure');
-            req.complete(oRequest);
+            self.complete(oRequest);
             return true;
         }
         return true;
@@ -2696,7 +2714,92 @@ window.jaxon = jaxon;
 
 
 /**
- * Class: jaxon.cmd.body
+ * Class: jaxon.cmd.event
+ */
+
+(function(self, call, dom, str) {
+    /**
+     * Add an event handler to the specified target.
+     *
+     * @param {object} args The command arguments.
+     * @param {string} args.event The name of the event.
+     * @param {string} args.func The name of the function to be called
+     * @param {object} context The command context.
+     * @param {Element} context.target The target DOM element.
+     *
+     * @returns {true} The operation completed successfully.
+     */
+    self.addHandler = ({ event: sEvent, func: sFuncName }, { target }) => {
+        target.addEventListener(str.stripOnPrefix(sEvent), dom.findFunction(sFuncName), false)
+        return true;
+    };
+
+    /**
+     * Remove an event handler from an target.
+     *
+     * @param {object} args The command arguments.
+     * @param {string} args.event The name of the event.
+     * @param {string} args.func The name of the function to be removed
+     * @param {object} context The command context.
+     * @param {Element} context.target The target DOM element.
+     *
+     * @returns {true} The operation completed successfully.
+     */
+    self.removeHandler = ({ event: sEvent, func: sFuncName }, { target }) => {
+       target.removeEventListener(str.stripOnPrefix(sEvent), dom.findFunction(sFuncName), false);
+       return true;
+    };
+
+    /**
+     * Call an event handler.
+     *
+     * @param {string} event The name of the event
+     * @param {object} func The expression to be executed in the event handler
+     * @param {object} target The target element
+     *
+     * @returns {void}
+     */
+    const callEventHandler = (event, func, target) =>
+        call.execExpr({ _type: 'expr', ...func }, { event, target });
+
+    /**
+     * Add an event handler with arguments to the specified target.
+     *
+     * @param {object} args The command arguments.
+     * @param {string} args.event The name of the event
+     * @param {object} args.func The event handler
+     * @param {object|false} args.options The handler options
+     * @param {object} context The command context.
+     * @param {Element} context.target The target DOM element.
+     *
+     * @returns {true} The operation completed successfully.
+     */
+    self.addEventHandler = ({ event: sEvent, func, options }, { target }) => {
+        target.addEventListener(str.stripOnPrefix(sEvent),
+            (event) => callEventHandler(event, func, target), options ?? false);
+        return true;
+    };
+
+    /**
+     * Set an event handler with arguments to the specified target.
+     *
+     * @param {object} args The command arguments.
+     * @param {string} args.event The name of the event
+     * @param {object} args.func The event handler
+     * @param {object} context The command context.
+     * @param {Element} context.target The target DOM element.
+     *
+     * @returns {true} The operation completed successfully.
+     */
+    self.setEventHandler = ({ event: sEvent, func }, { target }) => {
+        target[str.addOnPrefix(sEvent)] = (event) => callEventHandler(event, func, target);
+        return true;
+    };
+})(jaxon.cmd.event, jaxon.parser.call, jaxon.utils.dom, jaxon.utils.string);
+
+
+/**
+ * Class: jaxon.cmd.
  */
 
 (function(self, dom, types, baseDocument) {
@@ -2883,92 +2986,7 @@ window.jaxon = jaxon;
             target.parentNode.insertBefore(createNewTag(sTag, sId), target.nextSibling);
         return true;
     };
-})(jaxon.cmd.body, jaxon.utils.dom, jaxon.utils.types, jaxon.config.baseDocument);
-
-
-/**
- * Class: jaxon.cmd.event
- */
-
-(function(self, call, dom, str) {
-    /**
-     * Add an event handler to the specified target.
-     *
-     * @param {object} args The command arguments.
-     * @param {string} args.event The name of the event.
-     * @param {string} args.func The name of the function to be called
-     * @param {object} context The command context.
-     * @param {Element} context.target The target DOM element.
-     *
-     * @returns {true} The operation completed successfully.
-     */
-    self.addHandler = ({ event: sEvent, func: sFuncName }, { target }) => {
-        target.addEventListener(str.stripOnPrefix(sEvent), dom.findFunction(sFuncName), false)
-        return true;
-    };
-
-    /**
-     * Remove an event handler from an target.
-     *
-     * @param {object} args The command arguments.
-     * @param {string} args.event The name of the event.
-     * @param {string} args.func The name of the function to be removed
-     * @param {object} context The command context.
-     * @param {Element} context.target The target DOM element.
-     *
-     * @returns {true} The operation completed successfully.
-     */
-    self.removeHandler = ({ event: sEvent, func: sFuncName }, { target }) => {
-       target.removeEventListener(str.stripOnPrefix(sEvent), dom.findFunction(sFuncName), false);
-       return true;
-    };
-
-    /**
-     * Call an event handler.
-     *
-     * @param {string} event The name of the event
-     * @param {object} func The expression to be executed in the event handler
-     * @param {object} target The target element
-     *
-     * @returns {void}
-     */
-    const callEventHandler = (event, func, target) =>
-        call.execExpr({ _type: 'expr', ...func }, { event, target });
-
-    /**
-     * Add an event handler with arguments to the specified target.
-     *
-     * @param {object} args The command arguments.
-     * @param {string} args.event The name of the event
-     * @param {object} args.func The event handler
-     * @param {object|false} args.options The handler options
-     * @param {object} context The command context.
-     * @param {Element} context.target The target DOM element.
-     *
-     * @returns {true} The operation completed successfully.
-     */
-    self.addEventHandler = ({ event: sEvent, func, options }, { target }) => {
-        target.addEventListener(str.stripOnPrefix(sEvent),
-            (event) => callEventHandler(event, func, target), options ?? false);
-        return true;
-    };
-
-    /**
-     * Set an event handler with arguments to the specified target.
-     *
-     * @param {object} args The command arguments.
-     * @param {string} args.event The name of the event
-     * @param {object} args.func The event handler
-     * @param {object} context The command context.
-     * @param {Element} context.target The target DOM element.
-     *
-     * @returns {true} The operation completed successfully.
-     */
-    self.setEventHandler = ({ event: sEvent, func }, { target }) => {
-        target[str.addOnPrefix(sEvent)] = (event) => callEventHandler(event, func, target);
-        return true;
-    };
-})(jaxon.cmd.event, jaxon.parser.call, jaxon.utils.dom, jaxon.utils.string);
+})(jaxon.cmd.node, jaxon.utils.dom, jaxon.utils.types, jaxon.config.baseDocument);
 
 
 /**
@@ -3156,15 +3174,15 @@ jaxon.isLoaded = true;
         return true;
     }, 'Response complete');
 
-    register('dom.assign', cmd.body.assign, 'Dom::Assign');
-    register('dom.append', cmd.body.append, 'Dom::Append');
-    register('dom.prepend', cmd.body.prepend, 'Dom::Prepend');
-    register('dom.replace', cmd.body.replace, 'Dom::Replace');
-    register('dom.clear', cmd.body.clear, 'Dom::Clear');
-    register('dom.remove', cmd.body.remove, 'Dom::Remove');
-    register('dom.create', cmd.body.create, 'Dom::Create');
-    register('dom.insert.before', cmd.body.insertBefore, 'Dom::InsertBefore');
-    register('dom.insert.after', cmd.body.insertAfter, 'Dom::InsertAfter');
+    register('node.assign', cmd.node.assign, 'Node::Assign');
+    register('node.append', cmd.node.append, 'Node::Append');
+    register('node.prepend', cmd.node.prepend, 'Node::Prepend');
+    register('node.replace', cmd.node.replace, 'Node::Replace');
+    register('node.clear', cmd.node.clear, 'Node::Clear');
+    register('node.remove', cmd.node.remove, 'Node::Remove');
+    register('node.create', cmd.node.create, 'Node::Create');
+    register('node.insert.before', cmd.node.insertBefore, 'Node::InsertBefore');
+    register('node.insert.after', cmd.node.insertAfter, 'Node::InsertAfter');
 
     register('script.call', cmd.script.call, 'Script::CallJsFunction');
     register('script.exec', cmd.script.exec, 'Script::ExecJsonExpression');
@@ -3186,12 +3204,12 @@ jaxon.isLoaded = true;
     // Pagination
     register('pg.paginate', cmd.script.paginate, 'Paginator::Paginate');
     // Data bags
-    register('databag.set', cmd.script.setDatabag, 'Databag:SetValues');
-    register('databag.clear', cmd.script.clearDatabag, 'Databag:ClearValue');
+    register('databag.set', cmd.script.setDatabag, 'Databag::SetValues');
+    register('databag.clear', cmd.script.clearDatabag, 'Databag::ClearValue');
     // Dialogs
-    register('dialog.message', dialog.cmd.showMessage, 'Dialog:ShowMessage');
-    register('dialog.modal.show', dialog.cmd.showModal, 'Dialog:ShowModal');
-    register('dialog.modal.hide', dialog.cmd.hideModal, 'Dialog:HideModal');
+    register('dialog.message', dialog.cmd.showMessage, 'Dialog::ShowMessage');
+    register('dialog.modal.show', dialog.cmd.showModal, 'Dialog::ShowModal');
+    register('dialog.modal.hide', dialog.cmd.hideModal, 'Dialog::HideModal');
 })(jaxon.register, jaxon.cmd, jaxon.ajax, jaxon.dialog);
 
 
