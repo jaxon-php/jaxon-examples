@@ -21,7 +21,7 @@ use function Jaxon\rq;
                     <div class="col-md-12">
                         <?php echo $lib['name'] ?>
                     </div>
-<?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\MessageInterface::class)): ?>
+<?php if(is_subclass_of($lib['class'], \Jaxon\Plugin\Response\Dialog\Library\MessageInterface::class)): ?>
                     <div class="col-md-12" style="padding-bottom: 15px;">
                         <button type="button" class="btn btn-primary" <?php
                             echo attr()->click(rq(HelloWorld::class)->showSuccess($id, $lib['name'])) ?>>Success</button>
@@ -33,7 +33,7 @@ use function Jaxon\rq;
                             echo attr()->click(rq(HelloWorld::class)->showError($id, $lib['name'])) ?>>Error</button>
                     </div>
 <?php endif ?>
-<?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\QuestionInterface::class)): ?>
+<?php if(is_subclass_of($lib['class'], \Jaxon\Plugin\Response\Dialog\Library\QuestionInterface::class)): ?>
                     <div class="col-md-12" style="padding-bottom: 15px;">
                         <button type="button" class="btn btn-primary"
                             onclick="jaxon.confirm({ lib: '<?php echo $id ?>', title: 'Question', text: 'Really?' },
@@ -41,7 +41,7 @@ use function Jaxon\rq;
                             () => jaxon.alert({ lib: '<?php echo $id ?>', type: 'warning', title: 'Warning', text: 'So Sorry!!!' }))" >Confirm</button>
                     </div>
 <?php endif ?>
-<?php if(is_subclass_of($lib['class'], \Jaxon\App\Dialog\ModalInterface::class)): ?>
+<?php if(is_subclass_of($lib['class'], \Jaxon\Plugin\Response\Dialog\Library\ModalInterface::class)): ?>
                     <div class="col-md-12" style="padding-bottom: 15px;">
                         <button type="button" class="btn btn-primary" <?php
                             echo attr()->click(rq(HelloWorld::class)->showDialog($id, $lib['name'])) ?>>Modal</button>
