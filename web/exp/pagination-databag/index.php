@@ -33,7 +33,7 @@ $rqPageContent = rq(PageContent::class);
 <script type='text/javascript'>
     /* <![CDATA[ */
     window.onload = function() {
-        <?php echo $rqPageContent->showPage(1, 'This is the page title') ?>;
+        <?php echo $rqPageContent->show() ?>;
     }
     /* ]]> */
 </script>

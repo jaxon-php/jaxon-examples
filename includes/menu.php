@@ -55,7 +55,11 @@ This example shows how to use Jaxon HTML custom attributes to define multiple ev
         ],
         '/exp/pagination-component/' => [
             'title' => 'Pagination component',
-            'desc' => '',
+            'desc' => 'This example demonstrates the built-in pagination component.',
+        ],
+        '/exp/pagination-databag/' => [
+            'title' => 'Pagination and data bag',
+            'desc' => 'In this example the built-in pagination component in used with a data bag.',
         ],
         '/exp/plugins/' => [
             'title' => 'Plugin Usage',

@@ -6,6 +6,9 @@ use Jaxon\App\PageComponent;
 use function Jaxon\jaxon;
 use function Jaxon\pm;
 
+/**
+ * @databag page
+ */
 class PageContent extends PageComponent
 {
    /**
@@ -27,22 +30,27 @@ class PageContent extends PageComponent
    public function html():  string
     {
         return '<div style="margin-bottom:10px;font-weight:bold;">' .
-            $this->cache()->get('title') .
+            $this->bag('page')->get('title') .
             '</div>Showing page number ' . $this->currentPage();
     }
 
-    public function showPage(int $pageNumber, string $title)
+    public function showPage(int $pageNumber)
     {
-        $this->cache()->set('title', $title);
-
         // Get the paginator. This will also set the final page number value.
         $paginator = $this->paginator($pageNumber);
         // Render the page content.
         $this->render();
         // Render the pagination component.
-        $paginator->render($this->rq()->showPage(pm()->page(), $title));
+        $paginator->render($this->rq()->showPage(pm()->page()));
 
         return $this->response;
+    }
+
+    public function show()
+    {
+        $title = 'This is the page title';
+        $this->bag('page')->set('title', $title);
+        $this->showPage(1);
     }
 }
 
