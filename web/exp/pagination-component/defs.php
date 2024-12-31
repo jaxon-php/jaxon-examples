@@ -27,13 +27,13 @@ class PageContent extends PageComponent
    public function html():  string
     {
         return '<div style="margin-bottom:10px;font-weight:bold;">' .
-            $this->cache()->get('title') .
+            $this->stash()->get('title') .
             '</div>Showing page number ' . $this->currentPage();
     }
 
     public function showPage(int $pageNumber, string $title)
     {
-        $this->cache()->set('title', $title);
+        $this->stash()->set('title', $title);
 
         // Get the paginator. This will also set the final page number value.
         $paginator = $this->paginator($pageNumber);
