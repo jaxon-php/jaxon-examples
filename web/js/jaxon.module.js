@@ -17,7 +17,7 @@ var jaxon = {
     version: {
         major: '5',
         minor: '0',
-        patch: '0-beta.12',
+        patch: '0-beta.13',
     },
 
     debug: {
@@ -1331,6 +1331,23 @@ window.jaxon = jaxon;
     const getArgs = (aArgs, xOptions) => aArgs.map(xArg => getValue(xArg, xOptions));
 
     /**
+     * Get the options for a json call.
+     *
+     * @param {object} xContext The context to execute calls in.
+     *
+     * @returns {object}
+     */
+    const getOptions = (xContext, xDefault = {}) => {
+        xContext.global = {
+            // Some functions are meant to be executed in the context of the component.
+            component: !xContext.component || !xContext.target ? null : xContext.target,
+        };
+        // Remove the component field from the xContext object.
+        const { component: _, ...xNewContext } = xContext;
+        return { context: { target: window, ...xNewContext }, ...xDefault };
+    }
+
+    /**
      * Execute a single call.
      *
      * @param {object} xCall
@@ -1344,24 +1361,6 @@ window.jaxon = jaxon;
         xOptions.value = xCommand(xCall, xOptions);
         return xOptions.value;
     };
-
-    /**
-     * Get the options for a json call.
-     *
-     * @param {object} xContext The context to execute calls in.
-     *
-     * @returns {object}
-     */
-    const getOptions = (xContext, xDefault = {}) => {
-        xContext.global = {};
-        // Some functions are meant to executed in the context of the component.
-        if (xContext.component === true && (xContext.target)) {
-            xContext.global.target = xContext.target;
-        }
-        // Remove the component field from the xContext object.
-        const { component: _, ...xNewContext } = xContext;
-        return { target: window, context: xNewContext, ...xDefault };
-    }
 
     /**
      * Execute a single javascript function call.
