@@ -26,7 +26,7 @@ class HelloWorld
     {
         $xResponse = jaxon()->getResponse();
         $files = jaxon()->upload()->files();
-        $xResponse->dialog->modal('Uploaded files', print_r($files['photos'], true), []);
+        $xResponse->dialog->show('Uploaded files', print_r($files['photos'], true), []);
         $xResponse->dialog->info('Uploaded ' . count($files['photos']) . ' file(s).');
         return $xResponse;
     }
@@ -40,6 +40,7 @@ $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('js.app.minify', false);
 $jaxon->setOption('upload.default.dir', __DIR__ . '/files');
 $jaxon->setOption('core.request.uri', 'ajax.php');
+$jaxon->setOption('core.upload.enabled', true);
 
 $jaxon->setOption('dialogs.default.modal', 'bootstrap');
 $jaxon->setOption('dialogs.default.message', 'toastr');
