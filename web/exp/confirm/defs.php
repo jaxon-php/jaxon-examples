@@ -41,6 +41,7 @@ $jaxon->app()->setup(__DIR__ . '/../../../config/class.php');
 $jaxon->setOption('dialogs.default.question', 'cute');
 
 // Js options
+$jaxon->setOption('core.language', 'fr');
 $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('js.app.minify', false);
 

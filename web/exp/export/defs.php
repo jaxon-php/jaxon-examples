@@ -76,6 +76,7 @@ $jaxon->setOption('dialogs.default.question', 'noty');
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');
+$jaxon->setOption('core.language', 'fr');
 
 // Register object
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

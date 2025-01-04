@@ -28,6 +28,7 @@ class HelloWorld
 $jaxon = jaxon();
 
 $jaxon->setOption('js.lib.uri', '/js');
+$jaxon->setOption('core.language', 'fr');
 $jaxon->setOption('core.debug.on', false);
 $jaxon->setOption('core.prefix.function', 'jaxon_');
 
