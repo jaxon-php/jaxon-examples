@@ -13,17 +13,25 @@ use Jaxon\Dialogs\Noty\NotyLibrary;
 use Jaxon\Dialogs\Notify\NotifyLibrary;
 use Jaxon\Dialogs\SweetAlert\SweetAlertLibrary;
 use Jaxon\Dialogs\JQueryConfirm\JQueryConfirmLibrary;
+use function Jaxon\attr;
 use function Jaxon\jaxon;
+use function Jaxon\rq;
 
 class HelloWorld
 {
+    private function content(string $name): string
+    {
+        return '<div ' . attr()->bind(rq(HelloWorld::class)) .
+            '>This modal dialog is powered by ' . $name . '!!</div>';
+    }
+
     public function showDialog($id, $name)
     {
         jaxon()->setOption('dialogs.default.modal', $id);
         $xResponse = jaxon()->newResponse();
         $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $options = [];
-        $xResponse->dialog->show("Modal Dialog", "This modal dialog is powered by $name!!", $buttons, $options);
+        $xResponse->dialog->show('Modal Dialog', $this->content($name), $buttons, $options);
 
         return $xResponse;
     }
@@ -32,7 +40,7 @@ class HelloWorld
     {
         jaxon()->setOption('dialogs.default.message', $id);
         $xResponse = jaxon()->newResponse();
-        $xResponse->dialog->title("Yeah Man!!!")->success("Powered by $name!!");
+        $xResponse->dialog->title('Yeah Man!!!')->success("Powered by $name!!");
 
         return $xResponse;
     }
@@ -41,7 +49,7 @@ class HelloWorld
     {
         jaxon()->setOption('dialogs.default.message', $id);
         $xResponse = jaxon()->newResponse();
-        $xResponse->dialog->title("Yeah Man!!!")->info("Powered by $name!!");
+        $xResponse->dialog->title('Yeah Man!!!')->info("Powered by $name!!");
 
         return $xResponse;
     }
@@ -50,7 +58,7 @@ class HelloWorld
     {
         jaxon()->setOption('dialogs.default.message', $id);
         $xResponse = jaxon()->newResponse();
-        $xResponse->dialog->title("Yeah Man!!!")->warning("Powered by $name!!");
+        $xResponse->dialog->title('Yeah Man!!!')->warning("Powered by $name!!");
 
         return $xResponse;
     }
@@ -59,7 +67,7 @@ class HelloWorld
     {
         jaxon()->setOption('dialogs.default.message', $id);
         $xResponse = jaxon()->newResponse();
-        $xResponse->dialog->title("Yeah Man!!!")->error("Powered by $name!!");
+        $xResponse->dialog->title('Yeah Man!!!')->error("Powered by $name!!");
 
         return $xResponse;
     }
