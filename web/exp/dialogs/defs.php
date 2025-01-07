@@ -32,8 +32,6 @@ class HelloWorld
         $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $options = [];
         $xResponse->dialog->show('Modal Dialog', $this->content($name), $buttons, $options);
-
-        return $xResponse;
     }
 
     public function showSuccess($id, $name)
@@ -41,8 +39,6 @@ class HelloWorld
         jaxon()->setOption('dialogs.default.message', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->success("Powered by $name!!");
-
-        return $xResponse;
     }
 
     public function showInfo($id, $name)
@@ -50,8 +46,6 @@ class HelloWorld
         jaxon()->setOption('dialogs.default.message', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->info("Powered by $name!!");
-
-        return $xResponse;
     }
 
     public function showWarning($id, $name)
@@ -59,8 +53,6 @@ class HelloWorld
         jaxon()->setOption('dialogs.default.message', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->warning("Powered by $name!!");
-
-        return $xResponse;
     }
 
     public function showError($id, $name)
@@ -68,8 +60,6 @@ class HelloWorld
         jaxon()->setOption('dialogs.default.message', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->error("Powered by $name!!");
-
-        return $xResponse;
     }
 }
 

@@ -32,8 +32,6 @@ class HelloWorld
         // $xResponse->setEventHandler('btn-uppercase', 'click', rq('HelloWorld')->sayHello(1));
         // $xResponse->setEventHandler('btn-lowercase', 'click', rq('HelloWorld')->sayHello(0));
         // $xResponse->setEventHandler('colorselect', 'change', rq('HelloWorld')->setColor(pm()->select('colorselect')));
-
-        return $xResponse;
     }
 
     public function sayHello(bool $isCaps)
@@ -41,16 +39,12 @@ class HelloWorld
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->getResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
-
-        return $xResponse;
     }
 
     public function setColor(string $sColor)
     {
         $xResponse = jaxon()->getResponse();
         $xResponse->assign('div2', 'style.color', $sColor);
-
-        return $xResponse;
     }
 }
 

@@ -41,8 +41,6 @@ class PageContent extends PageComponent
         $this->render();
         // Render the pagination component.
         $paginator->render($this->rq()->showPage(pm()->page(), $title));
-
-        return $this->response;
     }
 }
 

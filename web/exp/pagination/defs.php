@@ -11,7 +11,6 @@ class HelloWorld extends \Jaxon\App\CallableClass
     {
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $this->response->assign('div2', 'innerHTML', $text);
-        return $this->response;
     }
 
     public function showPage($pageNumber)
@@ -21,7 +20,6 @@ class HelloWorld extends \Jaxon\App\CallableClass
                 $this->response->assign('div2', 'innerHTML', "Showing page number $page");
             })
             ->render($this->rq()->showPage(), 'pagination');
-        return $this->response;
     }
 }
 

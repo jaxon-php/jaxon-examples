@@ -12,16 +12,12 @@ class HelloWorld
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
-
-        return $xResponse;
     }
 
     public function setColor(string $sColor)
     {
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'style.color', $sColor);
-
-        return $xResponse;
     }
 }
 

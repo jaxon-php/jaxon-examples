@@ -26,14 +26,12 @@ class HelloWorld extends CallableClass
     {
         $sMessage = $this->service->message($isCaps) . ', ' . $sMessage;
         $this->response->assign('div2', 'innerHTML', $sMessage);
-        return $this->response;
     }
 
     public function setColor(string $sColor)
     {
         $sColor = $this->service->color($sColor);
         $this->response->assign('div2', 'style.color', $sColor);
-        return $this->response;
     }
 }
 

@@ -12,21 +12,18 @@ class HelloWorld extends CallableClass
     {
         sleep(intval($iDuration));
         $this->response->append('div2', 'innerHTML', "<br/>I slept for $iDuration second(s)");
-        return $this->response;
     }
 
     public function ssleep($iDuration)
     {
         sleep(intval($iDuration));
         $this->response->append('div2', 'innerHTML', "<br/>I slept for $iDuration second(s)");
-        return $this->response;
     }
 
     public function nodup($iDuration)
     {
         sleep(intval($iDuration));
         $this->response->append('div2', 'innerHTML', "<br/>I slept for $iDuration second(s)");
-        return $this->response;
     }
 }
 

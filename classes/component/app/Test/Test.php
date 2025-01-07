@@ -18,12 +18,10 @@ class Test extends \Jaxon\App\Component
         $this->isCaps = $isCaps;
         $this->render();
         $this->cl(Buttons::class)->render();
-        return $this->response;
     }
 
     public function setColor(string $sColor)
     {
         $this->node()->assign('style.color', $sColor);
-        return $this->response;
     }
 }

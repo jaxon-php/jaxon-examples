@@ -15,8 +15,6 @@ function helloWorld(bool $isCaps)
     $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
     $xResponse = jaxon()->newResponse();
     $xResponse->assign('div1', 'innerHTML', $text);
-
-    return $xResponse;
 }
 
 /*
@@ -28,8 +26,6 @@ function setColor(string $sColor)
 {
     $xResponse = jaxon()->newResponse();
     $xResponse->assign('div1', 'style.color', $sColor);
-
-    return $xResponse;
 }
 
 $jaxon = jaxon();

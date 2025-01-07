@@ -11,7 +11,6 @@ class HelloWorld
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
-        return $xResponse;
     }
 
     public function setColor(string $sColor)
@@ -23,14 +22,12 @@ class HelloWorld
         }, 'Sleep for 5 seconds?');
 
         $xResponse->assign('div2', 'style.color', $sColor);
-        return $xResponse;
     }
 
     public function showError($sMessage)
     {
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $sMessage);
-        return $xResponse;
     }
 }
 

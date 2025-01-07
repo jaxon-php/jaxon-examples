@@ -14,8 +14,6 @@ class HelloWorld
         $xResponse->assign('div2', 'innerHTML', $text);
         if(($bNotify))
             $xResponse->dialog->success("div2 text is now $text");
-
-        return $xResponse;
     }
 
     public function setColor(string $sColor, bool $bNotify = true)
@@ -24,8 +22,6 @@ class HelloWorld
         $xResponse->assign('div2', 'style.color', $sColor);
         if(($bNotify))
             $xResponse->dialog->success("div2 color is now $sColor");
-
-        return $xResponse;
     }
 
     public function showDialog()
@@ -34,8 +30,6 @@ class HelloWorld
         $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $options = ['width' => 500];
         $xResponse->dialog->show("Modal Dialog", "This modal dialog is powered by PgwJs!!", $buttons, $options);
-
-        return $xResponse;
     }
 }
 

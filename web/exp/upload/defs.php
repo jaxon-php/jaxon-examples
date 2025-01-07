@@ -12,14 +12,12 @@ class HelloWorld
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->getResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
-        return $xResponse;
     }
 
     public function setColor(string $sColor)
     {
         $xResponse = jaxon()->getResponse();
         $xResponse->assign('div2', 'style.color', $sColor);
-        return $xResponse;
     }
 
     public function upload()
@@ -28,7 +26,6 @@ class HelloWorld
         $files = jaxon()->upload()->files();
         $xResponse->dialog->show('Uploaded files', print_r($files['photos'], true), []);
         $xResponse->dialog->info('Uploaded ' . count($files['photos']) . ' file(s).');
-        return $xResponse;
     }
 }
 

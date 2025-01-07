@@ -28,7 +28,6 @@ class Flot extends \Jaxon\App\CallableClass
         // Draw the graph
         $this->response->flot->draw($plot);
         // Return the response
-        return $this->response;
     }
 }
 

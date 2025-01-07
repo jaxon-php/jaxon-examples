@@ -25,8 +25,6 @@ class HelloWorld extends CallableClass
             // $this->response->confirmCommands(1, 'Skip text assignement?');
             $this->response->assign('div2', 'innerHTML', $text);
         }
-
-        return $this->response;
     }
 
     public function setColor(string $sColor, bool $bNotify = true)
@@ -43,8 +41,6 @@ class HelloWorld extends CallableClass
             // $this->response->confirmCommands(1, 'Skip color assignement?');
             $this->response->assign('div2', 'style.color', $sColor);
         }
-
-        return $this->response;
     }
 
     public function showDialog()
@@ -52,8 +48,6 @@ class HelloWorld extends CallableClass
         $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
         $options = array('width' => 500);
         $this->response->dialog->show("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $options);
-
-        return $this->response;
     }
 }
 
