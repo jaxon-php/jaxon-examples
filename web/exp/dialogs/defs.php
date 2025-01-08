@@ -4,16 +4,17 @@ require(dirname(__DIR__) . '/autoload.php');
 
 use Jaxon\Jaxon;
 use Jaxon\Dialogs\Library\Alertify;
-use Jaxon\Dialogs\Bootbox\BootboxLibrary;
-use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
-use Jaxon\Dialogs\CuteAlert\CuteAlertLibrary;
-use Jaxon\Dialogs\Toastr\ToastrLibrary;
-use Jaxon\Dialogs\JAlert\JAlertLibrary;
-use Jaxon\Dialogs\Tingle\TingleLibrary;
-use Jaxon\Dialogs\Noty\NotyLibrary;
-use Jaxon\Dialogs\Notify\NotifyLibrary;
-use Jaxon\Dialogs\SweetAlert\SweetAlertLibrary;
-use Jaxon\Dialogs\JQueryConfirm\JQueryConfirmLibrary;
+use Jaxon\Dialogs\Library\Bootbox;
+use Jaxon\Dialogs\Library\Bootstrap;
+use Jaxon\Dialogs\Library\CuteAlert;
+use Jaxon\Dialogs\Library\Toastr;
+use Jaxon\Dialogs\Library\JAlert;
+use Jaxon\Dialogs\Library\Tingle;
+use Jaxon\Dialogs\Library\Noty;
+use Jaxon\Dialogs\Library\Notify;
+use Jaxon\Dialogs\Library\SweetAlert;
+use Jaxon\Dialogs\Library\JQueryConfirm;
+
 use function Jaxon\attr;
 use function Jaxon\jaxon;
 use function Jaxon\rq;
@@ -68,25 +69,25 @@ $aLibraries = [
     // Alertify
     'alertify'      => ['class' => Alertify::class, 'id' => 'alertify', 'name' => 'Alertify'],
     // Bootbox
-    'bootbox'       => ['class' => BootboxLibrary::class, 'id' => 'bootbox', 'name' => 'Bootbox'],
+    'bootbox'       => ['class' => Bootbox::class, 'id' => 'bootbox', 'name' => 'Bootbox'],
     // Bootstrap
-    'bootstrap'     => ['class' => BootstrapLibrary::class, 'id' => 'bootstrap', 'name' => 'Bootstrap'],
+    'bootstrap'     => ['class' => Bootstrap::class, 'id' => 'bootstrap', 'name' => 'Bootstrap'],
     // CuteAlert
-    'cute'          => ['class' => CuteAlertLibrary::class, 'id' => 'cute', 'name' => 'CuteAlert'],
+    'cute'          => ['class' => CuteAlert::class, 'id' => 'cute', 'name' => 'CuteAlert'],
     // Toastr
-    'toastr'        => ['class' => ToastrLibrary::class, 'id' => 'toastr', 'name' => 'Toastr'],
+    'toastr'        => ['class' => Toastr::class, 'id' => 'toastr', 'name' => 'Toastr'],
     // JAlert
-    'jalert'        => ['class' => JAlertLibrary::class, 'id' => 'jalert', 'name' => 'JAlert'],
+    'jalert'        => ['class' => JAlert::class, 'id' => 'jalert', 'name' => 'JAlert'],
     // Tingle
-    'tingle'        => ['class' => TingleLibrary::class, 'id' => 'tingle', 'name' => 'Tingle'],
+    'tingle'        => ['class' => Tingle::class, 'id' => 'tingle', 'name' => 'Tingle'],
     // Noty
-    'noty'          => ['class' => NotyLibrary::class, 'id' => 'noty', 'name' => 'Noty'],
+    'noty'          => ['class' => Noty::class, 'id' => 'noty', 'name' => 'Noty'],
     // Notify
-    'notify'        => ['class' => NotifyLibrary::class, 'id' => 'notify', 'name' => 'Notify'],
+    'notify'        => ['class' => Notify::class, 'id' => 'notify', 'name' => 'Notify'],
     // SweetAlert
-    'sweetalert'    => ['class' => SweetAlertLibrary::class, 'id' => 'sweetalert', 'name' => 'SweetAlert'],
+    'sweetalert'    => ['class' => SweetAlert::class, 'id' => 'sweetalert', 'name' => 'SweetAlert'],
     // JQuery Confirm
-    'jconfirm'      => ['class' => JQueryConfirmLibrary::class, 'id' => 'jconfirm', 'name' => 'JQueryConfirm'],
+    'jconfirm'      => ['class' => JQueryConfirm::class, 'id' => 'jconfirm', 'name' => 'JQueryConfirm'],
 ];
 
 $jaxon = jaxon();
