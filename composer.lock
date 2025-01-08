@@ -4,25 +4,26 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17c6a209bb0b9e5fcafc3a9565541dc3",
-    "packages": [
+    "content-hash": "badb820cbc228ee80abb52929b67f7ed",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "jaxon-php/jaxon-core",
             "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-core.git",
-                "reference": "fa3d90b79b613180057ea6fff1f5b7ef04d9fb59"
+                "reference": "64ea46d0fce0a9f67a54bab0c82d3ad7e517f925"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-core/zipball/fa3d90b79b613180057ea6fff1f5b7ef04d9fb59",
-                "reference": "fa3d90b79b613180057ea6fff1f5b7ef04d9fb59",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-core/zipball/64ea46d0fce0a9f67a54bab0c82d3ad7e517f925",
+                "reference": "64ea46d0fce0a9f67a54bab0c82d3ad7e517f925",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "jaxon-php/jaxon-utils": "^1.1.2",
+                "jaxon-php/jaxon-utils": "dev-main",
                 "nyholm/psr7": "^1.8",
                 "nyholm/psr7-server": "^1.1",
                 "php": ">=8.0",
@@ -34,7 +35,6 @@
                 "psr/log": "^1.0|^2.0|^3.0"
             },
             "require-dev": {
-                "jaxon-php/jaxon-annotations": "dev-main",
                 "jaxon-php/jaxon-dialogs": "dev-main",
                 "jaxon-php/jaxon-upload": "dev-main",
                 "lagdo/twitter-feed": "dev-test",
@@ -42,10 +42,11 @@
                 "phpunit/phpcov": "^8.2",
                 "phpunit/phpunit": "^9.5"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/start.php"
+                    "src/functions.php"
                 ],
                 "psr-4": {
                     "Jaxon\\": "src/"
@@ -85,7 +86,7 @@
                 "issues": "https://github.com/jaxon-php/jaxon-core/issues",
                 "source": "https://github.com/jaxon-php/jaxon-core"
             },
-            "time": "2024-06-19T12:03:45+00:00"
+            "time": "2025-01-08T15:53:20+00:00"
         },
         {
             "name": "jaxon-php/jaxon-dialogs",
@@ -93,21 +94,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-dialogs.git",
-                "reference": "cb431fd80b074d16de400c93d1f592961dafd494"
+                "reference": "7cc67df228d6e5719542063e049837ea5cdfb6a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-dialogs/zipball/cb431fd80b074d16de400c93d1f592961dafd494",
-                "reference": "cb431fd80b074d16de400c93d1f592961dafd494",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-dialogs/zipball/7cc67df228d6e5719542063e049837ea5cdfb6a9",
+                "reference": "7cc67df228d6e5719542063e049837ea5cdfb6a9",
                 "shasum": ""
             },
             "require": {
                 "jaxon-php/jaxon-core": "dev-main"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/start.php"
+                    "src/register.php"
                 ],
                 "psr-4": {
                     "Jaxon\\Dialogs\\": "src/"
@@ -139,7 +141,7 @@
                 "issues": "https://github.com/jaxon-php/jaxon-dialogs/issues",
                 "source": "https://github.com/jaxon-php/jaxon-dialogs"
             },
-            "time": "2024-06-16T03:42:56+00:00"
+            "time": "2025-01-08T15:34:15+00:00"
         },
         {
             "name": "jaxon-php/jaxon-flot",
@@ -147,18 +149,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-flot.git",
-                "reference": "2c413ae8f8321e6adc77356cd726231e5a3f92cf"
+                "reference": "e1eb24229eabd8d305ae15a4ad9318afcefc935f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-flot/zipball/2c413ae8f8321e6adc77356cd726231e5a3f92cf",
-                "reference": "2c413ae8f8321e6adc77356cd726231e5a3f92cf",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-flot/zipball/e1eb24229eabd8d305ae15a4ad9318afcefc935f",
+                "reference": "e1eb24229eabd8d305ae15a4ad9318afcefc935f",
                 "shasum": ""
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/start.php"
+                    "src/register.php"
                 ],
                 "psr-4": {
                     "Jaxon\\Flot\\": "src/"
@@ -190,20 +193,20 @@
                 "issues": "https://github.com/jaxon-php/jaxon-flot/issues",
                 "source": "https://github.com/jaxon-php/jaxon-flot"
             },
-            "time": "2024-06-17T09:39:27+00:00"
+            "time": "2025-01-08T15:34:15+00:00"
         },
         {
             "name": "jaxon-php/jaxon-utils",
-            "version": "v1.1.5",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-utils.git",
-                "reference": "a023d6e2733d1ffde4c8822c8471615dd56a64b9"
+                "reference": "a54ccb64903a20eadbfff1f2354701cc7d3fb090"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-utils/zipball/a023d6e2733d1ffde4c8822c8471615dd56a64b9",
-                "reference": "a023d6e2733d1ffde4c8822c8471615dd56a64b9",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-utils/zipball/a54ccb64903a20eadbfff1f2354701cc7d3fb090",
+                "reference": "a54ccb64903a20eadbfff1f2354701cc7d3fb090",
                 "shasum": ""
             },
             "require": {
@@ -216,6 +219,7 @@
                 "phpunit/phpcov": "^8.2",
                 "phpunit/phpunit": "^9.5"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -244,7 +248,7 @@
                 "issues": "https://github.com/jaxon-php/jaxon-utils/issues",
                 "source": "https://github.com/jaxon-php/jaxon-utils"
             },
-            "time": "2023-08-04T14:07:16+00:00"
+            "time": "2025-01-04T18:24:54+00:00"
         },
         {
             "name": "keradus/psr4autoloader",
@@ -285,12 +289,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nyholm/psr7.git",
-                "reference": "229484fc939a76a6579e331b55d86a77fb8e2863"
+                "reference": "a71f2b11690f4b24d099d6b16690a90ae14fc6f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/229484fc939a76a6579e331b55d86a77fb8e2863",
-                "reference": "229484fc939a76a6579e331b55d86a77fb8e2863",
+                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/a71f2b11690f4b24d099d6b16690a90ae14fc6f3",
+                "reference": "a71f2b11690f4b24d099d6b16690a90ae14fc6f3",
                 "shasum": ""
             },
             "require": {
@@ -344,7 +348,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Nyholm/psr7/issues",
-                "source": "https://github.com/Nyholm/psr7/tree/master"
+                "source": "https://github.com/Nyholm/psr7/tree/1.8.2"
             },
             "funding": [
                 {
@@ -356,7 +360,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-12T07:29:04+00:00"
+            "time": "2024-09-09T07:06:30+00:00"
         },
         {
             "name": "nyholm/psr7-server",
@@ -761,12 +765,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001"
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/fe5ea303b0887d5caefd3d431c3e61ad47037001",
-                "reference": "fe5ea303b0887d5caefd3d431c3e61ad47037001",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
+                "reference": "f16e1d5863e37f8d8c2a01719f5b34baa2b714d3",
                 "shasum": ""
             },
             "require": {
@@ -802,9 +806,9 @@
                 "psr-3"
             ],
             "support": {
-                "source": "https://github.com/php-fig/log/tree/3.0.0"
+                "source": "https://github.com/php-fig/log/tree/3.0.2"
             },
-            "time": "2021-07-14T16:46:02+00:00"
+            "time": "2024-09-11T13:17:53+00:00"
         },
         {
             "name": "tedivm/jshrink",
@@ -867,7 +871,6 @@
             "time": "2023-10-04T17:23:23+00:00"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
