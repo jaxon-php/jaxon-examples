@@ -3,6 +3,7 @@
 require(dirname(__DIR__) . '/autoload.php');
 
 use Jaxon\Jaxon;
+use Jaxon\Dialogs\Library\Alertify;
 use Jaxon\Dialogs\Bootbox\BootboxLibrary;
 use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
 use Jaxon\Dialogs\CuteAlert\CuteAlertLibrary;
@@ -64,6 +65,8 @@ class HelloWorld
 }
 
 $aLibraries = [
+    // Alertify
+    'alertify'      => ['class' => Alertify::class, 'id' => 'alertify', 'name' => 'Alertify'],
     // Bootbox
     'bootbox'       => ['class' => BootboxLibrary::class, 'id' => 'bootbox', 'name' => 'Bootbox'],
     // Bootstrap
@@ -92,7 +95,7 @@ $jaxon = jaxon();
 $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
-$jaxon->setOption('dialogs.lib.use', ['bootbox', 'bootstrap', 'toastr',
+$jaxon->setOption('dialogs.lib.use', ['alertify', 'bootbox', 'bootstrap', 'toastr',
     'tingle', 'jalert', 'noty', 'notify', 'cute', 'sweetalert', 'jconfirm']);
 
 // Register functions
