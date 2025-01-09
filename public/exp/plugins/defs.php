@@ -62,13 +62,13 @@ $jaxon->setOption('js.lib.uri', '/js');
 // $jaxon->setOption('js.app.minify', false);
 
 // Dialog options
-$jaxon->setOption('dialogs.default.modal', Bootbox::NAME);
-$jaxon->setOption('dialogs.default.alert', Noty::NAME);
-$jaxon->setOption('dialogs.default.confirm', Noty::NAME);
+$jaxon->app()->setOption('dialogs.default.modal', Bootbox::NAME);
+$jaxon->app()->setOption('dialogs.default.alert', Noty::NAME);
+$jaxon->app()->setOption('dialogs.default.confirm', Noty::NAME);
 
-$jaxon->setOption('dialogs.confirm.title', 'Confirmer');
-$jaxon->setOption('dialogs.confirm.yes', 'Oui');
-$jaxon->setOption('dialogs.confirm.no', 'Non');
+$jaxon->app()->setOption('dialogs.confirm.title', 'Confirmer');
+$jaxon->app()->setOption('dialogs.confirm.yes', 'Oui');
+$jaxon->app()->setOption('dialogs.confirm.no', 'Non');
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');

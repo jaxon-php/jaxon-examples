@@ -14,6 +14,22 @@ return [
                 'autoload' => true,
             ]
         ],
+        'dialogs' => [
+            'default' => [
+                'modal' => Tingle::NAME,
+                'alert' => Toastr::NAME,
+                'confirm' => Noty::NAME,
+            ],
+            'toastr' => [
+                'options' => [
+                    'closeButton' => true,
+                    'positionClass' => 'toast-top-center',
+                ],
+            ],
+            'lib' => [
+                'use' => ['bootbox', 'bootstrap'],
+            ],
+        ],
     ],
     'lib' => [
         'core' => [
@@ -30,22 +46,6 @@ return [
         'js' => [
             'lib' => [
                 'uri' => '/js',
-            ],
-        ],
-        'dialogs' => [
-            'default' => [
-                'modal' => Tingle::NAME,
-                'alert' => Toastr::NAME,
-                'confirm' => Noty::NAME,
-            ],
-            'toastr' => [
-                'options' => [
-                    'closeButton' => true,
-                    'positionClass' => 'toast-top-center',
-                ],
-            ],
-            'lib' => [
-                'use' => ['bootbox', 'bootstrap'],
             ],
         ],
     ],

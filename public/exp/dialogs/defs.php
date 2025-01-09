@@ -29,7 +29,7 @@ class HelloWorld
 
     public function showDialog($id, $name)
     {
-        jaxon()->setOption('dialogs.default.modal', $id);
+        jaxon()->app()->setOption('dialogs.default.modal', $id);
         $xResponse = jaxon()->newResponse();
         $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $options = [];
@@ -38,28 +38,28 @@ class HelloWorld
 
     public function showSuccess($id, $name)
     {
-        jaxon()->setOption('dialogs.default.alert', $id);
+        jaxon()->app()->setOption('dialogs.default.alert', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->success("Powered by $name!!");
     }
 
     public function showInfo($id, $name)
     {
-        jaxon()->setOption('dialogs.default.alert', $id);
+        jaxon()->app()->setOption('dialogs.default.alert', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->info("Powered by $name!!");
     }
 
     public function showWarning($id, $name)
     {
-        jaxon()->setOption('dialogs.default.alert', $id);
+        jaxon()->app()->setOption('dialogs.default.alert', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->warning("Powered by $name!!");
     }
 
     public function showError($id, $name)
     {
-        jaxon()->setOption('dialogs.default.alert', $id);
+        jaxon()->app()->setOption('dialogs.default.alert', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->error("Powered by $name!!");
     }
@@ -96,8 +96,8 @@ $jaxon = jaxon();
 $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
-$jaxon->setOption('dialogs.lib.use', ['alertify', 'bootbox', 'bootstrap', 'toastr',
-    'tingle', 'jalert', 'noty', 'notify', 'cute', 'sweetalert', 'jconfirm']);
+$jaxon->app()->setOption('dialogs.lib.use', ['alertify', 'bootbox', 'bootstrap',
+    'toastr', 'tingle', 'jalert', 'noty', 'notify', 'cute', 'sweetalert', 'jconfirm']);
 
 // Register functions
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

@@ -43,9 +43,9 @@ $jaxon->setOption('js.app.minify', false); // Optionally, the file can be minifi
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
 // Dialog options
-$jaxon->setOption('dialogs.default.modal', Bootstrap::NAME);
-$jaxon->setOption('dialogs.default.alert', Toastr::NAME);
-$jaxon->setOption('dialogs.toastr.options.closeButton', true);
-$jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
+$jaxon->app()->setOption('dialogs.default.modal', Bootstrap::NAME);
+$jaxon->app()->setOption('dialogs.default.alert', Toastr::NAME);
+$jaxon->app()->setOption('dialogs.toastr.options.closeButton', true);
+$jaxon->app()->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 
 $jaxon->registerPackage(DemoPackage::class);

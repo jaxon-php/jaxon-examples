@@ -1,17 +1,4 @@
-jaxon:
-  core:
-    debug:
-      on:                          false
-    prefix:
-      class:                       "Jaxon"
-    request:
-      uri:                         "ajax.php"
-      csrf_meta:                   "csrf-token"
-
-  js:
-    lib:
-      uri:                         "/js"
-
+app:
   dialogs:
     default:
       modal:                       bootbox
@@ -25,3 +12,16 @@ jaxon:
           closeOnEscape:           true
           closeOnBackgroundClick:  true
           maxWidth:                600
+lib:
+  core:
+    debug:
+      on:                          false
+    prefix:
+      class:                       "Jaxon"
+    request:
+      uri:                         "ajax.php"
+      csrf_meta:                   "csrf-token"
+
+  js:
+    lib:
+      uri:                         "/js"

@@ -26,6 +26,22 @@ return [
                 'default' => 'component',
             ],
         ],
+        'dialogs' => [
+            'default' => [
+                'modal' => 'bootbox',
+                'alert' => 'noty',
+                'confirm' => 'noty',
+            ],
+            'toastr' => [
+                'options' => [
+                    'closeButton' => true,
+                    'positionClass' => 'toast-top-center',
+                ],
+            ],
+            'lib' => [
+                'use' => ['bootstrap'],
+            ],
+        ],
     ],
     'lib' => [
         'core' => [
@@ -42,22 +58,6 @@ return [
         'js' => [
             'lib' => [
                 'uri' => '/js',
-            ],
-        ],
-        'dialogs' => [
-            'default' => [
-                'modal' => 'bootbox',
-                'alert' => 'noty',
-                'confirm' => 'noty',
-            ],
-            'toastr' => [
-                'options' => [
-                    'closeButton' => true,
-                    'positionClass' => 'toast-top-center',
-                ],
-            ],
-            'lib' => [
-                'use' => ['bootstrap'],
             ],
         ],
     ],

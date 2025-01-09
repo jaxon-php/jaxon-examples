@@ -12,11 +12,11 @@ $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('core.prefix.class', '');
 
 // Dialog options
-$jaxon->setOption('dialogs.default.modal', 'bootstrap');
-$jaxon->setOption('dialogs.default.alert', 'toastr');
-$jaxon->setOption('dialogs.toastr.options.closeButton', true);
-$jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
-$jaxon->setOption('dialogs.lib.use', ['tingle']);
+$jaxon->app()->setOption('dialogs.default.modal', 'bootstrap');
+$jaxon->app()->setOption('dialogs.default.alert', 'toastr');
+$jaxon->app()->setOption('dialogs.toastr.options.closeButton', true);
+$jaxon->app()->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
+$jaxon->app()->setOption('dialogs.lib.use', ['tingle']);
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');
