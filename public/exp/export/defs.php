@@ -65,8 +65,8 @@ $jaxon->setOption('js.app.minify', false); // Optionally, the file can be minifi
 // Dialog options
 dialog()->registerLibrary(Bootbox::class, Bootbox::NAME);
 $jaxon->setOption('dialogs.default.modal', Bootbox::NAME);
-$jaxon->setOption('dialogs.default.message', 'noty');
-$jaxon->setOption('dialogs.default.question', 'noty');
+$jaxon->setOption('dialogs.default.alert', 'noty');
+$jaxon->setOption('dialogs.default.confirm', 'noty');
 
 // Request processing URI
 $jaxon->setOption('core.request.uri', 'ajax.php');

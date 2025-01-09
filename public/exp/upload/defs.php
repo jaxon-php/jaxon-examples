@@ -40,7 +40,7 @@ $jaxon->setOption('core.request.uri', 'ajax.php');
 $jaxon->setOption('core.upload.enabled', true);
 
 $jaxon->setOption('dialogs.default.modal', 'bootstrap');
-$jaxon->setOption('dialogs.default.message', 'toastr');
+$jaxon->setOption('dialogs.default.alert', 'toastr');
 
 $jaxon->callback()->after(function($target, $end) {
     jaxon()->di()->getResponseManager()->getResponse()->debug('After upload');

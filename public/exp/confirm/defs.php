@@ -35,7 +35,7 @@ class HelloWorld
 $jaxon = jaxon();
 
 $jaxon->app()->setup(__DIR__ . '/../../../config/class.php');
-$jaxon->setOption('dialogs.default.question', 'cute');
+$jaxon->setOption('dialogs.default.confirm', 'cute');
 
 // Js options
 $jaxon->setOption('core.language', 'fr');

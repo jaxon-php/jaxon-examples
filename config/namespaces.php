@@ -31,8 +31,8 @@ return [
         'dialogs' => [
             'default' => [
                 'modal' => 'bootbox',
-                'message' => 'noty',
-                'question' => 'noty',
+                'alert' => 'noty',
+                'confirm' => 'noty',
             ],
             'toastr' => [
                 'options' => [

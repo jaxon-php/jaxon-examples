@@ -35,8 +35,8 @@ return [
         'dialogs' => [
             'default' => [
                 'modal' => Tingle::NAME,
-                'message' => Toastr::NAME,
-                'question' => Noty::NAME,
+                'alert' => Toastr::NAME,
+                'confirm' => Noty::NAME,
             ],
             'toastr' => [
                 'options' => [

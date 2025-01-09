@@ -15,8 +15,8 @@ jaxon:
   dialogs:
     default:
       modal:                       bootbox
-      message:                     noty
-      question:                    noty
+      alert:                       noty
+      confirm:                     noty
     pgwjs:
       assets:
         include:                   true

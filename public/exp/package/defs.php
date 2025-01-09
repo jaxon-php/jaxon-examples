@@ -44,7 +44,7 @@ $jaxon->setOption('core.request.uri', 'ajax.php');
 
 // Dialog options
 $jaxon->setOption('dialogs.default.modal', Bootstrap::NAME);
-$jaxon->setOption('dialogs.default.message', Toastr::NAME);
+$jaxon->setOption('dialogs.default.alert', Toastr::NAME);
 $jaxon->setOption('dialogs.toastr.options.closeButton', true);
 $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 

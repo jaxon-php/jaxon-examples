@@ -63,8 +63,8 @@ $jaxon->setOption('js.lib.uri', '/js');
 
 // Dialog options
 $jaxon->setOption('dialogs.default.modal', Bootbox::NAME);
-$jaxon->setOption('dialogs.default.message', Noty::NAME);
-$jaxon->setOption('dialogs.default.question', Noty::NAME);
+$jaxon->setOption('dialogs.default.alert', Noty::NAME);
+$jaxon->setOption('dialogs.default.confirm', Noty::NAME);
 
 $jaxon->setOption('dialogs.confirm.title', 'Confirmer');
 $jaxon->setOption('dialogs.confirm.yes', 'Oui');

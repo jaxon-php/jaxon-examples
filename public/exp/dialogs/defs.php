@@ -38,28 +38,28 @@ class HelloWorld
 
     public function showSuccess($id, $name)
     {
-        jaxon()->setOption('dialogs.default.message', $id);
+        jaxon()->setOption('dialogs.default.alert', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->success("Powered by $name!!");
     }
 
     public function showInfo($id, $name)
     {
-        jaxon()->setOption('dialogs.default.message', $id);
+        jaxon()->setOption('dialogs.default.alert', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->info("Powered by $name!!");
     }
 
     public function showWarning($id, $name)
     {
-        jaxon()->setOption('dialogs.default.message', $id);
+        jaxon()->setOption('dialogs.default.alert', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->warning("Powered by $name!!");
     }
 
     public function showError($id, $name)
     {
-        jaxon()->setOption('dialogs.default.message', $id);
+        jaxon()->setOption('dialogs.default.alert', $id);
         $xResponse = jaxon()->newResponse();
         $xResponse->dialog->title('Yeah Man!!!')->error("Powered by $name!!");
     }
