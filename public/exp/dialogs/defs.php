@@ -3,17 +3,17 @@
 require(dirname(__DIR__) . '/autoload.php');
 
 use Jaxon\Jaxon;
-use Jaxon\Dialogs\Library\Alertify;
-use Jaxon\Dialogs\Library\Bootbox;
-use Jaxon\Dialogs\Library\Bootstrap;
-use Jaxon\Dialogs\Library\CuteAlert;
-use Jaxon\Dialogs\Library\Toastr;
-use Jaxon\Dialogs\Library\JAlert;
-use Jaxon\Dialogs\Library\Tingle;
-use Jaxon\Dialogs\Library\Noty;
-use Jaxon\Dialogs\Library\Notify;
-use Jaxon\Dialogs\Library\SweetAlert;
-use Jaxon\Dialogs\Library\JQueryConfirm;
+use Jaxon\Dialogs\Dialog\Library\Alertify;
+use Jaxon\Dialogs\Dialog\Library\Bootbox;
+use Jaxon\Dialogs\Dialog\Library\Bootstrap;
+use Jaxon\Dialogs\Dialog\Library\CuteAlert;
+use Jaxon\Dialogs\Dialog\Library\Toastr;
+use Jaxon\Dialogs\Dialog\Library\JAlert;
+use Jaxon\Dialogs\Dialog\Library\Tingle;
+use Jaxon\Dialogs\Dialog\Library\Noty;
+use Jaxon\Dialogs\Dialog\Library\Notify;
+use Jaxon\Dialogs\Dialog\Library\SweetAlert;
+use Jaxon\Dialogs\Dialog\Library\JQueryConfirm;
 
 use function Jaxon\attr;
 use function Jaxon\jaxon;

@@ -4,9 +4,9 @@ require(dirname(__DIR__) . '/autoload.php');
 require_once(__DIR__ . '/../../../includes/menu.php');
 
 use Jaxon\Jaxon;
-use Jaxon\Dialogs\Bootbox\BootboxLibrary;
+use Jaxon\Dialogs\Dialog\Library\Bootbox;
 use function Jaxon\jaxon;
-use function Jaxon\pm;
+use function Jaxon\Dialogs\dialog;
 use function Jaxon\rq;
 use function Jaxon\jq;
 
@@ -63,8 +63,8 @@ $jaxon->setOption('js.app.uri', $jaxonAppURI);
 $jaxon->setOption('js.app.minify', false); // Optionally, the file can be minified
 
 // Dialog options
-$jaxon->dialog()->registerLibrary(BootboxLibrary::class, BootboxLibrary::NAME);
-$jaxon->setOption('dialogs.default.modal', BootboxLibrary::NAME);
+dialog()->registerLibrary(Bootbox::class, Bootbox::NAME);
+$jaxon->setOption('dialogs.default.modal', Bootbox::NAME);
 $jaxon->setOption('dialogs.default.message', 'noty');
 $jaxon->setOption('dialogs.default.question', 'noty');
 

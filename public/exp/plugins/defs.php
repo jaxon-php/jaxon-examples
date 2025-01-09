@@ -4,8 +4,8 @@ require(dirname(__DIR__) . '/autoload.php');
 
 use Jaxon\Jaxon;
 use Jaxon\App\CallableClass;
-use Jaxon\Dialogs\Bootbox\BootboxLibrary;
-use Jaxon\Dialogs\Noty\NotyLibrary;
+use Jaxon\Dialogs\Dialog\Library\Bootbox;
+use Jaxon\Dialogs\Dialog\Library\Noty;
 use function Jaxon\jaxon;
 
 class HelloWorld extends CallableClass
@@ -62,9 +62,9 @@ $jaxon->setOption('js.lib.uri', '/js');
 // $jaxon->setOption('js.app.minify', false);
 
 // Dialog options
-$jaxon->setOption('dialogs.default.modal', BootboxLibrary::NAME);
-$jaxon->setOption('dialogs.default.message', NotyLibrary::NAME);
-$jaxon->setOption('dialogs.default.question', NotyLibrary::NAME);
+$jaxon->setOption('dialogs.default.modal', Bootbox::NAME);
+$jaxon->setOption('dialogs.default.message', Noty::NAME);
+$jaxon->setOption('dialogs.default.question', Noty::NAME);
 
 $jaxon->setOption('dialogs.confirm.title', 'Confirmer');
 $jaxon->setOption('dialogs.confirm.yes', 'Oui');

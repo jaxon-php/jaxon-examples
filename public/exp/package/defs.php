@@ -4,8 +4,8 @@ require(dirname(__DIR__) . '/autoload.php');
 require_once(__DIR__ . '/../../../includes/menu.php');
 
 use Jaxon\Plugin\AbstractPackage;
-use Jaxon\Dialogs\Bootstrap\BootstrapLibrary;
-use Jaxon\Dialogs\Toastr\ToastrLibrary;
+use Jaxon\Dialogs\Dialog\Library\Bootstrap;
+use Jaxon\Dialogs\Dialog\Library\Toastr;
 use function Jaxon\jaxon;
 
 class DemoPackage extends AbstractPackage
@@ -43,8 +43,8 @@ $jaxon->setOption('js.app.minify', false); // Optionally, the file can be minifi
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
 // Dialog options
-$jaxon->setOption('dialogs.default.modal', BootstrapLibrary::NAME);
-$jaxon->setOption('dialogs.default.message', ToastrLibrary::NAME);
+$jaxon->setOption('dialogs.default.modal', Bootstrap::NAME);
+$jaxon->setOption('dialogs.default.message', Toastr::NAME);
 $jaxon->setOption('dialogs.toastr.options.closeButton', true);
 $jaxon->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
 

@@ -1,8 +1,8 @@
 <?php
 
-use Jaxon\Dialogs\Toastr\ToastrLibrary;
-use Jaxon\Dialogs\Tingle\TingleLibrary;
-use Jaxon\Dialogs\Noty\NotyLibrary;
+use Jaxon\Dialogs\Dialog\Library\Toastr;
+use Jaxon\Dialogs\Dialog\Library\Tingle;
+use Jaxon\Dialogs\Dialog\Library\Noty;
 
 return [
     'app' => [
@@ -34,9 +34,9 @@ return [
         ],
         'dialogs' => [
             'default' => [
-                'modal' => TingleLibrary::NAME,
-                'message' => ToastrLibrary::NAME,
-                'question' => NotyLibrary::NAME,
+                'modal' => Tingle::NAME,
+                'message' => Toastr::NAME,
+                'question' => Noty::NAME,
             ],
             'toastr' => [
                 'options' => [
