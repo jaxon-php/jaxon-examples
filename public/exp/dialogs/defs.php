@@ -17,6 +17,7 @@ use Jaxon\Dialogs\Dialog\Library\JQueryConfirm;
 
 use function Jaxon\attr;
 use function Jaxon\jaxon;
+use function Jaxon\js;
 use function Jaxon\rq;
 
 class HelloWorld
@@ -31,7 +32,10 @@ class HelloWorld
     {
         jaxon()->app()->setOption('dialogs.default.modal', $id);
         $xResponse = jaxon()->newResponse();
-        $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
+        $buttons = [
+            ['title' => 'Close', 'class' => 'btn btn-danger', 'click' => 'close'],
+            ['title' => 'Do', 'class' => 'btn', 'click' => js('console')->log("Clicked on the button!!")]
+        ];
         $options = [];
         $xResponse->dialog->show('Modal Dialog', $this->content($name), $buttons, $options);
     }
@@ -91,13 +95,4 @@ $aLibraries = [
 ];
 
 $jaxon = jaxon();
-
-// Request processing URI
-$jaxon->setOption('js.lib.uri', '/js');
-$jaxon->setOption('core.request.uri', 'ajax.php');
-
-$jaxon->app()->setOption('dialogs.lib.use', ['alertify', 'bootbox', 'bootstrap',
-    'toastr', 'tingle', 'jalert', 'noty', 'notify', 'cute', 'sweetalert', 'jconfirm']);
-
-// Register functions
-$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);
+$jaxon->app()->setup(__DIR__ . '/../../../config/dialogs.php');
