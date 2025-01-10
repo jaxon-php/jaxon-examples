@@ -18,8 +18,10 @@ return [
             ],
             'toastr' => [
                 'options' => [
-                    'closeButton' => true,
-                    'positionClass' => 'toast-top-center',
+                    'alert' => [
+                        'closeButton' => true,
+                        'positionClass' => 'toast-top-center',
+                    ],
                 ],
             ],
             'lib' => [

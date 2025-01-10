@@ -37,5 +37,3 @@ class HelloWorld
 $jaxon = jaxon();
 
 $jaxon->app()->setup(__DIR__ . '/../../../config/config.yaml');
-
-$jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

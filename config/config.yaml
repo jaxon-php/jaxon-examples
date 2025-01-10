@@ -1,17 +1,11 @@
 app:
+  classes:                         ['HelloWorld']
   dialogs:
     default:
       modal:                       bootbox
       alert:                       noty
       confirm:                     noty
-    pgwjs:
-      assets:
-        include:                   true
-      modal:
-        options:
-          closeOnEscape:           true
-          closeOnBackgroundClick:  true
-          maxWidth:                600
+
 lib:
   core:
     debug:
