@@ -14,8 +14,8 @@ $jaxon->setOption('core.prefix.class', '');
 // Dialog options
 $jaxon->app()->setOption('dialogs.default.modal', 'bootstrap');
 $jaxon->app()->setOption('dialogs.default.alert', 'toastr');
-$jaxon->app()->setOption('dialogs.toastr.options.closeButton', true);
-$jaxon->app()->setOption('dialogs.toastr.options.positionClass', 'toast-top-center');
+$jaxon->app()->setOption('dialogs.toastr.options.alert.closeButton', true);
+$jaxon->app()->setOption('dialogs.toastr.options.alert.positionClass', 'toast-top-center');
 $jaxon->app()->setOption('dialogs.lib.use', ['tingle']);
 
 // Request processing URI
