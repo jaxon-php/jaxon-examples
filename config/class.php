@@ -3,7 +3,8 @@
 return [
     'app' => [
         'classes' => [
-            HelloWorld::class => [
+            [
+                'name' => HelloWorld::class,
                 'functions' => [
                     '*' => [
                         'mode' => "'asynchronous'",
