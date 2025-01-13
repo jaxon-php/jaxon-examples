@@ -7,10 +7,12 @@ use Jaxon\Dialogs\Dialog\Library\Noty;
 return [
     'app' => [
         'directories' => [
-            __DIR__ . '/../classes/simple/app' => [
+            [
+                'path' => __DIR__ . '/../classes/simple/app',
                 'autoload' => true,
             ],
-            __DIR__ . '/../classes/simple/ext' => [
+            [
+                'path' => __DIR__ . '/../classes/simple/ext',
                 'autoload' => true,
             ]
         ],

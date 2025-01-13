@@ -7,10 +7,12 @@ return [
             PageContent::class,
         ],
         'directories' => [
-            __DIR__ . '/../classes/component/app' => [
+            [
+                'path' => __DIR__ . '/../classes/component/app',
                 'namespace' => 'App',
             ],
-            __DIR__ . '/../classes/component/ext'=> [
+            [
+                'path' => __DIR__ . '/../classes/component/ext',
                 'namespace' => 'Ext',
             ],
         ],

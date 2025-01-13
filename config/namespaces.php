@@ -3,10 +3,12 @@
 return [
     'app' => [
         'directories' => [
-            __DIR__ . '/../classes/namespace/app' => [
+            [
+                'path' => __DIR__ . '/../classes/namespace/app',
                 'namespace' => 'App',
             ],
-            __DIR__ . '/../classes/namespace/ext'=> [
+            [
+                'path' => __DIR__ . '/../classes/namespace/ext',
                 'namespace' => 'Ext',
             ]
         ],
