@@ -316,6 +316,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.utils.dom
+ *
+ * global: jaxon
  */
 
 (function(self, types, baseDocument) {
@@ -449,6 +451,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.utils.form
+ *
+ * global: jaxon
  */
 
 (function(self, dom) {
@@ -565,6 +569,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.utils.queue
+ *
+ * global: jaxon
  */
 
 (function(self) {
@@ -691,6 +697,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.utils.string
+ *
+ * global: jaxon
  */
 
 (function(self) {
@@ -768,6 +776,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.utils.types
+ *
+ * global: jaxon
  */
 
 (function(self) {
@@ -841,6 +851,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.dialog
+ *
+ * global: jaxon
  */
 
 (function(self, dom, attr, call, query, types) {
@@ -1042,6 +1054,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.dom
+ *
+ * global: jaxon
  */
 
 /**
@@ -1115,9 +1129,11 @@ window.jaxon = jaxon;
  * Class: jaxon.parser.attr
  *
  * Process Jaxon custom HTML attributes
+ *
+ * global: jaxon
  */
 
-(function(self, event, debug) {
+(function(self, event) {
     /**
      * The DOM nodes associated to Jaxon components
      *
@@ -1133,65 +1149,34 @@ window.jaxon = jaxon;
     const sDefaultComponentItem = 'main';
 
     /**
-     * The commands to check for changes
+     * Find the DOM nodes with a given attribute
      *
-     * @var {array}
+     * @param {Element} xContainer A DOM node
+     * @param {string} sAttr The attribute to check for
+     * @param {bool} bScopeIsOuter Also check the outer element
+     *
+     * @returns {array}
      */
-    const aCommands = ['node.assign', 'node.append', 'node.prepend', 'node.replace'];
-
-    /**
-     * The attributes to check for changes
-     *
-     * @var {array}
-     */
-    const aAttributes = ['innerHTML', 'outerHTML'];
-
-    /**
-     * Remove attributes from a DOM node.
-     *
-     * @param {Element} xNode A DOM node.
-     * @param {array} aAttrs An array of attribute names.
-     *
-     * @returns {void}
-     */
-    const removeAttributes = (xNode, aAttrs) => !debug.active &&
-        aAttrs.forEach(sAttr => xNode.removeAttribute(sAttr));
-
-    /**
-     * Remove a child node from a DOM node.
-     *
-     * @param {Element} xNode A DOM node.
-     * @param {Element} xChild A Child node.
-     *
-     * @returns {void}
-     */
-    const removeChildNode = (xNode, xChild) => !debug.active && xNode.removeChild(xChild);
-
-    /**
-     * Check if a the attributes on a targeted node must be processed after a command is executed.
-     *
-     * @param {Element} xTarget A DOM node.
-     * @param {string} sCommand The command name.
-     * @param {string} sAttribute The attribute name.
-     *
-     * @returns {void}
-     */
-    self.changed = (xTarget, sCommand, sAttribute) => (xTarget) &&
-        aAttributes.some(sVal => sVal === sAttribute) && aCommands.some(sVal => sVal === sCommand);
+    const findNodesWithAttr = (xContainer, sAttr, bScopeIsOuter) => {
+        if (!xContainer.querySelectorAll) {
+            return [];
+        }
+        const aNodes = Array.from(xContainer.querySelectorAll(`:scope [${sAttr}]`));
+        return bScopeIsOuter && xContainer.hasAttribute(sAttr) ?
+            [xContainer, ...aNodes] : aNodes;
+    };
 
     /**
      * @param {Element} xContainer A DOM node.
+     * @param {bool} bScopeIsOuter Process the outer HTML content
      *
      * @returns {void}
      */
-    const setClickHandlers = (xContainer) => {
-        xContainer.querySelectorAll(':scope [jxn-click]').forEach(xNode => {
+    const setClickHandlers = (xContainer, bScopeIsOuter) =>
+        findNodesWithAttr(xContainer, 'jxn-click', bScopeIsOuter).forEach(xNode => {
             const oHandler = JSON.parse(xNode.getAttribute('jxn-click'));
             event.setEventHandler({ event: 'click', func: oHandler }, { target: xNode });
-
-            removeAttributes(xNode, ['jxn-click']);
         });
-    };
 
     /**
      * @param {Element} xTarget The event handler target.
@@ -1225,68 +1210,60 @@ window.jaxon = jaxon;
 
     /**
      * @param {Element} xContainer A DOM node.
+     * @param {bool} bScopeIsOuter Process the outer HTML content
      *
      * @returns {void}
      */
-    const setEventHandlers = (xContainer) => {
-        xContainer.querySelectorAll(':scope [jxn-on]').forEach(xNode => {
-            setEventHandler(xNode, xNode, 'jxn-on');
-
-            removeAttributes(xNode, ['jxn-on', 'jxn-call', 'jxn-select']);
-        });
-    };
+    const setEventHandlers = (xContainer, bScopeIsOuter) =>
+        findNodesWithAttr(xContainer, 'jxn-on', bScopeIsOuter)
+            .forEach(xNode => setEventHandler(xNode, xNode, 'jxn-on'));
 
     /**
      * @param {Element} xContainer A DOM node.
+     * @param {bool} bScopeIsOuter Process the outer HTML content
      *
      * @returns {void}
      */
-    const setTargetEventHandlers = (xContainer) => {
-        xContainer.querySelectorAll(':scope [jxn-target]').forEach(xTarget => {
-            xTarget.querySelectorAll(':scope [jxn-event]').forEach(xNode => {
+    const setTargetEventHandlers = (xContainer, bScopeIsOuter) =>
+        findNodesWithAttr(xContainer, 'jxn-target', bScopeIsOuter).forEach(xTarget => {
+            xTarget.querySelectorAll(':scope > [jxn-event]').forEach(xNode => {
                 // Check event declarations only on direct child.
                 if (xNode.parentNode === xTarget) {
                     setEventHandler(xTarget, xNode, 'jxn-event');
-
-                    removeChildNode(xTarget, xNode);
                 }
             });
-
-            removeAttributes(xTarget, ['jxn-target']);
         });
-    };
 
     /**
      * @param {Element} xContainer A DOM node.
+     * @param {bool} bScopeIsOuter Process the outer HTML content
      *
      * @returns {void}
      */
-    const bindNodesToComponents = (xContainer) => {
-        xContainer.querySelectorAll(':scope [jxn-bind]').forEach(xNode => {
+    const bindNodesToComponents = (xContainer, bScopeIsOuter) =>
+        findNodesWithAttr(xContainer, 'jxn-bind', bScopeIsOuter).forEach(xNode => {
             const sComponentName = xNode.getAttribute('jxn-bind');
             const sComponentItem = xNode.getAttribute('jxn-item') ?? sDefaultComponentItem;
             xComponentNodes[`${sComponentName}_${sComponentItem}`] = xNode;
-
-            removeAttributes(xNode, ['jxn-bind', 'jxn-item']);
         });
-    };
 
     /**
      * Process the custom attributes in a given DOM node.
      *
      * @param {Element} xContainer A DOM node.
+     * @param {bool} bScopeIsOuter Process the outer HTML content
      *
      * @returns {void}
      */
-    self.process = (xContainer = document) => {
+    self.process = (xContainer = document, bScopeIsOuter = false) => {
         // Set event handlers on nodes
-        setTargetEventHandlers(xContainer);
+        setTargetEventHandlers(xContainer, bScopeIsOuter);
         // Set event handlers on nodes
-        setEventHandlers(xContainer);
+        setEventHandlers(xContainer, bScopeIsOuter);
         // Set event handlers on nodes
-        setClickHandlers(xContainer);
+        setClickHandlers(xContainer, bScopeIsOuter);
         // Attach DOM nodes to Jaxon components
-        bindNodesToComponents(xContainer);
+        bindNodesToComponents(xContainer, bScopeIsOuter);
     };
 
     /**
@@ -1297,15 +1274,19 @@ window.jaxon = jaxon;
      *
      * @returns {Element|null}
      */
-    self.node = (sComponentName, sComponentItem = sDefaultComponentItem) =>
-        xComponentNodes[`${sComponentName}_${sComponentItem}`] ?? null;
-})(jaxon.parser.attr, jaxon.cmd.event, jaxon.debug);
+    self.node = (sComponentName, sComponentItem = sDefaultComponentItem) => {
+        const xComponent = xComponentNodes[`${sComponentName}_${sComponentItem}`] ?? null;
+        return !xComponent || !xComponent.isConnected ? null : xComponent;
+    };
+})(jaxon.parser.attr, jaxon.cmd.event);
 
 
 /**
  * Class: jaxon.parser.call
  *
  * Execute calls from json expressions.
+ *
+ * global: jaxon
  */
 
 (function(self, query, dialog, dom, form, types) {
@@ -1478,7 +1459,7 @@ window.jaxon = jaxon;
     const getOptions = (xContext, xDefault = {}) => {
         xContext.global = {
             // Some functions are meant to be executed in the context of the component.
-            component: !xContext.component || !xContext.target ? null : xContext.target,
+            target: !xContext.component || !xContext.target ? null : xContext.target,
         };
         // Remove the component field from the xContext object.
         const { component: _, ...xNewContext } = xContext;
@@ -1633,6 +1614,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.parser.query
+ *
+ * global: jaxon
  */
 
 (function(self, jq) {
@@ -1677,6 +1660,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.ajax.callback
+ *
+ * global: jaxon
  */
 
 (function(self, types, config) {
@@ -1833,6 +1818,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.ajax.command
+ *
+ * global: jaxon
  */
 
 (function(self, config, attr, queue, dom, types) {
@@ -1928,8 +1915,6 @@ window.jaxon = jaxon;
 
         // Process the command
         self.call(name, args, context);
-        // Process Jaxon custom attributes in the new node HTML content.
-        attr.changed(context.target, name, args.attr) && attr.process(context.target);
         return true;
     };
 
@@ -2029,6 +2014,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.ajax.parameters
+ *
+ * global: jaxon
  */
 
 (function(self, types, version) {
@@ -2183,6 +2170,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.ajax.request
+ *
+ * global: jaxon
  */
 
 (function(self, config, params, rsp, cbk, upload, queue) {
@@ -2374,6 +2363,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.ajax.response
+ *
+ * global: jaxon
  */
 
 (function(self, command, req, cbk, queue) {
@@ -2622,6 +2613,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.ajax.upload
+ *
+ * global: jaxon
  */
 
 (function(self, dom, console) {
@@ -2683,6 +2676,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.cmd.dialog
+ *
+ * global: jaxon
  */
 
 (function(self, dialog, parser, command) {
@@ -2762,6 +2757,8 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.cmd.event
+ *
+ * global: jaxon
  */
 
 (function(self, call, dom, str) {
@@ -2847,9 +2844,41 @@ window.jaxon = jaxon;
 
 /**
  * Class: jaxon.cmd.
+ *
+ * global: jaxon
  */
 
-(function(self, dom, types, baseDocument) {
+(function(self, attr, dom, types, baseDocument) {
+    /**
+     * Assign an element's attribute to the specified value.
+     *
+     * @param {Element} xTarget The target DOM element.
+     * @param {object} xElt The attribute.
+     * @param {string} xElt.node The node of the attribute.
+     * @param {object} xElt.attr The name of the attribute.
+     * @param {mixed} xValue The new value of the attribute.
+     *
+     * @returns {void}
+     */
+    const setNodeAttr = (xTarget, { node: xNode, attr: sAttr }, xValue) => {
+        if (sAttr !== 'outerHTML' || !xTarget.parentNode) {
+            xNode[sAttr] = xValue;
+            // Process Jaxon custom attributes in the new node HTML content.
+            sAttr === 'innerHTML' && attr.process(xTarget, false);
+            return;
+        }
+        // When setting the outerHTML value, we need to have a parent node, and to
+        // get the newly inserted node, where we'll process our custom attributes.
+        // The initial target node is actually removed from the DOM, thus cannot be used.
+        (new MutationObserver((aMutations, xObserver) => {
+            xObserver.disconnect();
+            // Process Jaxon custom attributes in the new node HTML content.
+            xTarget = aMutations[0]?.addedNodes[0];
+            xTarget && attr.process(xTarget, true);
+        })).observe(xNode.parentNode, { attributes: false, childList: true, subtree: false });
+        xNode[sAttr] = xValue;
+    };
+
     /**
      * Assign an element's attribute to the specified value.
      *
@@ -2864,7 +2893,7 @@ window.jaxon = jaxon;
     self.assign = ({ attr, value }, { target }) => {
         const xElt = dom.getInnerObject(attr, target);
         if (xElt !== null) {
-            xElt.node[xElt.attr] = value;
+            setNodeAttr(target, xElt, value);
         }
         return true;
     };
@@ -2883,7 +2912,7 @@ window.jaxon = jaxon;
     self.append = ({ attr, value }, { target }) => {
         const xElt = dom.getInnerObject(attr, target);
         if (xElt !== null) {
-            xElt.node[xElt.attr] = xElt.node[xElt.attr] + value;
+            setNodeAttr(target, xElt, xElt.node[xElt.attr] + value);
         }
         return true;
     };
@@ -2902,7 +2931,7 @@ window.jaxon = jaxon;
     self.prepend = ({ attr, value }, { target }) => {
         const xElt = dom.getInnerObject(attr, target);
         if (xElt !== null) {
-            xElt.node[xElt.attr] = value + xElt.node[xElt.attr];
+            setNodeAttr(target, xElt, value + xElt.node[xElt.attr]);
         }
         return true;
     };
@@ -2910,18 +2939,19 @@ window.jaxon = jaxon;
     /**
      * Replace a text in the value of a given attribute in an element
      *
+     * @param {Element} xTarget The target DOM element.
      * @param {object} xElt The value returned by the dom.getInnerObject() function
      * @param {string} sSearch The text to search
      * @param {string} sReplace The text to use as replacement
      *
      * @returns {void}
      */
-    const replaceText = (xElt, sSearch, sReplace) => {
+    const replaceText = (xTarget, xElt, sSearch, sReplace) => {
         const bFunction = types.isFunction(xElt.node[xElt.attr]);
         const sCurText = bFunction ? xElt.node[xElt.attr].join('') : xElt.node[xElt.attr];
         const sNewText = sCurText.replaceAll(sSearch, sReplace);
         if (bFunction || dom.willChange(xElt.node, xElt.attr, sNewText)) {
-            xElt.node[xElt.attr] = sNewText;
+            setNodeAttr(xTarget, xElt, sNewText);
         }
     };
 
@@ -2940,7 +2970,8 @@ window.jaxon = jaxon;
     self.replace = ({ attr, search, replace }, { target }) => {
         const xElt = dom.getInnerObject(attr, target);
         if (xElt !== null) {
-            replaceText(xElt, attr === 'innerHTML' ? dom.getBrowserHTML(search) : search, replace);
+            replaceText(target, xElt, attr === 'innerHTML' ?
+                dom.getBrowserHTML(search) : search, replace);
         }
         return true;
     };
@@ -3033,11 +3064,14 @@ window.jaxon = jaxon;
             target.parentNode.insertBefore(createNewTag(sTag, sId), target.nextSibling);
         return true;
     };
-})(jaxon.cmd.node, jaxon.utils.dom, jaxon.utils.types, jaxon.config.baseDocument);
+})(jaxon.cmd.node, jaxon.parser.attr, jaxon.utils.dom, jaxon.utils.types,
+    jaxon.config.baseDocument);
 
 
 /**
  * Class: jaxon.cmd.script
+ *
+ * global: jaxon
  */
 
 (function(self, call, parameters, command, types) {
@@ -3166,6 +3200,8 @@ window.jaxon = jaxon;
     Include this in the HEAD of each page for which you wish to use jaxon.
 */
 
+/** global: jaxon */
+
 /**
  * Initiates a request to the server.
  */
@@ -3274,5 +3310,7 @@ jaxon.isLoaded = true;
     register('dialog.modal.hide', cmd.dialog.hideModal, 'Dialog::HideModal');
 })(jaxon.register, jaxon.cmd, jaxon.ajax);
 
+
+/** global: jaxon */
 
 module.exports = jaxon;
