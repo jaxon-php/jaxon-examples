@@ -2,7 +2,6 @@
 
 require(dirname(__DIR__) . '/autoload.php');
 
-use Jaxon\Jaxon;
 use function Jaxon\jaxon;
 
 class HelloWorld
