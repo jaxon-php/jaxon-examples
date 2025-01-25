@@ -36,7 +36,11 @@ return [
         'js' => [
             'lib' => [
                 'uri' => '/js',
-            ]
-        ]
+            ],
+            'app' => [
+                // 'export' => true,
+                // 'minify' => true,
+            ],
+        ],
     ],
 ];
