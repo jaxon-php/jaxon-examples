@@ -53,8 +53,14 @@ This example shows how to use Jaxon HTML custom attributes to define event handl
 This example shows how to use Jaxon HTML custom attributes to define multiple event handlers on a single DOM node.
 </p>',
         ],
+        '/exp/bind-component/' => [
+            'title' => 'Bind a component',
+            'desc' => '<p>
+This example shows how to dynamically bind a component to a DOM node.
+</p>',
+        ],
         '/exp/outerhtml-component/' => [
-            'title' => 'Jaxon attributes in outerHTML',
+            'title' => 'Attributes in outerHTML',
             'desc' => '<p>
 This example shows how to dynamically bind a component to a DOM node by setting its outerHTML property.
 </p>',
