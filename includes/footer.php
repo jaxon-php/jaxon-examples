@@ -6,7 +6,7 @@
 
 <?php
 $jaxon = Jaxon\jaxon();
-echo $jaxon->getJs(), "\n", $jaxon->getScript(), "\n";
+echo $jaxon->getJs(), "\n\n", $jaxon->getScript(), "\n";
 ?>
 
 </body>
