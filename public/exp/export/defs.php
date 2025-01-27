@@ -1,6 +1,6 @@
 <?php
 
-require(dirname(__DIR__) . '/autoload.php');
+require __DIR__ . '/../../../includes/autoload.php';
 require_once(__DIR__ . '/../../../includes/menu.php');
 
 use Jaxon\Jaxon;

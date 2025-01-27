@@ -1,6 +1,6 @@
 <?php
 
-require(dirname(__DIR__) . '/autoload.php');
+require __DIR__ . '/../../../includes/autoload.php';
 
 use Jaxon\Jaxon;
 use Jaxon\App\CallableClass;

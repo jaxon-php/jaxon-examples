@@ -16,6 +16,8 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet" />
+
+<?php echo Jaxon\jaxon()->getCss(), "\n"; ?>
 </head>
 
 <body>
