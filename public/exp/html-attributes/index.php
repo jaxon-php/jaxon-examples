@@ -15,19 +15,17 @@ use function Jaxon\rq;
 ?>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 sidebar">
 <?php require dirname(__DIR__, 3) . '/includes/nav.php' ?>
-            </div>
 
-            <div class="col-sm-9 content">
+        <div class="row">
+            <div class="col-md-4 exp-form">
 <?php require dirname(__DIR__, 3) . '/includes/title.php' ?>
 
                 <div class="row">
                     <div class="col-md-12" <?php echo attr()->bind(rq(AppTest::class)) ?>>
                         Initial content : <?php echo cl(AppTest::class)->html() ?>
                     </div>
-                    <div class="col-md-4 margin-vert-10">
+                    <div class="col-md-12">
                         <!-- Custom attribute: Event handler on DOM node. -->
                         <select class="form-control" <?php
                                 echo attr()->on('change', rq(AppTest::class)->setColor(jq()->val())) ?>>
@@ -37,13 +35,13 @@ use function Jaxon\rq;
                             <option value="blue">Blue</option>
                         </select>
                     </div>
-                    <div class="col-md-8 margin-vert-10" <?php echo attr()->bind(rq(AppButtons::class)) ?>>
+                    <div class="col-md-12 buttons" <?php echo attr()->bind(rq(AppButtons::class)) ?>>
                     </div>
 
                     <div class="col-md-12" <?php echo attr()->bind(rq(ExtTest::class)) ?>>
                         Initial content : <?php echo cl(ExtTest::class)->html() ?>
                     </div>
-                    <div class="col-md-4 margin-vert-10">
+                    <div class="col-md-12">
                         <!-- Custom attribute: Event handler on DOM node. -->
                         <select class="form-control" <?php
                                 echo attr()->on('change', rq(ExtTest::class)->setColor(jq()->val())) ?>>
@@ -53,13 +51,16 @@ use function Jaxon\rq;
                             <option value="blue">Blue</option>
                         </select>
                     </div>
-                    <div class="col-md-8 margin-vert-10" <?php echo attr()->bind(rq(ExtButtons::class)) ?>>
-                    </div>
-                </div>
-            </div> <!-- class="content" -->
+                    <div class="col-md-12 buttons" <?php echo attr()->bind(rq(ExtButtons::class)) ?>>
+                    </div>                </div>
+            </div> <!-- class="exp-form" -->
+
+            <div class="col-md-8 exp-code">
+<?php require dirname(__DIR__, 3) . '/includes/code.php' ?>
+            </div>
        </div> <!-- class="row" -->
     </div>
-<div id="jaxon-init">
+
 <script type='text/javascript'>
     /* <![CDATA[ */
     window.onload = function() {
@@ -68,6 +69,5 @@ use function Jaxon\rq;
     }
     /* ]]> */
 </script>
-</div>
 
 <?php require dirname(__DIR__, 3) . '/includes/footer.php' ?>

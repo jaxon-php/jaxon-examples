@@ -9,15 +9,13 @@ use function Jaxon\rq;
 ?>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 sidebar">
 <?php require dirname(__DIR__, 3) . '/includes/nav.php' ?>
-            </div>
 
-            <div class="col-sm-9 content">
+        <div class="row">
+            <div class="col-md-4 exp-form">
 <?php require dirname(__DIR__, 3) . '/includes/title.php' ?>
 
-                <div class="row" id="jaxon-html">
+                <div class="row">
 <?php foreach($aLibraries as $id => $lib): ?>
                     <div class="col-md-12">
                         <?php echo $lib['name'] ?>
@@ -50,12 +48,14 @@ use function Jaxon\rq;
                     </div>
 <?php endif ?>
 <?php endforeach ?>
-
                 </div>
-            </div> <!-- class="content" -->
+            </div> <!-- class="exp-form" -->
+
+            <div class="col-md-8 exp-code">
+<?php require dirname(__DIR__, 3) . '/includes/code.php' ?>
+            </div>
        </div> <!-- class="row" -->
     </div>
-<div id="jaxon-init">
-</div>
+
 
 <?php require dirname(__DIR__, 3) . '/includes/footer.php' ?>

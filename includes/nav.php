@@ -7,13 +7,19 @@ $requestUri = $_SERVER['REQUEST_URI'];
 $pageTitle = $menuEntries[$requestUri] ?? '';
 
 ?>
-                <ul class="nav nav-sidebar">
-                    <li <?php if($requestUri === '/') { echo ' class="active"'; } ?>>
-                        <a href="/">Home</a>
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link<?php if($requestUri === '/') { echo ' active'; }
+                            ?>" href="/">Home</a>
                     </li>
 <?php foreach($menuEntries as $uri => $page): ?>
-                    <li <?php if($requestUri === $uri): ?> class="active"<?php endif ?>>
-                        <a href="<?php echo $uri ?>"><?php echo $page['title'] ?></a>
+                    <li class="nav-item">
+                        <a class="nav-link<?php if($requestUri === $uri) { echo ' active'; }
+                            ?>" href="<?php echo $uri ?>"><?php echo $page['title'] ?></a>
                     </li>
 <?php endforeach ?>
                 </ul>
+            </div>
+        </div>

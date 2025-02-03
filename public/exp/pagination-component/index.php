@@ -10,12 +10,10 @@ $rqPageContent = rq(PageContent::class);
 ?>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 sidebar">
 <?php require dirname(__DIR__, 3) . '/includes/nav.php' ?>
-            </div>
 
-            <div class="col-sm-9 content">
+        <div class="row">
+            <div class="col-md-4 exp-form">
 <?php require dirname(__DIR__, 3) . '/includes/title.php' ?>
 
                 <div class="row">
@@ -23,13 +21,17 @@ $rqPageContent = rq(PageContent::class);
                     <div class="col-md-12" <?php echo attr()->bind($rqPageContent) ?>>
                     </div>
                     <!-- Custom attribute: Component for pagination links. -->
-                    <div class="col-md-12 margin-vert-10" <?php echo attr()->pagination($rqPageContent) ?>>
+                    <div class="col-md-12 pagination" <?php echo attr()->pagination($rqPageContent) ?>>
                     </div>
                 </div>
-            </div> <!-- class="content" -->
+            </div> <!-- class="exp-form" -->
+
+            <div class="col-md-8 exp-code">
+<?php require dirname(__DIR__, 3) . '/includes/code.php' ?>
+            </div>
        </div> <!-- class="row" -->
     </div>
-<div id="jaxon-init">
+
 <script type='text/javascript'>
     /* <![CDATA[ */
     window.onload = function() {
@@ -37,6 +39,5 @@ $rqPageContent = rq(PageContent::class);
     }
     /* ]]> */
 </script>
-</div>
 
 <?php require dirname(__DIR__, 3) . '/includes/footer.php' ?>

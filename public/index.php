@@ -4,12 +4,10 @@ require dirname(__DIR__, 1) . '/includes/header.php';
 ?>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 sidebar">
 <?php require dirname(__DIR__, 1) . '/includes/nav.php' ?>
-            </div>
 
-            <div class="col-sm-9 content">
+        <div class="row">
+            <div class="col-md-12 content">
                 <h3 class="page-header">Jaxon Examples</h3>
 
                 <div class="row col-md-12">
@@ -26,7 +24,6 @@ https://github.com/Xajax/Xajax/blob/master/examples/helloworld.php</a>.
 <?php echo $page['desc'] ?>
                 </div>
 <?php endforeach ?>
-
 
             </div> <!-- class="content" -->
        </div> <!-- class="row" -->

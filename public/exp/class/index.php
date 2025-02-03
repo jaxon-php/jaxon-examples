@@ -7,37 +7,38 @@ use function Jaxon\rq;
 ?>
 
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3 sidebar">
 <?php require dirname(__DIR__, 3) . '/includes/nav.php' ?>
-            </div>
 
-            <div class="col-sm-9 content">
+        <div class="row">
+            <div class="col-md-4 exp-form">
 <?php require dirname(__DIR__, 3) . '/includes/title.php' ?>
 
-                <div class="row" id="jaxon-html">
-                        <div class="col-md-12" id="div2">
-                            &nbsp;
-                        </div>
-                        <div class="col-md-4 margin-vert-10">
-                            <select class="form-control" id="colorselect" name="colorselect"
-                                    onchange="<?php echo rq('HelloWorld')->setColor(pm()->select('colorselect'))->raw() ?>">
-                                <option value="black" selected="selected">Black</option>
-                                <option value="red">Red</option>
-                                <option value="green">Green</option>
-                                <option value="blue">Blue</option>
-                            </select>
-                        </div>
-                        <div class="col-md-8 margin-vert-10">
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(1)->raw() ?>" >CLICK ME</button>
-                            <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(0)->raw() ?>" >Click Me</button>
-                        </div>
-
+                <div class="row">
+                    <div class="col-md-12" id="div2">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-12">
+                        <select class="form-control" id="colorselect" name="colorselect"
+                                onchange="<?php echo rq('HelloWorld')->setColor(pm()->select('colorselect'))->raw() ?>">
+                            <option value="black" selected="selected">Black</option>
+                            <option value="red">Red</option>
+                            <option value="green">Green</option>
+                            <option value="blue">Blue</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12 buttons">
+                        <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(1)->raw() ?>" >CLICK ME</button>
+                        <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(0)->raw() ?>" >Click Me</button>
+                    </div>
                 </div>
-            </div> <!-- class="content" -->
+            </div> <!-- class="exp-form" -->
+
+            <div class="col-md-8 exp-code">
+<?php require dirname(__DIR__, 3) . '/includes/code.php' ?>
+            </div>
        </div> <!-- class="row" -->
     </div>
-<div id="jaxon-init">
+
 <script type='text/javascript'>
     /* <![CDATA[ */
     window.onload = function() {
@@ -48,6 +49,5 @@ use function Jaxon\rq;
     }
     /* ]]> */
 </script>
-</div>
 
 <?php require dirname(__DIR__, 3) . '/includes/footer.php' ?>
