@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../../../includes/autoload.php';
+require dirname(__DIR__, 3) . '/includes/autoload.php';
 
 use Jaxon\App\PageComponent;
 use function Jaxon\jaxon;

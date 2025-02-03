@@ -1,7 +1,7 @@
 <?php
 
-require(__DIR__ . '/defs.php');
-require(__DIR__ . '/../../../includes/header.php');
+require __DIR__ . '/defs.php';
+require dirname(__DIR__, 3) . '/includes/header.php';
 
 use App\Test\Test as AppTest;
 use App\Test\Buttons as AppButtons;
@@ -17,11 +17,11 @@ use function Jaxon\rq;
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 sidebar">
-<?php require(__DIR__ . '/../../../includes/nav.php') ?>
+<?php require dirname(__DIR__, 3) . '/includes/nav.php' ?>
             </div>
 
             <div class="col-sm-9 content">
-<?php require(__DIR__ . '/../../../includes/title.php') ?>
+<?php require dirname(__DIR__, 3) . '/includes/title.php' ?>
 
                 <!-- Custom attribute: Multiple event handlers on child nodes, using dedicated divs. -->
                 <div class="row" <?php echo attr()->target() ?>>
@@ -74,4 +74,4 @@ use function Jaxon\rq;
 </script>
 </div>
 
-<?php require(__DIR__ . '/../../../includes/footer.php') ?>
+<?php require dirname(__DIR__, 3) . '/includes/footer.php' ?>

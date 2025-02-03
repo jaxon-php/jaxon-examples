@@ -1,7 +1,7 @@
 <?php
 
-require(__DIR__ . '/defs.php');
-require(__DIR__ . '/../../../includes/header.php');
+require __DIR__ . '/defs.php';
+require dirname(__DIR__, 3) . '/includes/header.php';
 
 use function Jaxon\attr;
 use function Jaxon\js;
@@ -11,11 +11,11 @@ use function Jaxon\rq;
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 sidebar">
-<?php require(__DIR__ . '/../../../includes/nav.php') ?>
+<?php require dirname(__DIR__, 3) . '/includes/nav.php' ?>
             </div>
 
             <div class="col-sm-9 content">
-<?php require(__DIR__ . '/../../../includes/title.php') ?>
+<?php require dirname(__DIR__, 3) . '/includes/title.php' ?>
 
                 <div class="row" id="jaxon-html">
 <?php foreach($aLibraries as $id => $lib): ?>
@@ -58,4 +58,4 @@ use function Jaxon\rq;
 <div id="jaxon-init">
 </div>
 
-<?php require(__DIR__ . '/../../../includes/footer.php') ?>
+<?php require dirname(__DIR__, 3) . '/includes/footer.php' ?>

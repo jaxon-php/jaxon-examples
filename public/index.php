@@ -1,9 +1,12 @@
-<?php require(__DIR__ . '/../includes/header.php') ?>
+<?php
+require dirname(__DIR__, 1) . '/includes/autoload.php';
+require dirname(__DIR__, 1) . '/includes/header.php';
+?>
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 sidebar">
-<?php require(__DIR__ . '/../includes/nav.php') ?>
+<?php require dirname(__DIR__, 1) . '/includes/nav.php' ?>
             </div>
 
             <div class="col-sm-9 content">
@@ -28,4 +31,4 @@ https://github.com/Xajax/Xajax/blob/master/examples/helloworld.php</a>.
             </div> <!-- class="content" -->
        </div> <!-- class="row" -->
     </div>
-<?php require(__DIR__ . '/../includes/footer.php') ?>
+<?php require dirname(__DIR__, 1) . '/includes/footer.php' ?>
