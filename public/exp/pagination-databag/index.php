@@ -21,7 +21,7 @@ $rqPageContent = rq(PageContent::class);
                     <div class="col-md-12" <?php echo attr()->bind($rqPageContent) ?>>
                     </div>
                     <!-- Custom attribute: Component for pagination links. -->
-                    <div class="col-md-12 pagination" <?php echo attr()->pagination($rqPageContent) ?>>
+                    <div class="col-md-12" <?php echo attr()->pagination($rqPageContent) ?>>
                     </div>
                 </div>
             </div> <!-- class="exp-form" -->

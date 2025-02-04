@@ -1,0 +1,1 @@
+    <li class="page-item active"><a class="page-link" role="link"><?php echo $this->text ?></a></li>

@@ -16,7 +16,7 @@ use function Jaxon\rq;
                     <div class="col-md-12" id="div2">
                         Showing page number 1
                     </div>
-                    <div class="col-md-12 pagination" id="pagination">
+                    <div class="col-md-12" id="pagination">
                     </div>
                 </div>
             </div> <!-- class="exp-form" -->

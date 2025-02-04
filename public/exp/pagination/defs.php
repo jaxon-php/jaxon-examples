@@ -29,5 +29,7 @@ $jaxon = jaxon();
 // Request processing URI
 $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('core.request.uri', 'ajax.php');
+$jaxon->view()->addNamespace('pagination',
+    dirname(__DIR__, 3) . '/templates/pagination', '.php', 'jaxon');
 
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

@@ -1,0 +1,1 @@
+    <li class="page-item disabled"><span class="page-link"><?php echo $this->text ?></span></li>
