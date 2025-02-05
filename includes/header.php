@@ -22,10 +22,8 @@
 
 <body>
 
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Jaxon Examples</a>
-            </div>
+            <a class="navbar-brand" href="/">Jaxon Examples</a>
         </div>
     </nav>

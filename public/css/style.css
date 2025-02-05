@@ -11,3 +11,18 @@ body {
   margin-top: 7px;
   margin-bottom: 20px;
 }
+
+.nav-examples {
+  margin-bottom: 15px;
+}
+
+.nav-examples .badge {
+  font-size: .9em;
+  font-weight: 400;
+  margin: 5px 5px;
+}
+
+.code {
+  overflow: auto;
+  max-height: 550px;
+}
