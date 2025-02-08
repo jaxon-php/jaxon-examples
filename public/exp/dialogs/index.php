@@ -8,7 +8,9 @@ use Jaxon\App\Dialog\Library\ConfirmInterface;
 use Jaxon\App\Dialog\Library\ModalInterface;
 use Jaxon\Dialogs\Dialog\Library\Alertify;
 use Jaxon\Dialogs\Dialog\Library\Bootbox;
-use Jaxon\Dialogs\Dialog\Library\Bootstrap;
+use Jaxon\Dialogs\Dialog\Library\Bootstrap3;
+use Jaxon\Dialogs\Dialog\Library\Bootstrap4;
+use Jaxon\Dialogs\Dialog\Library\Bootstrap5;
 use Jaxon\Dialogs\Dialog\Library\CuteAlert;
 use Jaxon\Dialogs\Dialog\Library\Toastr;
 use Jaxon\Dialogs\Dialog\Library\JAlert;
@@ -26,8 +28,12 @@ $aLibraries = [
     'alertify'      => ['class' => Alertify::class, 'id' => 'alertify', 'name' => 'Alertify'],
     // Bootbox
     'bootbox'       => ['class' => Bootbox::class, 'id' => 'bootbox', 'name' => 'Bootbox'],
-    // Bootstrap
-    // 'bootstrap'     => ['class' => Bootstrap::class, 'id' => 'bootstrap', 'name' => 'Bootstrap'],
+    // Bootstrap 3
+    // 'bootstrap3'     => ['class' => Bootstrap3::class, 'id' => 'bootstrap3', 'name' => 'Bootstrap 3'],
+    // Bootstrap 4
+    // 'bootstrap4'     => ['class' => Bootstrap4::class, 'id' => 'bootstrap4', 'name' => 'Bootstrap 4'],
+    // Bootstrap 5
+    'bootstrap5'     => ['class' => Bootstrap5::class, 'id' => 'bootstrap5', 'name' => 'Bootstrap 5'],
     // CuteAlert
     'cute'          => ['class' => CuteAlert::class, 'id' => 'cute', 'name' => 'CuteAlert'],
     // Toastr

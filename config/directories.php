@@ -31,7 +31,7 @@ return [
                 ],
             ],
             'lib' => [
-                'use' => ['bootbox', 'bootstrap'],
+                'use' => ['bootbox', 'bootstrap5'],
             ],
         ],
     ],

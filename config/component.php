@@ -43,7 +43,7 @@ return [
                 ],
             ],
             'lib' => [
-                'use' => ['bootstrap'],
+                'use' => ['bootstrap5'],
             ],
         ],
     ],

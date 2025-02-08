@@ -43,9 +43,10 @@ class HelloWorld extends CallableClass
 
     public function showDialog()
     {
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array('width' => 500);
-        $this->response->dialog->show("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $options);
+        $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
+        $options = ['width' => 500];
+        $this->response->dialog->show("Modal Dialog",
+            "This modal dialog is powered by Bootbox!!", $buttons, $options);
     }
 }
 

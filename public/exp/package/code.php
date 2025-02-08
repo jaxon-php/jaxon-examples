@@ -2,7 +2,7 @@
 require_once(__DIR__ . '/../../../includes/menu.php');
 
 use Jaxon\Plugin\AbstractPackage;
-use Jaxon\Dialogs\Dialog\Library\Bootstrap;
+use Jaxon\Dialogs\Dialog\Library\Bootbox;
 use Jaxon\Dialogs\Dialog\Library\Toastr;
 use function Jaxon\jaxon;
 
@@ -41,7 +41,7 @@ $jaxon->setOption('js.app.minify', false); // Optionally, the file can be minifi
 $jaxon->setOption('core.request.uri', 'ajax.php');
 
 // Dialog options
-$jaxon->app()->setOption('dialogs.default.modal', Bootstrap::NAME);
+$jaxon->app()->setOption('dialogs.default.modal', Bootbox::NAME);
 $jaxon->app()->setOption('dialogs.default.alert', Toastr::NAME);
 $jaxon->app()->setOption('dialogs.toastr.options.alert.closeButton', true);
 $jaxon->app()->setOption('dialogs.toastr.options.alert.positionClass', 'toast-top-center');

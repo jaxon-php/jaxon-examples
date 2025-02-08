@@ -21,9 +21,9 @@ class Test extends \Jaxon\App\CallableClass
 
     public function showDialog()
     {
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
+        $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $width = 300;
-        $this->response->dialog->with('bootstrap')->show("Modal Dialog",
+        $this->response->dialog->with('bootstrap5')->show("Modal Dialog",
             "This modal dialog is powered by Twitter Bootstrap!!", $buttons, compact('width'));
     }
 }

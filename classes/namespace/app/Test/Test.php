@@ -21,8 +21,8 @@ class Test extends \Jaxon\App\CallableClass
 
     public function showDialog()
     {
-        $buttons = array(array('title' => 'Close', 'class' => 'btn', 'click' => 'close'));
-        $options = array('maxWidth' => 400);
+        $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
+        $options = ['maxWidth' => 400];
         $this->response->dialog->with('bootbox')->show("Modal Dialog",
             "This modal dialog is powered by Bootbox!!", $buttons, $options);
     }

@@ -37,7 +37,7 @@ $jaxon->setOption('upload.default.dir', __DIR__ . '/files');
 $jaxon->setOption('core.request.uri', 'ajax.php');
 $jaxon->setOption('core.upload.enabled', true);
 
-$jaxon->app()->setOption('dialogs.default.modal', 'bootstrap');
+$jaxon->app()->setOption('dialogs.default.modal', 'bootbox');
 $jaxon->app()->setOption('dialogs.default.alert', 'toastr');
 
 $jaxon->callback()->after(function($target, $end) {

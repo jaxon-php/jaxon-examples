@@ -10,7 +10,7 @@ $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('core.prefix.class', '');
 
 // Dialog options
-$jaxon->app()->setOption('dialogs.default.modal', 'bootstrap');
+$jaxon->app()->setOption('dialogs.default.modal', 'bootstrap5');
 $jaxon->app()->setOption('dialogs.default.alert', 'toastr');
 $jaxon->app()->setOption('dialogs.toastr.options.alert.closeButton', true);
 $jaxon->app()->setOption('dialogs.toastr.options.alert.positionClass', 'toast-top-center');
