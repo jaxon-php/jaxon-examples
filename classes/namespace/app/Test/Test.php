@@ -2,7 +2,7 @@
 
 namespace App\Test;
 
-class Test extends \Jaxon\App\CallableClass
+class Test extends \Jaxon\App\FuncComponent
 {
     public function sayHello(bool $isCaps, bool $bNotify = true)
     {

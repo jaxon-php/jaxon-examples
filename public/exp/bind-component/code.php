@@ -1,6 +1,6 @@
 <?php
 
-use Jaxon\App\CallableClass;
+use Jaxon\App\FuncComponent;
 use Jaxon\App\Component;
 
 use function Jaxon\jaxon;
@@ -14,7 +14,7 @@ class HelloText extends Component
     }
 }
 
-class HelloWorld extends CallableClass
+class HelloWorld extends FuncComponent
 {
     public function sayHello(bool $isCaps)
     {

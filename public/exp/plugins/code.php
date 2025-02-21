@@ -1,12 +1,12 @@
 <?php
 
 use Jaxon\Jaxon;
-use Jaxon\App\CallableClass;
+use Jaxon\App\FuncComponent;
 use Jaxon\Dialogs\Dialog\Library\Bootbox;
 use Jaxon\Dialogs\Dialog\Library\Noty;
 use function Jaxon\jaxon;
 
-class HelloWorld extends CallableClass
+class HelloWorld extends FuncComponent
 {
     public function sayHello(bool $isCaps, bool $bNotify = true)
     {

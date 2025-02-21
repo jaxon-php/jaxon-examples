@@ -3,7 +3,7 @@
 use Jaxon\Jaxon;
 use function Jaxon\jaxon;
 
-class HelloWorld extends \Jaxon\App\CallableClass
+class HelloWorld extends \Jaxon\App\FuncComponent
 {
     public function sayHello(bool $isCaps)
     {

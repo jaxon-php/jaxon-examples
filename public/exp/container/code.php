@@ -1,7 +1,7 @@
 <?php
 
 use Jaxon\Jaxon;
-use Jaxon\App\CallableClass;
+use Jaxon\App\FuncComponent;
 use function Jaxon\jaxon;
 
 use Service\ExampleInterface;
@@ -11,7 +11,7 @@ $loader = new Keradus\Psr4Autoloader;
 $loader->register();
 $loader->addNamespace('Service', $classesDir . '/namespace/service');
 
-class HelloWorld extends CallableClass
+class HelloWorld extends FuncComponent
 {
     protected $service;
 

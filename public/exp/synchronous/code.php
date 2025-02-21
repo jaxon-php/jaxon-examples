@@ -1,10 +1,10 @@
 <?php
 
 use Jaxon\Jaxon;
-use Jaxon\App\CallableClass;
+use Jaxon\App\FuncComponent;
 use function Jaxon\jaxon;
 
-class HelloWorld extends CallableClass
+class HelloWorld extends FuncComponent
 {
     public function sleep($iDuration)
     {

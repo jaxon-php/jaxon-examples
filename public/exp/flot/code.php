@@ -3,7 +3,7 @@
 use Jaxon\Jaxon;
 use function Jaxon\jaxon;
 
-class Flot extends \Jaxon\App\CallableClass
+class Flot extends \Jaxon\App\FuncComponent
 {
     public function drawGraph()
     {

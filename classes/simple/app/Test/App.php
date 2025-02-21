@@ -1,6 +1,6 @@
 <?php
 
-class App extends \Jaxon\App\CallableClass
+class App extends \Jaxon\App\FuncComponent
 {
     public function sayHello(bool $isCaps, bool $bNotify = true)
     {
