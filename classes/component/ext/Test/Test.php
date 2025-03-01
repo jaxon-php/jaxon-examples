@@ -2,7 +2,7 @@
 
 namespace Ext\Test;
 
-class Test extends \Jaxon\App\Component
+class Test extends \Jaxon\App\NodeComponent
 {
     private $isCaps = false;
 

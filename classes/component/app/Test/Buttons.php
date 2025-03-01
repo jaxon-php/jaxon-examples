@@ -2,7 +2,7 @@
 
 namespace App\Test;
 
-class Buttons extends \Jaxon\App\Component
+class Buttons extends \Jaxon\App\NodeComponent
 {
     public function html(): string
     {

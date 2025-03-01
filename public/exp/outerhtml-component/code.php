@@ -1,13 +1,13 @@
 <?php
 
 use Jaxon\App\FuncComponent;
-use Jaxon\App\Component;
+use Jaxon\App\NodeComponent;
 
 use function Jaxon\attr;
 use function Jaxon\jaxon;
 use function Jaxon\rq;
 
-class HelloText extends Component
+class HelloText extends NodeComponent
 {
     public function html(): string
     {

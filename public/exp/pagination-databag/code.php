@@ -1,6 +1,7 @@
 <?php
 
 use Jaxon\App\PageComponent;
+use Jaxon\App\PageDatabagTrait;
 use function Jaxon\jaxon;
 use function Jaxon\pm;
 
@@ -9,22 +10,40 @@ use function Jaxon\pm;
  */
 class PageContent extends PageComponent
 {
+    use PageDatabagTrait;
+
    /**
     * @inheritDoc
     */
-   protected function limit(): int
+   protected function bagName(): string
    {
-       return 10;
+       return 'page';
    }
 
    /**
     * @inheritDoc
     */
-   protected function count(): int
+   protected function bagAttr(): string
    {
-       return 150;
+       return 'number';
    }
 
+   /**
+    * @inheritDoc
+    */
+    protected function limit(): int
+    {
+        return 10;
+    }
+ 
+    /**
+     * @inheritDoc
+     */
+    protected function count(): int
+    {
+        return 150;
+    }
+ 
    public function html():  string
     {
         return '<div style="margin-bottom:10px;font-weight:bold;">' .
