@@ -14,7 +14,7 @@ return [
             'lib' => [
                 'use' => ['alertify', 'bootbox', /*'bootstrap3', 'bootstrap4',*/
                     'bootstrap5', 'toastr', 'tingle', 'jalert', 'notify',
-                    'cute', 'noty', 'sweetalert', 'jconfirm'],
+                    'cute', 'noty', 'notyf', 'sweetalert', 'jconfirm'],
             ],
             'toastr' => [
                 'options' => [

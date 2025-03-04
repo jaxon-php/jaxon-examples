@@ -15,8 +15,9 @@ use Jaxon\Dialogs\Dialog\Library\CuteAlert;
 use Jaxon\Dialogs\Dialog\Library\Toastr;
 use Jaxon\Dialogs\Dialog\Library\JAlert;
 use Jaxon\Dialogs\Dialog\Library\Tingle;
-use Jaxon\Dialogs\Dialog\Library\Noty;
 use Jaxon\Dialogs\Dialog\Library\Notify;
+use Jaxon\Dialogs\Dialog\Library\Noty;
+use Jaxon\Dialogs\Dialog\Library\Notyf;
 use Jaxon\Dialogs\Dialog\Library\SweetAlert;
 use Jaxon\Dialogs\Dialog\Library\JQueryConfirm;
 
@@ -44,6 +45,8 @@ $aLibraries = [
     'tingle'        => ['class' => Tingle::class, 'id' => 'tingle', 'name' => 'Tingle'],
     // Noty
     'noty'          => ['class' => Noty::class, 'id' => 'noty', 'name' => 'Noty'],
+    // Notyf
+    'notyf'         => ['class' => Notyf::class, 'id' => 'notyf', 'name' => 'Notyf'],
     // Notify
     'notify'        => ['class' => Notify::class, 'id' => 'notify', 'name' => 'Notify'],
     // SweetAlert
