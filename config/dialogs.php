@@ -12,9 +12,12 @@ return [
                 'confirm' => 'noty',
             ],
             'lib' => [
-                'use' => ['alertify', 'bootbox', /*'bootstrap3', 'bootstrap4',*/
-                    'bootstrap5', 'toastr', 'tingle', 'jalert', 'notify',
-                    'cute', 'noty', 'notyf', 'sweetalert', 'jconfirm'],
+                'use' => [
+                    'alertify', 'bootbox', 'butterup', 'quantum',
+                    /*'bootstrap3', 'bootstrap4', 'bootstrap5',*/
+                    'toastr', 'tingle', 'jalert', 'notify', 'cute', 'noty',
+                    'izitoast', 'notyf', 'sweetalert', 'jconfirm',
+                ],
             ],
             'toastr' => [
                 'options' => [

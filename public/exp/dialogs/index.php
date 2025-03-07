@@ -6,53 +6,81 @@ require dirname(__DIR__, 3) . '/includes/header.php';
 use Jaxon\App\Dialog\Library\AlertInterface;
 use Jaxon\App\Dialog\Library\ConfirmInterface;
 use Jaxon\App\Dialog\Library\ModalInterface;
-use Jaxon\Dialogs\Dialog\Library\Alertify;
-use Jaxon\Dialogs\Dialog\Library\Bootbox;
-use Jaxon\Dialogs\Dialog\Library\Bootstrap3;
-use Jaxon\Dialogs\Dialog\Library\Bootstrap4;
-use Jaxon\Dialogs\Dialog\Library\Bootstrap5;
-use Jaxon\Dialogs\Dialog\Library\CuteAlert;
-use Jaxon\Dialogs\Dialog\Library\Toastr;
-use Jaxon\Dialogs\Dialog\Library\JAlert;
-use Jaxon\Dialogs\Dialog\Library\Tingle;
-use Jaxon\Dialogs\Dialog\Library\Notify;
-use Jaxon\Dialogs\Dialog\Library\Noty;
-use Jaxon\Dialogs\Dialog\Library\Notyf;
-use Jaxon\Dialogs\Dialog\Library\SweetAlert;
-use Jaxon\Dialogs\Dialog\Library\JQueryConfirm;
 
 use function Jaxon\attr;
 use function Jaxon\rq;
 
 $aLibraries = [
     // Alertify
-    'alertify'      => ['class' => Alertify::class, 'id' => 'alertify', 'name' => 'Alertify'],
+    'alertify'      => [
+        'name' => 'Alertify',
+        'class' => Jaxon\Dialogs\Dialog\Library\Alertify::class,
+    ],
     // Bootbox
-    'bootbox'       => ['class' => Bootbox::class, 'id' => 'bootbox', 'name' => 'Bootbox'],
-    // Bootstrap 3
-    // 'bootstrap3'     => ['class' => Bootstrap3::class, 'id' => 'bootstrap3', 'name' => 'Bootstrap 3'],
-    // Bootstrap 4
-    // 'bootstrap4'     => ['class' => Bootstrap4::class, 'id' => 'bootstrap4', 'name' => 'Bootstrap 4'],
-    // Bootstrap 5
-    'bootstrap5'     => ['class' => Bootstrap5::class, 'id' => 'bootstrap5', 'name' => 'Bootstrap 5'],
+    'bootbox'       => [
+        'name' => 'Bootbox',
+        'class' => Jaxon\Dialogs\Dialog\Library\Bootbox::class,
+    ],
+    // Quantum
+    'quantum'     => [
+        'name' => 'Quantum Alert',
+        'class' => Jaxon\Dialogs\Dialog\Library\Quantum::class,
+    ],
+    // Butterup
+    'butterup'     => [
+        'name' => 'Butterup',
+        'class' => Jaxon\Dialogs\Dialog\Library\Butterup::class,
+    ],
     // CuteAlert
-    'cute'          => ['class' => CuteAlert::class, 'id' => 'cute', 'name' => 'CuteAlert'],
+    'cute'          => [
+        'name' => 'CuteAlert',
+        'class' => Jaxon\Dialogs\Dialog\Library\CuteAlert::class,
+    ],
     // Toastr
-    'toastr'        => ['class' => Toastr::class, 'id' => 'toastr', 'name' => 'Toastr'],
+    'toastr'        => [
+        'name' => 'Toastr',
+        'class' => Jaxon\Dialogs\Dialog\Library\Toastr::class,
+    ],
     // JAlert
-    'jalert'        => ['class' => JAlert::class, 'id' => 'jalert', 'name' => 'JAlert'],
+    'jalert'        => [
+        'name' => 'JAlert',
+        'class' => Jaxon\Dialogs\Dialog\Library\JAlert::class,
+    ],
     // Tingle
-    'tingle'        => ['class' => Tingle::class, 'id' => 'tingle', 'name' => 'Tingle'],
+    'tingle'        => [
+        'name' => 'Tingle',
+        'class' => Jaxon\Dialogs\Dialog\Library\Tingle::class,
+    ],
     // Noty
-    'noty'          => ['class' => Noty::class, 'id' => 'noty', 'name' => 'Noty'],
+    'noty'          => [
+        'name' => 'Noty',
+        'class' => Jaxon\Dialogs\Dialog\Library\Noty::class,
+    ],
     // Notyf
-    'notyf'         => ['class' => Notyf::class, 'id' => 'notyf', 'name' => 'Notyf'],
+    'notyf'         => [
+        'name' => 'Notyf',
+        'class' => Jaxon\Dialogs\Dialog\Library\Notyf::class,
+    ],
     // Notify
-    'notify'        => ['class' => Notify::class, 'id' => 'notify', 'name' => 'Notify'],
+    'notify'        => [
+        'name' => 'Notify',
+        'class' => Jaxon\Dialogs\Dialog\Library\Notify::class,
+    ],
+    // IziToast
+    'izitoast'     => [
+        'name' => 'IziToast',
+        'class' => Jaxon\Dialogs\Dialog\Library\IziToast::class,
+    ],
     // SweetAlert
-    'sweetalert'    => ['class' => SweetAlert::class, 'id' => 'sweetalert', 'name' => 'SweetAlert'],
+    'sweetalert'    => [
+        'name' => 'SweetAlert',
+        'class' => Jaxon\Dialogs\Dialog\Library\SweetAlert::class,
+    ],
     // JQuery Confirm
-    'jconfirm'      => ['class' => JQueryConfirm::class, 'id' => 'jconfirm', 'name' => 'JQueryConfirm'],
+    'jconfirm'      => [
+        'name' => 'JQueryConfirm',
+        'class' => Jaxon\Dialogs\Dialog\Library\JQueryConfirm::class,
+    ],
 ];
 ?>
 
