@@ -70,7 +70,7 @@ This example shows how to dynamically bind a component to a DOM node by setting 
             'desc' => 'This example demonstrates the built-in pagination component.',
         ],
         '/exp/pagination-databag/' => [
-            'title' => 'Pagination and data bag',
+            'title' => 'Pagination and databag',
             'desc' => 'In this example the built-in pagination component in used with a data bag.',
         ],
         '/exp/plugins/' => [
