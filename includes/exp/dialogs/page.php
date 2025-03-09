@@ -80,7 +80,7 @@ $aLibraries = [
     ],
 ];
 ?>
-<?php $this->extend('examples::layout.php') ?>
+<?php $this->extends('examples::layout.php') ?>
 
 <?php $this->block('content') ?>
                 <div class="row">

@@ -1,4 +1,4 @@
-<?php $this->extend('examples::layout.php') ?>
+<?php $this->extends('examples::layout.php') ?>
 
 <?php
 use function Jaxon\attr;
