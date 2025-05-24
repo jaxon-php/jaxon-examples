@@ -11,7 +11,7 @@ use function Jaxon\rq;
                         &nbsp;
                     </div>
                     <div class="col-md-12">
-                        <select class="form-control" id="colorselect" name="colorselect"
+                        <select class="form-select" id="colorselect" name="colorselect"
                             onchange="<?php echo rq('HelloWorld')->setColor(pm()->select('colorselect'))->raw() ?>">
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>

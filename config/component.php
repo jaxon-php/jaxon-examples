@@ -18,7 +18,7 @@ return [
         ],
         'views' => [
             'component' => [
-                'directory' => dirname(__DIR__) . '/templates',
+                'directory' => dirname(__DIR__) . '/templates/component',
                 'extension' => '.php',
                 'renderer' => 'jaxon',
             ],
@@ -33,14 +33,6 @@ return [
                 'modal' => 'bootbox',
                 'alert' => 'noty',
                 'confirm' => 'noty',
-            ],
-            'toastr' => [
-                'options' => [
-                    'alert' => [
-                        'closeButton' => true,
-                        'positionClass' => 'toast-top-center',
-                    ],
-                ],
             ],
             'lib' => [
                 'use' => ['bootstrap5'],

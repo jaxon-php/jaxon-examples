@@ -15,7 +15,7 @@ $color2 = jq('#colorselect2')->val();
                         &nbsp;
                     </div>
                     <div class="col-md-12">
-                        <select class="form-control" id="colorselect1" name="colorselect1"
+                        <select class="form-select" id="colorselect1" name="colorselect1"
                                 onchange="<?php echo rq('App.Test.Test')->setColor(pm()->select('colorselect1'))
                                     ->confirm('Set color to {1} not {2}?', $color1, $color2)->raw() ?>">
                             <option value="black" selected="selected">Black</option>
@@ -34,7 +34,7 @@ $color2 = jq('#colorselect2')->val();
                         &nbsp;
                     </div>
                     <div class="col-md-12">
-                        <select class="form-control" id="colorselect2" name="colorselect2"
+                        <select class="form-select" id="colorselect2" name="colorselect2"
                                 onchange="<?php echo rq('Ext.Test.Test')->setColor(pm()->select('colorselect2'))
                                     ->confirm('Set color to {2} not {1}?', $color1, $color2)->raw() ?>">
                             <option value="black" selected="selected">Black</option>

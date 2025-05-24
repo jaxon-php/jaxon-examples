@@ -19,7 +19,7 @@ use function Jaxon\rq;
                     </div>
                     <div class="col-md-12">
                         <!-- Custom attribute: Event handler on DOM node. -->
-                        <select class="form-control" <?php
+                        <select class="form-select" <?php
                                 echo attr()->on('change', rq(AppTest::class)->setColor(jq()->val())) ?>>
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>
@@ -35,7 +35,7 @@ use function Jaxon\rq;
                     </div>
                     <div class="col-md-12">
                         <!-- Custom attribute: Event handler on DOM node. -->
-                        <select class="form-control" <?php
+                        <select class="form-select" <?php
                                 echo attr()->on('change', rq(ExtTest::class)->setColor(jq()->val())) ?>>
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>

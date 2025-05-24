@@ -11,7 +11,7 @@ use function Jaxon\rq;
                         &nbsp;
                     </div>
                     <div class="col-md-12">
-                        <select class="form-control" id="colorselect" name="colorselect">
+                        <select class="form-select" id="colorselect" name="colorselect">
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>
                             <option value="green">Green</option>
