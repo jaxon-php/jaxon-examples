@@ -27,7 +27,5 @@ class HelloWorld extends \Jaxon\App\FuncComponent
 $jaxon = jaxon();
 
 $jaxon->setOption('js.lib.uri', '/js');
-$jaxon->view()->addNamespace('pagination',
-    dirname(__DIR__, 3) . '/templates/component/pagination', '.php', 'jaxon');
 
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

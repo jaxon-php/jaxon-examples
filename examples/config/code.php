@@ -33,4 +33,4 @@ class HelloWorld
 // Register object
 $jaxon = jaxon();
 
-$jaxon->app()->setup($configDir . '/config.yaml');
+$jaxon->app()->setup(configFile('config.yaml'));

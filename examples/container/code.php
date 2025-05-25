@@ -9,7 +9,7 @@ use Service\ExampleInterface;
 // Register the namespace with a third-party autoloader
 $loader = new Keradus\Psr4Autoloader;
 $loader->register();
-$loader->addNamespace('Service', $classesDir . '/namespace/service');
+$loader->addNamespace('Service', classDir('/namespace/service'));
 
 class HelloWorld extends FuncComponent
 {
@@ -36,7 +36,7 @@ class HelloWorld extends FuncComponent
 // Register object
 $jaxon = jaxon();
 
-$jaxon->app()->setup($configDir . '/container.php', 'lib');
+$jaxon->app()->setup(configFile('container.php', 'lib'));
 $jaxon->setOption('core.decode_utf8', true);
 
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

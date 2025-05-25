@@ -3,6 +3,15 @@
 function menu_entries()
 {
     return [
+        '/exp/calculator/' => [
+            'title' => 'Calculator',
+            'desc' => '<p>
+In this example, a calculator is implemented as a Jaxon component, which is inserted at a given position in the page.
+</p>
+<p>
+The result of operations are calculated by a service, which is injected in the main component, and formatted by another component.
+</p>',
+        ],
         '/exp/hello/' => [
             'title' => 'Hello World Function',
             'desc' => '<p>
@@ -144,15 +153,6 @@ In this example the autoloading is disabled in the Jaxon library.
 </p>
 <p>
 A third-party autoloader is used to load the Jaxon classes.
-</p>',
-        ],
-        '/exp/calculator/' => [
-            'title' => 'Calculator',
-            'desc' => '<p>
-In this example, a calculator is implemented as a Jaxon component, which is inserted at a given position in the page.
-</p>
-<p>
-The result of operations are calculated by a service, which is injected in the main component, and formatted by another component.
 </p>',
         ],
     ];

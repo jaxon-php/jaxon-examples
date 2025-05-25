@@ -2,4 +2,4 @@
 
 use function Jaxon\jaxon;
 
-jaxon()->app()->setup($configDir . '/directories.php');
+jaxon()->app()->setup(configFile('directories.php'));

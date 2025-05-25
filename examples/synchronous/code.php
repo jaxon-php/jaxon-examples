@@ -28,7 +28,7 @@ class HelloWorld extends FuncComponent
 // Register object
 $jaxon = jaxon();
 
-$jaxon->app()->setup($configDir . '/class.php');
+$jaxon->app()->setup(configFile('class.php'));
 
 // Js options
 $jaxon->setOption('js.lib.uri', '/js');

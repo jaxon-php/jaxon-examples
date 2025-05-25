@@ -17,5 +17,5 @@ $jaxon->app()->setOption('dialogs.toastr.options.alert.positionClass', 'toast-to
 $jaxon->app()->setOption('dialogs.lib.use', ['tingle']);
 
 // Add class dirs with namespaces
-$jaxon->register(Jaxon::CALLABLE_DIR, $classesDir . '/namespace/app', ['namespace' => 'App']);
-$jaxon->register(Jaxon::CALLABLE_DIR, $classesDir . '/namespace/ext', ['namespace' => 'Ext']);
+$jaxon->register(Jaxon::CALLABLE_DIR, classDir('/namespace/app'), ['namespace' => 'App']);
+$jaxon->register(Jaxon::CALLABLE_DIR, classDir('/namespace/ext'), ['namespace' => 'Ext']);

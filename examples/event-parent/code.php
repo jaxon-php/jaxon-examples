@@ -37,4 +37,4 @@ class PageContent extends PageComponent
     }
 }
 
-jaxon()->app()->setup($configDir . '/component.php');
+jaxon()->app()->setup(configFile('component.php'));

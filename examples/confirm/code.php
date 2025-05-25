@@ -32,7 +32,7 @@ class HelloWorld
 // Register object
 $jaxon = jaxon();
 
-$jaxon->app()->setup($configDir . '/class.php');
+$jaxon->app()->setup(configFile('class.php'));
 $jaxon->app()->setOption('dialogs.default.confirm', 'cute');
 
 // Js options

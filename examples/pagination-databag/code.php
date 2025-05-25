@@ -69,6 +69,4 @@ class PageContent extends PageComponent
     }
 }
 
-jaxon()->app()->setup($configDir . '/component.php');
-jaxon()->view()->addNamespace('pagination',
-    dirname(__DIR__, 3) . '/templates/component/pagination', '.php', 'jaxon');
+jaxon()->app()->setup(configFile('component.php'));

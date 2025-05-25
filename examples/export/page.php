@@ -1,7 +1,6 @@
 <?php $this->extends('templates::examples/layout.php') ?>
 
 <?php
-use function Jaxon\pm;
 use function Jaxon\rq;
 ?>
 

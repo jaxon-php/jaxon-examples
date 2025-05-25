@@ -62,4 +62,4 @@ class HelloWorld
 }
 
 $jaxon = jaxon();
-$jaxon->app()->setup($configDir . '/dialogs.php');
+$jaxon->app()->setup(configFile('dialogs.php'));
