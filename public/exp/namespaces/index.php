@@ -1,12 +1,12 @@
 <?php
 
-$includesDir = dirname(__DIR__, 3) . '/includes';
-require "$includesDir/autoload.php";
-require "$includesDir/exp/namespaces/code.php";
+use function Jaxon\jaxon;
+
+$examplesDir = dirname(__DIR__, 3) . '/examples';
+require "$examplesDir/bootstrap.php";
+require "$examplesDir/namespaces/code.php";
 
 // Request processing URI
-Jaxon\jaxon()->setOption('core.request.uri', "/exp/ajax.php?exp=namespaces");
+jaxon()->setOption('core.request.uri', "/exp/ajax.php?exp=namespaces");
 
-echo Jaxon\jaxon()->template()
-    ->addNamespace('examples', $includesDir)
-    ->render('examples::exp/namespaces/page.php');
+echo jaxon()->template()->render('examples::namespaces/page.php');

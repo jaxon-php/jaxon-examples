@@ -1,12 +1,12 @@
 <?php
 
-$includesDir = dirname(__DIR__, 3) . '/includes';
-require "$includesDir/autoload.php";
-require "$includesDir/exp/outerhtml-component/code.php";
+use function Jaxon\jaxon;
+
+$examplesDir = dirname(__DIR__, 3) . '/examples';
+require "$examplesDir/bootstrap.php";
+require "$examplesDir/outerhtml-component/code.php";
 
 // Request processing URI
-Jaxon\jaxon()->setOption('core.request.uri', "/exp/ajax.php?exp=outerhtml-component");
+jaxon()->setOption('core.request.uri', "/exp/ajax.php?exp=outerhtml-component");
 
-echo Jaxon\jaxon()->template()
-    ->addNamespace('examples', $includesDir)
-    ->render('examples::exp/outerhtml-component/page.php');
+echo jaxon()->template()->render('examples::outerhtml-component/page.php');

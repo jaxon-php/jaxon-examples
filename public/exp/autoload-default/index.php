@@ -1,12 +1,12 @@
 <?php
 
-$includesDir = dirname(__DIR__, 3) . '/includes';
-require "$includesDir/autoload.php";
-require "$includesDir/exp/autoload-default/code.php";
+use function Jaxon\jaxon;
+
+$examplesDir = dirname(__DIR__, 3) . '/examples';
+require "$examplesDir/bootstrap.php";
+require "$examplesDir/autoload-default/code.php";
 
 // Request processing URI
-Jaxon\jaxon()->setOption('core.request.uri', "/exp/ajax.php?exp=autoload-default");
+jaxon()->setOption('core.request.uri', "/exp/ajax.php?exp=autoload-default");
 
-echo Jaxon\jaxon()->template()
-    ->addNamespace('examples', $includesDir)
-    ->render('examples::exp/autoload-default/page.php');
+echo jaxon()->template()->render('examples::autoload-default/page.php');

@@ -1,8 +1,8 @@
 <?php
 
-$includesDir = dirname(__DIR__) . '/includes';
-require "$includesDir/autoload.php";
+use function Jaxon\jaxon;
 
-echo Jaxon\jaxon()->template()
-    ->addNamespace('examples', $includesDir)
-    ->render('examples::index.php');
+$examplesDir = dirname(__DIR__) . '/examples';
+require "$examplesDir/bootstrap.php";
+
+echo jaxon()->template()->render('examples::index.php');

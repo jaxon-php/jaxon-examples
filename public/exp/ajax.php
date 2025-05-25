@@ -1,11 +1,13 @@
 <?php
 
-$includesDir = dirname(__DIR__, 2) . '/includes';
-$exampleDir = "$includesDir/exp/" . $_GET['exp'];
+use function Jaxon\jaxon;
+
+$examplesDir = dirname(__DIR__, 2) . '/examples';
+$exampleDir = "$examplesDir/" . $_GET['exp'];
 if (is_dir($exampleDir)) {
-    require "$includesDir/autoload.php";
+    require "$examplesDir/bootstrap.php";
     require "$exampleDir/code.php";
 
     // Process the request.
-    Jaxon\jaxon()->processRequest();
+    jaxon()->processRequest();
 }
