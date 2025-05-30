@@ -1,27 +1,21 @@
 <?php
-$menuEntries = menu_entries();
-$requestUri = $_SERVER['REQUEST_URI'];
-$pageTitle = $menuEntries[$requestUri] ?? '';
+$example = menu_entries()[menu_current()] ?? [];
 ?>
 <?php $this->include('templates::examples/header.php') ?>
 
     <div class="container-fluid">
-<?php $this->include('templates::examples/nav.php', [
-    'menuEntries' => $menuEntries,
-    'requestUri' => $requestUri,
-]) ?>
+<?php $this->include('templates::examples/nav.php') ?>
 
         <div class="row">
             <div class="col-md-4 exp-form">
-                <h3 class="page-header"><?php echo $menuEntries[$requestUri]['title'] ?? '' ?></h3>
+                <h3 class="page-header"><?php echo $example['title'] ?? '' ?></h3>
                 <div class="row">
                     <div class="col-md-12">
-                        <?php echo $menuEntries[$requestUri]['desc'] ?? '' ?>
+                        <?php echo $example['desc'] ?? '' ?>
                     </div>
                 </div>
 
 <?php echo $this->content ?>
-
             </div> <!-- class="exp-form" -->
 
             <div class="col-md-8 exp-code">

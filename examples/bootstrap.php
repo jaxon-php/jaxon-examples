@@ -28,7 +28,7 @@ function renderExample(string $name): void
     require __DIR__ . "/{$name}/code.php";
 
     // Request processing URI
-    jaxon()->setOption('core.request.uri', "/exp/ajax.php?exp={$name}");
+    jaxon()->setOption('core.request.uri', "/ajax.php?exp={$name}");
 
     echo jaxon()->template()->render("examples::{$name}/page.php");
 }

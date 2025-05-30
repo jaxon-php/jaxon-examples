@@ -4,7 +4,7 @@ namespace Service\Calculator;
 
 use Exception;
 
-class Calculator
+class CalculatorService
 {
     /**
      * @var array

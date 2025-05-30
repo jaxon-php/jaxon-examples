@@ -22,7 +22,7 @@ return [
         ],
         'container' => [
             'auto' => [
-                Service\Calculator\Calculator::class,
+                Service\Calculator\CalculatorService::class,
             ],
         ],
     ],
@@ -32,7 +32,7 @@ return [
                 'on' => false,
             ],
             'request' => [
-                'uri' => "/exp/ajax.php?exp=calculator",
+                'uri' => "/ajax.php?exp=calculator",
             ],
             'prefix' => [
                 'class' => '',

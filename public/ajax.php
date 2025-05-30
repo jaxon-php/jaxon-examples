@@ -8,8 +8,8 @@ $menus = menu_entries();
 $example = menu_current();
 if(isset($menus[$example]))
 {
-    renderExample($example);
-    exit();
-}
+    require dirname(__DIR__) . "/examples/$example/code.php";
 
-echo jaxon()->template()->render('templates::examples/index.php');
+    // Process the request.
+    jaxon()->processRequest();
+}

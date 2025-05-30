@@ -1,88 +1,98 @@
 <?php
 
+function menu_current(): string
+{
+    return $_GET['exp'] ?? '';
+}
+
+function menu_url(string $example): string
+{
+    return "/?exp=$example";
+}
+
 function menu_entries()
 {
     return [
-        '/exp/calculator/' => [
+        'calculator' => [
             'title' => 'Calculator',
             'desc' => '<p>
 In this example, a calculator is implemented as a Jaxon component, which is inserted at a given position in the page.
 </p>
 <p>
-The result of operations are calculated by a service, which is injected in the main component, and formatted by another component.
+The result of the operation is computed by a service which is injected in the main component, and formatted by another component.
 </p>',
         ],
-        '/exp/hello/' => [
+        'hello' => [
             'title' => 'Hello World Function',
             'desc' => '<p>
 This example shows how to export a function with Jaxon.
 </p>',
         ],
-        '/exp/alias/' => [
+        'alias' => [
             'title' => 'Hello World Alias',
             'desc' => '<p>
 This example shows how to set an alias to an exported function with Jaxon.
 </p>',
         ],
-        '/exp/class/' => [
+        'class' => [
             'title' => 'Hello World Class',
             'desc' => '<p>
 This example shows how to export a class with Jaxon.
 </p>',
         ],
-        '/exp/export/' => [
+        'export' => [
             'title' => 'Export Javascript',
             'desc' => '<p>
 This example shows how to export the generated javascript code in an external file, which is then loaded into the webpage.
 </p>',
         ],
-        '/exp/confirm/' => [
+        'confirm' => [
             'title' => 'Confirm question',
             'desc' => '',
         ],
-        '/exp/pagination/' => [
+        'pagination' => [
             'title' => 'Pagination',
             'desc' => '',
         ],
-        '/exp/html-attributes/' => [
+        'html-attributes' => [
             'title' => 'Jaxon HTML attributes',
             'desc' => '<p>
 This example shows how to use Jaxon HTML custom attributes to attach a component to a DOM node, and define event handlers.
 </p>',
         ],
-        '/exp/event-parent/' => [
+        'event-parent' => [
             'title' => 'Children event handlers',
             'desc' => '<p>
 This example shows how to use Jaxon HTML custom attributes to define event handlers on child DOM nodes.
 </p>',
         ],
-        '/exp/event-target/' => [
+        'event-target' => [
             'title' => 'Multiple event handlers',
             'desc' => '<p>
 This example shows how to use Jaxon HTML custom attributes to define multiple event handlers on a single DOM node.
 </p>',
         ],
-        '/exp/bind-component/' => [
+        'bind-component' => [
             'title' => 'Bind a component',
             'desc' => '<p>
 This example shows how to dynamically bind a component to a DOM node.
 </p>',
         ],
-        '/exp/outerhtml-component/' => [
+        'outerhtml-component' => [
             'title' => 'Attributes in outerHTML',
             'desc' => '<p>
 This example shows how to dynamically bind a component to a DOM node by setting its outerHTML property.
 </p>',
         ],
-        '/exp/pagination-component/' => [
+        'pagination-component' => [
             'title' => 'Pagination component',
             'desc' => 'This example demonstrates the built-in pagination component.',
         ],
-        '/exp/pagination-databag/' => [
+        'pagination-databag' => [
             'title' => 'Pagination and databag',
             'desc' => 'In this example the built-in pagination component in used with a data bag.',
         ],
-        '/exp/plugins/' => [
+        'plugins' => [
             'title' => 'Plugin Usage',
             'desc' => '<p>
 The example shows the use of Jaxon plugins, by adding javascript notifications and modal windows to the class.php
@@ -94,19 +104,19 @@ the Jaxon core library. It can then be accessed both in the Jaxon main object, f
 response object, to provide additional functionalities to the application.
 </p>',
         ],
-        '/exp/dialogs/' => [
+        'dialogs' => [
             'title' => 'Dialogs',
             'desc' => '',
         ],
-        '/exp/flot/' => [
+        'flot' => [
             'title' => 'Flot Plugin',
             'desc' => '',
         ],
-        '/exp/config/' => [
+        'config' => [
             'title' => 'Config File',
             'desc' => '',
         ],
-        '/exp/directories/' => [
+        'directories' => [
             'title' => 'Register Directories',
             'desc' => '<p>
 This example shows how to automatically register all the PHP classes in a set of directories.
@@ -115,7 +125,7 @@ This example shows how to automatically register all the PHP classes in a set of
 The classes in this example are not namespaced, thus they all need to have different names, even if they are in different subdirs.
 </p>',
         ],
-        '/exp/namespaces/' => [
+        'namespaces' => [
             'title' => 'Register Namespaces',
             'desc' => '<p>
 This example shows how to automatically register all the classes in a set of directories with namespaces.
@@ -124,15 +134,15 @@ This example shows how to automatically register all the classes in a set of dir
 The namespace is prepended to the generated javascript class names, and PHP classes in different subdirs can have the same name.
 </p>',
         ],
-        '/exp/container/' => [
+        'container' => [
             'title' => 'DI container',
             'desc' => '',
         ],
-        '/exp/package/' => [
+        'package' => [
             'title' => 'Package',
             'desc' => '',
         ],
-        '/exp/autoload-default/' => [
+        'autoload-default' => [
             'title' => 'Default Autoloader',
             'desc' => '<p>
 This example illustrates the use of the Composer autoloader.
@@ -146,7 +156,7 @@ When provided with the Composer autoloader, the Jaxon library registers all dire
 into the PSR-4 autoloader, and it registers all the classes in directories with no namespace into the classmap autoloader.
 </p>',
         ],
-        '/exp/autoload-disabled/' => [
+        'autoload-disabled' => [
             'title' => 'Third Party Autoloader',
             'desc' => '<p>
 In this example the autoloading is disabled in the Jaxon library.

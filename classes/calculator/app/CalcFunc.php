@@ -5,16 +5,16 @@ namespace App\Calculator;
 use Exception;
 use Jaxon\App\Dialog\DialogTrait;
 use Jaxon\App\FuncComponent;
-use Service\Calculator\Calculator;
+use Service\Calculator\CalculatorService;
 
 class CalcFunc extends FuncComponent
 {
     use DialogTrait;
 
     /**
-     * @param Calculator $calculator
+     * @param CalculatorService $calculator
      */
-    public function __construct(private Calculator $calculator)
+    public function __construct(private CalculatorService $calculator)
     {}
 
     /**
