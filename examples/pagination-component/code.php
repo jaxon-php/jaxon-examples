@@ -9,20 +9,20 @@ class PageContent extends PageComponent
    /**
     * @inheritDoc
     */
-   protected function limit(): int
-   {
-       return 10;
-   }
+    protected function limit(): int
+    {
+        return 10;
+    }
 
    /**
     * @inheritDoc
     */
-   protected function count(): int
-   {
-       return 150;
-   }
+    protected function count(): int
+    {
+        return 150;
+    }
 
-   public function html():  string
+    public function html():  string
     {
         return '<div style="margin-bottom:10px;font-weight:bold;">' .
             $this->stash()->get('title') .
