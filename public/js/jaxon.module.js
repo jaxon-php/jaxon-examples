@@ -412,10 +412,6 @@ window.jaxon = jaxon;
      * @returns {object|null}
      */
     self.findFunction = (sFuncName, context = window) => {
-        if (sFuncName === 'toInt' && context === window) {
-            return types.toInt;
-        }
-
         const aNames = sFuncName.split(".");
         const nLength = aNames.length;
         for (let i = 0; i < nLength && (context); i++) {
@@ -457,6 +453,51 @@ window.jaxon = jaxon;
 
 (function(self, dom) {
     /**
+     * Get the object and attribute to be set for a given for entry.
+     *
+     * @param {object} values
+     * @param {string} name
+     * @param {string} formId
+     *
+     * @returns {object|null}
+     */
+    const getValueObject = (values, name, formId) => {
+        // Check the name validity
+        const nameRegex = /^([a-zA-Z_][a-zA-Z0-9_-]*)((\[[a-zA-Z0-9_][a-zA-Z0-9_-]*\])*)$/;
+        let matches = name.match(nameRegex);
+        if (!matches) {
+            // Invalid name
+            console.warn(`Invalid field name ${name} in form ${formId}.`);
+            return { obj: null, key: null };
+        }
+
+        // Matches is an array with values like user[name][first], "user", "[name][first]" and "[first]".
+        const result = {
+            obj: values,
+            key: matches[1],
+        };
+
+        if (!matches[3]) {
+            // No keys into brackets. Simply set the values.
+            return result;
+        }
+
+        // Parse names into brackets
+        let arrayKeys = matches[2];
+        const keyRegex = /\[(.*?)\]/;
+        while ((matches = arrayKeys.match(keyRegex)) !== null) {
+            if (result.obj[result.key] === undefined) {
+                result.obj[result.key] = {};
+            }
+            result.obj = result.obj[result.key];
+            // When found, matches is an array with values like "[email]" and "email".
+            result.key = matches[1];
+            arrayKeys = arrayKeys.substring(matches[0].length);
+        }
+        return result;
+    };
+
+    /**
      * @param {object} xOptions
      * @param {object} child
      * @param {string} child.type
@@ -469,58 +510,35 @@ window.jaxon = jaxon;
      *
      * @returns {void}
      */
-    const _getValue = (xOptions, { type, name, tagName, checked, disabled, value, options }) => {
+    const getValue = (xOptions, { type, name, tagName, checked, disabled, value, options }) => {
+        // Do not read value of fields without name, or param fields.
         if (!name || 'PARAM' === tagName)
             return;
+        // Do not read value of disabled fields
         if (!xOptions.disabled && disabled)
             return;
         const { prefix } = xOptions;
+        // Only read values with the given prefix, if provided.
         if (prefix.length > 0 && prefix !== name.substring(0, prefix.length))
             return;
+        // Values of radio and checkbox, when they are not checked, are omitted.
         if ((type === 'radio' || type === 'checkbox') && !checked)
             return;
+        // Do not read value from file fields.
         if (type === 'file')
             return;
 
-        const values = type !== 'select-multiple' ? value :
-            Array.from(options).filter(({ selected }) => selected).map(({ value: v }) => v);
-        const keyBegin = name.indexOf('[');
-
-        if (keyBegin < 0) {
-            xOptions.values[name] = values;
+        const { formId } = xOptions;
+        // The xOptions.values parameter must be passed by reference.
+        const { obj, key } = getValueObject(xOptions.values, name, formId);
+        if (obj === null) {
+            console.warn(`The value of the field ${name} in form ${formId} is ignored.`);
             return;
         }
 
-        // Parse names into brackets
-        let k = name.substring(0, keyBegin);
-        let a = name.substring(keyBegin);
-        if (xOptions.values[k] === undefined) {
-            xOptions.values[k] = {};
-        }
-        let p = xOptions.values; // pointer reset
-        while (a.length > 0) {
-            const sa = a.substring(0, a.indexOf(']') + 1);
-            const lastKey = k; //save last key
-            const lastRef = p; //save last pointer
-
-            a = a.substring(a.indexOf(']') + 1);
-            p = p[k];
-            k = sa.substring(1, sa.length - 1);
-            if (k === '') {
-                if ('select-multiple' === type) {
-                    k = lastKey; //restore last key
-                    p = lastRef;
-                } else {
-                    k = p.length;
-                }
-            }
-            if (k === undefined) {
-                /*check against the global xOptions.values Stack wich is the next(last) usable index */
-                k = Object.keys(lastRef[lastKey]).length;
-            }
-            p[k] = p[k] || {};
-        }
-        p[k] = values;
+        // Update the form values.
+        obj[key] = type !== 'select-multiple' ? value :
+            Array.from(options).filter(({ selected }) => selected).map(({ value: v }) => v);
     };
 
     /**
@@ -529,13 +547,13 @@ window.jaxon = jaxon;
      *
      * @returns {void}
      */
-    const _getValues = (xOptions, children) => {
+    const getValues = (xOptions, children) => {
         children.forEach(child => {
             const { childNodes, type } = child;
             if (childNodes !== undefined && type !== 'select-one' && type !== 'select-multiple') {
-                _getValues(xOptions, childNodes);
+                getValues(xOptions, childNodes);
             }
-           _getValue(xOptions, child);
+           getValue(xOptions, child);
         });
     };
 
@@ -550,6 +568,7 @@ window.jaxon = jaxon;
      */
     self.getValues = (formId, disabled = false, prefix = '') => {
         const xOptions = {
+            formId,
             // Submit disabled fields
             disabled: (disabled === true),
             // Only submit fields with a prefix
@@ -560,7 +579,7 @@ window.jaxon = jaxon;
 
         const form = dom.$(formId);
         if (form && form.childNodes) {
-            _getValues(xOptions, form.childNodes);
+            getValues(xOptions, form.childNodes);
         }
         return xOptions.values;
     };
@@ -1167,7 +1186,9 @@ window.jaxon = jaxon;
      *
      * @var {object}
      */
-    const xComponentNodes = {};
+    const xBindings = {
+        nodes: {},
+    };
 
     /**
      * The default component item name
@@ -1175,6 +1196,13 @@ window.jaxon = jaxon;
      * @var {string}
      */
     const sDefaultComponentItem = 'main';
+
+    /**
+     * Reset the DOM nodes bindings.
+     *
+     * @returns {void}
+     */
+    self.reset = () => xBindings.nodes = {};
 
     /**
      * Find the DOM nodes with a given attribute
@@ -1224,19 +1252,8 @@ window.jaxon = jaxon;
 
         const sEvent = xNode.getAttribute(sAttr).trim();
         const oHandler = JSON.parse(xNode.getAttribute('jxn-call'));
-        if(!xNode.hasAttribute('jxn-select'))
-        {
-            // Set the event handler on the node.
-            event.setEventHandler({ event: sEvent, func: oHandler }, { target: xTarget });
-            return;
-        }
-
-        // Set the event handler on the selected child nodes.
-        const sSelector = xNode.getAttribute('jxn-select').trim();
-        xTarget.querySelectorAll(`:scope ${sSelector}`).forEach(xChild => {
-            // Set the event handler on the child node.
-            event.setEventHandler({ event: sEvent, func: oHandler }, { target: xChild });
-        });
+        // Set the event handler on the node.
+        event.setEventHandler({ event: sEvent, func: oHandler }, { target: xTarget });
     };
 
     /**
@@ -1250,19 +1267,32 @@ window.jaxon = jaxon;
             .forEach(xNode => setEventHandler(xNode, xNode, 'jxn-on'));
 
     /**
+     * @param {Element} xParent The parent node
+     * @param {string} sSelector The child selector
+     * @param {string} sEvent The event name
+     * @param {object} oHandler The event handler
+     *
+     * @returns {void}
+     */
+    const setChildEventHandler = (xParent, sSelector, sEvent, oHandler) => {
+        xParent.querySelectorAll(`:scope ${sSelector}`).forEach(xChild => {
+            // Set the event handler on the child node.
+            event.setEventHandler({ event: sEvent, func: oHandler }, { target: xChild });
+        });
+    };
+
+    /**
      * @param {Element} xContainer A DOM node.
      * @param {bool} bScopeIsOuter Process the outer HTML content
      *
      * @returns {void}
      */
-    const setTargetEventHandlers = (xContainer, bScopeIsOuter) =>
-        findNodesWithAttr(xContainer, 'jxn-target', bScopeIsOuter)
+    const setChildEventHandlers = (xContainer, bScopeIsOuter) =>
+        findNodesWithAttr(xContainer, 'jxn-event', bScopeIsOuter)
             .forEach(xTarget => {
-                xTarget.querySelectorAll(':scope > [jxn-event]').forEach(xNode => {
-                    // Check event declarations only on direct child.
-                    if (xNode.parentNode === xTarget) {
-                        setEventHandler(xTarget, xNode, 'jxn-event');
-                    }
+                const aEvents = JSON.parse(xTarget.getAttribute('jxn-event'));
+                aEvents?.forEach(({ select, event, handler }) => {
+                    setChildEventHandler(xTarget, select, event, handler);
                 });
             });
 
@@ -1277,7 +1307,7 @@ window.jaxon = jaxon;
         if (!sComponentItem) {
             sComponentItem = sDefaultComponentItem;
         }
-        xComponentNodes[`${sComponentName}_${sComponentItem}`] = xNode;
+        xBindings.nodes[`${sComponentName}_${sComponentItem}`] = xNode;
     };
 
     /**
@@ -1300,13 +1330,30 @@ window.jaxon = jaxon;
      */
     self.process = (xContainer = document, bScopeIsOuter = false) => {
         // Set event handlers on nodes
-        setTargetEventHandlers(xContainer, bScopeIsOuter);
+        setChildEventHandlers(xContainer, bScopeIsOuter);
         // Set event handlers on nodes
         setEventHandlers(xContainer, bScopeIsOuter);
         // Set event handlers on nodes
         setClickHandlers(xContainer, bScopeIsOuter);
         // Attach DOM nodes to Jaxon components
         bindNodesToComponents(xContainer, bScopeIsOuter);
+    };
+
+    /**
+     * Find the DOM node a given component is bound to.
+     *
+     * @param {string} sComponentName The component name.
+     * @param {string} sComponentItem The component item.
+     *
+     * @returns {Element|null}
+     */
+    const findComponentNode = (sComponentName, sComponentItem) => {
+        const sSelector = `[jxn-bind="${sComponentName}"][jxn-item="${sComponentItem}"]`;
+        const xNode = document.querySelector(sSelector);
+        if (xNode !== null) {
+            xBindings.nodes[`${sComponentName}_${sComponentItem}`] = xNode;
+        }
+        return xNode;
     };
 
     /**
@@ -1318,8 +1365,17 @@ window.jaxon = jaxon;
      * @returns {Element|null}
      */
     self.node = (sComponentName, sComponentItem = sDefaultComponentItem) => {
-        const xComponent = xComponentNodes[`${sComponentName}_${sComponentItem}`] ?? null;
-        return !xComponent || !xComponent.isConnected ? null : xComponent;
+        const xComponent = xBindings.nodes[`${sComponentName}_${sComponentItem}`] ?? null;
+        if (xComponent !== null && xComponent.isConnected) {
+            return xComponent;
+        }
+
+        if (xComponent !== null) {
+            // The component is no more bound to the DOM
+            delete xBindings.nodes[`${sComponentName}_${sComponentItem}`];
+        }
+        // Try to find the component
+        return findComponentNode(sComponentName, sComponentItem);
     };
 })(jaxon.parser.attr, jaxon.cmd.event);
 
@@ -1381,52 +1437,50 @@ window.jaxon = jaxon;
      */
     const xCommands = {
         select: ({ _name: sName, mode, context: xSelectContext = null }, xOptions) => {
-            const { context: { target: xTarget, event: xEvent, global: xGlobal } = {} } = xOptions;
+            const { context: { target: xTarget, global: xGlobal } = {} } = xOptions;
             switch(sName) {
                 case 'this': // The current event target.
-                    return mode === 'jq' ? query.select(xTarget) : (mode === 'js' ? xTarget : null);
-                case 'event': // The current event.
-                    return xEvent;
-                case 'window':
-                    return window;
+                    return mode === 'jq' ? query.select(xTarget) :
+                        (mode === 'js' ? xTarget : null);
                 default: // Call the selector.
-                    return query.select(sName, query.context(xSelectContext, xGlobal.target));
+                    return mode === 'js' ? document.getElementById(sName) :
+                        query.select(sName, query.context(xSelectContext, xGlobal));
             }
         },
-        event: ({ _name: sName, func: xExpression }, xOptions) => {
+        event: ({ _name: sName, mode, func: xExpression }, xOptions) => {
             // Set an event handler.
             // Takes the expression with a different context as argument.
             const { value: xCurrValue, context: xContext } = xOptions;
-            xCurrValue.on(sName, (event) => execExpression(xExpression, {
+            const fHandler = (event) => execExpression(xExpression, {
                 ...xOptions,
                 context: {
                     ...xContext,
                     event,
                     target: event.currentTarget,
                 },
-            }));
+                value: null,
+            });
+
+            mode === 'jq' ?
+                xCurrValue.on(sName, fHandler) :
+                xCurrValue.addEventListener(sName, fHandler);
             return xCurrValue;
         },
         func: ({ _name: sName, args: aArgs = [] }, xOptions) => {
-            // Call a "global" function with the current context as "this".
-            const { context: xContext } = xOptions;
-            const func = dom.findFunction(sName);
-            return !func ? undefined : func.apply(xContext, getArgs(aArgs, xOptions));
-        },
-        method: ({ _name: sName, args: aArgs = [] }, { value: xCurrValue }) => {
-            // Call a function with the current value as "this".
-            const func = dom.findFunction(sName, xCurrValue);
-            // toInt() is a peudo-method that converts the current value to int.
-            return !func ? (sName === 'toInt' ? types.toInt(xCurrValue) : undefined) :
-                func.apply(xCurrValue, getArgs(aArgs, xCurrValue));
+            const { value: xCurrValue } = xOptions;
+            const func = dom.findFunction(sName, xCurrValue || window);
+            if (!func && sName === 'toInt') {
+                return types.toInt(xCurrValue);
+            }
+            return !func ? undefined : func.apply(xCurrValue, getArgs(aArgs, xOptions));
         },
         attr: ({ _name: sName, value: xValue }, xOptions) => {
             const { value: xCurrValue, context: { target: xTarget } } = xOptions;
+            // xCurrValue === null ensures that we are at top level.
+            if (xCurrValue === null && sName === 'window') {
+                return !xValue ? window : null; // Cannot assign the window var.
+            }
             return processAttr(xCurrValue || xTarget, sName, xValue, xOptions);
-        },
-        // Global var. The parent is the "window" object.
-        gvar: ({ _name: sName, value: xValue }, xOptions) => {
-            return processAttr(window, sName, xValue, xOptions);
         },
     };
 
@@ -1493,23 +1547,6 @@ window.jaxon = jaxon;
     const getArgs = (aArgs, xOptions) => aArgs.map(xArg => getValue(xArg, xOptions));
 
     /**
-     * Get the options for a json call.
-     *
-     * @param {object} xContext The context to execute calls in.
-     *
-     * @returns {object}
-     */
-    const getOptions = (xContext, xDefault = {}) => {
-        xContext.global = {
-            // Some functions are meant to be executed in the context of the component.
-            target: !xContext.component || !xContext.target ? null : xContext.target,
-        };
-        // Remove the component field from the xContext object.
-        const { component: _, ...xNewContext } = xContext;
-        return { context: { target: window, ...xNewContext }, ...xDefault };
-    }
-
-    /**
      * Execute a single call.
      *
      * @param {object} xCall
@@ -1523,6 +1560,32 @@ window.jaxon = jaxon;
         xOptions.value = xCommand(xCall, xOptions);
         return xOptions.value;
     };
+
+    /**
+     * Get the options for a json call.
+     *
+     * @param {object} xContext The context to execute calls in.
+     *
+     * @returns {object}
+     */
+    const getOptions = (xContext) => {
+        // Some functions are meant to be executed in the context of the component.
+        if (xContext.component) {
+            xContext.global = xContext.target ?? null;
+        }
+        // Remove the component field from the xContext object.
+        const { component: _, ...xNewContext } = xContext;
+        return { context: { target: window, ...xNewContext }, value: null };
+    };
+
+    /**
+     * Make the options for a new expression call.
+     *
+     * @param {object} xOptions The current options.
+     *
+     * @returns {object}
+     */
+    const makeOptions = (xOptions) => ({ ...xOptions, value: null });
 
     /**
      * Execute a single javascript function call.
@@ -1599,10 +1662,10 @@ window.jaxon = jaxon;
     const execWithConfirmation = ({ lib, question }, xAlert, aCalls, xOptions) =>
         dialog.confirm(lib, {
             ...question,
-            text: makePhrase(question.phrase, xOptions),
+            text: makePhrase(question.phrase, makeOptions(xOptions)),
         }, {
-            yes: () => execCalls(aCalls, xOptions),
-            no: () => showAlert(xAlert, xOptions),
+            yes: () => execCalls(aCalls, makeOptions(xOptions)),
+            no: () => showAlert(xAlert, makeOptions(xOptions)),
         });
 
     /**
@@ -1614,10 +1677,13 @@ window.jaxon = jaxon;
      * @returns {boolean}
      */
     const execWithCondition = (aCondition, xAlert, aCalls, xOptions) => {
-        const [sOperator, xLeftArg, xRightArg] = aCondition;
+        const [sOperator, _xLeftArg, _xRightArg] = aCondition;
         const xComparator = xComparators[sOperator] ?? xErrors.comparator;
-        xComparator(getValue(xLeftArg, xOptions), getValue(xRightArg, xOptions)) ?
-            execCalls(aCalls, xOptions) : showAlert(xAlert, xOptions);
+        const xLeftArg = getValue(_xLeftArg, makeOptions(xOptions));
+        const xRightArg = getValue(_xRightArg, makeOptions(xOptions));
+        xComparator(xLeftArg, xRightArg) ?
+            execCalls(aCalls, makeOptions(xOptions)) :
+            showAlert(xAlert, makeOptions(xOptions));
     };
 
     /**
@@ -1650,7 +1716,7 @@ window.jaxon = jaxon;
      * @returns {void}
      */
     self.execExpr = (xExpression, xContext = {}) => types.isObject(xExpression) &&
-        execExpression(xExpression, getOptions(xContext, { value: null }));
+        execExpression(xExpression, getOptions(xContext));
 })(jaxon.parser.call, jaxon.parser.query, jaxon.dialog, jaxon.utils.dom,
     jaxon.utils.form, jaxon.utils.types);
 
@@ -1760,7 +1826,7 @@ window.jaxon = jaxon;
      * @returns {array}
      */
     const getRequestCallbacks = ({ callback: xCallbacks, func }) => {
-        if (xCallbacks === undefined) {
+        if (!xCallbacks) {
             return [];
         }
         if (types.isArray(xCallbacks)) {
@@ -2075,10 +2141,10 @@ window.jaxon = jaxon;
         cbk.execute(oRequest, 'onProcessing');
 
         // Create a queue for the commands in the response.
-        let nSequence = 0;
         const oQueue = queue.create(config.commandQueueSize);
+        oQueue.sequence = 0;
         commands.forEach(command => queue.push(oQueue, {
-            sequence: nSequence++,
+            sequence: oQueue.sequence++,
             command: {
                 name: '*unknown*',
                 ...command,
@@ -2088,7 +2154,7 @@ window.jaxon = jaxon;
         }));
         // Add a last command to clear the queue
         queue.push(oQueue, {
-            sequence: nSequence,
+            sequence: oQueue.sequence,
             command: {
                 name: 'response.complete',
                 fullName: 'Response Complete',
