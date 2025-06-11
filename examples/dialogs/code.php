@@ -1,10 +1,5 @@
 <?php
 
-use function Jaxon\attr;
-use function Jaxon\jaxon;
-use function Jaxon\js;
-use function Jaxon\rq;
-
 class HelloWorld
 {
     private function content(string $name): string

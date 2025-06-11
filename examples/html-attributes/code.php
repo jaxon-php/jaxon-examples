@@ -1,7 +1,6 @@
 <?php
 
 use Jaxon\App\PageComponent;
-use function Jaxon\jaxon;
 
 class PageContent extends PageComponent
 {

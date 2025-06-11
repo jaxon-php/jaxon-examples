@@ -2,8 +2,6 @@
 
 use Jaxon\App\PageComponent;
 use Jaxon\App\PageDatabagTrait;
-use function Jaxon\jaxon;
-use function Jaxon\pm;
 
 /**
  * @databag page
@@ -58,7 +56,7 @@ class PageContent extends PageComponent
         // Render the page content.
         $this->render();
         // Render the pagination component.
-        $paginator->render($this->rq()->showPage(pm()->page()));
+        $paginator->render($this->rq()->showPage(je()->rd()->page()));
     }
 
     public function show()

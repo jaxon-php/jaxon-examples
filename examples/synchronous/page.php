@@ -1,9 +1,5 @@
 <?php $this->extends('templates::examples/layout.php') ?>
 
-<?php
-use function Jaxon\rq;
-?>
-
 <?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div2">
@@ -28,27 +24,27 @@ use function Jaxon\rq;
 <script type='text/javascript'>
     /* <![CDATA[ */
     function testSyncRequests() {
-        <?php echo rq('HelloWorld')->ssleep(5) ?>;
-        <?php echo rq('HelloWorld')->sleep(6) ?>;
-        <?php echo rq('HelloWorld')->sleep(1) ?>;
-        <?php echo rq('HelloWorld')->sleep(2) ?>;
+        <?= rq('HelloWorld')->ssleep(5) ?>;
+        <?= rq('HelloWorld')->sleep(6) ?>;
+        <?= rq('HelloWorld')->sleep(1) ?>;
+        <?= rq('HelloWorld')->sleep(2) ?>;
 
-        <?php echo rq('HelloWorld')->ssleep(5) ?>;
-        <?php echo rq('HelloWorld')->sleep(6) ?>;
-        <?php echo rq('HelloWorld')->sleep(1) ?>;
-        <?php echo rq('HelloWorld')->sleep(2) ?>;
+        <?= rq('HelloWorld')->ssleep(5) ?>;
+        <?= rq('HelloWorld')->sleep(6) ?>;
+        <?= rq('HelloWorld')->sleep(1) ?>;
+        <?= rq('HelloWorld')->sleep(2) ?>;
     }
 
     function testNodupRequests() {
-        <?php echo rq('HelloWorld')->nodup(5) ?>;
-        <?php echo rq('HelloWorld')->nodup(1) ?>;
+        <?= rq('HelloWorld')->nodup(5) ?>;
+        <?= rq('HelloWorld')->nodup(1) ?>;
         setTimeout(function() {
-            <?php echo rq('HelloWorld')->nodup(1) ?>;
+            <?= rq('HelloWorld')->nodup(1) ?>;
         }, 3000);
         setTimeout(function() {
-            <?php echo rq('HelloWorld')->nodup(1) ?>;
+            <?= rq('HelloWorld')->nodup(1) ?>;
         }, 6000);
-        <?php echo rq('HelloWorld')->nodup(1) ?>;
+        <?= rq('HelloWorld')->nodup(1) ?>;
     }
 
     nodupCallbacks = {

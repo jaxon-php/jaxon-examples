@@ -1,8 +1,6 @@
 <?php
 
 use Jaxon\App\PageComponent;
-use function Jaxon\jaxon;
-use function Jaxon\pm;
 
 class PageContent extends PageComponent
 {
@@ -38,7 +36,7 @@ class PageContent extends PageComponent
         // Render the page content.
         $this->render();
         // Render the pagination component.
-        $paginator->render($this->rq()->showPage(pm()->page(), $title));
+        $paginator->render($this->rq()->showPage(je()->rd()->page(), $title));
     }
 }
 

@@ -2,8 +2,6 @@
 
 use Jaxon\Jaxon;
 use Jaxon\App\FuncComponent;
-use function Jaxon\jaxon;
-
 use Service\ExampleInterface;
 
 // Register the namespace with a third-party autoloader

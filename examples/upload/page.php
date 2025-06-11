@@ -1,18 +1,14 @@
 <?php $this->extends('templates::examples/layout.php') ?>
 
-<?php
-use function Jaxon\pm;
-use function Jaxon\rq;
-?>
-
 <?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div2">
                         &nbsp;
                     </div>
                     <div class="col-md-12">
-                        <select class="form-select" id="colorselect" name="colorselect"
-                                onchange="<?php echo rq('HelloWorld')->setColor(pm()->select('colorselect'))->raw() ?>">
+                        <select class="form-select" id="colorselect" name="colorselect" <?= attr()
+                            ->on('change', rq('HelloWorld')
+                            ->setColor(je('colorselect')->rd()->select())) ?>>
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>
                             <option value="green">Green</option>
@@ -31,9 +27,12 @@ use function Jaxon\rq;
                         &nbsp;
                     </div>
                     <div class="col-md-12 buttons">
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(1)->raw() ?>" >CLICK ME</button>
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(0)->raw() ?>" >Click Me</button>
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->upload()->raw() ?>" >Upload files</button>
+                        <button type="button" class="btn btn-primary" <?= attr()
+                            ->click(rq('HelloWorld')->sayHello(1)) ?>>CLICK ME</button>
+                        <button type="button" class="btn btn-primary" <?= attr()
+                            ->click(rq('HelloWorld')->sayHello(0)) ?>>Click Me</button>
+                        <button type="button" class="btn btn-primary" <?= attr()
+                            ->click(rq('HelloWorld')->upload()) ?>>Upload files</button>
                     </div>
                 </div>
 <?php $this->endblock() ?>
@@ -51,9 +50,9 @@ use function Jaxon\rq;
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo rq('HelloWorld')->sayHello(0) ?>;
+        <?= rq('HelloWorld')->sayHello(0) ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo rq('HelloWorld')->setColor(pm()->select('colorselect')) ?>;
+        <?= rq('HelloWorld')->setColor(je('colorselect')->rd()->select()) ?>;
     }
     /* ]]> */
 </script>

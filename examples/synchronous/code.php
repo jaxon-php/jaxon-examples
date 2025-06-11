@@ -2,7 +2,6 @@
 
 use Jaxon\Jaxon;
 use Jaxon\App\FuncComponent;
-use function Jaxon\jaxon;
 
 class HelloWorld extends FuncComponent
 {

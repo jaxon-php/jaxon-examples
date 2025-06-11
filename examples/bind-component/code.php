@@ -3,9 +3,6 @@
 use Jaxon\App\FuncComponent;
 use Jaxon\App\NodeComponent;
 
-use function Jaxon\jaxon;
-use function Jaxon\rq;
-
 class HelloText extends NodeComponent
 {
     public function html(): string

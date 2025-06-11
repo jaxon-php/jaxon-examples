@@ -1,19 +1,16 @@
 <?php $this->extends('templates::examples/layout.php') ?>
 
 <?php
-use function Jaxon\attr;
-use function Jaxon\rq;
-
 $rqPageContent = rq(PageContent::class);
 ?>
 
 <?php $this->block('content') ?>
                 <div class="row">
                     <!-- Custom attribute: Component for paginated content. -->
-                    <div class="col-md-12" <?php echo attr()->bind($rqPageContent) ?>>
+                    <div class="col-md-12" <?= attr()->bind($rqPageContent) ?>>
                     </div>
                     <!-- Custom attribute: Component for pagination links. -->
-                    <div class="col-md-12" <?php echo attr()->pagination($rqPageContent) ?>>
+                    <div class="col-md-12" <?= attr()->pagination($rqPageContent) ?>>
                     </div>
                 </div>
 <?php $this->endblock() ?>
@@ -30,7 +27,7 @@ $rqPageContent = rq(PageContent::class);
 <script type='text/javascript'>
     /* <![CDATA[ */
     window.onload = function() {
-        <?php echo $rqPageContent->show() ?>;
+        <?= $rqPageContent->show() ?>;
     }
     /* ]]> */
 </script>

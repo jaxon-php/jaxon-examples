@@ -3,7 +3,6 @@
 use Jaxon\Plugin\AbstractPackage;
 use Jaxon\Dialogs\Dialog\Library\Bootbox;
 use Jaxon\Dialogs\Dialog\Library\Toastr;
-use function Jaxon\jaxon;
 
 class DemoPackage extends AbstractPackage
 {

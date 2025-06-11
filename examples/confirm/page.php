@@ -1,11 +1,5 @@
 <?php $this->extends('templates::examples/layout.php') ?>
 
-<?php
-use function Jaxon\pm;
-use function Jaxon\rq;
-use function Jaxon\jq;
-?>
-
 <?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div2">
@@ -39,20 +33,20 @@ use function Jaxon\jq;
     /* <![CDATA[ */
     window.onload = function() {
         // Set event handlers
-        <?php echo jq('#colorselect')
+        <?= jq('#colorselect')
             ->on('change', rq('HelloWorld')
-            ->setColor(pm()->select('colorselect'))
-            ->confirm('Set color to {1}', pm()->select('colorselect'))) ?>;
-        <?php echo jq('#btn-uppercase')
+            ->setColor(je('colorselect')->rd()->select())
+            ->confirm('Set color to {1}', je('colorselect')->rd()->select())) ?>;
+        <?= jq('#btn-uppercase')
             ->on('click', rq('HelloWorld')
             ->sayHello(1)
             ->confirm('Convert to uppercase?')) ?>;
-        <?php echo jq('#btn-lowercase')
+        <?= jq('#btn-lowercase')
             ->on('click', rq('HelloWorld')
             ->sayHello(0)
             ->confirm('Convert to lowercase?')) ?>;
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo rq('HelloWorld')->sayHello(0) ?>;
+        <?= rq('HelloWorld')->sayHello(0) ?>;
     }
     /* ]]> */
 </script>

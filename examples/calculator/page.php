@@ -2,15 +2,11 @@
 
 <?php
 use App\Calculator\Calc;
-
-use function Jaxon\attr;
-use function Jaxon\cl;
-use function Jaxon\rq;
 ?>
 
 <?php $this->block('content') ?>
-                <div class="row" <?php echo attr()->bind(rq(Calc::class)) ?>>
-<?php echo cl(Calc::class)->html() ?>
+                <div class="row" <?= attr()->bind(rq(Calc::class)) ?>>
+<?= cl(Calc::class)->html() ?>
                 </div>
 <?php $this->endblock() ?>
 

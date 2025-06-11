@@ -1,7 +1,5 @@
 <?php
 
-use function Jaxon\jaxon;
-
 require dirname(__DIR__) . '/examples/bootstrap.php';
 
 $menus = menu_entries();

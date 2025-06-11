@@ -1,9 +1,5 @@
 <?php $this->extends('templates::examples/layout.php') ?>
 
-<?php
-use function Jaxon\rq;
-?>
-
 <?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12">
@@ -12,7 +8,7 @@ use function Jaxon\rq;
                         </div>
                     </div>
                     <div class="col-md-12 buttons">
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq(Flot::class)->drawGraph()->raw() ?>" >CLICK ME</button>
+                        <button type="button" class="btn btn-primary" <?= attr()->click(rq(Flot::class)->drawGraph()) ?>>CLICK ME</button>
                     </div>
                 </div>
 <?php $this->endblock() ?>
@@ -39,7 +35,7 @@ use function Jaxon\rq;
     };
     window.onload = function() {
         // Call the Flot class to populate the 2nd div
-        // <?php echo rq(Flot::class)->drawGraph() ?>;
+        // <?= rq(Flot::class)->drawGraph() ?>;
     }
     /* ]]> */
 </script>

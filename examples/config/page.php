@@ -1,10 +1,5 @@
 <?php $this->extends('templates::examples/layout.php') ?>
 
-<?php
-use function Jaxon\pm;
-use function Jaxon\rq;
-?>
-
 <?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div2">
@@ -12,7 +7,8 @@ use function Jaxon\rq;
                     </div>
                     <div class="col-md-12">
                         <select class="form-select" id="colorselect" name="colorselect"
-                                onchange="<?php echo rq('HelloWorld')->setColor(pm()->select('colorselect'))->raw() ?>; return false;">
+                            <?= attr()->on('change', rq('HelloWorld')
+                                ->setColor(je('colorselect')->rd()->select())) ?>>
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>
                             <option value="green">Green</option>
@@ -20,9 +16,9 @@ use function Jaxon\rq;
                         </select>
                     </div>
                     <div class="col-md-12 buttons">
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(1)->raw() ?>; return false;" >CLICK ME</button>
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->sayHello(0)->raw() ?>; return false;" >Click Me</button>
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq('HelloWorld')->showDialog()->raw() ?>; return false;" >Show Dialog</button>
+                        <button type="button" class="btn btn-primary" <?= attr()->click(rq('HelloWorld')->sayHello(1)) ?>>CLICK ME</button>
+                        <button type="button" class="btn btn-primary" <?= attr()->click(rq('HelloWorld')->sayHello(0)) ?>>Click Me</button>
+                        <button type="button" class="btn btn-primary" <?= attr()->click(rq('HelloWorld')->showDialog()) ?>>Show Dialog</button>
                     </div>
                 </div>
 <?php $this->endblock() ?>
@@ -40,9 +36,9 @@ use function Jaxon\rq;
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo rq('HelloWorld')->sayHello(0, false) ?>;
+        <?= rq('HelloWorld')->sayHello(0, false) ?>;
         // call the HelloWorld->setColor() method on load
-        <?php echo rq('HelloWorld')->setColor(pm()->select('colorselect'), false) ?>;
+        <?= rq('HelloWorld')->setColor(je('colorselect')->rd()->select(), false) ?>;
     }
     /* ]]> */
 </script>

@@ -1,7 +1,6 @@
 <?php
 
 use Jaxon\Jaxon;
-use function Jaxon\jaxon;
 
 class HelloWorld
 {

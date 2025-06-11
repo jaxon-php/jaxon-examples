@@ -4,9 +4,6 @@ use Jaxon\App\Dialog\Library\AlertInterface;
 use Jaxon\App\Dialog\Library\ConfirmInterface;
 use Jaxon\App\Dialog\Library\ModalInterface;
 
-use function Jaxon\attr;
-use function Jaxon\rq;
-
 $aLibraries = [
     // Alertify
     'alertify'      => [
@@ -86,7 +83,7 @@ $aLibraries = [
                 <div class="row">
 <?php foreach($aLibraries as $id => $lib): ?>
                     <div class="col-md-12">
-                        <?php echo $lib['name'] ?>
+                        <?= $lib['name'] ?>
                     </div>
 <?php if(is_subclass_of($lib['class'], AlertInterface::class)): ?>
                     <div class="col-md-12" style="padding-bottom: 15px;">
@@ -103,9 +100,9 @@ $aLibraries = [
 <?php if(is_subclass_of($lib['class'], ConfirmInterface::class)): ?>
                     <div class="col-md-12" style="padding-bottom: 15px;">
                         <button type="button" class="btn btn-primary"
-                            onclick="jaxon.confirm('<?php echo $id ?>', { title: 'Confirm', text: 'Really?' }, {
-                                yes: () => jaxon.alert('<?php echo $id ?>', { type: 'info', title: 'Info', text: 'Oh! Yeah!!!' }),
-                                no: () => jaxon.alert('<?php echo $id ?>', { type: 'warning', title: 'Warning', text: 'So Sorry!!!' }),
+                            onclick="jaxon.confirm('<?= $id ?>', { title: 'Confirm', text: 'Really?' }, {
+                                yes: () => jaxon.alert('<?= $id ?>', { type: 'info', title: 'Info', text: 'Oh! Yeah!!!' }),
+                                no: () => jaxon.alert('<?= $id ?>', { type: 'warning', title: 'Warning', text: 'So Sorry!!!' }),
                             })" >Confirm</button>
                     </div>
 <?php endif ?>

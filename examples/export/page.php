@@ -1,9 +1,5 @@
 <?php $this->extends('templates::examples/layout.php') ?>
 
-<?php
-use function Jaxon\rq;
-?>
-
 <?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div2">
@@ -37,7 +33,7 @@ use function Jaxon\rq;
     /* <![CDATA[ */
     window.onload = function() {
         // Call the HelloWorld class to populate the 2nd div
-        <?php echo rq('HelloWorld')->setup() ?>;
+        <?= rq('HelloWorld')->setup() ?>;
     }
     /* ]]> */
 </script>

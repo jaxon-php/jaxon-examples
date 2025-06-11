@@ -1,9 +1,5 @@
 <?php $this->extends('templates::examples/layout.php') ?>
 
-<?php
-use function Jaxon\rq;
-?>
-
 <?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div2">
@@ -26,7 +22,7 @@ use function Jaxon\rq;
 <script type='text/javascript'>
     /* <![CDATA[ */
     window.onload = function() {
-        <?php echo rq('HelloWorld')->showPage(1) ?>;
+        <?= rq('HelloWorld')->showPage(1) ?>;
     }
     /* ]]> */
 </script>

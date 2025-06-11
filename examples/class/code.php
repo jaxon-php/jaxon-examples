@@ -1,7 +1,5 @@
 <?php
 
-use function Jaxon\jaxon;
-
 class HelloWorld
 {
     public function sayHello(bool $isCaps)

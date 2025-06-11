@@ -19,8 +19,8 @@ https://github.com/Xajax/Xajax/blob/master/examples/helloworld.php</a>.
 <?php foreach(menu_entries() as $example => $page): ?>
                 <div class="row col-md-12">
                     <div class="col-md-12">
-<h5 style="margin-top:15px;"><a href="<?php echo menu_url($example) ?>"><?php echo $page['title'] ?></a></h5>
-<?php echo $page['desc'] ?>
+<h5 style="margin-top:15px;"><a href="<?= menu_url($example) ?>"><?= $page['title'] ?></a></h5>
+<?= $page['desc'] ?>
                     </div>
                 </div>
 <?php endforeach ?>

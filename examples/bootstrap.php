@@ -1,8 +1,7 @@
 <?php
 
-use function Jaxon\jaxon;
-
 require dirname(__DIR__, 2) . '/vendor/autoload.php';
+require_once dirname(__DIR__, 2) . '/jaxon-core/src/globals.php';
 require_once __DIR__ . '/menu.php';
 
 jaxon()->template()

@@ -1,10 +1,5 @@
 <?php $this->extends('templates::examples/layout.php') ?>
 
-<?php
-use function Jaxon\pm;
-use function Jaxon\rq;
-?>
-
 <?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div1">
@@ -12,7 +7,8 @@ use function Jaxon\rq;
                     </div>
                     <div class="col-md-12">
                         <select class="form-select" id="colorselect" name="colorselect"
-                                onchange="<?php echo rq()->setColor(pm()->select('colorselect'))->raw() ?>">
+                            <?= attr()->on('change', rq()
+                                ->setColor(je('colorselect')->rd()->select())) ?>>
                             <option value="black" selected="selected">Black</option>
                             <option value="red">Red</option>
                             <option value="green">Green</option>
@@ -20,8 +16,8 @@ use function Jaxon\rq;
                         </select>
                     </div>
                     <div class="col-md-12 buttons">
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq()->helloWorld(1)->raw() ?>" >CLICK ME</button>
-                        <button type="button" class="btn btn-primary" onclick="<?php echo rq()->helloWorld(0)->raw() ?>" >Click Me</button>
+                        <button type="button" class="btn btn-primary" <?= attr()->click(rq()->helloWorld(1)) ?>>CLICK ME</button>
+                        <button type="button" class="btn btn-primary" <?= attr()->click(rq()->helloWorld(0)) ?>>Click Me</button>
                     </div>
                 </div>
 <?php $this->endblock() ?>
@@ -39,9 +35,9 @@ use function Jaxon\rq;
     /* <![CDATA[ */
     window.onload = function() {
         // call the helloWorld function to populate the div on load
-        <?php echo rq()->helloWorld(0) ?>;
+        <?= rq()->helloWorld(0) ?>;
         // call the setColor function on load
-        <?php echo rq()->setColor(pm()->select('colorselect')) ?>;
+        <?= rq()->setColor(je('colorselect')->rd()->select()) ?>;
     }
     /* ]]> */
 </script>

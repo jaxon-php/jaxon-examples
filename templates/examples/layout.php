@@ -8,22 +8,22 @@ $example = menu_entries()[menu_current()] ?? [];
 
         <div class="row">
             <div class="col-md-4 exp-form">
-                <h3 class="page-header"><?php echo $example['title'] ?? '' ?></h3>
+                <h3 class="page-header"><?= $example['title'] ?? '' ?></h3>
                 <div class="row">
                     <div class="col-md-12">
-                        <?php echo $example['desc'] ?? '' ?>
+                        <?= $example['desc'] ?? '' ?>
                     </div>
                 </div>
 
-<?php echo $this->content ?>
+<?= $this->content ?>
             </div> <!-- class="exp-form" -->
 
             <div class="col-md-8 exp-code">
-<?php echo $this->code ?>
+<?= $this->code ?>
             </div>
         </div> <!-- class="row" -->
     </div>
 
-<?php echo $this->javascript ?>
+<?= $this->javascript ?>
 
 <?php $this->include('templates::examples/footer.php') ?>
