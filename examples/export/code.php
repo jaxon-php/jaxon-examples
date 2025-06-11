@@ -15,8 +15,8 @@ class HelloWorld
         $xResponse->jq('#btn-uppercase')->click(rq('HelloWorld')->sayHello(1)
             ->confirm('Change {1} to uppercase?', jq('#div2')->html()));
             // ->confirm('Change {1} to uppercase?', je('div2')->rd()->html()));
-        $xResponse->jq('#btn-lowercase')->click(rq('HelloWorld')->sayHello(0)
-            ->confirm('Change {1} to lowercase?', jq('#div2')->html()));
+        $xResponse->je('btn-lowercase')->click(rq('HelloWorld')->sayHello(0)
+            ->confirm('Change {1} to lowercase?', je('div2')->innerHTML));
             // ->confirm('Change {1} to lowercase?', je('div2')->rd()->html()));
         $xResponse->jq('#colorselect')
             ->on('change', rq('HelloWorld')->setColor(jq()->val())
