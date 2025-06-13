@@ -9,11 +9,11 @@ $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('core.prefix.class', '');
 
 // Dialog options
-$jaxon->app()->setOption('dialogs.default.modal', 'bootstrap5');
-$jaxon->app()->setOption('dialogs.default.alert', 'toastr');
-$jaxon->app()->setOption('dialogs.toastr.options.alert.closeButton', true);
-$jaxon->app()->setOption('dialogs.toastr.options.alert.positionClass', 'toast-top-center');
-$jaxon->app()->setOption('dialogs.lib.use', ['tingle']);
+$jaxon->setAppOption('dialogs.default.modal', 'bootstrap5');
+$jaxon->setAppOption('dialogs.default.alert', 'toastr');
+$jaxon->setAppOption('dialogs.toastr.options.alert.closeButton', true);
+$jaxon->setAppOption('dialogs.toastr.options.alert.positionClass', 'toast-top-center');
+$jaxon->setAppOption('dialogs.lib.use', ['tingle']);
 
 // Disable autoload
 // $jaxon->disableAutoload();

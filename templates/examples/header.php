@@ -18,7 +18,8 @@
     <!-- Custom styles for this template -->
     <link href="/css/style.css" rel="stylesheet" />
 
-<?= jaxon()->getCss(), "\n"; ?>
+<?= jaxon()->getCss() ?>
+
 </head>
 
 <body>

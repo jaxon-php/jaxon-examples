@@ -60,13 +60,13 @@ $jaxon->setOption('js.lib.uri', '/js');
 // $jaxon->setOption('js.app.minify', false);
 
 // Dialog options
-$jaxon->app()->setOption('dialogs.default.modal', Bootbox::NAME);
-$jaxon->app()->setOption('dialogs.default.alert', Noty::NAME);
-$jaxon->app()->setOption('dialogs.default.confirm', Noty::NAME);
+$jaxon->setAppOption('dialogs.default.modal', Bootbox::NAME);
+$jaxon->setAppOption('dialogs.default.alert', Noty::NAME);
+$jaxon->setAppOption('dialogs.default.confirm', Noty::NAME);
 
-$jaxon->app()->setOption('dialogs.confirm.title', 'Confirmer');
-$jaxon->app()->setOption('dialogs.confirm.yes', 'Oui');
-$jaxon->app()->setOption('dialogs.confirm.no', 'Non');
+$jaxon->setAppOption('dialogs.confirm.title', 'Confirmer');
+$jaxon->setAppOption('dialogs.confirm.yes', 'Oui');
+$jaxon->setAppOption('dialogs.confirm.no', 'Non');
 
 // Register object
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class);

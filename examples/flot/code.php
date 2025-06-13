@@ -16,15 +16,24 @@ class Flot extends \Jaxon\App\FuncComponent
 
         // Add a first graph to the plot
         $graph = $plot->graph(['lines' => ['show' => true], 'label' => 'Sqrt']);
-        $graph->series()->expr(0, 14, 0.5, 'plots.sqrt.value', 'plots.sqrt.label');
+        $graph->series()
+            ->expr(0, 14, 0.5, 'plots.sqrt.value', 'plots.sqrt.label');
 
         // Add a second graph to the plot
-        $graph = $plot->graph(['lines' => ['show' => true], 'points' => ['show' => true], 'label' => 'Graph 2']);
-        $graph->series()->points([[0, 3, 'Pt 1'], [4, 8, 'Pt 2'], [8, 5, 'Pt 3'], [9, 13, 'Pt 4']]);
+        $graph = $plot->graph([
+            'lines' => ['show' => true],
+            'points' => ['show' => true],
+            'label' => 'Graph 2',
+        ]);
+        $graph->series()->points([
+            [0, 3, 'Pt 1'],
+            [4, 8, 'Pt 2'],
+            [8, 5, 'Pt 3'],
+            [9, 13, 'Pt 4'],
+        ]);
 
         // Draw the graph
         $this->response->flot->draw($plot);
-        // Return the response
     }
 }
 

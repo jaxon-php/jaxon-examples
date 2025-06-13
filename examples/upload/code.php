@@ -35,8 +35,8 @@ $jaxon->setOption('js.app.minify', false);
 $jaxon->setOption('upload.default.dir', __DIR__ . '/files');
 $jaxon->setOption('core.upload.enabled', true);
 
-$jaxon->app()->setOption('dialogs.default.modal', 'bootbox');
-$jaxon->app()->setOption('dialogs.default.alert', 'toastr');
+$jaxon->setAppOption('dialogs.default.modal', 'bootbox');
+$jaxon->setAppOption('dialogs.default.alert', 'toastr');
 
 $jaxon->callback()->after(function($target, $end) {
     jaxon()->di()->getResponseManager()->getResponse()->debug('After upload');
