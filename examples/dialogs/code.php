@@ -14,7 +14,7 @@ class HelloWorld
         $xResponse = jaxon()->getResponse();
         $buttons = [
             ['title' => 'Close', 'class' => 'btn btn-danger', 'click' => 'close'],
-            ['title' => 'Do', 'class' => 'btn', 'click' => js('console')->log("Clicked on the button!!")]
+            ['title' => 'Do', 'class' => 'btn', 'click' => jo('console')->log("Clicked on the button!!")]
         ];
         $options = [];
         $xResponse->dialog->show('Modal Dialog', $this->content($name), $buttons, $options);
