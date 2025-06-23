@@ -9,7 +9,8 @@
         "jaxon-php/jaxon-core": "dev-main",
         "jaxon-php/jaxon-dialogs": "dev-main",
         "jaxon-php/jaxon-flot": "dev-main",
-        "keradus/psr4autoloader": "dev-master"
+        "keradus/psr4autoloader": "dev-master",
+        "monolog/monolog": "^3.0"
     },
     "minimum-stability": "dev"
 }
