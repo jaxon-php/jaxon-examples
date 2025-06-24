@@ -6,9 +6,9 @@
         {"name": "Thierry Feuzeu"}
     ],
     "require-dev": {
-        "jaxon-php/jaxon-core": "dev-main",
-        "jaxon-php/jaxon-dialogs": "dev-main",
-        "jaxon-php/jaxon-flot": "dev-main",
+        "jaxon-php/jaxon-core": "^5.0",
+        "jaxon-php/jaxon-dialogs": "^5.0",
+        "jaxon-php/jaxon-flot": "^5.0",
         "keradus/psr4autoloader": "dev-master",
         "monolog/monolog": "^3.0"
     },
