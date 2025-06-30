@@ -19,11 +19,9 @@
     <link href="/css/style.css" rel="stylesheet" />
 
 <?= jaxon()->getCss() ?>
-
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Jaxon Examples</a>
