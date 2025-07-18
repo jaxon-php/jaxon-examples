@@ -1,13 +1,15 @@
 <?php
 
 use Jaxon\Jaxon;
+use Jaxon\Flot\FlotPlugin;
 
 class Flot extends \Jaxon\App\FuncComponent
 {
     public function drawGraph()
     {
+        $flot = $this->response->plugin(FlotPlugin::class);
         // Create a new plot, to be displayed in the div with id "flot"
-        $plot = $this->response->flot->plot('#flot')->width('450px')->height('300px');
+        $plot = $flot->plot('#flot')->width('450px')->height('300px');
         // Set the ticks on X axis
         // $ticks = [];
         // for($i = 0; $i < 10; $i++) $ticks[] = [$i, 'Pt' . $i];
@@ -33,7 +35,7 @@ class Flot extends \Jaxon\App\FuncComponent
         ]);
 
         // Draw the graph
-        $this->response->flot->draw($plot);
+        $flot->draw($plot);
     }
 }
 
