@@ -17,7 +17,7 @@ var jaxon = {
     version: {
         major: '5',
         minor: '0',
-        patch: '0',
+        patch: '2',
     },
 
     debug: {
@@ -453,22 +453,30 @@ window.jaxon = jaxon;
 
 (function(self, dom) {
     /**
-     * Get the object and attribute to be set for a given for entry.
+     * Set the value of a form field.
      *
      * @param {object} values
-     * @param {string} name
+     * @param {string} fieldName
+     * @param {mixed} fieldValue
      * @param {string} formId
      *
-     * @returns {object|null}
+     * @returns {void}
      */
-    const getValueObject = (values, name, formId) => {
+    const setFieldValue = (values, fieldName, fieldValue, formId) => {
         // Check the name validity
-        const nameRegex = /^([a-zA-Z_][a-zA-Z0-9_-]*)((\[[a-zA-Z0-9_][a-zA-Z0-9_-]*\])*)$/;
-        let matches = name.match(nameRegex);
+        const nameRegex = /^([a-zA-Z_][a-zA-Z0-9_-]*)((\[[a-zA-Z0-9_-]*\])*)$/;
+        let matches = fieldName.match(nameRegex);
         if (!matches) {
             // Invalid name
-            console.warn(`Invalid field name ${name} in form ${formId}.`);
-            return { obj: null, key: null };
+            console.warn(`Invalid field name ${fieldName} in form ${formId}.`);
+            console.warn(`The value of the field ${fieldName} in form ${formId} is ignored.`);
+            return;
+        }
+
+        if (!matches[3]) {
+            // No keys into brackets. Simply set the values.
+            values[fieldName] = fieldValue;
+            return;
         }
 
         // Matches is an array with values like user[name][first], "user", "[name][first]" and "[first]".
@@ -476,25 +484,33 @@ window.jaxon = jaxon;
             obj: values,
             key: matches[1],
         };
-
-        if (!matches[3]) {
-            // No keys into brackets. Simply set the values.
-            return result;
-        }
-
         // Parse names into brackets
         let arrayKeys = matches[2];
         const keyRegex = /\[(.*?)\]/;
         while ((matches = arrayKeys.match(keyRegex)) !== null) {
+            // When found, matches is an array with values like "[email]" and "email".
+            const key = matches[1].trim();
+            if (key === '') {
+                // The field is defined as an array in the form (eg users[]).
+                if (result.obj[result.key] === undefined) {
+                    result.obj[result.key] = [];
+                }
+                result.obj[result.key].push(fieldValue);
+                // Nested arrays are not supported. So the function returns here.
+                return;
+            }
+
+            // The field is an object.
             if (result.obj[result.key] === undefined) {
                 result.obj[result.key] = {};
             }
             result.obj = result.obj[result.key];
-            // When found, matches is an array with values like "[email]" and "email".
-            result.key = matches[1];
+            result.key = key;
+
             arrayKeys = arrayKeys.substring(matches[0].length);
         }
-        return result;
+        // The field is an object.
+        result.obj[result.key] = fieldValue;
     };
 
     /**
@@ -528,17 +544,11 @@ window.jaxon = jaxon;
         if (type === 'file')
             return;
 
-        const { formId } = xOptions;
-        // The xOptions.values parameter must be passed by reference.
-        const { obj, key } = getValueObject(xOptions.values, name, formId);
-        if (obj === null) {
-            console.warn(`The value of the field ${name} in form ${formId} is ignored.`);
-            return;
-        }
-
         // Update the form values.
-        obj[key] = type !== 'select-multiple' ? value :
+        const fieldValue = type !== 'select-multiple' ? value :
             Array.from(options).filter(({ selected }) => selected).map(({ value: v }) => v);
+        // The xOptions.values parameter must be passed by reference.
+        setFieldValue(xOptions.values, name, fieldValue, xOptions.formId);
     };
 
     /**
@@ -553,7 +563,7 @@ window.jaxon = jaxon;
             if (childNodes !== undefined && type !== 'select-one' && type !== 'select-multiple') {
                 getValues(xOptions, childNodes);
             }
-           getValue(xOptions, child);
+            getValue(xOptions, child);
         });
     };
 
@@ -1437,30 +1447,29 @@ window.jaxon = jaxon;
      */
     const xCommands = {
         select: ({ _name: sName, mode, context: xSelectContext = null }, xOptions) => {
-            const { context: { target: xTarget, global: xGlobal } = {} } = xOptions;
-            switch(sName) {
-                case 'this': // The current event target.
-                    return mode === 'jq' ? query.select(xTarget) :
-                        (mode === 'js' ? xTarget : null);
-                default: // Call the selector.
-                    return mode === 'js' ? document.getElementById(sName) :
-                        query.select(sName, query.context(xSelectContext, xGlobal));
+            if (sName === 'this') {
+                const { context: { target: xTarget } = {} } = xOptions;
+                return mode === 'jq' ? query.select(xTarget) :
+                    (mode === 'js' ? xTarget : null);
             }
+
+            const { context: { global: xGlobal } = {} } = xOptions;
+            return mode === 'js' ? document.getElementById(sName) :
+                query.select(sName, query.context(xSelectContext, xGlobal));
         },
         event: ({ _name: sName, mode, func: xExpression }, xOptions) => {
             // Set an event handler.
             // Takes the expression with a different context as argument.
-            const { value: xCurrValue, context: xContext } = xOptions;
             const fHandler = (event) => execExpression(xExpression, {
                 ...xOptions,
                 context: {
-                    ...xContext,
+                    ...xOptions.context,
                     event,
                     target: event.currentTarget,
                 },
                 value: null,
             });
-
+            const { value: xCurrValue } = xOptions;
             mode === 'jq' ?
                 xCurrValue.on(sName, fHandler) :
                 xCurrValue.addEventListener(sName, fHandler);
@@ -1469,18 +1478,26 @@ window.jaxon = jaxon;
         func: ({ _name: sName, args: aArgs = [] }, xOptions) => {
             const { value: xCurrValue } = xOptions;
             const func = dom.findFunction(sName, xCurrValue || window);
-            if (!func && sName === 'toInt') {
-                return types.toInt(xCurrValue);
+            if (!func) {
+                if (sName === 'trim') {
+                    return xCurrValue.trim();
+                }
+                if (sName === 'toInt') {
+                    return types.toInt(xCurrValue);
+                }
+                return undefined;
             }
-            return !func ? undefined : func.apply(xCurrValue, getArgs(aArgs, xOptions));
+
+            return func.apply(xCurrValue, getArgs(aArgs, xOptions));
         },
         attr: ({ _name: sName, value: xValue }, xOptions) => {
-            const { value: xCurrValue, context: { target: xTarget } } = xOptions;
-            // xCurrValue === null ensures that we are at top level.
-            if (xCurrValue === null && sName === 'window') {
+            const { value: xCurrValue, depth } = xOptions;
+            // depth === 0 ensures that we are at top level.
+            if (depth === 0 && sName === 'window') {
                 return !xValue ? window : null; // Cannot assign the window var.
             }
-            return processAttr(xCurrValue || xTarget, sName, xValue, xOptions);
+
+            return processAttr(xCurrValue || window, sName, xValue, xOptions);
         },
     };
 
@@ -1515,6 +1532,25 @@ window.jaxon = jaxon;
     /**
      * Get the value of a single argument.
      *
+     * @param {object} xArg
+     * @param {string} sValue
+     *
+     * @returns {mixed}
+     */
+    const getFinalValue = (xArg, sValue) => {
+        const { trim, toInt } = xArg;
+        if (trim) {
+            sValue = sValue.trim();
+        }
+        if (toInt) {
+            sValue = types.toInt(sValue);
+        }
+        return sValue;
+    };
+
+    /**
+     * Get the value of a single argument.
+     *
      * @param {mixed} xArg
      * @param {object} xOptions The call options.
      *
@@ -1527,11 +1563,10 @@ window.jaxon = jaxon;
         const { _type: sType, _name: sName } = xArg;
         switch(sType) {
             case 'form': return form.getValues(sName);
-            case 'html': return dom.$(sName).innerHTML;
-            case 'input': return dom.$(sName).value;
+            case 'html': return getFinalValue(xArg, dom.$(sName).innerHTML);
+            case 'input': return getFinalValue(xArg, dom.$(sName).value);
             case 'checked': return dom.$(sName).checked;
-            case 'expr': return execExpression(xArg, xOptions);
-            case '_': return sName === 'this' ? xOptions.value : undefined;
+            case 'expr': return execExpression(xArg, makeOptions(xOptions));
             default: return undefined;
         }
     };
@@ -1557,6 +1592,7 @@ window.jaxon = jaxon;
     const execCall = (xCall, xOptions) => {
         const xCommand = !isValidCall(xCall) ? xErrors.command.invalid :
             (xCommands[xCall._type] ?? xErrors.command.unknown);
+        xOptions.depth++; // Increment the call depth.
         xOptions.value = xCommand(xCall, xOptions);
         return xOptions.value;
     };
@@ -1565,17 +1601,15 @@ window.jaxon = jaxon;
      * Get the options for a json call.
      *
      * @param {object} xContext The context to execute calls in.
+     * @param {boolean} xContext.component Take the target component as call target
+     * @param {object=} xContext.target The target component
+     * @param {object=} xContext.event The trigger event
      *
      * @returns {object}
      */
-    const getOptions = (xContext) => {
-        // Some functions are meant to be executed in the context of the component.
-        if (xContext.component) {
-            xContext.global = xContext.target ?? null;
-        }
-        // Remove the component field from the xContext object.
-        const { component: _, ...xNewContext } = xContext;
-        return { context: { target: window, ...xNewContext }, value: null };
+    const getOptions = ({ component, target, event }) => {
+        const global = component ? (target ?? null) : null;
+        return { context: { global, target, event }, value: null };
     };
 
     /**
@@ -1595,8 +1629,11 @@ window.jaxon = jaxon;
      *
      * @returns {mixed}
      */
-    self.execCall = (xCall, xContext = {}) =>
-        types.isObject(xCall) && execCall(xCall, getOptions(xContext));
+    self.execCall = (xCall, xContext = {}) => {
+        const xOptions = getOptions(xContext);
+        xOptions.depth = -1; // The first call must start with depth at 0.
+        return types.isObject(xCall) && execCall(xCall, xOptions);
+    };
 
     /**
      * Execute the javascript code represented by an expression object.
@@ -1607,8 +1644,11 @@ window.jaxon = jaxon;
      *
      * @returns {mixed}
      */
-    const execCalls = (aCalls, xOptions) => aCalls.reduce((xValue, xCall) =>
-        xValue === undefined ? undefined : execCall(xCall, xOptions), null);
+    const execCalls = (aCalls, xOptions) => {
+        xOptions.depth = -1; // The first call must start with depth at 0.
+        return aCalls.reduce((xValue, xCall) =>
+            xValue === undefined ? undefined : execCall(xCall, xOptions), null);
+    };
 
     /**
      * Replace placeholders in a given string with values
@@ -1748,7 +1788,7 @@ window.jaxon = jaxon;
             return xTarget;
         }
         if (!xTarget) {
-            return xSelectContext;
+            return self.select(xSelectContext).first();
         }
         return self.select(xSelectContext, xTarget).first();
     };
