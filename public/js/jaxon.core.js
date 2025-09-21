@@ -1450,13 +1450,19 @@ window.jaxon = jaxon;
         select: ({ _name: sName, mode, context: xSelectContext = null }, xOptions) => {
             if (sName === 'this') {
                 const { context: { target: xTarget } = {} } = xOptions;
-                return mode === 'jq' ? query.select(xTarget) :
-                    (mode === 'js' ? xTarget : null);
+                return mode === 'jq' ?
+                    { call: '$(this)', value: query.select(xTarget) } :
+                    { call: 'this', value: mode === 'js' ? xTarget : null };
             }
 
             const { context: { global: xGlobal } = {} } = xOptions;
-            return mode === 'js' ? document.getElementById(sName) :
-                query.select(sName, query.context(xSelectContext, xGlobal));
+            return mode === 'jq' ? {
+                call: `$('#${sName}')`,
+                value: query.select(sName, query.context(xSelectContext, xGlobal)),
+            } : {
+                call: `document.getElementById('${sName}')`,
+                value: document.getElementById(sName),
+            };
         },
         event: ({ _name: sName, mode, func: xExpression }, xOptions) => {
             // Set an event handler.
@@ -1470,35 +1476,52 @@ window.jaxon = jaxon;
                 },
                 value: null,
             });
-            const { value: xCurrValue } = xOptions;
+            const { value: xCurrValue, call: sCall } = xOptions;
             mode === 'jq' ?
                 xCurrValue.on(sName, fHandler) :
                 xCurrValue.addEventListener(sName, fHandler);
-            return xCurrValue;
+            return {
+                call: mode === 'jq' ? `${sCall}.on(${sName}, [handler])` :
+                    `${sCall}.addEventListener(${sName}, [handler])`,
+                value: xCurrValue,
+            };
         },
         func: ({ _name: sName, args: aArgs = [] }, xOptions) => {
-            const { value: xCurrValue } = xOptions;
+            const { value: xCurrValue, call: sCall } = xOptions;
+            const sFuncCall = !sCall ? sName : `${sCall}.${sName}`;
             const func = dom.findFunction(sName, xCurrValue || window);
             if (!func) {
                 if (sName === 'trim') {
-                    return xCurrValue.trim();
+                    return { call: `trim(${sName})`, value: xCurrValue.trim() };
                 }
                 if (sName === 'toInt') {
-                    return types.toInt(xCurrValue);
+                    return { call: `parseInt(${sName})`, value: types.toInt(xCurrValue) };
                 }
-                return undefined;
+
+                // Tried to call an undefined function.
+                console.error(`Call to undefined function ${sFuncCall}.`);
+                return { call: sFuncCall, value: undefined };
             }
 
-            return func.apply(xCurrValue, getArgs(aArgs, xOptions));
+            return {
+                call: sFuncCall,
+                value: func.apply(xCurrValue, getArgs(aArgs, xOptions)),
+            };
         },
         attr: ({ _name: sName, value: xValue }, xOptions) => {
             const { value: xCurrValue, depth } = xOptions;
             // depth === 0 ensures that we are at top level.
             if (depth === 0 && sName === 'window') {
-                return !xValue ? window : null; // Cannot assign the window var.
+                return {
+                    call: undefined,
+                    value: !xValue ? window : null, // Cannot assign the window var.
+                };
             }
 
-            return processAttr(xCurrValue || window, sName, xValue, xOptions);
+            return {
+                call: undefined,
+                value: processAttr(xCurrValue || window, sName, xValue, xOptions),
+            };
         },
     };
 
@@ -1512,11 +1535,11 @@ window.jaxon = jaxon;
         command: {
             invalid: (xCall) => {
                 console.error('Invalid command: ' + JSON.stringify({ call: xCall }));
-                return undefined;
+                return { call: undefined, value: undefined };
             },
             unknown: (xCall) => {
                 console.error('Unknown command: ' + JSON.stringify({ call: xCall }));
-                return undefined;
+                return { call: undefined, value: undefined };
             },
         },
     };
@@ -1594,7 +1617,9 @@ window.jaxon = jaxon;
         const xCommand = !isValidCall(xCall) ? xErrors.command.invalid :
             (xCommands[xCall._type] ?? xErrors.command.unknown);
         xOptions.depth++; // Increment the call depth.
-        xOptions.value = xCommand(xCall, xOptions);
+        const { call, value } = xCommand(xCall, xOptions);
+        xOptions.call = call;
+        xOptions.value = value;
         return xOptions.value;
     };
 
