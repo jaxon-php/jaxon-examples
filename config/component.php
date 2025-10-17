@@ -2,7 +2,9 @@
 
 return [
     'app' => [
-        'metadata' => 'annotations',
+        'metadata' => [
+            'format' => 'annotations',
+        ],
         'classes' => [
             PageContent::class,
         ],
