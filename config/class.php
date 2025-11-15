@@ -2,6 +2,11 @@
 
 return [
     'app' => [
+        'options' => [
+            'logging' => [
+                'enabled' => true,
+            ],
+        ],
         'classes' => [
             [
                 'name' => HelloWorld::class,
@@ -13,7 +18,7 @@ return [
                         'mode' => "'synchronous'",
                     ],
                 ],
-            ]
+            ],
         ],
     ],
     'lib' => [
