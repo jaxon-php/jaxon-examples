@@ -41,8 +41,9 @@ $jaxon = jaxon();
 // Request processing URI
 $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->setOption('js.app.minify', false);
+
+$jaxon->setOption('upload.enabled', true);
 $jaxon->setOption('upload.default.dir', __DIR__ . '/files');
-$jaxon->setOption('core.upload.enabled', true);
 
 $jaxon->setAppOption('dialogs.default.modal', 'bootbox');
 $jaxon->setAppOption('dialogs.default.alert', 'toastr');
