@@ -165,5 +165,10 @@ In this example the autoloading is disabled in the Jaxon library.
 A third-party autoloader is used to load the Jaxon classes.
 </p>',
         ],
+        // The upload example is disabled by default
+        // 'upload' => [
+        //     'title' => 'File upload',
+        //     'desc' => '<p>File upload example.</p>',
+        // ],
     ];
 }

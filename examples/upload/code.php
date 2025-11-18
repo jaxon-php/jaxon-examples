@@ -1,27 +1,36 @@
 <?php
 
+use Jaxon\App\FuncComponent;
 use Jaxon\Jaxon;
 
-class HelloWorld
+class HelloWorld extends FuncComponent
 {
     public function sayHello(bool $isCaps)
     {
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->getResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
+        $this->bag('upload')->set('caps', $isCaps);
     }
 
     public function setColor(string $sColor)
     {
         $xResponse = jaxon()->getResponse();
         $xResponse->assign('div2', 'style.color', $sColor);
+        $this->bag('upload')->set('color', $sColor);
     }
 
     public function upload()
     {
         $xResponse = jaxon()->getResponse();
         $files = jaxon()->upload()->files();
-        $xResponse->dialog->show('Uploaded files', print_r($files['photos'], true), []);
+        $xResponse->dialog->show('Uploaded files', print_r([
+            'bags' => [
+                'caps' => $this->bag('upload')->get('caps') ? 'yes' : 'no',
+                'color' => $this->bag('upload')->get('color'),
+            ],
+            'photos' => $files['photos'],
+        ], true), []);
         $xResponse->dialog->info('Uploaded ' . count($files['photos']) . ' file(s).');
     }
 }
@@ -43,5 +52,12 @@ $jaxon->callback()->after(function($target, $end) {
 });
 
 $jaxon->register(Jaxon::CALLABLE_CLASS, HelloWorld::class, [
-    'functions' => ['upload' => ['upload' => "'file-select'"]],
+    'functions' => [
+        '*' => [
+            'bags' => ['upload'],
+        ],
+        'upload' => [
+            'upload' => "'file-select'",
+        ],
+    ],
 ]);
