@@ -45,8 +45,8 @@ $jaxon->setOption('js.lib.uri', '/js');
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', 'Jaxon');
 
-$jaxonAppDir = __DIR__ . '/js';
-$jaxonAppURI = '/exp/export/js';
+$jaxonAppDir = dirname(__DIR__, 2) . '/public/app';
+$jaxonAppURI = '/app';
 
 $jaxon->setOption('js.app.export', true);
 $jaxon->setOption('js.app.dir', $jaxonAppDir);

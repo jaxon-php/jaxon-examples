@@ -11,11 +11,6 @@ class DemoPackage extends AbstractPackage
         return realpath(__DIR__ . '/config/jaxon.php');
     }
 
-    public function getReadyScript(): string
-    {
-        return '';
-    }
-
     public function getHtml(): string
     {
         return '';
