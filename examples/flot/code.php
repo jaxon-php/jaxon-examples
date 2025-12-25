@@ -42,5 +42,13 @@ class Flot extends \Jaxon\App\FuncComponent
 // Register object
 $jaxon = jaxon();
 
+$jaxonAppDir = dirname(__DIR__, 2) . '/public/app';
+$jaxonAppURI = '/app';
+
+$jaxon->setOption('js.app.export', true);
+$jaxon->setOption('js.app.dir', $jaxonAppDir);
+$jaxon->setOption('js.app.uri', $jaxonAppURI);
+$jaxon->setOption('js.app.minify', false); // Optionally, the file can be minified
+
 $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->register(Jaxon::CALLABLE_CLASS, Flot::class);
