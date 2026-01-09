@@ -5,3 +5,4 @@
 vendor/
 web/exp/export/js/
 logs/*log
+examples/upload/files
