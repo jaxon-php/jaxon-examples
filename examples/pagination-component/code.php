@@ -19,7 +19,7 @@ class PageContent extends PageComponent
     */
     protected function count(): int
     {
-        return 150;
+        return -1;
     }
 
     public function html():  string
