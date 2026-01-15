@@ -3,6 +3,8 @@
 use Jaxon\App\PageComponent;
 use Jaxon\App\PageDatabagTrait;
 
+use function Jaxon\page;
+
 /**
  * @databag page
  */
@@ -51,12 +53,8 @@ class PageContent extends PageComponent
 
     public function showPage(int $pageNumber)
     {
-        // Get the paginator. This will also set the final page number value.
-        $paginator = $this->paginator($pageNumber);
-        // Render the page content.
-        $this->render();
         // Render the pagination component.
-        $paginator->render($this->rq()->showPage(je()->rd()->page()));
+        $this->paginate($this->rq()->showPage(page()), $pageNumber);
     }
 
     public function show()

@@ -27,12 +27,8 @@ class PageContent extends PageComponent
 
     public function showPage(int $pageNumber)
     {
-        // Get the paginator. This will also set the final page number value.
-        $paginator = $this->paginator($pageNumber);
-        // Render the page content.
-        $this->render();
         // Render the pagination component.
-        $paginator->render($this->rq()->showPage());
+        $this->paginate($this->rq()->showPage(), $pageNumber);
     }
 }
 

@@ -2,6 +2,8 @@
 
 use Jaxon\App\PageComponent;
 
+use function Jaxon\page;
+
 class PageContent extends PageComponent
 {
    /**
@@ -31,12 +33,8 @@ class PageContent extends PageComponent
     {
         $this->stash()->set('title', $title);
 
-        // Get the paginator. This will also set the final page number value.
-        $paginator = $this->paginator($pageNumber);
-        // Render the page content.
-        $this->render();
         // Render the pagination component.
-        $paginator->render($this->rq()->showPage(je()->rd()->page(), $title));
+        $this->paginate($this->rq()->showPage(page(), $title), $pageNumber);
     }
 }
 
