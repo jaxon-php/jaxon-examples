@@ -8,19 +8,19 @@ class HelloWorld extends FuncComponent
     public function sleep($iDuration)
     {
         sleep(intval($iDuration));
-        $this->response->append('div2', 'innerHTML', "<br/>I slept for $iDuration second(s)");
+        $this->response()->append('div2', 'innerHTML', "<br/>I slept for $iDuration second(s)");
     }
 
     public function ssleep($iDuration)
     {
         sleep(intval($iDuration));
-        $this->response->append('div2', 'innerHTML', "<br/>I slept for $iDuration second(s)");
+        $this->response()->append('div2', 'innerHTML', "<br/>I slept for $iDuration second(s)");
     }
 
     public function nodup($iDuration)
     {
         sleep(intval($iDuration));
-        $this->response->append('div2', 'innerHTML', "<br/>I slept for $iDuration second(s)");
+        $this->response()->append('div2', 'innerHTML', "<br/>I slept for $iDuration second(s)");
     }
 }
 

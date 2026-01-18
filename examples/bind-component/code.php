@@ -17,13 +17,13 @@ class HelloWorld extends FuncComponent
     {
         $this->stash()->set('is_caps', $isCaps);
 
-        $this->response->bind('div2', rq(HelloText::class));
+        $this->response()->bind('div2', rq(HelloText::class));
         $this->cl(HelloText::class)->render();
     }
 
     public function setColor(string $sColor)
     {
-        $this->response->assign('div2', 'style.color', $sColor);
+        $this->response()->assign('div2', 'style.color', $sColor);
     }
 }
 

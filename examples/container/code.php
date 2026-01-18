@@ -21,13 +21,13 @@ class HelloWorld extends FuncComponent
     public function sayHello(bool $isCaps, $sMessage)
     {
         $sMessage = $this->service->message($isCaps) . ', ' . $sMessage;
-        $this->response->assign('div2', 'innerHTML', $sMessage);
+        $this->response()->assign('div2', 'innerHTML', $sMessage);
     }
 
     public function setColor(string $sColor)
     {
         $sColor = $this->service->color($sColor);
-        $this->response->assign('div2', 'style.color', $sColor);
+        $this->response()->assign('div2', 'style.color', $sColor);
     }
 }
 

@@ -7,7 +7,7 @@ class HelloWorld extends \Jaxon\App\FuncComponent
     public function sayHello(bool $isCaps)
     {
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
-        $this->response->assign('div2', 'innerHTML', $text);
+        $this->response()->assign('div2', 'innerHTML', $text);
     }
 
     public function showPage($pageNumber)
@@ -16,7 +16,7 @@ class HelloWorld extends \Jaxon\App\FuncComponent
         $totalItems = 150;
         $this->paginator($pageNumber, $itemsPerPage, $totalItems)
             ->page(function(int $page) {
-                $this->response->assign('div2', 'innerHTML', "Showing page number $page");
+                $this->response()->assign('div2', 'innerHTML', "Showing page number $page");
             })
             ->render($this->rq()->showPage(), 'pagination');
     }

@@ -9,23 +9,23 @@ class App extends \Jaxon\App\FuncComponent
         else
             $text = 'Hello World!';
 
-        $this->response->assign('div1', 'innerHTML', $text);
+        $this->response()->assign('div1', 'innerHTML', $text);
         if(($bNotify))
-            $this->response->dialog->success("div1 text is now $text");
+            $this->response()->dialog->success("div1 text is now $text");
     }
 
     public function setColor(string $sColor, bool $bNotify = true)
     {
-        $this->response->assign('div1', 'style.color', $sColor);
+        $this->response()->assign('div1', 'style.color', $sColor);
         if(($bNotify))
-            $this->response->dialog->success("div1 color is now $sColor");
+            $this->response()->dialog->success("div1 color is now $sColor");
     }
 
     public function showDialog()
     {
         $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $options = ['maxWidth' => 400];
-        $this->response->dialog->with('bootbox')
+        $this->response()->dialog->with('bootbox')
             ->show("Modal Dialog", "This modal dialog is powered by Bootbox!!", $buttons, $options);
     }
 }

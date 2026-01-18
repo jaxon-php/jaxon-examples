@@ -12,15 +12,15 @@ class HelloWorld extends FuncComponent
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         if(($bNotify))
         {
-            // $this->response->confirmCommands(2, 'Skip text assignement?');
-            $this->response->assign('div2', 'innerHTML', $text);
-            // $this->response->confirmCommands(1, 'Skip text notification?');
-            $this->response->dialog->success("div2 text is now $text");
+            // $this->response()->confirmCommands(2, 'Skip text assignement?');
+            $this->response()->assign('div2', 'innerHTML', $text);
+            // $this->response()->confirmCommands(1, 'Skip text notification?');
+            $this->response()->dialog->success("div2 text is now $text");
         }
         else
         {
-            // $this->response->confirmCommands(1, 'Skip text assignement?');
-            $this->response->assign('div2', 'innerHTML', $text);
+            // $this->response()->confirmCommands(1, 'Skip text assignement?');
+            $this->response()->assign('div2', 'innerHTML', $text);
         }
     }
 
@@ -28,15 +28,15 @@ class HelloWorld extends FuncComponent
     {
         if(($bNotify))
         {
-            // $this->response->confirmCommands(1, 'Skip color assignement?');
-            $this->response->assign('div2', 'style.color', $sColor);
-            // $this->response->confirmCommands(1, 'Skip color assignement?');
-            $this->response->dialog->success("div2 color is now $sColor");
+            // $this->response()->confirmCommands(1, 'Skip color assignement?');
+            $this->response()->assign('div2', 'style.color', $sColor);
+            // $this->response()->confirmCommands(1, 'Skip color assignement?');
+            $this->response()->dialog->success("div2 color is now $sColor");
         }
         else
         {
-            // $this->response->confirmCommands(1, 'Skip color assignement?');
-            $this->response->assign('div2', 'style.color', $sColor);
+            // $this->response()->confirmCommands(1, 'Skip color assignement?');
+            $this->response()->assign('div2', 'style.color', $sColor);
         }
     }
 
@@ -44,7 +44,7 @@ class HelloWorld extends FuncComponent
     {
         $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $options = ['width' => 500];
-        $this->response->dialog->show("Modal Dialog",
+        $this->response()->dialog->show("Modal Dialog",
             "This modal dialog is powered by Bootbox!!", $buttons, $options);
     }
 }
