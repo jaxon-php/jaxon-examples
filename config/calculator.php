@@ -6,6 +6,13 @@ return [
             [
                 'path' => __DIR__ . '/../classes/calculator/app',
                 'namespace' => 'App\\Calculator',
+                'classes' => [
+                    App\Calculator\Calc::class => [
+                        'export' => [
+                            'base' => ['render'],
+                        ],
+                    ],
+                ],
             ],
         ],
         'views' => [

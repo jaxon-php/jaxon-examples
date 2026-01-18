@@ -2,15 +2,14 @@
 
 namespace App\Calculator;
 
-use Exception;
-use Jaxon\App\Dialog\DialogTrait;
 use Jaxon\App\FuncComponent;
 use Service\Calculator\CalculatorService;
+use Exception;
+
+use function trim;
 
 class CalcFunc extends FuncComponent
 {
-    use DialogTrait;
-
     /**
      * @param CalculatorService $calculator
      */
@@ -32,11 +31,8 @@ class CalcFunc extends FuncComponent
         try
         {
             $result = $this->calculator->calculate($operator, $operandA, $operandB);
-            // Share the result value with the other components.
-            $this->stash()->set('calculator.operator', $operator);
-            $this->stash()->set('calculator.result', $result);
             // Render the result component.
-            $this->cl(Result::class)->render();
+            $this->cl(Result::class)->show($operator, $result);
         }
         catch(Exception $e)
         {
