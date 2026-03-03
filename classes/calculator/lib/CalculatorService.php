@@ -4,6 +4,10 @@ namespace Service\Calculator;
 
 use Exception;
 
+use function in_array;
+use function intval;
+use function is_numeric;
+
 class CalculatorService
 {
     /**
@@ -16,9 +20,9 @@ class CalculatorService
      * @param string $operandA
      * @param string $operandB
      *
-     * @return mixed
+     * @return int|float
      */
-    public function calculate(string $operator, string $operandA, string $operandB): mixed
+    public function calculate(string $operator, string $operandA, string $operandB): int|float
     {
         if(!in_array($operator, $this->operators))
         {

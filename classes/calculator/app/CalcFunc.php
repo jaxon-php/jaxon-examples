@@ -32,7 +32,10 @@ class CalcFunc extends FuncComponent
         {
             $result = $this->calculator->calculate($operator, $operandA, $operandB);
             // Render the result component.
-            $this->cl(Result::class)->show($operator, $result);
+            $this->cl(Result::class)
+                ->set('operator', $operator)
+                ->set('result', $result)
+                ->render();
         }
         catch(Exception $e)
         {

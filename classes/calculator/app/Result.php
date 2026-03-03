@@ -2,24 +2,22 @@
 
 namespace App\Calculator;
 
+use Jaxon\App\ComponentDataTrait;
 use Jaxon\App\NodeComponent;
-use Jaxon\App\RenderViewTrait;
+use Stringable;
 
 class Result extends NodeComponent
 {
-    use RenderViewTrait;
+    use ComponentDataTrait;
 
     /**
-     * @param string $operator
-     * @param mixed $result
-     *
-     * @return void
+     * @inheritDoc
      */
-    public function show(string $operator, mixed $result): void
+    public function html(): Stringable
     {
-        $this->renderView('calculator::result', [
-            'result' => $result,
-            'operator' => $operator,
+        return $this->view()->render('calculator::result', [
+            'result' => $this->get('result'),
+            'operator' => $this->get('operator'),
         ]);
     }
 }
