@@ -77,9 +77,6 @@ $aLibraries = [
     ],
 ];
 ?>
-<?php $this->extends('templates::examples/layout.php') ?>
-
-<?php $this->block('content') ?>
                 <div class="row">
 <?php foreach($aLibraries as $id => $lib): ?>
                     <div class="col-md-12">
@@ -114,4 +111,3 @@ $aLibraries = [
 <?php endif ?>
 <?php endforeach ?>
                 </div>
-<?php $this->endblock() ?>

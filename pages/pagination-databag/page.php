@@ -1,34 +1,8 @@
-<?php $this->extends('templates::examples/layout.php') ?>
-
-<?php
-$rqPageContent = rq(PageContent::class);
-?>
-
-<?php $this->block('content') ?>
                 <div class="row">
                     <!-- Custom attribute: Component for paginated content. -->
-                    <div class="col-md-12" <?= attr()->bind($rqPageContent) ?>>
+                    <div class="col-md-12" <?= attr()->bind(rq(PageContent::class)) ?>>
                     </div>
                     <!-- Custom attribute: Component for pagination links. -->
-                    <div class="col-md-12" <?= attr()->pagination($rqPageContent) ?>>
+                    <div class="col-md-12" <?= attr()->pagination(rq(PageContent::class)) ?>>
                     </div>
                 </div>
-<?php $this->endblock() ?>
-
-<?php $this->block('code') ?>
-                <div class="card code">
-                    <div class="card-body">
-                        <?= highlight_file(__DIR__ . '/code.php', true) ?>
-                    </div>
-                </div>
-<?php $this->endblock() ?>
-
-<?php $this->block('javascript') ?>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    window.onload = function() {
-        <?= $rqPageContent->show() ?>;
-    }
-    /* ]]> */
-</script>
-<?php $this->endblock() ?>

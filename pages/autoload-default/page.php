@@ -1,6 +1,3 @@
-<?php $this->extends('templates::examples/layout.php') ?>
-
-<?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div1">
                         &nbsp;
@@ -38,29 +35,3 @@
                         <button type="button" class="btn btn-primary" onclick="Ext.Test.Test.showDialog(); return false;" >Bootstrap Dialog</button>
                     </div>
                 </div>
-<?php $this->endblock() ?>
-
-<?php $this->block('code') ?>
-                <div class="card code">
-                    <div class="card-body">
-                        <?= highlight_file(__DIR__ . '/code.php', true) ?>
-                    </div>
-                </div>
-<?php $this->endblock() ?>
-
-<?php $this->block('javascript') ?>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    window.onload = function() {
-        // call the helloWorld function to populate the div on load
-        App.Test.Test.sayHello(0, false);
-        // call the setColor function on load
-        App.Test.Test.setColor(jaxon.$('colorselect1').value, false);
-        // Call the HelloWorld class to populate the 2nd div
-        Ext.Test.Test.sayHello(0, false);
-        // call the HelloWorld->setColor() method on load
-        Ext.Test.Test.setColor(jaxon.$('colorselect2').value, false);
-    }
-    /* ]]> */
-</script>
-<?php $this->endblock() ?>

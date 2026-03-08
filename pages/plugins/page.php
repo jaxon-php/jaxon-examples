@@ -1,6 +1,3 @@
-<?php $this->extends('templates::examples/layout.php') ?>
-
-<?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div2">
                         &nbsp;
@@ -24,25 +21,3 @@
                             ->confirm('Sure?')) ?>>Show Dialog</button>
                     </div>
                 </div>
-<?php $this->endblock() ?>
-
-<?php $this->block('code') ?>
-                <div class="card code">
-                    <div class="card-body">
-                        <?= highlight_file(__DIR__ . '/code.php', true) ?>
-                    </div>
-                </div>
-<?php $this->endblock() ?>
-
-<?php $this->block('javascript') ?>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    window.onload = function() {
-        // Call the HelloWorld class to populate the 2nd div
-        <?= rq('HelloWorld')->sayHello(0, false) ?>;
-        // call the HelloWorld->setColor() method on load
-        <?= rq('HelloWorld')->setColor(je('colorselect')->rd()->select(), false) ?>;
-    }
-    /* ]]> */
-</script>
-<?php $this->endblock() ?>

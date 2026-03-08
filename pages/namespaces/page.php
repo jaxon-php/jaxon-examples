@@ -1,11 +1,7 @@
-<?php $this->extends('templates::examples/layout.php') ?>
-
 <?php
 $color1 = jq('#colorselect1')->val();
 $color2 = jq('#colorselect2')->val();
 ?>
-
-<?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div1">
                         &nbsp;
@@ -47,25 +43,3 @@ $color2 = jq('#colorselect2')->val();
                         <button type="button" class="btn btn-primary" <?= attr()->click(rq('Ext.Test.Test')->showDialog()) ?>>Show Dialog</button>
                     </div>
                 </div>
-<?php $this->endblock() ?>
-
-<?php $this->block('code') ?>
-                <div class="card code">
-                    <div class="card-body">
-                        <?= highlight_file(__DIR__ . '/code.php', true) ?>
-                    </div>
-                </div>
-<?php $this->endblock() ?>
-
-<?php $this->block('javascript') ?>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    window.onload = function() {
-        <?= rq('App.Test.Test')->sayHello(0, false) ?>;
-        <?= rq('App.Test.Test')->setColor(jq('#colorselect1')->val(), false) ?>;
-        <?= rq('Ext.Test.Test')->sayHello(0, false) ?>;
-        <?= rq('Ext.Test.Test')->setColor(jq('#colorselect2')->val(), false) ?>;
-    }
-    /* ]]> */
-</script>
-<?php $this->endblock() ?>

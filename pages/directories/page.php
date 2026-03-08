@@ -1,6 +1,3 @@
-<?php $this->extends('templates::examples/layout.php') ?>
-
-<?php $this->block('content') ?>
                 <div class="row">
                     <div class="col-md-12" id="div1">
                         &nbsp;
@@ -39,25 +36,3 @@
                         <button type="button" class="btn btn-primary" <?= attr()->click(rq('Ext')->showDialog()) ?>>Show Dialog</button>
                     </div>
                 </div>
-<?php $this->endblock() ?>
-
-<?php $this->block('code') ?>
-                <div class="card code">
-                    <div class="card-body">
-                        <?= highlight_file(__DIR__ . '/code.php', true) ?>
-                    </div>
-                </div>
-<?php $this->endblock() ?>
-
-<?php $this->block('javascript') ?>
-<script type='text/javascript'>
-    /* <![CDATA[ */
-    window.onload = function() {
-        <?= rq('App')->sayHello(0, false) ?>;
-        <?= rq('App')->setColor(je('colorselect1')->rd()->select(), false) ?>;
-        <?= rq('Ext')->sayHello(0, false) ?>;
-        <?= rq('Ext')->setColor(je('colorselect2')->rd()->select(), false) ?>;
-    }
-    /* ]]> */
-</script>
-<?php $this->endblock() ?>

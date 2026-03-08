@@ -33,12 +33,12 @@ function ajaxDir(string $dir): string
     return dirname(__DIR__) . "/ajax/$dir";
 }
 
-function renderPage(string $name): void
+function renderPage(string $page): void
 {
-    require __DIR__ . "/{$name}/code.php";
+    require __DIR__ . "/{$page}/code.php";
 
     // Request processing URI
-    jaxon()->setOption('core.request.uri', "/ajax.php?exp={$name}");
+    jaxon()->setOption('core.request.uri', "/ajax.php?exp={$page}");
 
-    echo jaxon()->template()->render("examples::{$name}/page.php");
+    echo jaxon()->template()->render("examples::page.php", ['page' => $page]);
 }
