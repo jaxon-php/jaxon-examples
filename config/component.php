@@ -10,11 +10,11 @@ return [
         ],
         'directories' => [
             [
-                'path' => __DIR__ . '/../classes/component/app',
+                'path' => __DIR__ . '/../ajax/component/app',
                 'namespace' => 'App',
             ],
             [
-                'path' => __DIR__ . '/../classes/component/ext',
+                'path' => __DIR__ . '/../ajax/component/ext',
                 'namespace' => 'Ext',
             ],
         ],

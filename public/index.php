@@ -1,12 +1,12 @@
 <?php
 
-require dirname(__DIR__) . '/examples/bootstrap.php';
+require dirname(__DIR__) . '/pages/bootstrap.php';
 
 $menus = menu_entries();
 $example = menu_current();
 if(isset($menus[$example]))
 {
-    renderExample($example);
+    renderPage($example);
     exit();
 }
 

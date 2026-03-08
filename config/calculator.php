@@ -4,7 +4,7 @@ return [
     'app' => [
         'directories' => [
             [
-                'path' => __DIR__ . '/../classes/calculator/app',
+                'path' => __DIR__ . '/../ajax/calculator/app',
                 'namespace' => 'App\\Calculator',
                 'classes' => [
                     App\Calculator\Calc::class => [

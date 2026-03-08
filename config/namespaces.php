@@ -4,11 +4,11 @@ return [
     'app' => [
         'directories' => [
             [
-                'path' => __DIR__ . '/../classes/namespace/app',
+                'path' => __DIR__ . '/../ajax/namespace/app',
                 'namespace' => 'App',
             ],
             [
-                'path' => __DIR__ . '/../classes/namespace/ext',
+                'path' => __DIR__ . '/../ajax/namespace/ext',
                 'namespace' => 'Ext',
             ]
         ],

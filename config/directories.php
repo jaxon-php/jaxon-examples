@@ -8,11 +8,11 @@ return [
     'app' => [
         'directories' => [
             [
-                'path' => __DIR__ . '/../classes/simple/app',
+                'path' => __DIR__ . '/../ajax/simple/app',
                 'autoload' => true,
             ],
             [
-                'path' => __DIR__ . '/../classes/simple/ext',
+                'path' => __DIR__ . '/../ajax/simple/ext',
                 'autoload' => true,
             ]
         ],
