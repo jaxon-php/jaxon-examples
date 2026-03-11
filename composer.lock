@@ -4,29 +4,83 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e0b63ccecaf0bcdefe8f98e9c165097c",
+    "content-hash": "31c68787cc1e70867c4b7dc698ebfc15",
     "packages": [],
     "packages-dev": [
         {
-            "name": "jaxon-php/jaxon-core",
-            "version": "dev-main",
+            "name": "jaxon-php/jaxon-config",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jaxon-php/jaxon-core.git",
-                "reference": "64ea46d0fce0a9f67a54bab0c82d3ad7e517f925"
+                "url": "https://github.com/jaxon-php/jaxon-config.git",
+                "reference": "d2a0781943eeae324d28061c726dddd37ca6abb8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-core/zipball/64ea46d0fce0a9f67a54bab0c82d3ad7e517f925",
-                "reference": "64ea46d0fce0a9f67a54bab0c82d3ad7e517f925",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-config/zipball/d2a0781943eeae324d28061c726dddd37ca6abb8",
+                "reference": "d2a0781943eeae324d28061c726dddd37ca6abb8",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "jaxon-php/jaxon-utils": "dev-main",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.5",
+                "phpunit/phpcov": "^8.2",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Jaxon\\Config\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Thierry Feuzeu"
+                }
+            ],
+            "description": "Save config options in immutable objects.",
+            "homepage": "https://www.jaxon-php.org",
+            "keywords": [
+                "config",
+                "immutable",
+                "options"
+            ],
+            "support": {
+                "issues": "https://github.com/jaxon-php/jaxon-config/issues",
+                "source": "https://github.com/jaxon-php/jaxon-config"
+            },
+            "time": "2025-03-03T12:04:35+00:00"
+        },
+        {
+            "name": "jaxon-php/jaxon-core",
+            "version": "v5.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jaxon-php/jaxon-core.git",
+                "reference": "53103780328355b3c0e7bb70004aaa46cb593065"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-core/zipball/53103780328355b3c0e7bb70004aaa46cb593065",
+                "reference": "53103780328355b3c0e7bb70004aaa46cb593065",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "jaxon-php/jaxon-config": "^1.0",
+                "jaxon-php/jaxon-storage": "^1.2",
+                "jaxon-php/jaxon-utils": "^2.1",
+                "lagdo/facades": "^1.1",
                 "nyholm/psr7": "^1.8",
                 "nyholm/psr7-server": "^1.1",
-                "php": ">=8.0",
+                "php": ">=8.1",
                 "pimple/pimple": "^3.0",
                 "psr/container": "^1.0|^2.0",
                 "psr/http-message": "^1.0|^2.0",
@@ -35,18 +89,18 @@
                 "psr/log": "^1.0|^2.0|^3.0"
             },
             "require-dev": {
-                "jaxon-php/jaxon-dialogs": "dev-main",
-                "jaxon-php/jaxon-upload": "dev-main",
-                "lagdo/twitter-feed": "dev-test",
+                "jaxon-php/jaxon-dialogs": "dev-test",
+                "jaxon-php/jaxon-upload": "dev-test",
+                "league/flysystem-memory": "^3.0|^2.2",
                 "php-coveralls/php-coveralls": "^2.5",
                 "phpunit/phpcov": "^8.2",
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/functions.php"
+                    "src/jaxon_ns.php",
+                    "src/jaxon_fn.php"
                 ],
                 "psr-4": {
                     "Jaxon\\": "src/"
@@ -86,26 +140,31 @@
                 "issues": "https://github.com/jaxon-php/jaxon-core/issues",
                 "source": "https://github.com/jaxon-php/jaxon-core"
             },
-            "time": "2025-01-08T15:53:20+00:00"
+            "time": "2026-02-18T00:31:19+00:00"
         },
         {
             "name": "jaxon-php/jaxon-dialogs",
-            "version": "dev-main",
+            "version": "v5.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-dialogs.git",
-                "reference": "7cc67df228d6e5719542063e049837ea5cdfb6a9"
+                "reference": "96241cdea6a9713983b50339ee3b8877e25811ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-dialogs/zipball/7cc67df228d6e5719542063e049837ea5cdfb6a9",
-                "reference": "7cc67df228d6e5719542063e049837ea5cdfb6a9",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-dialogs/zipball/96241cdea6a9713983b50339ee3b8877e25811ac",
+                "reference": "96241cdea6a9713983b50339ee3b8877e25811ac",
                 "shasum": ""
             },
             "require": {
-                "jaxon-php/jaxon-core": "dev-main"
+                "jaxon-php/jaxon-core": "^5.3",
+                "php": ">=8.1"
             },
-            "default-branch": true,
+            "require-dev": {
+                "php-coveralls/php-coveralls": "^2.5",
+                "phpunit/phpcov": "^8.2",
+                "phpunit/phpunit": "^9.5"
+            },
             "type": "library",
             "autoload": {
                 "files": [
@@ -141,23 +200,26 @@
                 "issues": "https://github.com/jaxon-php/jaxon-dialogs/issues",
                 "source": "https://github.com/jaxon-php/jaxon-dialogs"
             },
-            "time": "2025-01-08T15:34:15+00:00"
+            "time": "2026-01-09T01:09:08+00:00"
         },
         {
             "name": "jaxon-php/jaxon-flot",
-            "version": "dev-main",
+            "version": "v5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/jaxon-php/jaxon-flot.git",
-                "reference": "e1eb24229eabd8d305ae15a4ad9318afcefc935f"
+                "reference": "759a6f2912944e8e68ea21413f1c525c7b63b4d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-flot/zipball/e1eb24229eabd8d305ae15a4ad9318afcefc935f",
-                "reference": "e1eb24229eabd8d305ae15a4ad9318afcefc935f",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-flot/zipball/759a6f2912944e8e68ea21413f1c525c7b63b4d6",
+                "reference": "759a6f2912944e8e68ea21413f1c525c7b63b4d6",
                 "shasum": ""
             },
-            "default-branch": true,
+            "require": {
+                "jaxon-php/jaxon-core": "^5.3",
+                "php": ">=8.1"
+            },
             "type": "library",
             "autoload": {
                 "files": [
@@ -193,33 +255,91 @@
                 "issues": "https://github.com/jaxon-php/jaxon-flot/issues",
                 "source": "https://github.com/jaxon-php/jaxon-flot"
             },
-            "time": "2025-01-08T15:34:15+00:00"
+            "time": "2025-12-26T03:32:25+00:00"
         },
         {
-            "name": "jaxon-php/jaxon-utils",
-            "version": "dev-main",
+            "name": "jaxon-php/jaxon-storage",
+            "version": "v1.2.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/jaxon-php/jaxon-utils.git",
-                "reference": "a54ccb64903a20eadbfff1f2354701cc7d3fb090"
+                "url": "https://github.com/jaxon-php/jaxon-storage.git",
+                "reference": "92dd2ea1f440b675f92ff6e211b07324658ffe3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/jaxon-php/jaxon-utils/zipball/a54ccb64903a20eadbfff1f2354701cc7d3fb090",
-                "reference": "a54ccb64903a20eadbfff1f2354701cc7d3fb090",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-storage/zipball/92dd2ea1f440b675f92ff6e211b07324658ffe3c",
+                "reference": "92dd2ea1f440b675f92ff6e211b07324658ffe3c",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
-                "php": ">=7.1",
-                "tedivm/jshrink": "^1.4"
+                "jaxon-php/jaxon-config": "^1.0",
+                "jaxon-php/jaxon-utils": "^2.0",
+                "lagdo/facades": "^1.0",
+                "league/flysystem": "^3.0|^2.2",
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "league/flysystem-memory": "^3.0|^2.2",
+                "php-coveralls/php-coveralls": "^2.5",
+                "phpunit/phpcov": "^8.2",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "Jaxon\\Storage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Thierry Feuzeu"
+                }
+            ],
+            "description": "File storage for the Jaxon ajax PHP library",
+            "homepage": "https://www.jaxon-php.org",
+            "keywords": [
+                "Jaxon",
+                "ajax",
+                "php",
+                "storage"
+            ],
+            "support": {
+                "issues": "https://github.com/jaxon-php/jaxon-storage/issues",
+                "source": "https://github.com/jaxon-php/jaxon-storage"
+            },
+            "time": "2026-01-22T16:02:09+00:00"
+        },
+        {
+            "name": "jaxon-php/jaxon-utils",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jaxon-php/jaxon-utils.git",
+                "reference": "c427fc6bb92fb332e3d4c08421f55deda0b4a392"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jaxon-php/jaxon-utils/zipball/c427fc6bb92fb332e3d4c08421f55deda0b4a392",
+                "reference": "c427fc6bb92fb332e3d4c08421f55deda0b4a392",
+                "shasum": ""
+            },
+            "require": {
+                "matthiasmullie/minify": "^1.3",
+                "php": ">=8.0",
+                "tedivm/jshrink": "^1.8"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.5",
                 "phpunit/phpcov": "^8.2",
                 "phpunit/phpunit": "^9.5"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -248,23 +368,22 @@
                 "issues": "https://github.com/jaxon-php/jaxon-utils/issues",
                 "source": "https://github.com/jaxon-php/jaxon-utils"
             },
-            "time": "2025-01-04T18:24:54+00:00"
+            "time": "2025-12-22T22:00:08+00:00"
         },
         {
             "name": "keradus/psr4autoloader",
-            "version": "dev-master",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/keradus/Psr4Autoloader.git",
-                "reference": "968430cc9a5e95c3fe3cb1dc968309c2c681960d"
+                "reference": "99352ede8d098feee8d2d2949b2438523f56afce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/keradus/Psr4Autoloader/zipball/968430cc9a5e95c3fe3cb1dc968309c2c681960d",
-                "reference": "968430cc9a5e95c3fe3cb1dc968309c2c681960d",
+                "url": "https://api.github.com/repos/keradus/Psr4Autoloader/zipball/99352ede8d098feee8d2d2949b2438523f56afce",
+                "reference": "99352ede8d098feee8d2d2949b2438523f56afce",
                 "shasum": ""
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -281,7 +400,371 @@
                 "issues": "https://github.com/keradus/Psr4Autoloader/issues",
                 "source": "https://github.com/keradus/Psr4Autoloader/tree/master"
             },
-            "time": "2014-09-02T11:03:58+00:00"
+            "time": "2014-09-02T08:18:34+00:00"
+        },
+        {
+            "name": "lagdo/facades",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lagdo/facades.git",
+                "reference": "da6fda83fadfc7936e71740e84d5137e6925489c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lagdo/facades/zipball/da6fda83fadfc7936e71740e84d5137e6925489c",
+                "reference": "da6fda83fadfc7936e71740e84d5137e6925489c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0",
+                "psr/container": "^1.0 || ^2.0"
+            },
+            "require-dev": {
+                "league/container": "^5.0",
+                "php-coveralls/php-coveralls": "^2.4",
+                "phpunit/phpcov": "^8.2",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lagdo\\Facades\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Thierry Feuzeu"
+                }
+            ],
+            "description": "Base classes to implement service facades.",
+            "homepage": "https://github.com/lagdo/facades",
+            "keywords": [
+                "Service Facades",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/lagdo/facades/issues",
+                "source": "https://github.com/lagdo/facades"
+            },
+            "time": "2026-02-11T23:05:52+00:00"
+        },
+        {
+            "name": "league/flysystem",
+            "version": "3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "254b1595b16b22dbddaaef9ed6ca9fdac4956725"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/254b1595b16b22dbddaaef9ed6ca9fdac4956725",
+                "reference": "254b1595b16b22dbddaaef9ed6ca9fdac4956725",
+                "shasum": ""
+            },
+            "require": {
+                "league/flysystem-local": "^3.0.0",
+                "league/mime-type-detection": "^1.0.0",
+                "php": "^8.0.2"
+            },
+            "conflict": {
+                "async-aws/core": "<1.19.0",
+                "async-aws/s3": "<1.14.0",
+                "aws/aws-sdk-php": "3.209.31 || 3.210.0",
+                "guzzlehttp/guzzle": "<7.0",
+                "guzzlehttp/ringphp": "<1.1.1",
+                "phpseclib/phpseclib": "3.0.15",
+                "symfony/http-client": "<5.2"
+            },
+            "require-dev": {
+                "async-aws/s3": "^1.5 || ^2.0",
+                "async-aws/simple-s3": "^1.1 || ^2.0",
+                "aws/aws-sdk-php": "^3.295.10",
+                "composer/semver": "^3.0",
+                "ext-fileinfo": "*",
+                "ext-ftp": "*",
+                "ext-mongodb": "^1.3|^2",
+                "ext-zip": "*",
+                "friendsofphp/php-cs-fixer": "^3.5",
+                "google/cloud-storage": "^1.23",
+                "guzzlehttp/psr7": "^2.6",
+                "microsoft/azure-storage-blob": "^1.1",
+                "mongodb/mongodb": "^1.2|^2",
+                "phpseclib/phpseclib": "^3.0.36",
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^9.5.11|^10.0",
+                "sabre/dav": "^4.6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frankdejonge.nl"
+                }
+            ],
+            "description": "File storage abstraction for PHP",
+            "keywords": [
+                "WebDAV",
+                "aws",
+                "cloud",
+                "file",
+                "files",
+                "filesystem",
+                "filesystems",
+                "ftp",
+                "s3",
+                "sftp",
+                "storage"
+            ],
+            "support": {
+                "issues": "https://github.com/thephpleague/flysystem/issues",
+                "source": "https://github.com/thephpleague/flysystem/tree/3.x"
+            },
+            "time": "2026-02-25T17:01:41+00:00"
+        },
+        {
+            "name": "league/flysystem-local",
+            "version": "3.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem-local.git",
+                "reference": "2f669db18a4c20c755c2bb7d3a7b0b2340488079"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-local/zipball/2f669db18a4c20c755c2bb7d3a7b0b2340488079",
+                "reference": "2f669db18a4c20c755c2bb7d3a7b0b2340488079",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "league/flysystem": "^3.0.0",
+                "league/mime-type-detection": "^1.0.0",
+                "php": "^8.0.2"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\Flysystem\\Local\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frankdejonge.nl"
+                }
+            ],
+            "description": "Local filesystem adapter for Flysystem.",
+            "keywords": [
+                "Flysystem",
+                "file",
+                "files",
+                "filesystem",
+                "local"
+            ],
+            "support": {
+                "source": "https://github.com/thephpleague/flysystem-local/tree/3.x"
+            },
+            "time": "2026-01-23T15:30:45+00:00"
+        },
+        {
+            "name": "league/mime-type-detection",
+            "version": "1.16.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/mime-type-detection.git",
+                "reference": "2d6702ff215bf922936ccc1ad31007edc76451b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/mime-type-detection/zipball/2d6702ff215bf922936ccc1ad31007edc76451b9",
+                "reference": "2d6702ff215bf922936ccc1ad31007edc76451b9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.2",
+                "phpstan/phpstan": "^0.12.68",
+                "phpunit/phpunit": "^8.5.8 || ^9.3 || ^10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "League\\MimeTypeDetection\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Frank de Jonge",
+                    "email": "info@frankdejonge.nl"
+                }
+            ],
+            "description": "Mime-type detection for Flysystem",
+            "support": {
+                "issues": "https://github.com/thephpleague/mime-type-detection/issues",
+                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.16.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/frankdejonge",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/league/flysystem",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2024-09-21T08:32:55+00:00"
+        },
+        {
+            "name": "matthiasmullie/minify",
+            "version": "1.3.75",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matthiasmullie/minify.git",
+                "reference": "76ba4a5f555fd7bf4aa408af608e991569076671"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matthiasmullie/minify/zipball/76ba4a5f555fd7bf4aa408af608e991569076671",
+                "reference": "76ba4a5f555fd7bf4aa408af608e991569076671",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "matthiasmullie/path-converter": "~1.1",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": ">=2.0",
+                "matthiasmullie/scrapbook": ">=1.3",
+                "phpunit/phpunit": ">=4.8"
+            },
+            "suggest": {
+                "psr/cache-implementation": "Cache implementation to use with Minify::cache"
+            },
+            "bin": [
+                "bin/minifycss",
+                "bin/minifyjs"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MatthiasMullie\\Minify\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Mullie",
+                    "email": "minify@mullie.eu",
+                    "homepage": "https://www.mullie.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CSS & JavaScript minifier, in PHP. Removes whitespace, strips comments, combines files (incl. @import statements and small assets in CSS files), and optimizes/shortens a few common programming patterns.",
+            "homepage": "https://github.com/matthiasmullie/minify",
+            "keywords": [
+                "JS",
+                "css",
+                "javascript",
+                "minifier",
+                "minify"
+            ],
+            "support": {
+                "issues": "https://github.com/matthiasmullie/minify/issues",
+                "source": "https://github.com/matthiasmullie/minify/tree/1.3.75"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/matthiasmullie",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-06-25T09:56:19+00:00"
+        },
+        {
+            "name": "matthiasmullie/path-converter",
+            "version": "1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matthiasmullie/path-converter.git",
+                "reference": "e7d13b2c7e2f2268e1424aaed02085518afa02d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matthiasmullie/path-converter/zipball/e7d13b2c7e2f2268e1424aaed02085518afa02d9",
+                "reference": "e7d13b2c7e2f2268e1424aaed02085518afa02d9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MatthiasMullie\\PathConverter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Mullie",
+                    "email": "pathconverter@mullie.eu",
+                    "homepage": "http://www.mullie.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Relative path converter",
+            "homepage": "http://github.com/matthiasmullie/path-converter",
+            "keywords": [
+                "converter",
+                "path",
+                "paths",
+                "relative"
+            ],
+            "support": {
+                "issues": "https://github.com/matthiasmullie/path-converter/issues",
+                "source": "https://github.com/matthiasmullie/path-converter/tree/1.1.3"
+            },
+            "time": "2019-02-05T23:41:09+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -289,12 +772,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "2e97231b969e0ffdeff03329b808945b4ba55e38"
+                "reference": "6db20ca029219dd8de378cea8e32ee149399ef1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/2e97231b969e0ffdeff03329b808945b4ba55e38",
-                "reference": "2e97231b969e0ffdeff03329b808945b4ba55e38",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6db20ca029219dd8de378cea8e32ee149399ef1b",
+                "reference": "6db20ca029219dd8de378cea8e32ee149399ef1b",
                 "shasum": ""
             },
             "require": {
@@ -312,7 +795,7 @@
                 "graylog2/gelf-php": "^1.4.2 || ^2.0",
                 "guzzlehttp/guzzle": "^7.4.5",
                 "guzzlehttp/psr7": "^2.2",
-                "mongodb/mongodb": "^1.8",
+                "mongodb/mongodb": "^1.8 || ^2.0",
                 "php-amqplib/php-amqplib": "~2.4 || ^3",
                 "php-console/php-console": "^3.1.8",
                 "phpstan/phpstan": "^2",
@@ -385,7 +868,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-04-03T11:44:45+00:00"
+            "time": "2026-02-23T16:52:20+00:00"
         },
         {
             "name": "nyholm/psr7",
@@ -393,12 +876,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Nyholm/psr7.git",
-                "reference": "a71f2b11690f4b24d099d6b16690a90ae14fc6f3"
+                "reference": "889d890ba25e4264ad92ce56b18ef8218611ca51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/a71f2b11690f4b24d099d6b16690a90ae14fc6f3",
-                "reference": "a71f2b11690f4b24d099d6b16690a90ae14fc6f3",
+                "url": "https://api.github.com/repos/Nyholm/psr7/zipball/889d890ba25e4264ad92ce56b18ef8218611ca51",
+                "reference": "889d890ba25e4264ad92ce56b18ef8218611ca51",
                 "shasum": ""
             },
             "require": {
@@ -452,7 +935,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Nyholm/psr7/issues",
-                "source": "https://github.com/Nyholm/psr7/tree/1.8.2"
+                "source": "https://github.com/Nyholm/psr7/tree/master"
             },
             "funding": [
                 {
@@ -464,7 +947,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-09-09T07:06:30+00:00"
+            "time": "2025-11-28T13:47:41+00:00"
         },
         {
             "name": "nyholm/psr7-server",
@@ -534,16 +1017,16 @@
         },
         {
             "name": "pimple/pimple",
-            "version": "v3.5.0",
+            "version": "v3.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/silexphp/Pimple.git",
-                "reference": "a94b3a4db7fb774b3d78dad2315ddc07629e1bed"
+                "reference": "8cfe7f74ac22a433d303914eba9ea4c2a834edce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/a94b3a4db7fb774b3d78dad2315ddc07629e1bed",
-                "reference": "a94b3a4db7fb774b3d78dad2315ddc07629e1bed",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/8cfe7f74ac22a433d303914eba9ea4c2a834edce",
+                "reference": "8cfe7f74ac22a433d303914eba9ea4c2a834edce",
                 "shasum": ""
             },
             "require": {
@@ -551,12 +1034,12 @@
                 "psr/container": "^1.1 || ^2.0"
             },
             "require-dev": {
-                "symfony/phpunit-bridge": "^5.4@dev"
+                "phpunit/phpunit": "*"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.4.x-dev"
+                    "dev-master": "3.x-dev"
                 }
             },
             "autoload": {
@@ -581,9 +1064,9 @@
                 "dependency injection"
             ],
             "support": {
-                "source": "https://github.com/silexphp/Pimple/tree/v3.5.0"
+                "source": "https://github.com/silexphp/Pimple/tree/v3.6.2"
             },
-            "time": "2021-10-28T11:13:42+00:00"
+            "time": "2026-02-26T08:23:44+00:00"
         },
         {
             "name": "psr/container",
@@ -916,16 +1399,16 @@
         },
         {
             "name": "tedivm/jshrink",
-            "version": "v1.7.0",
+            "version": "v1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tedious/JShrink.git",
-                "reference": "7a35f5a4651ca2ce77295eb8a3b4e133ba47e19e"
+                "reference": "f76454d4c48ddae6354a2f0eeb16633d4e755c9a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tedious/JShrink/zipball/7a35f5a4651ca2ce77295eb8a3b4e133ba47e19e",
-                "reference": "7a35f5a4651ca2ce77295eb8a3b4e133ba47e19e",
+                "url": "https://api.github.com/repos/tedious/JShrink/zipball/f76454d4c48ddae6354a2f0eeb16633d4e755c9a",
+                "reference": "f76454d4c48ddae6354a2f0eeb16633d4e755c9a",
                 "shasum": ""
             },
             "require": {
@@ -960,7 +1443,7 @@
             ],
             "support": {
                 "issues": "https://github.com/tedious/JShrink/issues",
-                "source": "https://github.com/tedious/JShrink/tree/v1.7.0"
+                "source": "https://github.com/tedious/JShrink/tree/v1.8.1"
             },
             "funding": [
                 {
@@ -972,20 +1455,15 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-04T17:23:23+00:00"
+            "time": "2025-11-20T14:34:30+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "jaxon-php/jaxon-core": 20,
-        "jaxon-php/jaxon-dialogs": 20,
-        "jaxon-php/jaxon-flot": 20,
-        "keradus/psr4autoloader": 20
-    },
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }

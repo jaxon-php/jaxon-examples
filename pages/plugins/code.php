@@ -10,7 +10,7 @@ class HelloWorld extends FuncComponent
     public function sayHello(bool $isCaps, bool $bNotify = true)
     {
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
-        if(($bNotify))
+        if($bNotify)
         {
             // $this->response()->confirmCommands(2, 'Skip text assignement?');
             $this->response()->assign('div2', 'innerHTML', $text);
@@ -26,7 +26,7 @@ class HelloWorld extends FuncComponent
 
     public function setColor(string $sColor, bool $bNotify = true)
     {
-        if(($bNotify))
+        if($bNotify)
         {
             // $this->response()->confirmCommands(1, 'Skip color assignement?');
             $this->response()->assign('div2', 'style.color', $sColor);

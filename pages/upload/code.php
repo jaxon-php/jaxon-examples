@@ -24,14 +24,14 @@ class HelloWorld extends FuncComponent
     {
         $xResponse = jaxon()->getResponse();
         $files = jaxon()->upload()->files();
-        $xResponse->dialog->show('Uploaded files', print_r([
+        $xResponse->dialog()->show('Uploaded files', print_r([
             'bags' => [
                 'caps' => $this->bag('upload')->get('caps') ? 'yes' : 'no',
                 'color' => $this->bag('upload')->get('color'),
             ],
             'photos' => $files['photos'],
         ], true), []);
-        $xResponse->dialog->info('Uploaded ' . count($files['photos']) . ' file(s).');
+        $xResponse->dialog()->info('Uploaded ' . count($files['photos']) . ' file(s).');
     }
 }
 

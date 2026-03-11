@@ -14,14 +14,14 @@ class HelloWorld
         $xResponse = jaxon()->getResponse();
         $xResponse->jq('#btn-uppercase')->click(rq('HelloWorld')->sayHello(1)
             ->confirm('Change {1} to uppercase?', jq('#div2')->html()));
-            // ->confirm('Change {1} to uppercase?', je('div2')->rd()->html()));
+            // ->confirm('Change {1} to uppercase?', Jaxon\html('div2')));
         $xResponse->je('btn-lowercase')->click(rq('HelloWorld')->sayHello(0)
             ->confirm('Change {1} to lowercase?', je('div2')->innerHTML));
-            // ->confirm('Change {1} to lowercase?', je('div2')->rd()->html()));
+            // ->confirm('Change {1} to lowercase?', Jaxon\html('div2')));
         $xResponse->jq('#colorselect')
             ->on('change', rq('HelloWorld')->setColor(jq()->val())
             ->confirm('Change the color to {1}?', jq()->val())
-            // ->confirm('Change the color to {1}?', je('colorselect')->rd()->select())
+            // ->confirm('Change the color to {1}?', Jaxon\select('colorselect'))
             ->elseWarning('The color may be different'));
     }
 

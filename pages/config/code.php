@@ -7,16 +7,16 @@ class HelloWorld
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'innerHTML', $text);
-        if(($bNotify))
-            $xResponse->dialog->success("div2 text is now $text");
+        if($bNotify)
+            $xResponse->dialog()->success("div2 text is now $text");
     }
 
     public function setColor(string $sColor, bool $bNotify = true)
     {
         $xResponse = jaxon()->newResponse();
         $xResponse->assign('div2', 'style.color', $sColor);
-        if(($bNotify))
-            $xResponse->dialog->success("div2 color is now $sColor");
+        if($bNotify)
+            $xResponse->dialog()->success("div2 color is now $sColor");
     }
 
     public function showDialog()
@@ -24,7 +24,7 @@ class HelloWorld
         $xResponse = jaxon()->newResponse();
         $buttons = [['title' => 'Close', 'class' => 'btn', 'click' => 'close']];
         $options = ['width' => 500];
-        $xResponse->dialog->show("Modal Dialog", "This modal dialog is powered by PgwJs!!", $buttons, $options);
+        $xResponse->dialog()->show("Modal Dialog", "This modal dialog is powered by PgwJs!!", $buttons, $options);
     }
 }
 

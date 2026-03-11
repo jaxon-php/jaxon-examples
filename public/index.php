@@ -1,6 +1,6 @@
 <?php
 
-require dirname(__DIR__) . '/pages/bootstrap.php';
+require dirname(__DIR__) . '/pages/boot.php';
 
 $menus = menu_entries();
 $example = menu_current();

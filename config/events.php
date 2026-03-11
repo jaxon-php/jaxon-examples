@@ -5,9 +5,6 @@ return [
         'metadata' => [
             'format' => 'annotations',
         ],
-        'classes' => [
-            PageContent::class,
-        ],
         'directories' => [
             [
                 'path' => __DIR__ . '/../ajax/component/app',

@@ -86,11 +86,15 @@ This example shows how to dynamically bind a component to a DOM node by setting 
         ],
         'pagination-component' => [
             'title' => 'Pagination component',
-            'desc' => 'This example demonstrates the built-in pagination component.',
+            'desc' => '<p>
+This example demonstrates the built-in pagination component.
+</p>',
         ],
         'pagination-databag' => [
             'title' => 'Pagination and databag',
-            'desc' => 'In this example the built-in pagination component in used with a data bag.',
+            'desc' => '<p>
+In this example the built-in pagination component in used with a databag.
+</p>',
         ],
         'plugins' => [
             'title' => 'Plugin Usage',
@@ -142,18 +146,14 @@ The namespace is prepended to the generated javascript class names, and PHP clas
             'title' => 'Package',
             'desc' => '',
         ],
-        'autoload-default' => [
-            'title' => 'Default Autoloader',
+        'autoload-composer' => [
+            'title' => 'Composer Autoloader',
             'desc' => '<p>
-This example illustrates the use of the Composer autoloader.
+This example demonstrates the use of the Composer autoloader.
 </p>
 <p>
-By default, the Jaxon library implements a simple autoloading mechanism by require_once\'ing the corresponding PHP file
-for each missing class.
-</p>
-<p>
-When provided with the Composer autoloader, the Jaxon library registers all directories with a namespace
-into the PSR-4 autoloader, and it registers all the classes in directories with no namespace into the classmap autoloader.
+By default, the Jaxon library registers all directories with a namespace into the PSR-4 autoloader,
+and registers all the classes in directories with no namespace into the classmap autoloader.
 </p>',
         ],
         'autoload-disabled' => [

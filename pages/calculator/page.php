@@ -1,6 +1,3 @@
-<?php
-use App\Calculator\Calc;
-?>
-                <div class="row" <?= attr()->bind(rq(Calc::class)) ?>>
-<?= cl(Calc::class)->html() ?>
-                </div>
+<div class="row" <?= attr()->bind(rq(App\Calculator\Calc::class)) ?>>
+    <?= cl(App\Calculator\Calc::class)->html() ?>
+</div>

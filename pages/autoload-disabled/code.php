@@ -5,7 +5,6 @@ use Jaxon\Jaxon;
 $jaxon = jaxon();
 
 $jaxon->setOption('js.lib.uri', '/js');
-// $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', '');
 
 // Dialog options
@@ -24,6 +23,9 @@ $loader->register();
 $loader->addNamespace('App', ajaxDir('/namespace/app'));
 $loader->addNamespace('Ext', ajaxDir('/namespace/ext'));
 
-// Add class dirs with namespaces
-$jaxon->register(Jaxon::CALLABLE_DIR, ajaxDir('/namespace/app'), ['namespace' => 'App', 'autoload' => false]);
-$jaxon->register(Jaxon::CALLABLE_DIR, ajaxDir('/namespace/ext'), ['namespace' => 'Ext', 'autoload' => false]);
+// Add class dirs with namespaces.
+// The autoloading is disabled.
+$jaxon->register(Jaxon::CALLABLE_DIR,
+    ajaxDir('/namespace/app'), ['namespace' => 'App', 'autoload' => false]);
+$jaxon->register(Jaxon::CALLABLE_DIR,
+    ajaxDir('/namespace/ext'), ['namespace' => 'Ext', 'autoload' => false]);

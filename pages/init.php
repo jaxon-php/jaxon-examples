@@ -1,20 +1,5 @@
 <?php
 
-use Monolog\Level;
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-
-require dirname(__DIR__, 2) . '/vendor/autoload.php';
-require_once dirname(__DIR__, 2) . '/jaxon-core/src/globals.php';
-require_once __DIR__ . '/menu.php';
-
-// Register the logger
-jaxon()->setLogger(function() {
-    $logFile = dirname(__DIR__) . '/logs/examples.log';
-    return (new Logger('examples'))
-        ->pushHandler(new StreamHandler($logFile, Level::Debug));
-});
-
 jaxon()->template()
     ->addNamespace('examples', __DIR__)
     ->addNamespace('templates', dirname(__DIR__) . '/templates');
@@ -31,6 +16,16 @@ function configFile(string $file): string
 function ajaxDir(string $dir): string
 {
     return dirname(__DIR__) . "/ajax/$dir";
+}
+
+function renderCodeSource(string $page): string
+{
+    return highlight_file(__DIR__ . "/$page/code.php", true);
+}
+
+function renderPageSource(string $page): string
+{
+    return highlight_file(__DIR__ . "/$page/page.php", true);
 }
 
 function renderPage(string $page): void

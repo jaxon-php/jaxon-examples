@@ -7,7 +7,7 @@
 <?php $this->block('code') ?>
                 <div class="card code">
                     <div class="card-body">
-                        <?= highlight_file(__DIR__ . "/{$this->page}/code.php", true) ?>
+                        <?= renderCode($this->page) ?>
                     </div>
                 </div>
 <?php $this->endblock() ?>
