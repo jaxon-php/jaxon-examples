@@ -1,3 +1,3 @@
-<div <?= attr()->bind(rq(App\Calculator\Calc::class)) ?>>
-    <?= cl(App\Calculator\Calc::class)->html() ?>
+<div <?= attr()->bind(App\Calculator\Calc::class) ?>>
+    <?= attr()->html(App\Calculator\Calc::class) ?>
 </div>
