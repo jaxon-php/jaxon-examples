@@ -6,19 +6,19 @@ class HelloWorld
     {
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->newResponse();
-        $xResponse->assign('div2', 'innerHTML', $text);
+        $xResponse->assign('hello-text-two', 'innerHTML', $text);
     }
 
     public function setColor(string $sColor)
     {
         $xResponse = jaxon()->newResponse();
-        $xResponse->assign('div2', 'style.color', $sColor);
+        $xResponse->assign('hello-text-two', 'style.color', $sColor);
     }
 
     public function showError($sMessage)
     {
         $xResponse = jaxon()->newResponse();
-        $xResponse->assign('div2', 'innerHTML', $sMessage);
+        $xResponse->assign('hello-text-two', 'innerHTML', $sMessage);
     }
 }
 

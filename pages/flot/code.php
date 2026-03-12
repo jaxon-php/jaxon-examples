@@ -9,7 +9,7 @@ class Flot extends \Jaxon\App\FuncComponent
     {
         $flot = $this->response()->plugin(FlotPlugin::class);
         // Create a new plot, to be displayed in the div with id "flot"
-        $plot = $flot->plot('#flot')->width('450px')->height('300px');
+        $plot = $flot->plot('#flot-graph')->width('450px')->height('300px');
         // Set the ticks on X axis
         // $ticks = [];
         // for($i = 0; $i < 10; $i++) $ticks[] = [$i, 'Pt' . $i];
@@ -36,6 +36,11 @@ class Flot extends \Jaxon\App\FuncComponent
 
         // Draw the graph
         $flot->draw($plot);
+    }
+
+    public function clearGraph()
+    {
+        $this->response()->clear('flot-graph');
     }
 }
 

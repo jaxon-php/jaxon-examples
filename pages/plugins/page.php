@@ -1,9 +1,9 @@
 <div class="row">
-    <div class="col-md-12" id="div2">
+    <div class="col-md-12" id="hello-text-two">
         &nbsp;
     </div>
-    <div class="col-md-12">
-        <select class="form-select" id="colorselect" name="colorselect" <?= attr()
+    <div class="col-md-4 select">
+        <select class="form-select form-control" id="colorselect" name="colorselect" <?= attr()
             ->on('change', rq('HelloWorld')->setColor(Jaxon\select('colorselect'))) ?>>
             <option value="black" selected="selected">Black</option>
             <option value="red">Red</option>
@@ -11,7 +11,7 @@
             <option value="blue">Blue</option>
         </select>
     </div>
-    <div class="col-md-12 buttons">
+    <div class="col-md-8 buttons">
         <button type="button" class="btn btn-primary" <?= attr()
             ->click(rq('HelloWorld')->sayHello(1)
             ->confirm('Sure?')) ?>>CLICK ME</button>

@@ -9,16 +9,16 @@ class Ext extends \Jaxon\App\FuncComponent
         else
             $text = 'Hello World!';
 
-        $this->response()->assign('div2', 'innerHTML', $text);
+        $this->response()->assign('hello-text-two', 'innerHTML', $text);
         if(($bNotify))
-            $this->response()->dialog()->success("div2 text is now $text");
+            $this->response()->dialog()->success("hello-text-two text is now $text");
     }
 
     public function setColor(string $sColor, bool $bNotify = true)
     {
-        $this->response()->assign('div2', 'style.color', $sColor);
+        $this->response()->assign('hello-text-two', 'style.color', $sColor);
         if(($bNotify))
-            $this->response()->dialog()->success("div2 color is now $sColor");
+            $this->response()->dialog()->success("hello-text-two color is now $sColor");
     }
 
     public function showDialog()

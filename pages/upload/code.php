@@ -9,14 +9,14 @@ class HelloWorld extends FuncComponent
     {
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->getResponse();
-        $xResponse->assign('div2', 'innerHTML', $text);
+        $xResponse->assign('hello-text-two', 'innerHTML', $text);
         $this->bag('upload')->set('caps', $isCaps);
     }
 
     public function setColor(string $sColor)
     {
         $xResponse = jaxon()->getResponse();
-        $xResponse->assign('div2', 'style.color', $sColor);
+        $xResponse->assign('hello-text-two', 'style.color', $sColor);
         $this->bag('upload')->set('color', $sColor);
     }
 

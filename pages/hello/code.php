@@ -5,24 +5,24 @@ use Jaxon\Jaxon;
 /*
     Function: helloWorld
 
-    Modify the innerHTML of div1.
+    Modify the innerHTML of hello-text-one.
 */
 function helloWorld(bool $isCaps)
 {
     $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
     $xResponse = jaxon()->newResponse();
-    $xResponse->assign('div1', 'innerHTML', $text);
+    $xResponse->assign('hello-text-one', 'innerHTML', $text);
 }
 
 /*
     Function: setColor
 
-    Modify the style.color of div1
+    Modify the style.color of hello-text-one
 */
 function setColor(string $sColor)
 {
     $xResponse = jaxon()->newResponse();
-    $xResponse->assign('div1', 'style.color', $sColor);
+    $xResponse->assign('hello-text-one', 'style.color', $sColor);
 }
 
 $jaxon = jaxon();

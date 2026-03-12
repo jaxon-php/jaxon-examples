@@ -7,7 +7,7 @@
 <?php $this->block('code') ?>
                 <div class="card code">
                     <div class="card-body">
-                        <?= renderCode($this->page) ?>
+                        <?= renderCodeSource($this->page) ?>
                     </div>
                 </div>
 <?php $this->endblock() ?>

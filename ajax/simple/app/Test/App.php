@@ -9,16 +9,16 @@ class App extends \Jaxon\App\FuncComponent
         else
             $text = 'Hello World!';
 
-        $this->response()->assign('div1', 'innerHTML', $text);
+        $this->response()->assign('hello-text-one', 'innerHTML', $text);
         if(($bNotify))
-            $this->response()->dialog()->success("div1 text is now $text");
+            $this->response()->dialog()->success("hello-text-one text is now $text");
     }
 
     public function setColor(string $sColor, bool $bNotify = true)
     {
-        $this->response()->assign('div1', 'style.color', $sColor);
+        $this->response()->assign('hello-text-one', 'style.color', $sColor);
         if(($bNotify))
-            $this->response()->dialog()->success("div1 color is now $sColor");
+            $this->response()->dialog()->success("hello-text-one color is now $sColor");
     }
 
     public function showDialog()

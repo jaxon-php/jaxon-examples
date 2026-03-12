@@ -12,8 +12,8 @@ $operandB = je('operand-b')->rd()->input();
 <form>
     <div class="row mb-3">
         <div class="col-md-4">
-            <button type="button" class="btn btn-primary w-100"
-                <?= attr()->click($rqCalc->render()) ?>>Clear</button>
+            <button type="button" class="btn btn-primary w-100" <?= attr()
+                ->click($rqCalc->render()) ?>>Clear</button>
         </div>
         <div class="col-md-8">
             <input type="text" class="form-control" id="operand-a" />
@@ -21,7 +21,7 @@ $operandB = je('operand-b')->rd()->input();
     </div>
     <div class="row mb-3">
         <div class="col-md-4">
-            <select class="form-select" id="operator">
+            <select class="form-select form-control" id="operator">
                 <option value="addition">+</option>
                 <option value="subtraction">-</option>
                 <option value="multiplication">*</option>
@@ -34,8 +34,8 @@ $operandB = je('operand-b')->rd()->input();
     </div>
     <div class="row mb-3">
         <div class="col-md-4">
-            <button type="button" class="btn btn-primary w-100"
-                <?= attr()->click($rqCalcFunc->calculate($operator, $operandA, $operandB)) ?>>=</button>
+            <button type="button" class="btn btn-primary w-100" <?= attr()
+                ->click($rqCalcFunc->calculate($operator, $operandA, $operandB)) ?>>Calculate</button>
         </div>
         <div class="col-md-8" <?= attr()->bind($rqResult) ?>>
         </div>

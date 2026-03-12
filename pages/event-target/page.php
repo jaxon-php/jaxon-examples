@@ -8,7 +8,7 @@
     <div class="col-md-12" <?= attr()->bind(rq(App\Test\Test::class)) ?>>
         Initial content : <?= cl(App\Test\Test::class)->html() ?>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-4 select">
         <select class="form-control app-color-choice">
             <option value="black" selected="selected">Black</option>
             <option value="red">Red</option>
@@ -16,13 +16,13 @@
             <option value="blue">Blue</option>
         </select>
     </div>
-    <div class="col-md-12 buttons" <?= attr()->bind(rq(App\Test\Buttons::class)) ?>>
+    <div class="col-md-8 buttons" <?= attr()->bind(rq(App\Test\Buttons::class)) ?>>
     </div>
 
     <div class="col-md-12" <?= attr()->bind(rq(Ext\Test\Test::class)) ?>>
         Initial content : <?= attr()->html(rq(Ext\Test\Test::class)) ?>
     </div>
-    <div class="col-md-12">
+    <div class="col-md-4 select">
         <select class="form-control ext-color-choice">
             <option value="black" selected="selected">Black</option>
             <option value="red">Red</option>
@@ -30,6 +30,6 @@
             <option value="blue">Blue</option>
         </select>
     </div>
-    <div class="col-md-12 buttons" <?= attr()->bind(rq(Ext\Test\Buttons::class)) ?>>
+    <div class="col-md-8 buttons" <?= attr()->bind(rq(Ext\Test\Buttons::class)) ?>>
     </div>
 </div>

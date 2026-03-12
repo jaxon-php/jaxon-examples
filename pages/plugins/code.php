@@ -13,14 +13,14 @@ class HelloWorld extends FuncComponent
         if($bNotify)
         {
             // $this->response()->confirmCommands(2, 'Skip text assignement?');
-            $this->response()->assign('div2', 'innerHTML', $text);
+            $this->response()->assign('hello-text-two', 'innerHTML', $text);
             // $this->response()->confirmCommands(1, 'Skip text notification?');
-            $this->response()->dialog()->success("div2 text is now $text");
+            $this->response()->dialog()->success("hello-text-two text is now $text");
         }
         else
         {
             // $this->response()->confirmCommands(1, 'Skip text assignement?');
-            $this->response()->assign('div2', 'innerHTML', $text);
+            $this->response()->assign('hello-text-two', 'innerHTML', $text);
         }
     }
 
@@ -29,14 +29,14 @@ class HelloWorld extends FuncComponent
         if($bNotify)
         {
             // $this->response()->confirmCommands(1, 'Skip color assignement?');
-            $this->response()->assign('div2', 'style.color', $sColor);
+            $this->response()->assign('hello-text-two', 'style.color', $sColor);
             // $this->response()->confirmCommands(1, 'Skip color assignement?');
-            $this->response()->dialog()->success("div2 color is now $sColor");
+            $this->response()->dialog()->success("hello-text-two color is now $sColor");
         }
         else
         {
             // $this->response()->confirmCommands(1, 'Skip color assignement?');
-            $this->response()->assign('div2', 'style.color', $sColor);
+            $this->response()->assign('hello-text-two', 'style.color', $sColor);
         }
     }
 

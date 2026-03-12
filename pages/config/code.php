@@ -6,17 +6,17 @@ class HelloWorld
     {
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->newResponse();
-        $xResponse->assign('div2', 'innerHTML', $text);
+        $xResponse->assign('hello-text-two', 'innerHTML', $text);
         if($bNotify)
-            $xResponse->dialog()->success("div2 text is now $text");
+            $xResponse->dialog()->success("hello-text-two text is now $text");
     }
 
     public function setColor(string $sColor, bool $bNotify = true)
     {
         $xResponse = jaxon()->newResponse();
-        $xResponse->assign('div2', 'style.color', $sColor);
+        $xResponse->assign('hello-text-two', 'style.color', $sColor);
         if($bNotify)
-            $xResponse->dialog()->success("div2 color is now $sColor");
+            $xResponse->dialog()->success("hello-text-two color is now $sColor");
     }
 
     public function showDialog()
