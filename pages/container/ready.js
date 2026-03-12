@@ -1,6 +1,6 @@
-    jaxon.dom.ready(() => {
-        // Call the HelloWorld class to populate the 2nd div
-        <?= rq('HelloWorld')->sayHello(0, 'Thierry Feuzeu') ?>;
-        // call the HelloWorld->setColor() method on load
-        <?= rq('HelloWorld')->setColor(Jaxon\select('colorselect')) ?>;
-    });
+jaxon.dom.ready(() => {
+    // Call the HelloWorld class to populate the 2nd div
+    <?= rq('HelloWorld')->sayHello(0, 'Thierry Feuzeu') ?>;
+    // call the HelloWorld->setColor() method on load
+    <?= rq('HelloWorld')->setColor(Jaxon\select('colorselect')) ?>;
+});

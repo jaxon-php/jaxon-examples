@@ -28,6 +28,11 @@ function renderPageSource(string $page): string
     return highlight_file(__DIR__ . "/$page/page.php", true);
 }
 
+function renderReadySource(string $page): string
+{
+    return highlight_file(__DIR__ . "/$page/ready.js", true);
+}
+
 function renderPage(string $page): void
 {
     require __DIR__ . "/{$page}/code.php";

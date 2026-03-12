@@ -1,3 +1,3 @@
-    jaxon.dom.ready(() => {
-        <?= rq('HelloWorld')->showPage(1) ?>;
-    });
+jaxon.dom.ready(() => {
+    <?= rq('HelloWorld')->showPage(1) ?>;
+});

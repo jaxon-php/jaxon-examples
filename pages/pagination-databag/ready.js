@@ -1,3 +1,3 @@
-    jaxon.dom.ready(() => {
-        <?= rq(PageContentDb::class)->show() ?>;
-    });
+jaxon.dom.ready(() => {
+    <?= rq(PageContentDb::class)->show() ?>;
+});
