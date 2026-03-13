@@ -24,11 +24,6 @@ $jaxon = jaxon();
 
 // $jaxon->setOption('core.debug.on', true);
 $jaxon->setOption('core.prefix.class', '');
-$jaxon->setOption('js.lib.uri', '/js');
-$jaxon->setOption('js.app.export', false);
-$jaxon->setOption('js.app.dir', $jaxonAppDir);
-$jaxon->setOption('js.app.uri', $jaxonAppURI);
-$jaxon->setOption('js.app.minify', false); // Optionally, the file can be minified
 
 // Dialog options
 $jaxon->setAppOption('dialogs.default.modal', Bootbox::NAME);

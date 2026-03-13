@@ -12,25 +12,25 @@ class PageContentDb extends PageComponent
 {
     use PageDatabagTrait;
 
-   /**
-    * @inheritDoc
-    */
-   protected function bagName(): string
-   {
-       return 'page';
-   }
+    /**
+     * @inheritDoc
+     */
+    protected function bagName(): string
+    {
+        return 'page';
+    }
 
-   /**
-    * @inheritDoc
-    */
-   protected function bagAttr(): string
-   {
-       return 'number';
-   }
+    /**
+     * @inheritDoc
+     */
+    protected function bagAttr(): string
+    {
+        return 'number';
+    }
 
-   /**
-    * @inheritDoc
-    */
+    /**
+     * @inheritDoc
+     */
     protected function limit(): int
     {
         return 10;
@@ -44,14 +44,14 @@ class PageContentDb extends PageComponent
         return 150;
     }
  
-   public function html():  string
+    public function html():  string
     {
         return '<div style="margin-bottom:10px;font-weight:bold;">' .
             $this->bag('page')->get('title') .
             '</div>Showing page number ' . $this->currentPage();
     }
 
-    public function showPage(int $pageNumber)
+    public function showPage(int $pageNumber = 0)
     {
         // Render the pagination component.
         $this->paginate($this->rq()->showPage(page()), $pageNumber);
@@ -62,6 +62,6 @@ class PageContentDb extends PageComponent
         $title = 'This is the page title';
         $this->bag('page')->set('title', $title);
 
-        $this->showPage(1);
+        $this->showPage();
     }
 }

@@ -6,7 +6,7 @@
         rq(Ext\Test\Test::class)->setColor(jq()->val())) ?>>
 
     <div class="col-md-12" <?= attr()->bind(rq(App\Test\Test::class)) ?>>
-        Initial content : <?= cl(App\Test\Test::class)->html() ?>
+        Initial content : <?= attr()->html(rq(App\Test\Test::class)) ?>
     </div>
     <div class="col-md-4 select">
         <select class="form-control app-color-choice">

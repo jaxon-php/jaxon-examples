@@ -17,7 +17,7 @@ class HelloWorld extends FuncComponent
     {
         $this->stash()->set('is_caps', $isCaps);
 
-        $this->response()->assign('hello-text-two', 'outerHTML', '<div class="col-md-12" id="hello-text-two" ' .
+        $this->response()->assign('hello-text', 'outerHTML', '<div class="col-md-12" id="hello-text" ' .
             attr()->bind(rq(HelloText::class)) . '></div>');
         // The HelloText component is rendered only if the Jaxon attribute in the
         // above outerHTML content is successfully processed.
@@ -26,7 +26,7 @@ class HelloWorld extends FuncComponent
 
     public function setColor(string $sColor)
     {
-        $this->response()->assign('hello-text-two', 'style.color', $sColor);
+        $this->response()->assign('hello-text', 'style.color', $sColor);
     }
 }
 

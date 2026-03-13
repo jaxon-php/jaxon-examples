@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12" id="hello-text-two">
+    <div class="col-md-12" id="hello-text">
         &nbsp;
     </div>
     <div class="col-md-4 select">

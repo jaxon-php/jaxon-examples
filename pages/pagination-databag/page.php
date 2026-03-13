@@ -5,4 +5,8 @@
     <!-- Custom attribute: Component for pagination links. -->
     <div class="col-md-12" <?= attr()->pagination(rq(PageContentDb::class)) ?>>
     </div>
+    <div class="col-md-12 buttons">
+        <button type="button" class="btn btn-primary" <?= attr()
+            ->click(rq(PageContentDb::class)->show()) ?>>Refresh</button>
+    </div>
 </div>

@@ -6,17 +6,17 @@ use function Jaxon\page;
 
 class PageContentCp extends PageComponent
 {
-   /**
-    * @inheritDoc
-    */
+    /**
+     * @inheritDoc
+     */
     protected function limit(): int
     {
         return 10;
     }
 
-   /**
-    * @inheritDoc
-    */
+    /**
+     * @inheritDoc
+     */
     protected function count(): int
     {
         return -1;
@@ -24,16 +24,21 @@ class PageContentCp extends PageComponent
 
     public function html():  string
     {
-        return '<div style="margin-bottom:10px;font-weight:bold;">' .
+        return '<div style="margin-bottom:10px;font-weight:bold;" id="page-title">' .
             $this->stash()->get('title') .
             '</div>Showing page number ' . $this->currentPage();
     }
 
-    public function showPage(int $pageNumber, string $title)
+    public function showPage(string $title, int $pageNumber = 0)
     {
         $this->stash()->set('title', $title);
 
         // Render the pagination component.
-        $this->paginate($this->rq()->showPage(page(), $title), $pageNumber);
+        $this->paginate($this->rq()->showPage($title, page()), $pageNumber);
+    }
+
+    public function show()
+    {
+        $this->showPage('This is the page title');
     }
 }

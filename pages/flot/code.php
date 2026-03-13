@@ -41,6 +41,7 @@ class Flot extends \Jaxon\App\FuncComponent
     public function clearGraph()
     {
         $this->response()->clear('flot-graph');
+        $this->response()->jq('#flot-graph')->height('1px');
     }
 }
 

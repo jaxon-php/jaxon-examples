@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12" <?= attr()->bind(rq(App\Test\Test::class)) ?>>
-        Initial content : <?= cl(App\Test\Test::class)->html() ?>
+        Initial content : <?= attr()->html(rq(App\Test\Test::class)) ?>
     </div>
     <div class="col-md-4 select">
         <!-- Custom attribute: Event handler on DOM node. -->
@@ -16,7 +16,7 @@
     </div>
 
     <div class="col-md-12" <?= attr()->bind(rq(Ext\Test\Test::class)) ?>>
-        Initial content : <?= cl(Ext\Test\Test::class)->html() ?>
+        Initial content : <?= attr()->html(rq(Ext\Test\Test::class)) ?>
     </div>
     <div class="col-md-4 select">
         <!-- Custom attribute: Event handler on DOM node. -->
