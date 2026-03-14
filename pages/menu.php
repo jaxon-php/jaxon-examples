@@ -96,16 +96,14 @@ This example demonstrates the built-in pagination component.
 In this example the built-in pagination component in used with a databag.
 </p>',
         ],
-        'plugins' => [
-            'title' => 'Plugin Usage',
+        'plugin' => [
+            'title' => 'Response plugin',
             'desc' => '<p>
-The example shows the use of Jaxon plugins, by adding javascript notifications and modal windows to the class.php
-example with the jaxon-toastr, jaxon-pgwjs and jaxon-bootstrap packages.
+This example shows how to create a response plugin with custom commands.
 </p>
 <p>
-Using an Jaxon plugin is very simple. After a plugin is installed with Composer, its automatically registers into
-the Jaxon core library. It can then be accessed both in the Jaxon main object, for configuration, and in the Jaxon
-response object, to provide additional functionalities to the application.
+The response plugin class extends the `AbstractResponsePlugin` and implements the `JsCodeGeneratorInterface` interface for Javascript code generation.
+Its Javascript code registers two custom commands in the client application, which are then called in the PHP functions.
 </p>',
         ],
         'dialogs' => [
