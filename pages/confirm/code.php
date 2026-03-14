@@ -5,13 +5,13 @@ class HelloWorld
     public function sayHello(bool $isCaps)
     {
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
-        $xResponse = jaxon()->newResponse();
+        $xResponse = jaxon()->getResponse();
         $xResponse->assign('hello-text', 'innerHTML', $text);
     }
 
     public function setColor(string $sColor)
     {
-        $xResponse = jaxon()->newResponse();
+        $xResponse = jaxon()->getResponse();
 
         $xResponse->confirm(function($xResp) {
             $xResp->sleep(50);
@@ -22,7 +22,7 @@ class HelloWorld
 
     public function showError($sMessage)
     {
-        $xResponse = jaxon()->newResponse();
+        $xResponse = jaxon()->getResponse();
         $xResponse->assign('hello-text', 'innerHTML', $sMessage);
     }
 }

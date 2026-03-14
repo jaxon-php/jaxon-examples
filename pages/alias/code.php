@@ -8,13 +8,13 @@ class HelloWorld
     {
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->newResponse();
-        $xResponse->assign('hello-text-two', 'innerHTML', $text);
+        $xResponse->assign('hello-text', 'innerHTML', $text);
     }
 
     public function setColor(string $sColor)
     {
         $xResponse = jaxon()->newResponse();
-        $xResponse->assign('hello-text-two', 'style.color', $sColor);
+        $xResponse->assign('hello-text', 'style.color', $sColor);
     }
 }
 

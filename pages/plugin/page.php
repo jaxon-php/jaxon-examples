@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-12" id="hello-text-two">
+    <div class="col-md-12" id="hello-text">
         &nbsp;
     </div>
     <div class="col-md-4 select">
@@ -13,13 +13,8 @@
     </div>
     <div class="col-md-8 buttons">
         <button type="button" class="btn btn-primary" <?= attr()
-            ->click(rq('HelloWorld')->sayHello(1)
-            ->confirm('Sure?')) ?>>CLICK ME</button>
+            ->click(rq('HelloWorld')->sayHello(1)) ?>>CLICK ME</button>
         <button type="button" class="btn btn-primary" <?= attr()
-            ->click(rq('HelloWorld')->sayHello(0)
-            ->confirm('Sure?')) ?>>Click Me</button>
-        <button type="button" class="btn btn-primary" <?= attr()
-            ->click(rq('HelloWorld')->showDialog()
-            ->confirm('Sure?')) ?>>Show Dialog</button>
+            ->click(rq('HelloWorld')->sayHello(0)) ?>>Click Me</button>
     </div>
 </div>

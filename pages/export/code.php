@@ -13,11 +13,11 @@ class HelloWorld
 
         $xResponse = jaxon()->getResponse();
         $xResponse->jq('#btn-uppercase')->click(rq('HelloWorld')->sayHello(1)
-            ->confirm('Change {1} to uppercase?', jq('#hello-text-two')->html()));
-            // ->confirm('Change {1} to uppercase?', Jaxon\html('hello-text-two')));
+            ->confirm('Change {1} to uppercase?', jq('#hello-text')->html()));
+            // ->confirm('Change {1} to uppercase?', Jaxon\html('hello-text')));
         $xResponse->je('btn-lowercase')->click(rq('HelloWorld')->sayHello(0)
-            ->confirm('Change {1} to lowercase?', je('hello-text-two')->innerHTML));
-            // ->confirm('Change {1} to lowercase?', Jaxon\html('hello-text-two')));
+            ->confirm('Change {1} to lowercase?', je('hello-text')->innerHTML));
+            // ->confirm('Change {1} to lowercase?', Jaxon\html('hello-text')));
         $xResponse->jq('#colorselect')
             ->on('change', rq('HelloWorld')->setColor(jq()->val())
             ->confirm('Change the color to {1}?', jq()->val())
@@ -29,13 +29,13 @@ class HelloWorld
     {
         $text = $isCaps ? 'HELLO WORLD!' : 'Hello World!';
         $xResponse = jaxon()->getResponse();
-        $xResponse->assign('hello-text-two', 'innerHTML', $text);
+        $xResponse->assign('hello-text', 'innerHTML', $text);
     }
 
     public function setColor(string $sColor)
     {
         $xResponse = jaxon()->getResponse();
-        $xResponse->assign('hello-text-two', 'style.color', $sColor);
+        $xResponse->assign('hello-text', 'style.color', $sColor);
     }
 }
 
