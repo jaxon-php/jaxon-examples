@@ -7,19 +7,22 @@ class Flot extends \Jaxon\App\FuncComponent
 {
     public function drawGraph()
     {
+        /** @var FlotPlugin */
         $flot = $this->response()->plugin(FlotPlugin::class);
         // Create a new plot, to be displayed in the div with id "flot"
-        $plot = $flot->plot('#flot-graph')->width('450px')->height('300px');
+        $plot = $flot->plot('flot-graph')->width('450px')->height('300px');
         // Set the ticks on X axis
         // $ticks = [];
         // for($i = 0; $i < 10; $i++) $ticks[] = [$i, 'Pt' . $i];
         // $plot->xaxis()->points($ticks);
-        $plot->xaxis()->expr(0, 16, 1, 'plots.xaxis.label');
+        $plot->xaxis()->expr(0, 16, 1, 'plot.xaxis.label');
 
         // Add a first graph to the plot
-        $graph = $plot->graph(['lines' => ['show' => true], 'label' => 'Sqrt']);
-        $graph->series()
-            ->expr(0, 14, 0.5, 'plots.sqrt.value', 'plots.sqrt.label');
+        $graph = $plot->graph([
+            'lines' => ['show' => true],
+            'label' => 'Sqrt',
+        ]);
+        $graph->series()->expr(0, 14, 0.5, 'plot.sqrt.value', 'plot.sqrt.label');
 
         // Add a second graph to the plot
         $graph = $plot->graph([
@@ -41,20 +44,10 @@ class Flot extends \Jaxon\App\FuncComponent
     public function clearGraph()
     {
         $this->response()->clear('flot-graph');
-        $this->response()->jq('#flot-graph')->height('1px');
     }
 }
 
 // Register object
 $jaxon = jaxon();
-
-$jaxonAppDir = dirname(__DIR__, 2) . '/public/app';
-$jaxonAppURI = '/app';
-
-$jaxon->setOption('js.app.export', false);
-$jaxon->setOption('js.app.dir', $jaxonAppDir);
-$jaxon->setOption('js.app.uri', $jaxonAppURI);
-$jaxon->setOption('js.app.minify', false); // Optionally, the file can be minified
-
 $jaxon->setOption('js.lib.uri', '/js');
 $jaxon->register(Jaxon::CALLABLE_CLASS, Flot::class);

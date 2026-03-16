@@ -1,13 +1,9 @@
-var plots = {
+var plot = {
     xaxis: {
-        label: x => `x${x}`,
+        label: x => `Pt${x}`,
     },
     sqrt: {
         value: x => Math.sqrt(x * 50),
-        label: (series, x, y) => `${series}(${x} * 50) = ${y}`,
+        label: (x, y, label) => `${label}(${x} * 50) = ${y}`, // label is the series label.
     },
 };
-jaxon.dom.ready(() => {
-    // Call the Flot class to populate the 2nd div
-    // <?= rq(Flot::class)->drawGraph() ?>;
-});
