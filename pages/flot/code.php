@@ -11,18 +11,16 @@ class Flot extends \Jaxon\App\FuncComponent
         $flot = $this->response()->plugin(FlotPlugin::class);
         // Create a new plot, to be displayed in the div with id "flot"
         $plot = $flot->plot('flot-graph')->width('450px')->height('300px');
+
         // Set the ticks on X axis
-        // $ticks = [];
-        // for($i = 0; $i < 10; $i++) $ticks[] = [$i, 'Pt' . $i];
-        // $plot->xaxis()->points($ticks);
-        $plot->xaxis()->expr(0, 16, 1, 'plot.xaxis.label');
+        $plot->xaxis()->loop(0, 16, 1, 'plot.xaxis.label');
 
         // Add a first graph to the plot
         $graph = $plot->graph([
             'lines' => ['show' => true],
             'label' => 'Sqrt',
         ]);
-        $graph->series()->expr(0, 14, 0.5, 'plot.sqrt.value', 'plot.sqrt.label');
+        $graph->series()->loop(0, 14, 0.5, 'plot.sqrt.value', 'plot.sqrt.label');
 
         // Add a second graph to the plot
         $graph = $plot->graph([

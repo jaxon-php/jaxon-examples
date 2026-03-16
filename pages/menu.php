@@ -111,8 +111,12 @@ Its Javascript code registers two custom commands in the client application, whi
             'desc' => '',
         ],
         'flot' => [
-            'title' => 'Flot Plugin',
-            'desc' => '',
+            'title' => 'Flot examples',
+            'desc' => 'Flot examples',
+        ],
+        'flot-types' => [
+            'title' => 'Flot types examples',
+            'desc' => 'Flot types examples from https://www.flotcharts.org/flot/examples/series-types/index.html.',
         ],
         'config' => [
             'title' => 'Config File',
