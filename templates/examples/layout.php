@@ -24,6 +24,4 @@ $example = menu_entries()[menu_current()] ?? [];
         </div> <!-- class="row" -->
     </div>
 
-<?php $this->include('templates::examples/footer.php') ?>
-
-<?= $this->javascript ?>
+<?php $this->include('templates::examples/footer.php', ['javascript' => $this->javascript]) ?>
