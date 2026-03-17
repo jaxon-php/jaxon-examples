@@ -118,6 +118,10 @@ Its Javascript code registers two custom commands in the client application, whi
             'title' => 'Flot types examples',
             'desc' => 'Flot types examples from https://www.flotcharts.org/flot/examples/series-types/index.html.',
         ],
+        'flot-axes' => [
+            'title' => 'Flot multiple axes examples',
+            'desc' => 'Flot multiple axes examples from https://www.flotcharts.org/flot/examples/axes-interacting/index.html.',
+        ],
         'config' => [
             'title' => 'Config File',
             'desc' => '',
