@@ -10,7 +10,7 @@ class Flot extends \Jaxon\App\FuncComponent
         /** @var FlotPlugin */
         $flot = $this->response()->plugin(FlotPlugin::class);
         // Create a new plot, to be displayed in the div with id "flot"
-        $plot = $flot->plot('flot-graph')->width('750px')->height('400px');
+        $plot = $flot->plot('flot-graph')->width('650px')->height('350px');
 
         // Create multiple X axes.
         $plot->xaxis()->options(['position' => 'bottom']);
