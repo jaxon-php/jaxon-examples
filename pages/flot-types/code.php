@@ -11,7 +11,7 @@ class Flot extends \Jaxon\App\FuncComponent
         /** @var FlotPlugin */
         $flot = $this->response()->plugin(FlotPlugin::class);
         // Create a new plot, to be displayed in the div with id "flot"
-        $plot = $flot->plot('flot-graph')->width('450px')->height('300px');
+        $plot = $flot->plot('flot-graph')->width('750px')->height('400px');
 
         // Add the d1 graph.
         $d1 = $plot->graph([

@@ -7,18 +7,20 @@ $example = menu_entries()[menu_current()] ?? [];
 <?php $this->include('templates::examples/nav.php') ?>
 
         <div class="row">
-            <div class="col-md-4 exp-form">
+            <div class="col-md-12">
                 <h3 class="page-header"><?= $example['title'] ?? '' ?></h3>
-                <div class="row">
-                    <div class="col-md-12">
-                        <?= $example['desc'] ?? '' ?>
-                    </div>
-                </div>
+            </div>
+            <div class="col-md-5 exp-desc">
+                <?= $example['desc'] ?? '' ?>
+            </div> <!-- class="exp-desc" -->
 
+            <div class="col-md-7 exp-form">
 <?= $this->content ?>
             </div> <!-- class="exp-form" -->
+        </div> <!-- class="row" -->
 
-            <div class="col-md-8 exp-code">
+        <div class="row">
+            <div class="col-md-12 exp-code">
 <?= $this->code ?>
             </div>
         </div> <!-- class="row" -->
