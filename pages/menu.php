@@ -110,21 +110,20 @@ Its Javascript code registers two custom commands in the client application, whi
             'title' => 'Dialogs',
             'desc' => '',
         ],
-        'flot' => [
+        'flots' => [
             'title' => 'Flot examples',
-            'desc' => 'Flot examples',
-        ],
-        'flot-types' => [
-            'title' => 'Flot types examples',
-            'desc' => 'Flot types examples from https://www.flotcharts.org/flot/examples/series-types/index.html.',
-        ],
-        'flot-axes' => [
-            'title' => 'Flot multiple axes examples',
-            'desc' => 'Flot multiple axes examples from https://www.flotcharts.org/flot/examples/axes-interacting/index.html.',
-        ],
-        'flot-pie' => [
-            'title' => 'Flot pie example',
-            'desc' => 'Flot pie example from https://www.flotcharts.org/flot/examples/series-pie/index.html.',
+            'desc' => '<p>
+This example shows how to create a various types of graphs, as well as a pie chart, with the Flot plugin.
+</p>
+<p>
+The multiple types example is the same as https://www.flotcharts.org/flot/examples/series-types/index.html.
+</p>
+<p>
+The multiple axes example is the same as https://www.flotcharts.org/flot/examples/axes-interacting/index.html.
+</p>
+<p>
+The pie chart example is the same as https://www.flotcharts.org/flot/examples/series-pie/index.html.
+</p>',
         ],
         'config' => [
             'title' => 'Config File',
