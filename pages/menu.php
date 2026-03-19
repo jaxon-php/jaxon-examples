@@ -122,6 +122,10 @@ Its Javascript code registers two custom commands in the client application, whi
             'title' => 'Flot multiple axes examples',
             'desc' => 'Flot multiple axes examples from https://www.flotcharts.org/flot/examples/axes-interacting/index.html.',
         ],
+        'flot-pie' => [
+            'title' => 'Flot pie example',
+            'desc' => 'Flot pie example from https://www.flotcharts.org/flot/examples/series-pie/index.html.',
+        ],
         'config' => [
             'title' => 'Config File',
             'desc' => '',
