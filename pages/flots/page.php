@@ -1,8 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <div id="flot-graph">
-            &nbsp;
-        </div>
+        <div id="flot-graph"></div>
     </div>
     <div class="col-md-8 buttons">
         <button type="button" class="btn btn-primary" <?= attr()
@@ -13,9 +11,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div id="flot-graph-types">
-            &nbsp;
-        </div>
+        <div id="flot-graph-types"></div>
     </div>
     <div class="col-md-8 buttons">
         <button type="button" class="btn btn-primary" <?= attr()
@@ -26,9 +22,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div id="flot-graph-axes">
-            &nbsp;
-        </div>
+        <div id="flot-graph-axes"></div>
     </div>
     <div class="col-md-8 buttons">
         <button type="button" class="btn btn-primary" <?= attr()
@@ -39,9 +33,7 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div id="flot-pie-chart">
-            &nbsp;
-        </div>
+        <div id="flot-pie-chart"></div>
     </div>
     <div class="col-md-8 buttons">
         <button type="button" class="btn btn-primary" <?= attr()
