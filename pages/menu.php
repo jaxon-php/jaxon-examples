@@ -110,6 +110,12 @@ Its Javascript code registers two custom commands in the client application, whi
             'title' => 'Dialogs',
             'desc' => '',
         ],
+        'charts' => [
+            'title' => 'Chart examples',
+            'desc' => '<p>
+This example shows how to create a various types of graphs, as well as a pie chart, with the Charts plugin.
+</p>',
+        ],
         'flots' => [
             'title' => 'Flot examples',
             'desc' => '<p>
