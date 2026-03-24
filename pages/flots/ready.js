@@ -1,4 +1,4 @@
-var plot = {
+var flot = {
     xaxis: {
         label: x => `Pt${x}`,
     },
