@@ -15,7 +15,7 @@ var jaxon = {
      * Version number
      */
     version: {
-        number: '5.2.4',
+        number: '5.2.5',
     },
 
     debug: {
@@ -1798,7 +1798,7 @@ window.jaxon = jaxon;
 
     /**
      * Replace placeholders in a given string with values
-     * 
+     *
      * @param {object} phrase
      * @param {string} phrase.str The string to be processed
      * @param {array} phrase.args The values for placeholders
@@ -1812,7 +1812,7 @@ window.jaxon = jaxon;
 
     /**
      * Replace placeholders in a given string with values
-     * 
+     *
      * @param {object} phrase
      *
      * @returns {string}
@@ -2220,7 +2220,7 @@ window.jaxon = jaxon;
      * in the first parameter.  If the command exists, the function checks to see if
      * the command references a DOM object by ID; if so, the object is located within
      * the DOM and added to the command data.  The command handler is then called.
-     * 
+     *
      * @param {object} context The response command to be executed.
      *
      * @returns {true} The command completed successfully.
@@ -2253,7 +2253,7 @@ window.jaxon = jaxon;
 
     /**
      * Process a single command
-     * 
+     *
      * @param {object} context The response command to process
      *
      * @returns {boolean}
