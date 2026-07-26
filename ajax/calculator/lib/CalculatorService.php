@@ -4,45 +4,17 @@ namespace Service\Calculator;
 
 use Exception;
 
-use function in_array;
-use function intval;
-use function is_numeric;
-
 class CalculatorService
 {
     /**
-     * @var array
-     */
-    private array $operators = ['addition', 'subtraction', 'multiplication', 'division'];
-
-    /**
      * @param string $operator
-     * @param string $operandA
-     * @param string $operandB
+     * @param int $operandA
+     * @param int $operandB
      *
      * @return int|float
      */
-    public function calculate(string $operator, string $operandA, string $operandB): int|float
+    public function calculate(string $operator, int $operandA, int $operandB): int|float
     {
-        if(!in_array($operator, $this->operators))
-        {
-            throw new Exception("$operator is not a valid operator.");
-        }
-        if($operandA === '' || $operandB === '')
-        {
-            throw new Exception("The operands must not be empty.");
-        }
-        if(!is_numeric($operandA))
-        {
-            throw new Exception("$operandA is not a valid operand.");
-        }
-        if(!is_numeric($operandB))
-        {
-            throw new Exception("$operandB is not a valid operand.");
-        }
-
-        $operandA = intval($operandA);
-        $operandB = intval($operandB);
         if($operator === 'division' && $operandB === 0)
         {
             throw new Exception("Division by 0 is not allowed.");
