@@ -158,7 +158,7 @@ class Flot extends \Jaxon\App\FuncComponent
     public function drawPieChart()
     {
         // Create a new card, to be displayed in the div with id "flot"
-        $card = $this->flot()->card('flot-pie-chart')->width('650px')->height('350px');
+        $card = $this->flot()->card('flot-graph-pie')->width('650px')->height('350px');
 
         // Set the card options
         $card->options([
@@ -196,7 +196,7 @@ class Flot extends \Jaxon\App\FuncComponent
 
     public function clearPieChart()
     {
-        $this->response()->clear('flot-pie-chart');
+        $this->response()->clear('flot-graph-pie');
     }
 }
 

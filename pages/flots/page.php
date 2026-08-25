@@ -39,6 +39,6 @@
             ->click(rq(Flot::class)->clearPieChart()) ?>>Clear</button>
     </div>
     <div class="col-md-12">
-        <div id="flot-pie-chart"></div>
+        <div id="flot-graph-pie"></div>
     </div>
 </div>

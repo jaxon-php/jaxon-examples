@@ -13,7 +13,7 @@
 <?php $this->endblock() ?>
 
 <?php $this->block('javascript') ?>
-<script type='text/javascript'>
+<script type="text/javascript">
 <?php $this->include("examples::{$this->page}/ready.js") ?>
 </script>
 <?php $this->endblock() ?>

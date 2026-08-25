@@ -3,7 +3,7 @@
         Initial content : <?= attr()->html(rq(App\Test\Test::class)) ?>
     </div>
     <!-- Custom attribute: Event handler on child nodes, using a selector. -->
-    <div class="col-md-4" <?= attr()->select('.color-choice')
+    <div class="col-md-4 select" <?= attr()->select('.color-choice')
         ->on('change', rq(App\Test\Test::class)->setColor(jq()->val())) ?>>
         <select class="form-control color-choice">
             <option value="black" selected="selected">Black</option>

@@ -11,7 +11,7 @@ $loader->addNamespace('Service', ajaxDir('/namespace/service'));
 
 class HelloWorld extends FuncComponent
 {
-    protected $service;
+    private $service;
 
     public function __construct(ExampleInterface $service)
     {
